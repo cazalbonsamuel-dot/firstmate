@@ -140,6 +140,10 @@ Pi's `/supervision-model` command pins a cheaper model and a shallower reasoning
 > alright merge it
 ```
 
+Ask "grill-me" or "help me frame the requirements in depth" to explore your needs interactively before development.
+For unclear requests, firstmate offers this conversation and waits for you to accept; small, well-defined tasks proceed without an extra interview.
+The [framing procedure](.agents/skills/grill-me/SKILL.md) owns the detailed conversation and authority rules.
+
 ### More backends
 
 Setup guides for tmux (the default) and every other supported backend (herdr, zellij, Orca, cmux) are linked in [Documentation](#documentation) below.
