@@ -1,0 +1,6 @@
+Scout: real fm-brief.sh generated the report evidence, uncertainty, redaction and external-content authority contract.
+scaffolded: /Users/samuelcazalbon/.no-mistakes/worktrees/80e2d4294f70/01M4NVEH57T46AS8AXNR4QWE4Y/.test-phase-home/data/validation-no-mistakes/brief.md (ship, mode=no-mistakes; replace {TASK} and {FIRSTMATE_SPEC}); scout-only contract absent.
+scaffolded: /Users/samuelcazalbon/.no-mistakes/worktrees/80e2d4294f70/01M4NVEH57T46AS8AXNR4QWE4Y/.test-phase-home/data/validation-direct-PR/brief.md (ship, mode=direct-PR; replace {TASK} and {FIRSTMATE_SPEC}); scout-only contract absent.
+scaffolded: /Users/samuelcazalbon/.no-mistakes/worktrees/80e2d4294f70/01M4NVEH57T46AS8AXNR4QWE4Y/.test-phase-home/data/validation-local-only/brief.md (ship, mode=local-only; replace {TASK} and {FIRSTMATE_SPEC}); scout-only contract absent.
+scaffolded: /Users/samuelcazalbon/.no-mistakes/worktrees/80e2d4294f70/01M4NVEH57T46AS8AXNR4QWE4Y/.test-phase-home/data/validation-secondmate/brief.md (secondmate charter); scout-only contract absent.
+Repeated scaffold refused without changing the existing scout brief: error: /Users/samuelcazalbon/.no-mistakes/worktrees/80e2d4294f70/01M4NVEH57T46AS8AXNR4QWE4Y/.test-phase-home/data/validation-scout/brief.md already exists
