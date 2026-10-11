@@ -17,9 +17,12 @@ set -u
 . "$(dirname "${BASH_SOURCE[0]}")/wake-helpers.sh"
 
 HOST="$ROOT/bin/fm-supervision-host.sh"
+# shellcheck disable=SC2034 # Shared output consumed by the sourcing test groups.
 REPORT="$ROOT/bin/fm-branch-report.sh"
+# shellcheck disable=SC2034 # Shared output consumed by the sourcing test groups.
 DISPATCH="$ROOT/bin/fm-branch-dispatch.mjs"
 CONTRACT="$ROOT/bin/fm-afk-contract.sh"
+# shellcheck disable=SC2034 # Shared output consumed by the sourcing test groups.
 LEASE="$ROOT/bin/fm-lease.sh"
 
 command -v node >/dev/null 2>&1 || { printf 'skip: node absent\n'; exit 0; }
@@ -353,6 +356,7 @@ hook_exited() { [ -s "$1/hook.rc" ]; }
 main_drain() {  # <home>; prints the drain and sets MAIN_ACK
   local out
   out=$(FM_HOME="$1" "$FAKE_CLAUDE" -c '"$0" 2>&1' "$ROOT/bin/fm-wake-drain.sh")
+  # shellcheck disable=SC2034 # Shared output consumed by the sourcing test groups.
   MAIN_ACK=$(printf '%s\n' "$out" | sed -n 's/^WAKE_ACK_REQUIRED: after handling completes run bin\/fm-wake-drain.sh //p' | tail -1)
   printf '%s\n' "$out"
 }
@@ -374,7 +378,9 @@ assert_rewoke_main() {  # <home> <label>
 # A main-only pass-through in <home> leaves its successor cycle running, main
 # handles and acknowledges the close, and the session restarts. Sets
 # LEFT_WATCHER and LEFT_ARM to the successor watcher and the arm that owns it.
+# shellcheck disable=SC2034 # Shared output consumed by the sourcing test groups.
 LEFT_WATCHER=
+# shellcheck disable=SC2034 # Shared output consumed by the sourcing test groups.
 LEFT_ARM=
 
 # Main's side of a handed-back wake: drain, then run the printed acknowledgement.
