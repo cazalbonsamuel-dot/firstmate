@@ -21,6 +21,9 @@ Start from the end user's experience rather than an internal error string or an 
 Require an end-to-end reproduction aligned with the real user path whenever it is feasible and safe.
 If a faithful reproduction is not feasible, record the exact limitation and use the closest representative path without presenting it as equivalent evidence.
 Capture the expected behavior, observed behavior, setup, inputs, and repeatability before assigning a cause.
+When feasible and safe, record an already-run command and its result that exercise the real path and detect the exact symptom, not merely the absence of a crash.
+Reduce inputs, setup, and loop time only while rechecking that the same symptom remains detectable.
+For intermittent failures, report the conditions, trial count, and observed failure rate rather than claiming determinism.
 
 Separate these three facts explicitly:
 
@@ -40,6 +43,7 @@ Do not treat the most recent nearby change as causal without evidence.
 
 Identify the smallest counterfactual that should change the outcome if the leading explanation is true.
 Change one condition at a time where practical, and record whether the symptom appears, disappears, or remains unchanged.
+When deliberately mutating code or a fixture for that check, verify the intended delta against a known base before interpreting the result.
 Seek disconfirming evidence deliberately: name what observation would falsify the leading explanation, run that check when feasible, and retain contradictory results instead of explaining them away.
 Compare the final explanation against the proven path and show why the proposed causal boundary accounts for both the failure and the success.
 
@@ -51,3 +55,4 @@ Before acting on the report, verify that its claimed cause explains the end-user
 If a load-bearing element is missing, route a focused follow-up investigation instead of treating confidence or implementation detail as proof.
 A diagnosis or implementation-ready recommendation is evidence, not authorization to change code.
 Implementation still requires the captain's request or another existing lifecycle authority, and the reproduction should become the regression test when a fix is authorized.
+After an authorized fix, rerun the original scenario as well as the reduced regression, and remove temporary instrumentation before delivery.

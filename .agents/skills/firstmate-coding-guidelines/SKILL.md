@@ -109,6 +109,8 @@ Record the dated per-harness result in `docs/verification/runtime-backends.md`, 
 
 For every changed maintained prose surface, identify its inventory audience, authoritative owner, current-behavior relevance, destination for supporting evidence, and any unique safety fact that removal could lose.
 Move or delete evidence only after the current owner and regression pointer are verified.
+A procedural step names an observable completion condition and what to do if its evidence is unavailable or the action must be refused.
+Pair ordinary prohibitions with the desired alternative, without weakening safety or authority boundaries.
 After all documentation, review-fix, and lint-fix commits, review the complete branch diff again against those criteria rather than reviewing only the latest commit.
 Run `bin/fm-doc-audience-check.sh`; it enforces classification, README setup routing, local link targets, and owner pointers without keyword-linting legitimate evidence prose.
 
@@ -130,6 +132,9 @@ Firstmate PR #3644 demonstrated the cost: pinning a 75-162-script walk took 32.7
 - When a task names a specific tool, implement the work with that tool, or explicitly flag the substitution and its new dependency footprint for review before shipping.
 - Colocate tests with the existing pattern in `tests/`, name them `<subject>.test.sh`, and extend an existing script rather than inventing a new runner.
 - Tests must exercise behavior through an executable or public interface and must never assert implementation-source bytes, including through parsers, regexes, snapshots, or indirect wrappers.
+- Derive expected results from an independent contract, worked example, or known fixture, not by repeating the implementation's logic.
+- For nontrivial behavior changes, prefer one small failing test and minimal implementation at a time when practicable, limited to the requested behavior.
+- Confirm that the initial failure detects missing or incorrect behavior rather than a syntax error or unavailable tool.
 - A maintainer-verification record under `docs/verification/` records active empirical facts, not assumptions or task chronology.
 - Include the date, version, exact commands run, and exact output needed to support the current guarantee.
 - Keep incident chronology and delivery evidence in private task reports or PR evidence unless a concise rationale is required to maintain a current safety boundary.
