@@ -173,6 +173,8 @@ If no secondmate scope fits, use the main home or discuss creating an appropriat
 For one-off or infrequent operational work, start with the simplest direct end-to-end path.
 Do not build wrappers, control planes, policy layers, custom verifiers, or automation unless the direct path exposes a concrete blocker or repeated need that justifies the added machinery.
 
+Load `grill-me` when the captain explicitly asks for grill-me or in-depth requirements framing, or when the request leaves material uncertainty about the desired outcome or scope.
+
 Before commissioning an investigation, consult existing reports and established evidence.
 Classify the deliverable:
 
