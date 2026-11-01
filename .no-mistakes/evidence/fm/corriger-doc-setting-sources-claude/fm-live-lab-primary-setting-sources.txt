@@ -1,0 +1,15 @@
+# lab /private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fmlab.w9Pj2W - bin/fm-live-lab.sh lab primary (window main), live process argv
+  PID  PPID COMMAND
+12869 12788 claude --setting-sources project,local --model sonnet --effort medium --permission-mode auto
+
+# live pane: no 'Sonnet 5.5 | ctx: N% used' statusline, because --setting-sources project,local skips ~/.claude/settings.json
+ ▐▛███▛█   Claude Code v2.1.285
+▝▜██████▀  Sonnet 5.5 with medium effort · Claude Ultra
+ ▝▝   ▝▝   /private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fmlab.w9Pj2W/home
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+❯ 
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  ⏵⏵ auto mode on (shift+tab to cycle) · ← for agents
+
+# lab home .claude/ files containing statusLine (none expected):
+(none)

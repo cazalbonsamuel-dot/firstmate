@@ -1,0 +1,20 @@
+# live pane of the fm-spawn.sh Claude worker lab78ace9ada7a0-worker (lab /private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fmlab.3hMYk2)
+# bottom line 'Sonnet 5.5 | ctx: N% used' is the output of the statusLine command defined ONLY in ~/.claude/settings.json (user scope)
+     /Users/samuelcazalbon/.treehouse/notes-ed53d0/1/notes
+     Switched to a new branch 'fm/lab78ace9ada7a0-worker'
+  ⎿  Allowed by auto mode classifier
+⏺ I'm paused. I created the branch fm/lab78ace9ada7a0-worker in the isolated worktree and appended a paused line to the status file. It names the gate file at .../home/data/lab78ace9ada7a0-worker/gate. I haven't written
+  count_notes() or its test.
+  I'll resume only when a message tells me to. At that point I'll check that the gate file exists, and stay paused if it doesn't.
+✻ Crunched for 11s · done 11:17 PM
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+❯ 
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Sonnet 5.5 | ctx: 5% used
+  ⏵⏵ auto mode on (shift+tab to cycle) · ← for agents
+
+# user-scope statusLine (~/.claude/settings.json):
+input=$(cat); model=$(echo "$input" | jq -r '.model.display_name'); used=$(echo "$input" | jq -r '.context_window.used_percentage // empty'); if [ -n "$used" ]; then printf "%s | ctx: %.0f%% used" "$model" "$used"; else printf "%s" "$model"; fi
+
+# worker worktree .claude/ files containing statusLine (none expected):
+(none)

@@ -1,0 +1,17 @@
+# files changed base..target
+ .agents/skills/harness-adapters/references/harness/claude.md | 2 +-
+ bin/fm-claude-trust.sh                                       | 9 +++++----
+ 2 files changed, 6 insertions(+), 5 deletions(-)
+
+# non-comment changes in bin/fm-claude-trust.sh (expect none):
+(none)
+
+# remaining 'minimal worker tool surface' mentions in repo (expect none):
+(none)
+
+# all --setting-sources mentions:
+./docs/verification/cortex.md:60:`--setting-sources` does not gate hooks.
+./.agents/skills/harness-adapters/references/harness/claude.md:26:`--setting-sources project,local`, which only `../../../bin/fm-live-lab.sh` passes (an `fm-spawn.sh` worker loads the user settings too), does not suppress it either, and it gates the session exactly like the trust dialog: cursor on "No, disable external imports", no way to move the selection from firstmate's steering plane.
+./bin/fm-claude-trust.sh:34:# `--setting-sources project,local` (passed only by bin/fm-live-lab.sh; an
+./bin/fm-live-lab.sh:67:#   primary          window main: claude --setting-sources project,local
+./bin/fm-live-lab.sh:570:    primary=(claude --setting-sources "project,local" --model "$model" --effort "$effort" --permission-mode auto)
