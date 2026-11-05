@@ -8,7 +8,7 @@ metadata:
 
 # Entrée d'un besoin CAO
 
-Ce skill porte le comment d'exécution par le second maître ; la méthode du dépôt `agent-conception-cao`, telle qu'elle sort de sa PR #1 (tête `77f20caa`, lot 1d), reste l'autorité sur le quoi.
+Ce skill porte le comment d'exécution par le second maître ; la méthode du dépôt `agent-conception-cao`, telle qu'elle sort de sa PR #1 (tête `16803364`, lot 1e), reste l'autorité sur le quoi.
 Les chemins ci-dessous sont relatifs à ce dépôt ; `§N` renvoie à `method/methode-cao-operationnelle-v1.md`.
 Le second maître n'écrit jamais dans le projet (`AGENTS.md` règle 1) : il décide le contenu des artefacts gelés et un worker les écrit (`cao-worker-brief`).
 

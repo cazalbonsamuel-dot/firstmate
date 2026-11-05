@@ -8,7 +8,7 @@ metadata:
 
 # Réception d'une remise de worker CAO
 
-La méthode du dépôt `agent-conception-cao`, telle qu'elle sort de sa PR #1 (tête `77f20caa`, lot 1d), est l'autorité ; `§N` renvoie à `method/methode-cao-operationnelle-v1.md`, « contrat » à `method/proof-contract-v2.md`.
+La méthode du dépôt `agent-conception-cao`, telle qu'elle sort de sa PR #1 (tête `16803364`, lot 1e), est l'autorité ; `§N` renvoie à `method/methode-cao-operationnelle-v1.md`, « contrat » à `method/proof-contract-v2.md`.
 Ce skill précède `ship-landing` et ne le remplace pas.
 
 ## Quand charger
@@ -27,7 +27,7 @@ Ce skill précède `ship-landing` et ne le remplace pas.
    Vérifier ensuite que la copie est restée propre (`git status`).
 4. Refuser la remise, sans la requalifier, si l'un de ces points est vrai :
    - fiche absente, ou commande sans code ni durée ;
-   - `delivery` différent de 0 ; seuls écarts admis, les `*_mismatch` sur `source_artifacts` ou `input_hashes` des preuves que la fiche déclare invalidées (`invalidated_proofs`, règle attendue du lot 1e de la méthode), jamais sur une ligne `delivered_files` ;
+   - `delivery` différent de 0 ; seuls écarts admis avant S5, les `source_artifacts_*_mismatch` et `input_hashes_*_mismatch` des preuves encore ouvertes, c'est-à-dire déclarées invalidées (`invalidated_proofs`) par la fiche reçue ou par une fiche déjà intégrée dans `cases/<cas>/outputs/remises/` sur la branche du cas, et pas re-pointées depuis, jamais sur une ligne `delivered_files` ; à S5, aucun écart ;
    - `delivery --execute` lancé par un autre worker que celui de S5 ;
    - `maturity.observed` en dessous d'un niveau présent dans `maturity.claimed` (une revendication vide n'est pas un écart) ;
    - `maturity.definition` et `maturity.open_items` qui ne correspondent pas aux définitions déclarées ouvertes dans `limits[]` et dans les `open_points` de la fiche ;
@@ -44,7 +44,7 @@ Ce skill précède `ship-landing` et ne le remplace pas.
    - renvoyer au worker par `fm-send` avec le point exact (règle, fichier, sortie ou ligne en cause) ;
    - remonter quand le refus relève d'une décision du capitaine.
 7. Ne jamais rouvrir FreeCAD en GUI, relancer `--execute`, corriger la remise soi-même ni baisser un critère pour accepter.
-8. Après acceptation d'une unité avant S5, l'intégrer seule dans la branche du cas : le worker accepté rebase sa branche sur la tête de la branche du cas, relance `delivery` et avance rapidement la branche du cas ; relancer alors l'étape 3 et les refus de l'étape 4 sur la branche du cas avant d'accepter l'unité suivante.
+8. Après acceptation d'une unité avant S5, l'intégrer seule dans la branche du cas, dans l'ordre que le second maître fixe et au moment où il le dit au worker : le worker accepté rebase sa branche sur la tête de la branche du cas, relance `delivery` et avance rapidement la branche du cas ; relancer alors l'étape 3 et les refus de l'étape 4 sur la branche du cas avant d'accepter l'unité suivante.
    Une remise S5 continue avec `cao-livraison` ; le nettoyage suit `ship-landing`.
 
 ## Refuser ou remonter

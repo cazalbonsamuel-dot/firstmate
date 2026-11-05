@@ -8,11 +8,11 @@ metadata:
 
 # Livraison d'un cas CAO (S5)
 
-La méthode du dépôt `agent-conception-cao`, telle qu'elle sort de sa PR #1 (tête `77f20caa`, lot 1d), est l'autorité ; `§N` renvoie à `method/methode-cao-operationnelle-v1.md`, « contrat » à `method/proof-contract-v2.md`.
+La méthode du dépôt `agent-conception-cao`, telle qu'elle sort de sa PR #1 (tête `16803364`, lot 1e), est l'autorité ; `§N` renvoie à `method/methode-cao-operationnelle-v1.md`, « contrat » à `method/proof-contract-v2.md`.
 
 ## Quand charger
 
-- Quand un cas atteint S5 : l'assemblage S4 est accepté par `cao-reception` et toutes les remises de pièces sont intégrées une à une sur la branche du cas (`cao-reception`).
+- Quand un cas atteint S5 : l'assemblage S4 est accepté par `cao-reception` et toutes les remises de pièces sont intégrées une à une sur la branche du cas (`cao-reception`), et aucune preuve déclarée invalidée par une fiche de `outputs/remises/` n'y reste sans re-pointage par son unité de preuve.
 - De nouveau quand la PR du worker S5 est prête, avant le message au capitaine.
 
 ## Faire
@@ -20,7 +20,7 @@ La méthode du dépôt `agent-conception-cao`, telle qu'elle sort de sa PR #1 (t
 1. Un seul worker S5, brief écrit avec `cao-worker-brief` ; il est le seul à faire le re-pointage final complet du manifeste et ses revendications de maturité (§13 ressources partagées).
 2. Ses commandes, en série et sous la règle du travail lourd (`cao-freecad-execution`) :
    - `check_all.sh` du cas avec FreeCAD, code 0 ;
-   - lecture de toutes les fiches de `cases/<cas>/outputs/remises/` et contrôle que les lignes du manifeste qu'elles déclarent y sont déjà (`requirements[]` et `decision_record` écrits au gel S1/S2, lignes des fichiers re-pointées par leurs propriétaires), rejeu et re-pointage des preuves que ces fiches déclarent invalidées (`invalidated_proofs`), puis re-pointage final complet sur les sorties fraîches, ou restauration des octets épinglés quand le digest est égal (§6) ;
+   - lecture de toutes les fiches de `cases/<cas>/outputs/remises/` et contrôle que les lignes du manifeste qu'elles déclarent y sont déjà (`requirements[]` et `decision_record` écrits au gel S1/S2, lignes des fichiers re-pointées par leurs propriétaires), et que les preuves qu'elles déclarent invalidées (`invalidated_proofs`) ont toutes été re-pointées, sinon arrêt et remontée au second maître ; puis re-pointage final complet sur les sorties fraîches, ou restauration des octets épinglés quand le digest est égal (§6) ;
    - contrôle complet du §7 : `cases`, `fixtures`, `self-test`, puis `delivery --execute`, jamais `--changed` ;
    - journal des durées de chaque commande dans sa fiche de remise, et dans `generated_by.duration_s` quand le lanceur l'écrit.
 3. Contenu attendu de la PR :
