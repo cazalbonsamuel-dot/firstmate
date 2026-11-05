@@ -146,6 +146,30 @@
       "audience": "agent-runtime"
     },
     {
+      "path": ".agents/skills/cao-freecad-execution/SKILL.md",
+      "audience": "agent-runtime"
+    },
+    {
+      "path": ".agents/skills/cao-intake/SKILL.md",
+      "audience": "agent-runtime"
+    },
+    {
+      "path": ".agents/skills/cao-livraison/SKILL.md",
+      "audience": "agent-runtime"
+    },
+    {
+      "path": ".agents/skills/cao-recherche-options/SKILL.md",
+      "audience": "agent-runtime"
+    },
+    {
+      "path": ".agents/skills/cao-reception/SKILL.md",
+      "audience": "agent-runtime"
+    },
+    {
+      "path": ".agents/skills/cao-worker-brief/SKILL.md",
+      "audience": "agent-runtime"
+    },
+    {
       "path": ".agents/skills/captain-hold-lifecycle/SKILL.md",
       "audience": "agent-runtime"
     },
