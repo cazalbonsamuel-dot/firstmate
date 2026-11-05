@@ -1,0 +1,273 @@
+$ git rev-parse HEAD
+1680336435ace5a51cd52e6a3598152de6bad722
+$ time python3 method/check_method.py delivery
+{
+  "ok": true,
+  "mode": "delivery-strict-full-artifact-contract",
+  "execute_native_checks": false,
+  "note": "Full strict proof contract; a positive numeric result never implies prototype readiness. Read maturity and open definitions separately.",
+  "results": [
+    {
+      "manifest": "method/cases/bras-robot/manifest.json",
+      "ok": true,
+      "numeric_ok": true,
+      "maturity": {
+        "claimed": [],
+        "observed": "cao_numerique_verifiee",
+        "prototype_ready": false,
+        "native_proofs": [
+          "NATIVE"
+        ],
+        "definition": "definition_encore_incomplete",
+        "perimeter": null,
+        "open_items": [
+          {
+            "id": "definition_scope",
+            "reason": "Périmètre et définitions critiques non établis."
+          }
+        ]
+      },
+      "errors": [],
+      "evidence_disagreements": [],
+      "warnings": [],
+      "checked": [
+        "FILE-BRAS-FCSTD",
+        "FILE-BRAS-STEP",
+        "NATIVE"
+      ],
+      "reused_as_unchanged": [],
+      "changed_scope": [],
+      "strict": true
+    },
+    {
+      "manifest": "method/cases/electronique/manifest.json",
+      "ok": true,
+      "numeric_ok": true,
+      "maturity": {
+        "claimed": [],
+        "observed": "cao_numerique_verifiee",
+        "prototype_ready": false,
+        "native_proofs": [
+          "PROOF-ELEC-DELIVERY"
+        ],
+        "definition": "definition_encore_incomplete",
+        "perimeter": null,
+        "open_items": [
+          {
+            "id": "definition_scope",
+            "reason": "Périmètre et définitions critiques non établis."
+          }
+        ]
+      },
+      "errors": [],
+      "evidence_disagreements": [],
+      "warnings": [],
+      "checked": [
+        "FILE-PARAMS",
+        "FILE-FCSTD",
+        "FILE-STEP-ASSEMBLY",
+        "FILE-STEP-PRINTED",
+        "FILE-PART-STL-BASE",
+        "FILE-PART-STL-LID",
+        "FILE-PART-STL-USB-CLAMP",
+        "FILE-CAPTURE-AXO",
+        "FILE-BASE_COQUE",
+        "FILE-COUVERCLE",
+        "FILE-SERRE_CABLE_USB",
+        "FILE-BOM",
+        "FILE-IMPLANTATION_ELECTRONIQUE",
+        "FILE-COUPE_USB_COUVERCLE",
+        "FILE-REQUIREMENTS_SNAPSHOT",
+        "FILE-DOSSIER-CONCEPTION-STATION-ELECTRONIQUE",
+        "FILE-CALCULS-RESULTATS",
+        "FILE-GUIDE-FREECAD",
+        "FILE-SOURCES",
+        "FILE-README",
+        "PROOF-ELEC-DELIVERY",
+        "PROOF-FREECAD-STATUS",
+        "PROOF-COLLISION-NOMINAL",
+        "PROOF-CLEARANCES",
+        "PROOF-CALCULS",
+        "PROOF-ELECTRONICS-INTERFACE",
+        "PROOF-DEFECTS-INJECTED",
+        "PROOF-COMPONENT-CHANGE",
+        "PROOF-REOPEN",
+        "PROOF-MASS-MATERIAL",
+        "PROOF-GUI-CAPTURE",
+        "PROOF-GUI-MOVEMENT",
+        "PROOF-PHYSICAL-TESTS",
+        "PROOF-THERMAL-PHYSICAL",
+        "PROOF-ELECTRICAL-EMC"
+      ],
+      "reused_as_unchanged": [],
+      "changed_scope": [],
+      "strict": true
+    },
+    {
+      "manifest": "method/cases/support-camera-v1/manifest.json",
+      "ok": true,
+      "numeric_ok": true,
+      "maturity": {
+        "claimed": [],
+        "observed": "cao_numerique_verifiee",
+        "prototype_ready": false,
+        "native_proofs": [
+          "PROOF-NATIVE-DELIVERY-CHECK"
+        ],
+        "definition": "definition_encore_incomplete",
+        "perimeter": null,
+        "open_items": [
+          {
+            "id": "definition_scope",
+            "reason": "Périmètre et définitions critiques non établis."
+          }
+        ]
+      },
+      "errors": [],
+      "evidence_disagreements": [],
+      "warnings": [],
+      "checked": [
+        "FILE-FCSTD",
+        "FILE-STEP",
+        "PROOF-FREECAD-STATUS",
+        "PROOF-COLLISION-CORRIGE",
+        "PROOF-ANCIEN-DEFAUT-COLLISION",
+        "PROOF-RELATIONS-MECANIQUES",
+        "PROOF-DIMENSIONNEMENT",
+        "PROOF-CINEMATIQUE-NOYAU",
+        "PROOF-GUI-ANCIEN-DEFAUT",
+        "PROOF-GUI-MANIPULATION",
+        "PROOF-PARAM-DEFECT",
+        "PROOF-ESSAIS-PHYSIQUES",
+        "PROOF-NATIVE-DELIVERY-CHECK"
+      ],
+      "reused_as_unchanged": [],
+      "changed_scope": [],
+      "strict": true
+    },
+    {
+      "manifest": "method/cases/surfacique/manifest.json",
+      "ok": true,
+      "numeric_ok": true,
+      "maturity": {
+        "claimed": [],
+        "observed": "cao_numerique_verifiee",
+        "prototype_ready": false,
+        "native_proofs": [
+          "PROOF-SURF-DELIVERY"
+        ],
+        "definition": "definition_encore_incomplete",
+        "perimeter": null,
+        "open_items": [
+          {
+            "id": "definition_scope",
+            "reason": "Périmètre et définitions critiques non établis."
+          }
+        ]
+      },
+      "errors": [],
+      "evidence_disagreements": [],
+      "warnings": [],
+      "checked": [
+        "FILE-SURF-FCSTD",
+        "FILE-SURF-STEP",
+        "FILE-SURF-STL",
+        "FILE-SURF-DOSSIER",
+        "FILE-SURF-RECHERCHE",
+        "FILE-SURF-PLAN",
+        "FILE-SURF-BOM",
+        "FILE-SURF-SUPPORT-STEP",
+        "FILE-SURF-SUPPORT-STL",
+        "FILE-SURF-DELIVERY",
+        "PROOF-SURF-DELIVERY",
+        "PROOF-SURF-VERIFICATION",
+        "PROOF-SURF-CONTINUITY-CSV",
+        "PROOF-SURF-REFERENCE-CURVES",
+        "PROOF-SURF-STEP-STRICT",
+        "PROOF-SURF-STEP-DEFECT-FILE",
+        "PROOF-SURF-G2-NON-VERIFIE",
+        "PROOF-SURF-CAPTURE",
+        "PROOF-SURF-PHYSIQUE"
+      ],
+      "reused_as_unchanged": [],
+      "changed_scope": [],
+      "strict": true
+    },
+    {
+      "manifest": "method/cases/table-ciseaux/manifest.json",
+      "ok": true,
+      "numeric_ok": true,
+      "maturity": {
+        "claimed": [],
+        "observed": "cao_numerique_verifiee",
+        "prototype_ready": false,
+        "native_proofs": [
+          "PROOF-TAB-NATIVE-DELIVERY-CHECK"
+        ],
+        "definition": "definition_encore_incomplete",
+        "perimeter": null,
+        "open_items": [
+          {
+            "id": "definition_scope",
+            "reason": "Périmètre et définitions critiques non établis."
+          }
+        ]
+      },
+      "errors": [],
+      "evidence_disagreements": [],
+      "warnings": [],
+      "checked": [
+        "FILE-TAB-FCSTD",
+        "FILE-TAB-STEP",
+        "FILE-TAB-DOSSIER",
+        "FILE-TAB-GUI-GUIDE",
+        "FILE-TAB-BASE_IMPRIMEE_GUIDAGES-STEP",
+        "FILE-TAB-BASE_IMPRIMEE_GUIDAGES-STL",
+        "FILE-TAB-CHARIOT_INFERIEUR_ECROU-STEP",
+        "FILE-TAB-CHARIOT_INFERIEUR_ECROU-STL",
+        "FILE-TAB-CHARIOT_SUPERIEUR_COULISSANT-STEP",
+        "FILE-TAB-CHARIOT_SUPERIEUR_COULISSANT-STL",
+        "FILE-TAB-PLATEAU_IMPRIME_GUIDAGES-STEP",
+        "FILE-TAB-PLATEAU_IMPRIME_GUIDAGES-STL",
+        "FILE-TAB-POIGNEE_MANUELLE-STEP",
+        "FILE-TAB-POIGNEE_MANUELLE-STL",
+        "FILE-TAB-BOM-CSV",
+        "FILE-TAB-PLAN_CHARIOTS-SVG",
+        "FILE-R60-LIAISON-GALET-Y60-MD",
+        "FILE-R60-PLAN_LIAISON_GALET_Y60-SVG",
+        "FILE-R60-TEST_ROLLER_INTERFACE-PY",
+        "FILE-R60-RONDELLE_GALET_Y60-STL",
+        "FILE-R60-PION_ANTIROTATION_GALET_Y60-STL",
+        "FILE-R60-ECROU_GALET_Y60-STL",
+        "FILE-R60-GALET_HAUT_608_Y60-STEP",
+        "FILE-R60-EBAUCHE_P4_R60_A_REPRENDRE-STL",
+        "FILE-R60-GALET_HAUT_608_Y60-STL",
+        "FILE-R60-CONTRE_ECROU_GALET_Y60-STEP",
+        "FILE-R60-RONDELLE_GALET_Y60-STEP",
+        "FILE-R60-AXE_GALET_HAUT_Y60-STEP",
+        "FILE-R60-EBAUCHE_P4_R60_A_REPRENDRE-STEP",
+        "FILE-R60-ENTRETOISE_GALET_Y60_EXTERIEUR-STL",
+        "FILE-R60-ENTRETOISE_GALET_Y60_INTERIEUR-STL",
+        "FILE-R60-PION_ANTIROTATION_GALET_Y60-STEP",
+        "FILE-R60-CONTRE_ECROU_GALET_Y60-STL",
+        "FILE-R60-ENTRETOISE_GALET_Y60_INTERIEUR-STEP",
+        "FILE-R60-ECROU_GALET_Y60-STEP",
+        "FILE-R60-AXE_GALET_HAUT_Y60-STL",
+        "FILE-R60-ENTRETOISE_GALET_Y60_EXTERIEUR-STEP",
+        "PROOF-TAB-FREECAD-STATUS",
+        "PROOF-TAB-CALCULS",
+        "PROOF-TAB-COLLISIONS",
+        "PROOF-TAB-COAXIALITE",
+        "PROOF-TAB-PARAM-DEFECT",
+        "PROOF-TAB-GUI-MOTION",
+        "PROOF-TAB-DOSSIER",
+        "PROOF-TAB-ESSAIS-PHYSIQUES",
+        "PROOF-TAB-NATIVE-DELIVERY-CHECK"
+      ],
+      "reused_as_unchanged": [],
+      "changed_scope": [],
+      "strict": true
+    }
+  ]
+}
+rc=0 duration=5s

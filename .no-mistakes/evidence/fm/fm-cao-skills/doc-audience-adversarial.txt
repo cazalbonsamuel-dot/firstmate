@@ -1,0 +1,2 @@
+fm-doc-audience-check: unclassified: .agents/skills/cao-reception/SKILL.md
+rc=1

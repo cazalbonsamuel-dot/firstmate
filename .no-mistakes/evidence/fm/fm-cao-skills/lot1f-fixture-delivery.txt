@@ -1,0 +1,90 @@
+# fixture: branches built on agent-conception-cao e69eea5 (lot 1f)
+* 413e7dd piece-plaque: fiche de remise
+* e90d89c piece-plaque: modifier plaque_camera_fourche.stl, re-pointer ses entrées delivery_checks
+| * c19c6de piece-bras: fiche de remise
+| * 58ac585 piece-bras: modifier plaque_camera_fourche.stl bras_superieur_lame.stl, re-pointer ses entrées delivery_checks
+|/  
+* 3a4c364 piece-pince: fiche de remise
+* 5df93f9 piece-pince: modifier pince_corps.stl, re-pointer ses entrées delivery_checks
+== case: git status / head
+3a4c364
+-- delivery errors
+  input_hashes_hash_mismatch PROOF-NATIVE-DELIVERY-CHECK: cad/parts/pince_corps.stl hash d2480f3419de580538ef84c6480f1f
+  source_artifacts_hash_mismatch PROOF-NATIVE-DELIVERY-CHECK: cad/parts/pince_corps.stl hash d2480f3419de580538ef84c6480f1f
+== plaque: git status / head
+413e7dd
+-- delivery errors
+  input_hashes_hash_mismatch PROOF-NATIVE-DELIVERY-CHECK: cad/parts/pince_corps.stl hash d2480f3419de580538ef84c6480f1f
+  input_hashes_hash_mismatch PROOF-NATIVE-DELIVERY-CHECK: cad/parts/plaque_camera_fourche.stl hash 44f92ab6334cbb14d470
+  source_artifacts_hash_mismatch PROOF-NATIVE-DELIVERY-CHECK: cad/parts/pince_corps.stl hash d2480f3419de580538ef84c6480f1f
+  source_artifacts_hash_mismatch PROOF-NATIVE-DELIVERY-CHECK: cad/parts/plaque_camera_fourche.stl hash 44f92ab6334cbb14d470
+== bras: git status / head
+c19c6de
+-- delivery errors
+  input_hashes_hash_mismatch PROOF-NATIVE-DELIVERY-CHECK: cad/parts/bras_superieur_lame.stl hash 92b231ddddb86e7a5a06d9
+  input_hashes_hash_mismatch PROOF-NATIVE-DELIVERY-CHECK: cad/parts/pince_corps.stl hash d2480f3419de580538ef84c6480f1f
+  input_hashes_hash_mismatch PROOF-NATIVE-DELIVERY-CHECK: cad/parts/plaque_camera_fourche.stl hash 44f92ab6334cbb14d470
+  source_artifacts_hash_mismatch PROOF-NATIVE-DELIVERY-CHECK: cad/parts/bras_superieur_lame.stl hash 92b231ddddb86e7a5a06d9
+  source_artifacts_hash_mismatch PROOF-NATIVE-DELIVERY-CHECK: cad/parts/pince_corps.stl hash d2480f3419de580538ef84c6480f1f
+  source_artifacts_hash_mismatch PROOF-NATIVE-DELIVERY-CHECK: cad/parts/plaque_camera_fourche.stl hash 44f92ab6334cbb14d470
+== cao (A) status
+e69eea5
+-- fiches
+piece-pince-2026-11-05.json
+piece-pince-2026-11-05.json
+piece-plaque-2026-11-05.json
+piece-bras-2026-11-05.json
+piece-pince-2026-11-05.json
+{
+ "unit": "piece-bras",
+ "case_id": "support-camera-v1",
+ "commit": "58ac585e87c6bbe9d1fb5c30a28b2abdf7f640a1",
+ "delivered_files": [
+  {
+   "path": "cad/parts/plaque_camera_fourche.stl",
+   "sha256": "44f92ab6334cbb14d470411740fab99195ffe8a88e7553418f3ea2b32565c20a"
+  },
+  {
+   "path": "cad/parts/bras_superieur_lame.stl",
+   "sha256": "92b231ddddb86e7a5a06d9478ee964fa05f969e383b568a60ad70b5fbca10b44"
+  }
+ ],
+ "manifest_lines_repointed": [
+  "delivery_checks[DELIVERY-SUP-NATIVE].inputs[cad/parts/plaque_camera_fourche.stl]",
+  "delivery_checks[DELIVERY-SUP-NATIVE].inputs[cad/parts/bras_superieur_lame.stl]"
+ ],
+ "commands": [
+  {
+   "cmd": "python3 method/check_method.py cases",
+   "rc": 0,
+   "duration_s": 1.2
+  },
+  {
+   "cmd": "python3 method/check_method.py fixtures",
+   "rc": 0,
+   "duration_s": 2.0
+  },
+  {
+   "cmd": "python3 method/check_method.py self-test",
+   "rc": 0,
+   "duration_s": 3.1
+  }
+ ],
+ "freecad_version": "1.1.4",
+ "captures": [],
+ "decisions_consumed": [],
+ "invalidated_proofs": [
+  {
+   "proof": "PROOF-NATIVE-DELIVERY-CHECK",
+   "cites": [
+    "cad/parts/plaque_camera_fourche.stl"
+   ]
+  }
+ ],
+ "repointed_proofs": [],
+ "budget": {
+  "iterations": 1,
+  "heavy_runs": 0
+ },
+ "open_points": []
+}
