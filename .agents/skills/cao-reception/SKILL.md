@@ -8,7 +8,7 @@ metadata:
 
 # Réception d'une remise de worker CAO
 
-La méthode du dépôt `agent-conception-cao` est l'autorité ; `§N` renvoie à `method/methode-cao-operationnelle-v1.md`, « contrat » à `method/proof-contract-v2.md`.
+La méthode du dépôt `agent-conception-cao`, telle qu'elle sort de sa PR #1 (tête `77f20caa`, lot 1d), est l'autorité ; `§N` renvoie à `method/methode-cao-operationnelle-v1.md`, « contrat » à `method/proof-contract-v2.md`.
 Ce skill précède `ship-landing` et ne le remplace pas.
 
 ## Quand charger
@@ -27,7 +27,7 @@ Ce skill précède `ship-landing` et ne le remplace pas.
    Vérifier ensuite que la copie est restée propre (`git status`).
 4. Refuser la remise, sans la requalifier, si l'un de ces points est vrai :
    - fiche absente, ou commande sans code ni durée ;
-   - `delivery` différent de 0, sans aucun écart admis ;
+   - `delivery` différent de 0 ; seuls écarts admis, les `*_mismatch` sur `source_artifacts` ou `input_hashes` des preuves que la fiche déclare invalidées (`invalidated_proofs`, règle attendue du lot 1e de la méthode), jamais sur une ligne `delivered_files` ;
    - `delivery --execute` lancé par un autre worker que celui de S5 ;
    - `maturity.observed` en dessous d'un niveau présent dans `maturity.claimed` (une revendication vide n'est pas un écart) ;
    - `maturity.definition` et `maturity.open_items` qui ne correspondent pas aux définitions déclarées ouvertes dans `limits[]` et dans les `open_points` de la fiche ;
@@ -35,7 +35,7 @@ Ce skill précède `ship-landing` et ne le remplace pas.
    - FCStd ou STEP modifié dont le digest est égal au digest épinglé avant la remise, c'est-à-dire au manifeste de la base de la branche, ou `.FCBak` présent ;
    - capture listée ou hashée absente de la branche, ou sans identité (document, digest, vue, état, date) ;
    - chemin personnel absolu dans un rapport, le manifeste ou la fiche ;
-   - entrée gelée modifiée, autre cas que celui du brief modifié, helper ou lanceur `scripts/` modifié hors lot méthode, manifeste modifié hors de la liste fermée de ses écrivains (squelette du cas, qui le crée ; worker de gel S1/S2 sous dictée, pour `requirements[]` et `decision_record` ; tout worker, pour les lignes des fichiers qu'il possède et déclare dans sa fiche ; worker S5, pour le re-pointage final complet et les revendications de maturité), ou hors des lignes des fichiers que la fiche déclare ;
+   - entrée gelée modifiée, autre cas que celui du brief modifié, helper ou lanceur `scripts/` modifié hors lot méthode, manifeste modifié hors de la liste fermée de ses écrivains (squelette du cas, qui le crée ; worker de gel S1/S2 sous dictée, pour `requirements[]` et `decision_record` ; tout worker, pour les lignes des fichiers qu'il possède et déclare dans sa fiche, entrée `delivered_files` et preuves qu'il a lui-même rejouées ; worker S5, pour le re-pointage final complet et les revendications de maturité) ; pour tout worker autre que le squelette, le gel S1/S2 et S5, ligne modifiée hors des fichiers que sa fiche déclare, fichier déclaré non re-pointé, ou hash réécrit d'une preuve d'un autre propriétaire ;
    - budget dépassé sans arrêt ni remontée.
 5. Lire les captures contre les vues exigées par le brief : ensemble repéré, entraînement et guidage, interfaces et retenues (§15).
    Une vue ne prouve pas le fonctionnement ; si le runtime du second maître ne lit pas les images de façon sûre, confier cette lecture à un worker de revue distinct du concepteur.
@@ -44,7 +44,8 @@ Ce skill précède `ship-landing` et ne le remplace pas.
    - renvoyer au worker par `fm-send` avec le point exact (règle, fichier, sortie ou ligne en cause) ;
    - remonter quand le refus relève d'une décision du capitaine.
 7. Ne jamais rouvrir FreeCAD en GUI, relancer `--execute`, corriger la remise soi-même ni baisser un critère pour accepter.
-8. Après acceptation, suivre `ship-landing` ; une remise S5 continue avec `cao-livraison`.
+8. Après acceptation d'une unité avant S5, l'intégrer seule dans la branche du cas : le worker accepté rebase sa branche sur la tête de la branche du cas, relance `delivery` et avance rapidement la branche du cas ; relancer alors l'étape 3 et les refus de l'étape 4 sur la branche du cas avant d'accepter l'unité suivante.
+   Une remise S5 continue avec `cao-livraison` ; le nettoyage suit `ship-landing`.
 
 ## Refuser ou remonter
 
