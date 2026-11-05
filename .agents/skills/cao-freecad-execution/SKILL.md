@@ -8,7 +8,7 @@ metadata:
 
 # Exécution native FreeCAD
 
-La méthode du dépôt `agent-conception-cao`, telle qu'elle sort de sa PR #1 (tête `16803364`, lot 1e), est l'autorité ; `§N` renvoie à `method/methode-cao-operationnelle-v1.md`.
+La méthode du dépôt `agent-conception-cao`, telle qu'elle sort de sa PR #1 (tête `e69eea5`, lot 1f), est l'autorité ; `§N` renvoie à `method/methode-cao-operationnelle-v1.md`.
 Les lanceurs du projet portent leurs refus ; ce skill dit comment les ordonner et que faire quand ils échouent.
 
 ## Quand charger

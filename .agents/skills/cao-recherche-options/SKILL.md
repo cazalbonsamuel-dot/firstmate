@@ -8,7 +8,7 @@ metadata:
 
 # Porte de recherche et revue des solutions
 
-La méthode du dépôt `agent-conception-cao`, telle qu'elle sort de sa PR #1 (tête `16803364`, lot 1e), est l'autorité ; `§N` renvoie à `method/methode-cao-operationnelle-v1.md`, « gabarit » à `method/templates/recherche-options.md`.
+La méthode du dépôt `agent-conception-cao`, telle qu'elle sort de sa PR #1 (tête `e69eea5`, lot 1f), est l'autorité ; `§N` renvoie à `method/methode-cao-operationnelle-v1.md`, « gabarit » à `method/templates/recherche-options.md`.
 
 ## Quand charger
 
