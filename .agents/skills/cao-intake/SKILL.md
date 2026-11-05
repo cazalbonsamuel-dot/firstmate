@@ -28,7 +28,7 @@ Le second maître n'écrit jamais dans le projet (`AGENTS.md` règle 1) : il dé
    Pas de questionnaire uniforme : une question concise par inconnue retenue, avec son effet sur la suite, toutes envoyées ensemble.
    Pendant l'attente, lancer seulement les travaux indépendants compatibles avec toutes les réponses possibles.
 5. Fixer les exigences et leurs critères d'acceptation indépendants, à partir du besoin et jamais d'une sortie : JSON hashé référencé par `requirements[].acceptance_criteria` (§3, contrat « Critères indépendants réellement consommés »).
-6. Pour un objet neuf, prévoir le squelette du cas créé vide, sans copier un cas existant (§3 « Squelette d'un nouveau cas »).
+6. Pour un objet neuf, prévoir le squelette du cas créé vide, sans copier un cas existant (§3 « Squelette d'un nouveau cas ») ; son worker crée le manifeste, que seul le worker S5 touche ensuite.
 7. Geler S1 avant tout worker de conception : critères hashés et `design/params.json` initial (§13 « Travail parallèle sous un superviseur »).
    Un worker court les écrit sous dictée sur la branche du cas, qui sert ensuite de base aux workers suivants.
 8. Décider la taille du lot et le premier découpage en unités de travail (table du §13) :

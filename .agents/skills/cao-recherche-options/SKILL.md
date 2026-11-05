@@ -26,16 +26,16 @@ La méthode du dépôt `agent-conception-cao` est l'autorité ; `§N` renvoie à
    Livrable : les lignes de sa famille pour le gabarit §2 et un schéma de principe.
 4. Lancer ensuite un worker de pré-dimensionnement par option encore viable (§13) : gabarit §3, formules, unités, faisabilité, contraintes dures.
    Une option manifestement incompatible est écartée avant toute modélisation ; une inconnue n'est jamais un résultat favorable.
-5. Consolider le gabarit §2 à §4 : tableau d'options, options écartées et pourquoi, recommandation argumentée présentée comme proposition, incertitudes décisives, une seule question de choix.
+5. Décider la consolidation du gabarit §2 à §4, écrite par un worker sous dictée (`cao-worker-brief`), jamais par le second maître : tableau d'options, options écartées et pourquoi, recommandation argumentée présentée comme proposition, incertitudes décisives, une seule question de choix.
 6. Construire une seule planche Lavish de comparaison pour cette porte.
    Par option : schéma ou maquette d'encombrement sommaire marqué « propositions non validées », fonctionnement (mouvement, effort, usage), avantages et limites, encombrement chiffré, coût en ordre de grandeur sourcé ou marqué estimé, difficulté de fabrication et d'entretien, inconnues ; puis la question de choix.
    Pour un simple oui ou non, une question sans planche suffit.
 7. Tenir la décision pour le capitaine, lier puis armer la planche selon `captain-hold-lifecycle` et `process-event-sources` ; le capitaine est atteint par le canal parent (`docs/secondmate-parent-channel.md`), jamais par le chat du home.
-   Noter dans le gabarit §4 la version de la planche réellement présentée et la date.
+   Faire noter par le worker sous dictée, dans le gabarit §4, la version de la planche réellement présentée et la date.
 8. En attente : seuls les travaux compatibles avec toutes les options continuent ; aucune CAO détaillée, génération complète ou campagne de validation.
 9. À la réponse : faire recopier par un worker, sous dictée, le §5 du gabarit (état, option, périmètre, compromis et réserves, citation ou référence retrouvable, date, version du comparatif, travaux autorisés).
-   Le gabarit est hashé en entier après ce §5 et référencé par une preuve `decision_record` du manifeste, avec `source_artifacts` et les cinq champs `state`, `option`, `perimeter`, `response_ref`, `response_date` (contrat « Porte amont »).
-   S2 est atteint seulement en `option_validee` ; toute retouche ultérieure du gabarit périme la preuve.
+   Ce worker hashe le gabarit en entier après ce §5 et déclare dans sa fiche la preuve `decision_record` à porter au manifeste, avec `source_artifacts` et les cinq champs `state`, `option`, `perimeter`, `response_ref`, `response_date` (contrat « Porte amont ») ; il ne touche pas le manifeste, où le worker S5 l'inscrit (`cao-livraison`).
+   S2 est atteint seulement sur un §5 hashé en `option_validee` ; toute retouche ultérieure du gabarit périme la preuve.
 10. Sur `a_revoir` ou `rejetee` : revenir au comparatif, jamais à une itération détaillée de l'option rejetée.
 
 ## Refuser ou remonter

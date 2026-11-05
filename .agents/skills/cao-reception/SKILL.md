@@ -18,7 +18,7 @@ Ce skill précède `ship-landing` et ne le remplace pas.
 ## Faire
 
 1. Lire la fiche de remise au chemin fixé par le brief : unité, commit, fichiers livrés avec sha256 et digest, commandes avec code et durée, version FreeCAD, captures et leur identité, décisions consommées, budget, points ouverts.
-   Vérifier que son `commit` est la tête de la branche reçue.
+   Vérifier que son `commit` est un ancêtre de la tête de la branche reçue (`git merge-base --is-ancestor <commit> <branche>`) et que les commits suivants ne touchent que la fiche (`git diff --name-only <commit> <branche>`).
 2. Lister les fichiers touchés par `git diff --stat <base>...<branche>` et les comparer au périmètre du brief.
 3. Dans la copie du worker ou une autre copie isolée de la branche, jamais la copie principale, sans GUI et jamais avec `--execute` :
    `python3 method/check_method.py delivery`, puis `python3 method/check_method.py summary method/cases/<cas>/manifest.json`.
@@ -28,13 +28,14 @@ Ce skill précède `ship-landing` et ne le remplace pas.
 4. Refuser la remise, sans la requalifier, si l'un de ces points est vrai :
    - fiche absente, ou commande sans code ni durée ;
    - `delivery` différent de 0 ;
+   - `delivery --execute` lancé par un autre worker que celui de S5 ;
    - `maturity.observed` en dessous d'un niveau présent dans `maturity.claimed` (une revendication vide n'est pas un écart) ;
    - `maturity.definition` et `maturity.open_items` qui ne correspondent pas aux définitions déclarées ouvertes dans `limits[]` et dans les `open_points` de la fiche ;
    - `architecture_decision_not_validated` ou `decision_record_malformed` ;
-   - FCStd ou STEP modifié dont le digest épinglé n'a pas changé, ou `.FCBak` présent ;
+   - FCStd ou STEP modifié dont le digest n'a pas changé (digest épinglé pour le worker S5, digest déclaré dans la fiche pour les autres), ou `.FCBak` présent ;
    - capture listée ou hashée absente de la branche, ou sans identité (document, digest, vue, état, date) ;
    - chemin personnel absolu dans un rapport, le manifeste ou la fiche ;
-   - entrée gelée modifiée, cas existant modifié, helper ou lanceur `scripts/` modifié hors lot méthode, manifeste modifié par un autre worker que celui de S5 ;
+   - entrée gelée modifiée, autre cas que celui du brief modifié, helper ou lanceur `scripts/` modifié hors lot méthode, manifeste modifié par une unité autre que le squelette du cas ou le worker S5 ;
    - budget dépassé sans arrêt ni remontée.
 5. Lire les captures contre les vues exigées par le brief : ensemble repéré, entraînement et guidage, interfaces et retenues (§15).
    Une vue ne prouve pas le fonctionnement ; si le runtime du second maître ne lit pas les images de façon sûre, confier cette lecture à un worker de revue distinct du concepteur.
