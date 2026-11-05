@@ -34,8 +34,8 @@ La méthode du dépôt `agent-conception-cao` est l'autorité ; `§N` renvoie à
    Faire noter par le worker sous dictée, dans le gabarit §4, la version de la planche réellement présentée et la date.
 8. En attente : seuls les travaux compatibles avec toutes les options continuent ; aucune CAO détaillée, génération complète ou campagne de validation.
 9. À la réponse : faire recopier par un worker, sous dictée, le §5 du gabarit (état, option, périmètre, compromis et réserves, citation ou référence retrouvable, date, version du comparatif, travaux autorisés).
-   Ce worker hashe le gabarit en entier après ce §5 et déclare dans sa fiche la preuve `decision_record` à porter au manifeste, avec `source_artifacts` et les cinq champs `state`, `option`, `perimeter`, `response_ref`, `response_date` (contrat « Porte amont ») ; il ne touche pas le manifeste, où le worker S5 l'inscrit (`cao-livraison`).
-   S2 est atteint seulement sur un §5 hashé en `option_validee` ; toute retouche ultérieure du gabarit périme la preuve.
+   Ce worker de gel S2 hashe le gabarit en entier après ce §5 et écrit au manifeste la preuve `decision_record` qui le référence, avec `source_artifacts` et les cinq champs `state`, `option`, `perimeter`, `response_ref`, `response_date` (contrat « Porte amont ») ; il ne touche à rien d'autre du manifeste.
+   S2 est atteint seulement quand cette preuve est en `option_validee` ; toute retouche ultérieure du gabarit périme la preuve.
 10. Sur `a_revoir` ou `rejetee` : revenir au comparatif, jamais à une itération détaillée de l'option rejetée.
 
 ## Refuser ou remonter

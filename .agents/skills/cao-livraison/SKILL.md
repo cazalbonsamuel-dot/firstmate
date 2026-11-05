@@ -20,7 +20,7 @@ La méthode du dépôt `agent-conception-cao` est l'autorité ; `§N` renvoie à
 1. Un seul worker S5, brief écrit avec `cao-worker-brief` ; il est le seul à re-pointer le manifeste (§13 ressources partagées).
 2. Ses commandes, en série et sous la règle du travail lourd (`cao-freecad-execution`) :
    - `check_all.sh` du cas avec FreeCAD, code 0 ;
-   - inscription au manifeste des preuves, hashes et digests déclarés dans les fiches des autres unités, dont le `decision_record`, puis re-pointage sur les sorties fraîches, ou restauration des octets épinglés quand le digest est égal (§6) ;
+   - inscription au manifeste des preuves, hashes et digests déclarés dans les fiches des autres unités (`requirements[]` et `decision_record` y sont déjà, écrits au gel S1/S2), puis re-pointage sur les sorties fraîches, ou restauration des octets épinglés quand le digest est égal (§6) ;
    - contrôle complet du §7 : `cases`, `fixtures`, `self-test`, puis `delivery --execute`, jamais `--changed` ;
    - journal des durées de chaque commande dans la fiche de remise, et dans `generated_by.duration_s` quand le lanceur l'écrit.
 3. Contenu attendu de la PR :
