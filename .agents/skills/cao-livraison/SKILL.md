@@ -17,19 +17,19 @@ La méthode du dépôt `agent-conception-cao` est l'autorité ; `§N` renvoie à
 
 ## Faire
 
-1. Un seul worker S5, brief écrit avec `cao-worker-brief` ; il est le seul à re-pointer le manifeste (§13 ressources partagées).
+1. Un seul worker S5, brief écrit avec `cao-worker-brief` ; il est le seul à faire le re-pointage final complet du manifeste et ses revendications de maturité (§13 ressources partagées).
 2. Ses commandes, en série et sous la règle du travail lourd (`cao-freecad-execution`) :
    - `check_all.sh` du cas avec FreeCAD, code 0 ;
-   - inscription au manifeste des preuves, hashes et digests déclarés dans les fiches des autres unités (`requirements[]` et `decision_record` y sont déjà, écrits au gel S1/S2), puis re-pointage sur les sorties fraîches, ou restauration des octets épinglés quand le digest est égal (§6) ;
+   - lecture de toutes les fiches de `cases/<cas>/outputs/remises/` et contrôle que les lignes du manifeste qu'elles déclarent y sont déjà (`requirements[]` et `decision_record` écrits au gel S1/S2, lignes des fichiers re-pointées par leurs propriétaires), puis re-pointage final complet sur les sorties fraîches, ou restauration des octets épinglés quand le digest est égal (§6) ;
    - contrôle complet du §7 : `cases`, `fixtures`, `self-test`, puis `delivery --execute`, jamais `--changed` ;
-   - journal des durées de chaque commande dans la fiche de remise, et dans `generated_by.duration_s` quand le lanceur l'écrit.
+   - journal des durées de chaque commande dans sa fiche de remise, et dans `generated_by.duration_s` quand le lanceur l'écrit.
 3. Contenu attendu de la PR :
    - manifeste complet : `requirements[]` avec `acceptance_criteria`, `decision_record` en `option_validee`, `native_delivery_check`, `delivery_checks[]`, `controls[]`, `matrix[]`, `limits[]`, `definition_scope` si le prototype fabricable est revendiqué ;
    - `cases/<cas>/README.md` : besoin, périmètre, commandes du cas ;
    - gabarit de décision rempli, `params.json`, `interfaces.json` ;
    - modèles dont la géométrie a changé, et seulement eux ;
    - captures hashées ajoutées par `git add -f`, avec leur identité ;
-   - dossier, plans, BOM, et la fiche de remise.
+   - dossier, plans, BOM, et les fiches de remise de `outputs/remises/`.
 4. Règles de commit : pas de modèle régénéré à digest égal, pas de `.FCBak`, aucun chemin personnel, aucun autre cas, helper, lanceur ou fichier de méthode modifié (§6, §7).
    Plus de 10 Mo de binaires ajoutés ou modifiés : justifier chaque fichier dans la description de la PR ; plus de 50 Mo : remonter au capitaine avant d'ouvrir la PR.
 5. La PR suit le mode de livraison enregistré pour le projet (`AGENTS.md` section 7) ; le second maître n'intègre jamais lui-même.

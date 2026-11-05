@@ -27,15 +27,15 @@ Ce skill précède `ship-landing` et ne le remplace pas.
    Vérifier ensuite que la copie est restée propre (`git status`).
 4. Refuser la remise, sans la requalifier, si l'un de ces points est vrai :
    - fiche absente, ou commande sans code ni durée ;
-   - `delivery` différent de 0 ; seule exception, une unité avant S5 sur un cas déjà livré, qui ne re-pointe pas le manifeste : ses seuls écarts admis sont des `*_mismatch` sur des fichiers que sa fiche déclare avec leur digest, tout autre écart est un refus ;
+   - `delivery` différent de 0, sans aucun écart admis ;
    - `delivery --execute` lancé par un autre worker que celui de S5 ;
    - `maturity.observed` en dessous d'un niveau présent dans `maturity.claimed` (une revendication vide n'est pas un écart) ;
    - `maturity.definition` et `maturity.open_items` qui ne correspondent pas aux définitions déclarées ouvertes dans `limits[]` et dans les `open_points` de la fiche ;
    - `architecture_decision_not_validated` ou `decision_record_malformed` ;
-   - FCStd ou STEP modifié dont le digest n'a pas changé (digest épinglé pour le worker S5, digest déclaré dans la fiche pour les autres), ou `.FCBak` présent ;
+   - FCStd ou STEP modifié dont le digest est égal au digest épinglé avant la remise, c'est-à-dire au manifeste de la base de la branche, ou `.FCBak` présent ;
    - capture listée ou hashée absente de la branche, ou sans identité (document, digest, vue, état, date) ;
    - chemin personnel absolu dans un rapport, le manifeste ou la fiche ;
-   - entrée gelée modifiée, autre cas que celui du brief modifié, helper ou lanceur `scripts/` modifié hors lot méthode, manifeste modifié hors de la liste fermée de ses écrivains (squelette du cas ; worker de gel S1/S2, pour `requirements[]` et `decision_record` seulement ; worker S5 pour le re-pointage) ;
+   - entrée gelée modifiée, autre cas que celui du brief modifié, helper ou lanceur `scripts/` modifié hors lot méthode, manifeste modifié hors de la liste fermée de ses écrivains (squelette du cas, qui le crée ; worker de gel S1/S2 sous dictée, pour `requirements[]` et `decision_record` ; tout worker, pour les lignes des fichiers qu'il possède et déclare dans sa fiche ; worker S5, pour le re-pointage final complet et les revendications de maturité), ou hors des lignes des fichiers que la fiche déclare ;
    - budget dépassé sans arrêt ni remontée.
 5. Lire les captures contre les vues exigées par le brief : ensemble repéré, entraînement et guidage, interfaces et retenues (§15).
    Une vue ne prouve pas le fonctionnement ; si le runtime du second maître ne lit pas les images de façon sûre, confier cette lecture à un worker de revue distinct du concepteur.
