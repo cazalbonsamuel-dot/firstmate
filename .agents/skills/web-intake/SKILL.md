@@ -52,7 +52,7 @@ Le firstmate n'écrit jamais dans le projet (`AGENTS.md` règle 1) : il décide 
 
 - **Capitaine** : toute ligne « remonte » de la grille de l'étape 5, et toute inconnue qui change l'objectif, le public ou le périmètre.
 - **Firstmate** : classement, objectif mesurable dérivé de la demande, hypothèses bornées, découpage, ordre des travaux et des mesures.
-- **Worker** : aucun worker de modification avant la mesure de départ, hors celui de la PR qui crée le kit (lot 3) ; seuls mesure, audit et recherche peuvent partir avant les réponses du capitaine.
+- **Worker** : aucun worker de modification avant la mesure de départ, hors celui de la PR qui crée le kit (lot 3) ; seuls mesure (dont la PR qui crée le kit du projet), audit et recherche peuvent partir avant les réponses du capitaine.
 - Refuser une série de pages générées (villes, variantes, synonymes, traductions automatiques) et toute page qui ne nomme pas la requête réelle qu'elle sert et ce qu'elle apporte.
 - Refuser tout connecteur d'écriture en production (WordPress.com, achat de domaine) pour un worker.
 
