@@ -1518,7 +1518,7 @@ The pre-Enter payload proof then judged the typed command unsent, pressed Ctrl+U
 
 The fix captures the FULL VISIBLE VIEWPORT for every herdr adapter composer read (`pane read --source visible [--format ansi]`, `fm_backend_herdr_composer_state` and `fm_backend_herdr_composer_content`): the composer is by definition inside the viewport, and the viewport is the one bound that always contains it.
 The shared inbox pending-line confirmation read (`bin/fm-task-inbox-lib.sh`) stays a bounded tail on every backend, herdr included; its payloads are task lines, not slash commands, so the popup shape does not arise there.
-The popup rows sit below the composer's closing rule, which is a structural edge row, so the shared classifier still selects only the composer and the menu rows never read as typed text.
+On 2.1.283 the popup rows sit below the composer's closing rule, which is a structural edge row, so the shared classifier selects only the composer and the menu rows never read as typed text.
 Verified live in the lab: with the popup up the state read answers `pending` (previously `empty`) and the payload proof returns `/exit` (previously empty), the submit presses Enter, and the Claude process exits, leaving the shell prompt.
 Growing the window only adds rows above the composer, so the bottom-most-shape selection, the footer zone, and every previously passing verdict are unchanged.
 
@@ -1541,6 +1541,26 @@ FM_HERDR_SUBMIT_CONFIRM_LIVE=1 tests/fm-herdr-submit-confirm-live-e2e.test.sh
 
 ```text
 ok - live Herdr submit confirm: Claude Code (2.1.283 (Claude Code)) on herdr 0.9.0 proves and submits a typed /exit behind its command popup
+```
+
+Measured 2026-11-06 against Herdr 0.9.3 and Claude Code 2.1.309 in an isolated `fm-lab-` session.
+The popup's selected row now starts with the composer's own prompt glyph (`  ❯ /exit    Exit the CLI`), so the classifier selects that row and the rows below it as the composer.
+The payload proof read back `/exit Exit the CLI exit` for a typed `/exit`, judged it unsent, cleared it, and `bin/fm-control.sh exit` failed with `the exit command could not be sent`.
+Typing a space after the command name closes the popup, and Claude still runs `/exit`.
+`fm_control_exit_command` (`bin/fm-control-lib.sh`) therefore types `/exit ` for Claude; the whitespace-insensitive payload proof matches it on Herdr, and the other backends submit it unchanged.
+Verified live in the lab: `bin/fm-control.sh <task> exit` stopped the idle Claude worker, `relaunch` started a new one in the same pane, and a second `exit` stopped that one too.
+Other slash commands typed through the Herdr submit path still meet the popup, because only the exit command carries the space.
+
+Portable regression (the 2.1.309 popup shape, with a bare `/exit` refused and the exit command submitted):
+
+```text
+ok - fm_backend_herdr_send_text_submit: fm-control's Claude exit command closes the 2.1.309 picker and is submitted
+```
+
+The live guard above now types the exit command `fm_control_exit_command` returns for Claude:
+
+```text
+ok - live Herdr submit confirm: Claude Code (2.1.309 (Claude Code)) on herdr 0.9.3 proves and submits fm-control's typed exit command and exits
 ```
 
 ### Claude background-task exit picker
