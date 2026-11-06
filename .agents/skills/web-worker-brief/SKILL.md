@@ -22,8 +22,9 @@ Les règles du domaine dans `data/captain.md` restent l'autorité ; le brief les
 2. Vérifier que ses entrées sont figées avant de lancer, et les nommer dans le brief avec leur chemin, à ne pas modifier :
    - rendu nouveau ou refait : le DESIGN.md retenu par le capitaine (`web-design-direction`) ;
    - page de contenu : le plan de contenu (une intention par page, requête visée) et les sources fournies ;
-   - toute modification : la mesure de l'état de départ (`web-intake`).
+   - toute modification : la mesure de l'état de départ par le kit de contrôles du projet (`web-intake`).
    Une entrée non figée interdit le lancement.
+   Seule la PR qui crée le kit du projet (lot 3) part sans cette mesure ; elle montre la première sortie du kit, qui sert de mesure de départ aux PR suivantes.
 3. Modèle et effort : Opus pour le code et la rédaction, Fable pour l'audit et la revue ; effort selon `harness-adapters`.
 4. Écrire dans le brief les consignes de l'unité :
    - tout rendu : skills `frontend-design` et `website-design` (`web-design-system`, `landing-page`, `web-review`) ; aucune signature de design IA listée par `frontend-design` sans justification écrite dans le DESIGN.md ; tokens du DESIGN.md seulement ;

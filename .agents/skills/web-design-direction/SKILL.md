@@ -35,7 +35,8 @@ Le choix de la direction revient au capitaine (`data/captain.md`) ; le firstmate
    - vérifier les points mesurables : longueur de ligne inférieure à 80 caractères, contraste au moins 4,5:1, cibles tactiles d'au moins 44 px, aucun défilement horizontal à 375 px, focus visible, `prefers-reduced-motion` respecté ;
    - renvoyer au worker avec des écarts précis (capture, élément, valeur attendue, valeur vue), jamais avec un « à améliorer » ;
    - signaler aussi tout défaut visuel hors sujet vu à l'écran (exigence visuelle du capitaine).
-7. Les contrôles automatiques de signatures et de tokens (recherche de motifs, Stylelint, Impeccable `detect` au lot 8) sont attendus du kit du projet ; tant qu'ils manquent, la vérification de l'étape 6 se fait sur les captures et le code.
+7. La revue des signatures et des tokens de l'étape 6 se fait toujours sur les captures et le code, pour tout rendu nouveau ou refait.
+   Recherche de motifs et Stylelint sont des aides facultatives qui ne la remplacent pas ; Impeccable `detect` viendra au lot 8.
 
 ## Refuser ou remonter
 
