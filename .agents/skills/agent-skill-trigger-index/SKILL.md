@@ -38,4 +38,10 @@ These skills are not captain-invocable; load them only at their precise triggers
 - `cao-reception` - in a CAO home, load when a CAO worker reports done, a ready branch, or a PR, before accepting its handoff.
 - `cao-freecad-execution` - in a CAO home, load before authorizing, starting, or supervising any native FreeCAD run, and on any FreeCAD crash, hang, or suspicious capture.
 - `cao-livraison` - in a CAO home, load when a case reaches S5 (final reception, proof re-pointing, case PR) and again when its PR is ready.
+- `web-intake` - in a web (firstmate-web) home, load when a web need arrives (site, page, redesign, fix, content, audit), before writing any brief for it.
+- `web-worker-brief` - in a web home, load before writing the brief of any web worker.
+- `web-design-direction` - in a web home, load before having a design direction chosen for a site, and before accepting a new or redone rendering.
+- `web-content-review` - in a web home, load before accepting any text meant to be published, metadata and alternative text included, and before presenting it to the captain for reading.
+- `seo-geo-audit` - in a web home, load before commissioning or presenting an SEO or GEO audit; it replaces `marketing:seo-audit` there.
+- `web-livraison` - in a web home, load when a web worker reports a ready PR, before any production release, and again after the merge.
 - `firstmate-coding-guidelines` - load before changing firstmate's shared, tracked material, as defined by section 1's list, whether editing directly or briefing a crewmate for a firstmate-repo task.
