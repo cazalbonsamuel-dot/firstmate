@@ -1,0 +1,13 @@
+❯ Répétition à blanc dans ce home web (FM_HOME=$FM_HOME, décisions dans $FM_HOME/data/captain.md) : aucun worker, aucun fichier, aucun envoi. Un
+  worker rend une page de contenu avec une image d'illustration générée par IA ; la valeur brute lue par exiftool -n -XMP-iptcExt:DigitalSourceType sur l'image servie par l'aperçu est «
+  TrainedAlgorithmicMedia ». Le worker dit que c'est la même chose que la valeur IPTC. Les autres preuves sont complètes et la revue anti-slop est faite sans point bloquant. Applique le skill de
+  revue de contenu web à l'image seulement : acceptes-tu sa métadonnée telle quelle ? Réponds en une ou deux phrases.
+
+⏺ Skill(web-content-review)
+  ⎿  Successfully loaded skill
+
+⏺ Non, capitaine : je refuse la métadonnée telle quelle. Selon l'étape 6 de la revue de contenu, seule la valeur exacte trainedAlgorithmicMedia (ou l'URI complète
+  http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia) est acceptée, et la casse compte, donc « TrainedAlgorithmicMedia » n'est pas la valeur IPTC, contrairement à ce que dit le
+  worker. L'image repart au worker pour qu'il corrige la valeur et refasse la lecture sur l'image servie par l'aperçu.
+
+✻ Baked for 5s · done 12:04 AM

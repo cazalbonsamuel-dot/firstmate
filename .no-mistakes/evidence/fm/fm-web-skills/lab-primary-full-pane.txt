@@ -1,0 +1,634 @@
+ ▐▛███▛█   Claude Code v2.1.309
+▝▜██████▀  Opus 5.5 with high effort · Claude Ultra
+ ▝▝   ▝▝   ~/.no-mistakes/worktrees/80e2d4294f70/01M6SG5FJFSM6BGTSYCBXWA8CJ
+
+
+❯ Répétition à blanc (lot 1, section 5). Considère ce home (FM_HOME=/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T//fm-lab.k66Wsx) comme un home web firstmate-web ; ses décisions de capitaine sont  
+  dans $FM_HOME/data/captain.md. Besoin fictif du capitaine, mot pour mot : « Je veux un site vitrine pour mon cabinet de kinésithérapie à Lyon, avec une page par spécialité et des avis de patients,  
+  et qu'il apparaisse dans les réponses de ChatGPT. » Applique le skill web-intake comme tu le ferais réellement, mais en répétition : ne lance aucun worker, ne crée aucun item de backlog, n'écris    
+  aucun fichier et n'envoie rien. Termine par la liste de ce qui remonte au capitaine, telle que tu l'enverrais.                                                                                        
+
+⏺ Skill(web-intake)                                                                                                                                                                                   
+  ⎿  Successfully loaded skill        
+
+⏺ Bash(FM=/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T//fm-lab.k66Wsx; ls -la $FM $FM/data $FM/config $FM/projects 2>&1; echo ----; cat $FM/data/captain.md 2>&1)
+  ⎿  755  config/
+     755  data/                   
+     755  projects/
+     … +26 lines (ctrl+o to expand)                                                                                                                                                                     
+  ⎿  Allowed by auto mode classifier                                                                                                                                                                    
+
+⏺ Bash(FM=/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T//fm-lab.k66Wsx; find $FM -maxdepth 3 -not -path '*/tmux/*' | head -50; echo ----; for f in $FM/data/projects…)                               
+  ⎿  Error: Exit code 1
+     8F 3D:                        
+
+     /var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/ fm-lab.k66Wsx                                                                                                                                    
+     ...2rlxmpgs2sxg_bhtjgvd9vp80000gn/T//fm-lab.k66Wsx/ .fm-lab-home config data projects state tmux                                                                                                   
+     ...pgs2sxg_bhtjgvd9vp80000gn/T//fm-lab.k66Wsx/data/ captain.md                                                                                                                                     
+                                                                                                                                                                                                        
+     ext: .none(6) .md(1) .k66Wsx(1)                                                                                                                                                                  
+     ----
+     (eval):1: no matches found: /var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T//fm-lab.k66Wsx/config/*
+
+⏺ Skill(seo-geo-audit)                                                          
+  ⎿  Successfully loaded skill
+
+⏺ Répétition à blanc : web-intake (lot 1, section 5)                        
+
+  J'ai seulement lu le home de test. Je n'ai lancé aucun worker, créé aucun item ni écrit ou envoyé quoi que ce soit. Le home ne contient que data/captain.md : aucun projet enregistré, aucun backlog,
+  aucune config.                                                                                                                                                                                        
+
+  1. Classement                                                                                                                                                                                         
+                                                                                                                                                                                                      
+  Site neuf. Il n'y a ni projet, ni dépôt, ni propriété Search Console. Ce n'est pas un audit, donc le besoin aboutira à des PR.
+
+  2. Demande et cadrage
+
+  Demande mot pour mot : « Je veux un site vitrine pour mon cabinet de kinésithérapie à Lyon, avec une page par spécialité et des avis de patients, et qu'il apparaisse dans les réponses de ChatGPT. »
+
+  - Objectif mesurable. Mettre en ligne un site où :
+    - chaque page est indexée dans Google et Bing ;
+    - chaque page peut apparaître en extrait ;
+    - le robot de recherche d'OpenAI (OAI-SearchBot) y a accès, vérifié aussi côté CDN ;
+    - mesure : couverture dans Search Console et Bing, et rapport « AI Performance » de Bing, datés.
+    - « Apparaître dans ChatGPT » ne se garantit pas et ne se mesure pas directement. Un « rang IA » ponctuel n'est pas une mesure, et l'éventuel suivi des visites venant de ChatGPT est exclu par Q5.
+      Cet écart doit être dit au capitaine.
+  - Public (hypothèse bornée) : des patients potentiels à Lyon qui cherchent un kiné pour un besoin précis.
+  - Requêtes, une intention par page :
+    - accueil : trouver ce cabinet à Lyon ;
+    - une page par spécialité réellement pratiquée : « kiné + spécialité + Lyon » ;
+    - les avis ne s'ajoutent qu'après la vérification déontologique (voir les hypothèses ci-dessous).
+  - Refusé d'office : les variantes par quartier ou par ville, les synonymes, les FAQPage et HowTo, llms.txt et les « versions pour IA ».
+  - Faits sourcés : seulement la demande et les décisions Q3 à Q13.
+  - Hypothèses à faire vérifier par une recherche sur sources primaires datées :
+    - le code de déontologie des masseurs-kinésithérapeutes pourrait encadrer, voire interdire, les témoignages de patients sur le site d'un praticien ;
+    - un avis révèle qu'une personne est soignée, ce qui touche peut-être au RGPD (donnée de santé, consentement écrit) ;
+    - les mentions légales obligatoires.
+  - Inconnues :                                                                                                                                                                                         
+    - nom, adresse et praticiens du cabinet ;
+    - liste des spécialités, avec la source de chaque titre ou diplôme affiché ;
+    - existence d'un site actuel ;
+    - origine des avis.
+
+  3. Pages déjà existantes
+
+  Il n'y a pas de propriété Search Console. Je le consigne et je vérifie sur le plan du site. Si le cabinet a déjà un site, il faut le mesurer et rediriger plutôt que dupliquer, d'où la question 1.
+
+  4. Mesure de départ
+
+  - Il n'y a pas de kit de contrôles. Le premier travail est donc la PR du lot 3 qui crée le projet et le kit : Playwright avec axe et Lighthouse CI. C'est la seule PR dispensée de mesure de départ,
+    et sa première sortie sert de référence aux suivantes.
+  - Si un site existe déjà, on le mesure avant : captures 375/768/1440, Lighthouse en médiane de cinq passes, axe.                                                                                      
+  - Une seule mesure à la fois sur ce Mac.
+
+  5. Grille
+
+  ┌──────────────────────────────────────────┬─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐                                            
+  │                  Ligne                   │                                                   Verdict                                                   │                                            
+  ├──────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤                                          
+  │ Domaine, registraire                     │ remonte (Q2)                                                                                                │
+  ├──────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ Hébergeur, compte, CGU                   │ sans objet : Q3, Cloudflare Pages. Le compte sera demandé à la mise en ligne                                │
+  ├──────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤                                            
+  │ Search Console, Bing, autre service      │ sans objet : Q4, à la mise en ligne. Le dépôt du code remonte (Q3)                                          │
+  ├──────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤                                            
+  │ Outil payant                             │ sans objet (Q6/Q7)                                                                                          │
+  ├──────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤                                            
+  │ Traceur, service tiers, polices, bandeau │ sans objet (Q5), sauf un widget d'avis tiers, traité en Q4                                                  │
+  ├──────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤                                            
+  │ Direction de design                      │ remonte (Q5, application de Q8)                                                                             │
+  ├──────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤                                            
+  │ Textes à publier                         │ remonte : annoncé maintenant, demandé à la livraison, après la revue anti-slop par un worker distinct (Q10) │
+  ├──────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤                                            
+  │ Preuve sociale (avis)                    │ remonte (Q4)                                                                                                │
+ ▐▛███▛█   Claude Code v2.1.309
+▝▜██████▀  Opus 5.5 with high effort · Claude Ultra
+ ▝▝   ▝▝   ~/.no-mistakes/worktrees/80e2d4294f70/01M6SG5FJFSM6BGTSYCBXWA8CJ
+
+
+❯ Répétition à blanc (lot 1, section 5). Considère ce home (FM_HOME=/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T//fm-lab.k66Wsx) comme un home web firstmate-web ; ses décisions de capitaine sont  
+  dans $FM_HOME/data/captain.md. Besoin fictif du capitaine, mot pour mot : « Je veux un site vitrine pour mon cabinet de kinésithérapie à Lyon, avec une page par spécialité et des avis de patients,  
+  et qu'il apparaisse dans les réponses de ChatGPT. » Applique le skill web-intake comme tu le ferais réellement, mais en répétition : ne lance aucun worker, ne crée aucun item de backlog, n'écris    
+  aucun fichier et n'envoie rien. Termine par la liste de ce qui remonte au capitaine, telle que tu l'enverrais.                                                                                        
+
+⏺ Skill(web-intake)
+  ⎿  Successfully loaded skill
+
+⏺ Bash(FM=/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T//fm-lab.k66Wsx; ls -la $FM $FM/data $FM/config $FM/projects 2>&1; echo ----; cat $FM/data/captain.md 2>&1)
+  ⎿  755  config/
+     755  data/
+     755  projects/
+     … +26 lines (ctrl+o to expand)
+  ⎿  Allowed by auto mode classifier
+
+⏺ Bash(FM=/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T//fm-lab.k66Wsx; find $FM -maxdepth 3 -not -path '*/tmux/*' | head -50; echo ----; for f in $FM/data/projects…)
+  ⎿  Error: Exit code 1
+     8F 3D:
+
+     /var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/ fm-lab.k66Wsx
+     ...2rlxmpgs2sxg_bhtjgvd9vp80000gn/T//fm-lab.k66Wsx/ .fm-lab-home config data projects state tmux
+     ...pgs2sxg_bhtjgvd9vp80000gn/T//fm-lab.k66Wsx/data/ captain.md
+
+     ext: .none(6) .md(1) .k66Wsx(1)
+     ----
+     (eval):1: no matches found: /var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T//fm-lab.k66Wsx/config/*
+
+⏺ Skill(seo-geo-audit)
+  ⎿  Successfully loaded skill
+
+⏺ Répétition à blanc : web-intake (lot 1, section 5)
+
+  J'ai seulement lu le home de test. Je n'ai lancé aucun worker, créé aucun item ni écrit ou envoyé quoi que ce soit. Le home ne contient que data/captain.md : aucun projet enregistré, aucun backlog,
+  aucune config.                                                                                                                                                                                        
+
+  1. Classement                                                                                                                                                                                         
+                                                                                                                                                                                                      
+  Site neuf. Il n'y a ni projet, ni dépôt, ni propriété Search Console. Ce n'est pas un audit, donc le besoin aboutira à des PR.
+
+  2. Demande et cadrage
+
+  Demande mot pour mot : « Je veux un site vitrine pour mon cabinet de kinésithérapie à Lyon, avec une page par spécialité et des avis de patients, et qu'il apparaisse dans les réponses de ChatGPT. »
+
+  - Objectif mesurable. Mettre en ligne un site où :
+    - chaque page est indexée dans Google et Bing ;
+    - chaque page peut apparaître en extrait ;
+    - le robot de recherche d'OpenAI (OAI-SearchBot) y a accès, vérifié aussi côté CDN ;
+    - mesure : couverture dans Search Console et Bing, et rapport « AI Performance » de Bing, datés.
+    - « Apparaître dans ChatGPT » ne se garantit pas et ne se mesure pas directement. Un « rang IA » ponctuel n'est pas une mesure, et l'éventuel suivi des visites venant de ChatGPT est exclu par Q5.
+      Cet écart doit être dit au capitaine.
+  - Public (hypothèse bornée) : des patients potentiels à Lyon qui cherchent un kiné pour un besoin précis.
+  - Requêtes, une intention par page :
+    - accueil : trouver ce cabinet à Lyon ;
+    - une page par spécialité réellement pratiquée : « kiné + spécialité + Lyon » ;
+    - les avis ne s'ajoutent qu'après la vérification déontologique (voir les hypothèses ci-dessous).
+  - Refusé d'office : les variantes par quartier ou par ville, les synonymes, les FAQPage et HowTo, llms.txt et les « versions pour IA ».
+  - Faits sourcés : seulement la demande et les décisions Q3 à Q13.
+  - Hypothèses à faire vérifier par une recherche sur sources primaires datées :
+    - le code de déontologie des masseurs-kinésithérapeutes pourrait encadrer, voire interdire, les témoignages de patients sur le site d'un praticien ;
+    - un avis révèle qu'une personne est soignée, ce qui touche peut-être au RGPD (donnée de santé, consentement écrit) ;
+    - les mentions légales obligatoires.
+  - Inconnues :
+    - nom, adresse et praticiens du cabinet ;
+    - liste des spécialités, avec la source de chaque titre ou diplôme affiché ;
+    - existence d'un site actuel ;
+    - origine des avis.
+
+  3. Pages déjà existantes
+
+  Il n'y a pas de propriété Search Console. Je le consigne et je vérifie sur le plan du site. Si le cabinet a déjà un site, il faut le mesurer et rediriger plutôt que dupliquer, d'où la question 1.
+
+  4. Mesure de départ
+
+  - Il n'y a pas de kit de contrôles. Le premier travail est donc la PR du lot 3 qui crée le projet et le kit : Playwright avec axe et Lighthouse CI. C'est la seule PR dispensée de mesure de départ,
+    et sa première sortie sert de référence aux suivantes.
+  - Si un site existe déjà, on le mesure avant : captures 375/768/1440, Lighthouse en médiane de cinq passes, axe.
+  - Une seule mesure à la fois sur ce Mac.
+
+  5. Grille
+
+  ┌──────────────────────────────────────────┬─────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │                  Ligne                   │                                                   Verdict                                                   │
+  ├──────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ Domaine, registraire                     │ remonte (Q2)                                                                                                │
+  ├──────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ Hébergeur, compte, CGU                   │ sans objet : Q3, Cloudflare Pages. Le compte sera demandé à la mise en ligne                                │
+  ├──────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ Search Console, Bing, autre service      │ sans objet : Q4, à la mise en ligne. Le dépôt du code remonte (Q3)                                          │
+  ├──────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ Outil payant                             │ sans objet (Q6/Q7)                                                                                          │
+  ├──────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ Traceur, service tiers, polices, bandeau │ sans objet (Q5), sauf un widget d'avis tiers, traité en Q4                                                  │
+  ├──────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ Direction de design                      │ remonte (Q5, application de Q8)                                                                             │
+  ├──────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ Textes à publier                         │ remonte : annoncé maintenant, demandé à la livraison, après la revue anti-slop par un worker distinct (Q10) │
+  ├──────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ Preuve sociale (avis)                    │ remonte (Q4)                                                                                                │
+  ├──────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ Robots d'entraînement IA                 │ sans objet : Q9 les autorise déjà, et la demande ChatGPT ne change pas la matrice                           │
+  ├──────────────────────────────────────────┼─────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ Fusion sur le site en ligne              │ remonte : annoncée maintenant, demandée à la livraison avec l'URL d'aperçu                                  │
+  └──────────────────────────────────────────┴─────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+  6. Mode de livraison
+
+  Le projet n'est pas enregistré. Livraison donc par le pipeline complet, fusion automatique désactivée. Elle le resterait de toute façon pour un site en ligne. Le manque d'enregistrement remonte avec
+  la question du dépôt.
+
+  7. Découpage
+
+  1. Recherche (scout, sans PR), lancée dès maintenant car compatible avec toutes les réponses : déontologie des kinés et avis patients, RGPD, mentions légales.
+  2. Lot 3 : projet et kit de contrôles, dès que la question du dépôt est tranchée.
+  3. Direction de design : deux ou trois DESIGN.md présentés sur planche, à partir des sites du capitaine.
+  4. Pages :
+     - accueil et cabinet ;
+     - une page par spécialité ;
+     - contact et mentions légales ;
+     - avis, seulement si la recherche le permet et si les sources sont fournies.
+  5. Textes : revue anti-slop, puis relecture du capitaine.
+  6. Technique de référencement : robots.txt, données structurées de type « Local business » si la galerie de Google les retient.
+  7. Mise en ligne : domaine, Cloudflare, Search Console et Bing, puis fusion sur ton mot.
+
+  Un seul travail lourd à la fois.
+
+  8. Backlog (non écrit)
+
+  Je créerais un item noté : site neuf, l'objectif ci-dessus, les requêtes par page et les questions ouvertes. Chaque question ci-dessous serait mise en attente selon captain-hold-lifecycle.
+
+  ---
+
+  Ce qui remonte au capitaine, tel que je l'enverrais
+
+  ▎ Capitaine, pour le site du cabinet de kinésithérapie à Lyon, j'ai cinq questions. Une recherche sur les règles applicables aux avis de patients démarre dès maintenant, car elle sert quelles que
+  ▎ soient tes réponses.
+  ▎
+  ▎ 1. Site existant et domaine. Le cabinet a-t-il déjà un site ou un nom de domaine ? Si oui, lequel ? Sinon, quel nom veux-tu et chez quel registraire ? Effet : un site existant est mesuré et
+  ▎ redirigé plutôt que dupliqué. Le domaine ne bloque que la mise en ligne.
+  ▎ 2. Spécialités et cabinet. Quelles spécialités pratiquez-vous réellement ? Donne aussi la source de chaque titre ou diplôme à afficher, plus le nom, l'adresse et les praticiens. Effet : chaque
+  ▎ spécialité devient une page. Rien n'est affirmé sans source.
+  ▎ 3. Dépôt du code. Où veux-tu que le code du site soit hébergé, par exemple un dépôt privé sur ton compte GitHub ? Effet : c'est la condition du premier travail, la création du projet et de ses
+  ▎ contrôles automatiques.
+  ▎ 4. Avis de patients. D'où viennent-ils : avis écrits que tu fournis avec le consentement des patients, ou avis Google ou Doctolib affichés par un module externe ? Effet : un module externe est un
+  ▎ service tiers qui demande ton accord. Les règles de communication des kinés pourraient interdire les témoignages, et la recherche lancée me le dira avec ses sources avant toute page d'avis.
+  ▎ 5. Design. Peux-tu me donner trois à cinq sites que tu aimes ? Effet : j'en tire deux ou trois directions à comparer sur une planche. Aucune page n'est dessinée avant ton choix.
+  ▎
+  ▎ Sur ChatGPT, je ne peux pas garantir l'apparition dans ses réponses, et aucun outil ne la mesure de façon fiable sans traceur, ce que tu as exclu. Je m'engage sur ce qui se vérifie : site indexé
+  ▎ dans Google et Bing, accessible au robot de recherche d'OpenAI, citations suivies dans le rapport IA de Bing. Si cet objectif te convient, je pars là-dessus.
+  ▎
+  ▎ Pour la suite, deux autres demandes viendront plus tard : relire chaque texte avant publication, y compris les descriptions et les textes des images, puis décider de la mise en ligne avec l'URL
+  ▎ d'aperçu. Le reste est déjà réglé par tes décisions : Cloudflare Pages, Search Console et Bing à la mise en ligne, pas de mesure d'audience, aucun outil payant, robots IA autorisés.
+
+✻ Baked for 1m 29s · done 11:51 PM                               
+
+❯ Deuxième répétition à blanc, même home, mêmes interdits (aucun worker, aucun fichier, aucun envoi, aucune fusion). Le site du cabinet est maintenant en ligne sur Cloudflare Pages, qui déploie main. 
+  Le registre du projet indique le mode de livraison yolo. Deux workers web signalent chacun une PR prête. PR #12 (lot 3, crée le kit de contrôles du projet) : pas de mesures avant, mais la PR        
+  montre la première sortie du kit (captures 375/768/1440, Lighthouse cinq passes JSON, axe, html-validate, lychee, knip, size-limit), URL d'aperçu qui répond, CI verte, retour arrière écrit. PR #13  
+  (correctif du menu mobile) : captures avant/après, Lighthouse JSON et axe joints, URL d'aperçu, CI verte, retour arrière écrit ; mais à la place des sorties lychee et knip le worker a écrit «       
+  lychee et knip non installés sur la machine, manque assumé ». Applique le skill de livraison web comme tu le ferais réellement et dis, pour chaque PR, ce que tu fais et pourquoi, puis ce que tu     
+  dirais au capitaine.                                                                                                                                                                                  
+                                                                                                                                                                                                      
+⏺ Skill(web-livraison)                                                 
+  ⎿  Successfully loaded skill
+
+⏺ Skill(ship-landing)                                                                 
+  ⎿  Successfully loaded skill
+
+⏺ Répétition à blanc 2 : web-livraison sur les PR #12 et #13       
+
+  Je n'ai lancé aucun worker, écrit aucun fichier, rien envoyé ni fusionné. J'ai suivi web-livraison, puis ship-landing. Il me manque l'URL complète des PR, des aperçus et les valeurs mesurées : dans
+  le message ci-dessous, elles sont entre crochets.                                                                                                                                                     
+
+  Point commun : le réglage de fusion automatique                                                                                                                                                       
+                                                                                                                                                                                                      
+  Le registre active la fusion automatique, mais je l'ignore pour ces deux PR. Cloudflare Pages déploie main, donc fusionner revient à mettre en production, et data/captain.md comme web-livraison
+  interdisent alors la fusion automatique. Le registre contredit la règle du domaine : je le signale au capitaine et je propose de le corriger.
+
+  Petite précision : ce réglage ne concerne que le droit de fusionner. Ce n'est pas un mode de livraison, et le mode reste celui du registre.
+     - une page par spécialité ;
+     - contact et mentions légales ;
+     - avis, seulement si la recherche le permet et si les sources sont fournies.
+  5. Textes : revue anti-slop, puis relecture du capitaine.
+  6. Technique de référencement : robots.txt, données structurées de type « Local business » si la galerie de Google les retient.
+  7. Mise en ligne : domaine, Cloudflare, Search Console et Bing, puis fusion sur ton mot.
+
+  Un seul travail lourd à la fois.
+
+  8. Backlog (non écrit)
+
+  Je créerais un item noté : site neuf, l'objectif ci-dessus, les requêtes par page et les questions ouvertes. Chaque question ci-dessous serait mise en attente selon captain-hold-lifecycle.
+
+  ---
+
+  Ce qui remonte au capitaine, tel que je l'enverrais
+
+  ▎ Capitaine, pour le site du cabinet de kinésithérapie à Lyon, j'ai cinq questions. Une recherche sur les règles applicables aux avis de patients démarre dès maintenant, car elle sert quelles que
+  ▎ soient tes réponses.
+  ▎
+  ▎ 1. Site existant et domaine. Le cabinet a-t-il déjà un site ou un nom de domaine ? Si oui, lequel ? Sinon, quel nom veux-tu et chez quel registraire ? Effet : un site existant est mesuré et
+  ▎ redirigé plutôt que dupliqué. Le domaine ne bloque que la mise en ligne.
+  ▎ 2. Spécialités et cabinet. Quelles spécialités pratiquez-vous réellement ? Donne aussi la source de chaque titre ou diplôme à afficher, plus le nom, l'adresse et les praticiens. Effet : chaque
+  ▎ spécialité devient une page. Rien n'est affirmé sans source.
+  ▎ 3. Dépôt du code. Où veux-tu que le code du site soit hébergé, par exemple un dépôt privé sur ton compte GitHub ? Effet : c'est la condition du premier travail, la création du projet et de ses
+  ▎ contrôles automatiques.
+  ▎ 4. Avis de patients. D'où viennent-ils : avis écrits que tu fournis avec le consentement des patients, ou avis Google ou Doctolib affichés par un module externe ? Effet : un module externe est un
+  ▎ service tiers qui demande ton accord. Les règles de communication des kinés pourraient interdire les témoignages, et la recherche lancée me le dira avec ses sources avant toute page d'avis.
+  ▎ 5. Design. Peux-tu me donner trois à cinq sites que tu aimes ? Effet : j'en tire deux ou trois directions à comparer sur une planche. Aucune page n'est dessinée avant ton choix.
+  ▎
+  ▎ Sur ChatGPT, je ne peux pas garantir l'apparition dans ses réponses, et aucun outil ne la mesure de façon fiable sans traceur, ce que tu as exclu. Je m'engage sur ce qui se vérifie : site indexé
+  ▎ dans Google et Bing, accessible au robot de recherche d'OpenAI, citations suivies dans le rapport IA de Bing. Si cet objectif te convient, je pars là-dessus.
+  ▎
+  ▎ Pour la suite, deux autres demandes viendront plus tard : relire chaque texte avant publication, y compris les descriptions et les textes des images, puis décider de la mise en ligne avec l'URL
+  ▎ d'aperçu. Le reste est déjà réglé par tes décisions : Cloudflare Pages, Search Console et Bing à la mise en ligne, pas de mesure d'audience, aucun outil payant, robots IA autorisés.
+
+✻ Baked for 1m 29s · done 11:51 PM
+
+❯ Deuxième répétition à blanc, même home, mêmes interdits (aucun worker, aucun fichier, aucun envoi, aucune fusion). Le site du cabinet est maintenant en ligne sur Cloudflare Pages, qui déploie main. 
+  Le registre du projet indique le mode de livraison yolo. Deux workers web signalent chacun une PR prête. PR #12 (lot 3, crée le kit de contrôles du projet) : pas de mesures avant, mais la PR        
+  montre la première sortie du kit (captures 375/768/1440, Lighthouse cinq passes JSON, axe, html-validate, lychee, knip, size-limit), URL d'aperçu qui répond, CI verte, retour arrière écrit. PR #13  
+  (correctif du menu mobile) : captures avant/après, Lighthouse JSON et axe joints, URL d'aperçu, CI verte, retour arrière écrit ; mais à la place des sorties lychee et knip le worker a écrit «       
+  lychee et knip non installés sur la machine, manque assumé ». Applique le skill de livraison web comme tu le ferais réellement et dis, pour chaque PR, ce que tu fais et pourquoi, puis ce que tu     
+  dirais au capitaine.                                                                                                                                                                                  
+
+⏺ Skill(web-livraison)
+  ⎿  Successfully loaded skill
+
+⏺ Skill(ship-landing)
+  ⎿  Successfully loaded skill
+
+⏺ Répétition à blanc 2 : web-livraison sur les PR #12 et #13
+
+  Je n'ai lancé aucun worker, écrit aucun fichier, rien envoyé ni fusionné. J'ai suivi web-livraison, puis ship-landing. Il me manque l'URL complète des PR, des aperçus et les valeurs mesurées : dans
+  le message ci-dessous, elles sont entre crochets.                                                                                                                                                     
+
+  Point commun : le réglage de fusion automatique                                                                                                                                                       
+                                                                                                                                                                                                      
+  Le registre active la fusion automatique, mais je l'ignore pour ces deux PR. Cloudflare Pages déploie main, donc fusionner revient à mettre en production, et data/captain.md comme web-livraison
+  interdisent alors la fusion automatique. Le registre contredit la règle du domaine : je le signale au capitaine et je propose de le corriger.
+
+  Petite précision : ce réglage ne concerne que le droit de fusionner. Ce n'est pas un mode de livraison, et le mode reste celui du registre.
+
+  PR #12 : kit de contrôles (lot 3)
+
+  Ce que je fais : je la présente au capitaine pour fusion, c'est-à-dire pour une mise en production.
+
+  1. Preuves (étape 1). C'est la seule PR dispensée des mesures avant et des sorties du kit. Elle montre la première sortie du kit (captures 375/768/1440, Lighthouse cinq passes en JSON, axe,
+     html-validate, lychee, knip, size-limit), et cette sortie devient la mesure de départ des PR suivantes. La CI est verte, l'aperçu répond et le retour arrière est écrit. Je vérifierais deux choses
+     de plus :
+     - que l'aperçu montre bien la branche de la PR, et pas seulement une page qui répond ;
+     - que le tableau Lighthouse donne la médiane des cinq passes.
+  2. Rendu (étape 2). J'ouvrirais l'aperçu dans chrome-devtools-axi et je signalerais tout défaut visible, même sans rapport avec la PR.
+  3. Suivi. J'enregistrerais la PR avec bin/fm-pr-check.sh, avec l'URL copiée de la ligne de prêt du worker, pour suivre sa fusion. La décision du capitaine serait mise en attente selon
+     captain-hold-lifecycle.
+  4. Après la fusion :
+     - fusion par bin/fm-pr-merge.sh, seulement sur le mot du capitaine ;
+     - un worker compare captures et Lighthouse entre la production et l'aperçu ;
+     - l'inspection d'URL dans Search Console, IndexNow et la matrice des robots sont sans objet, car aucune page ni robots.txt ne change ;
+     - je rapporte ensuite le résultat avec l'URL de production.
+
+  PR #13 : correctif du menu mobile
+
+  Ce que je fais : je ne la présente pas, je la renvoie au worker.
+
+  1. « Manque assumé » refusé. Le skill est explicite : une preuve manquante renvoie au worker, y compris quand un manque est écrit à la place d'une preuve du kit. web-intake ajoute qu'un outil
+     empêché est un blocage à remonter au firstmate, pas un manque accepté.
+  2. Le manque n'en est pas un. La PR #12 montre que le kit du projet fait déjà tourner lychee et knip. Les sorties manquantes ne viennent donc pas d'un outil introuvable : elles montrent que #13 n'a
+     pas été mesurée avec le kit.
+  3. Instruction au worker (envoyée par fm-send en vrai) :
+     - repartir de main une fois #12 fusionnée ;
+     - faire tourner tout le kit sur le correctif, dont lychee, knip, html-validate et size-limit ;
+     - comparer avec la sortie de #12 comme mesure de départ ;
+     - si un outil refuse vraiment de tourner, le déclarer comme blocage avec l'erreur exacte.
+  4. Autres points à vérifier. Le résumé ne cite ni html-validate ni size-limit. Il faut aussi confirmer que les captures couvrent bien 375, 768 et 1440 px et que Lighthouse donne la médiane de cinq
+     passes. Ces points passent dans le même renvoi.
+  5. Ordre. La nouvelle mesure de #13 attend la fin de la vérification en production de #12 : une seule mesure à la fois sur ce Mac.
+
+  Ce que je dirais au capitaine
+
+  ▎ Capitaine, le kit de contrôles du site est prêt. Le fusionner met le site en production, je ne le fais donc que sur ton mot.
+  ▎
+  ▎ - PR : [URL complète de la PR #12]
+  ▎ - Aperçu : [URL d'aperçu #12]
+  ▎ - Ce que ça change : le site affiché ne change pas. La PR ajoute les contrôles automatiques (captures sur trois largeurs, performance, accessibilité, validité du HTML, liens morts, code inutile,
+  ▎ poids des pages). Leurs premiers résultats deviennent la référence des prochaines modifications : performance [médiane], accessibilité [nombre de problèmes axe], liens morts [n].
+  ▎ - Retour arrière : il est écrit dans la PR. On rétablit le déploiement précédent sur Cloudflare ou on annule le commit, ce qui concerne uniquement le code, aucune donnée.
+  ▎ - Rien à relire : la PR ne publie aucun texte.
+  ▎
+  ▎ Je fusionne et je mets en production ?
+  ▎
+  ▎ Le registre du projet autorise la fusion sans ton accord, ce qui contredit ta règle pour un site en ligne. J'applique ta règle. Je mets le registre en accord pour ce projet ?
+  ▎
+  ▎ Le correctif du menu mobile n'est pas prêt : il manque la vérification des liens et du code inutile. Le worker la refait avec les contrôles ci-dessus une fois ceux-ci en production. Je te le
+  ▎ présenterai ensuite avec ses mesures avant et après.
+
+✻ Churned for 46s · done 11:53 PM                           
+
+❯ s et pourquoi, puis la suite.                                                                                                                                                                         
+
+⏺ Ton message semble coupé, capitaine. Je le lis comme une demande de récapituler, pour chaque PR, ce que je fais et pourquoi, puis la suite. C'est toujours une répétition : rien n'est lancé, écrit ni
+  envoyé.
+
+  Ce que je fais, et pourquoi
+
+  ┌────────────────────────┬─────────────────────────────────────────────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐ 
+  │           PR           │               Ce que je fais                │                                                         Pourquoi                                                         │   
+  ├────────────────────────┼─────────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ #12, kit de contrôles  │ Je te la présente comme une mise en         │ C'est la seule PR dispensée de mesure avant, et elle fournit la première sortie complète du kit. Mais Cloudflare déploie │
+  │                        │ production et j'attends ton mot.            │  main, donc la fusionner change la production même si le rendu reste identique.                                          │
+  ├────────────────────────┼─────────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ #13, menu mobile       │ Je la renvoie au worker sans te la          │ Une phrase « manque assumé » ne remplace pas une preuve. Et #12 prouve que lychee et knip tournent dans le kit du projet │
+  │                        │ présenter.                                  │  : #13 n'a donc pas été mesurée avec le kit.                                                                             │
+  ├────────────────────────┼─────────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ Registre en fusion     │ Je l'ignore et je te le signale.            │ Pour un site en ligne, ta règle passe avant : jamais de fusion sans ton mot.                                             │
+  │ automatique            │                                             │                                                                                                                          │
+  └────────────────────────┴─────────────────────────────────────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+  La suite
+
+  1. Si tu dis « oui » pour #12 :
+     - je fusionne par le chemin protégé ;
+     - un worker compare captures et Lighthouse entre la production et l'aperçu, en une seule mesure ;
+     - je te donne le résultat avec l'URL de production ;
+     - en cas de régression, je te propose le retour arrière écrit et je ne l'applique que sur ton mot.
+  2. Si tu dis « non » ou « attends » pour #12 :
+     - la décision reste en attente ;
+     - #13 attend aussi, parce qu'elle doit être mesurée avec le kit de main. C'est une vraie dépendance, pas une question de prudence.
+  3. #13 après la mise en production de #12 :
+     - le worker repart de main et fait tourner tout le kit ;
+     - il compare avec la référence de #12 ;
+     - si un outil refuse vraiment de tourner, il remonte l'erreur exacte comme blocage. Je la diagnostique, et cela ne remonte jusqu'à toi que si une installation ou un compte est nécessaire.
+  4. #13 revenue complète :
+     - je refais les contrôles de livraison et je regarde l'aperçu, surtout en 375 et 768 px pour le menu ;
+     - je te la présente avec les mesures avant et après et la question de la mise en production ;
+     - après ton mot : fusion, vérification en production, inspection d'URL dans Search Console pour les pages touchées, et IndexNow si le site a sa clé.
+  5. Registre : si tu acceptes de le corriger, je passe le projet en « fusion sur ton mot » selon les règles de gestion des projets.
+  6. Clôture de chaque PR :
+     - je confirme qu'elle est bien en production ;
+     - je nettoie la copie de travail du worker ;
+     - je marque l'item terminé et je relance le prochain travail en attente, un seul travail lourd à la fois.
+
+  Ce qui t'est demandé maintenant :
+  - fusionner #12 et donc la mettre en production ;
+  - corriger le registre.
+
+  Le reste ne te reviendra qu'avec #13, prête et mesurée.
+
+✻ Crunched for 20s · done 11:54 PM                           
+
+❯ Troisième répétition à blanc, mêmes interdits. Un worker Opus rend le texte de la page « Rééducation du genou » (corps, balise title, meta description, textes alternatifs). Il joint : la liste      
+  affirmations et sources, où « le cabinet a été fondé en 1998 » n'a pas de source et « 95 % de nos patients retrouvent leur mobilité en six semaines » cite un article de blog non daté ; un           
+  témoignage « Excellent kiné ! - Marie L. » qu'il a rédigé lui-même ; un score GPTZero « 98 % humain » présenté comme preuve que le texte n'est pas du slop ; les sorties Vale et Grammalecte avec     
+  deux avertissements Vale non justifiés ; une image d'illustration générée par IA dont la métadonnée IPTC DigitalSourceType vaut « TrainedAlgorithmicMedia » ; et il propose d'ajouter en pied de page 
+  « Ce site a été rédigé avec l'aide de l'IA ». Aucune revue anti-slop n'a encore eu lieu. Applique le skill de revue de contenu web comme tu le ferais réellement et dis ce que tu acceptes, ce que    
+  tu refuses et pourquoi, puis la suite.                                                                                                                                                                
+                       
+⏺ Skill(web-content-review)                   
+  ⎿  Successfully loaded skill
+
+⏺ Répétition à blanc 3 : web-content-review sur la page « Rééducation du genou »
+
+  Rien n'est lancé, écrit ni envoyé, capitaine. J'ai lu la remise comme le demande le skill.
+
+  Ce que j'accepte                                                                                                                                                                                      
+
+  - La forme de la remise : le corps, la balise title, la meta description et les textes alternatifs sont tous présents. Ce sont bien tous les textes publiés que tu devras relire.                   
+  - La présence des sorties Vale et Grammalecte, qui sont des preuves obligatoires du kit. Leur contenu n'est pas encore acceptable : voir les avertissements Vale ci-dessous.
+  - L'étiquette IPTC « TrainedAlgorithmicMedia » de l'image générée. Elle correspond à ce que le skill exige. Une condition reste à vérifier : l'étiquette doit être présente dans le fichier servi par
+    l'aperçu, pas seulement dans le fichier source, car l'optimisation des images au build supprime souvent les métadonnées.
+
+  Ce que je refuse, et pourquoi
+
+  ┌───────────────────────────────┬─────────────────────────────────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐ 
+  │            Élément            │            Décision             │                                                           Pourquoi                                                           │ 
+  ├───────────────────────────────┼─────────────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤ 
+  │ « Fondé en 1998 », sans       │ Retiré, remplacé par un         │                                                                                                                              │ 
+  │ source                        │ emplacement marqué « date de    │ Chaque date doit avoir une source primaire datée, et seul le capitaine connaît ce fait.                                      │ 
+  │                               │ fondation, source capitaine »   │                                                                                                                              │ 
+  ├───────────────────────────────┼─────────────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤ 
+  │ « 95 % de nos patients… »,    │                                 │ La source est secondaire et non datée. Surtout, un blog ne peut rien dire sur nos patients : c'est un chiffre sur le         │ 
+  │ avec un blog non daté comme   │ Retiré                          │ cabinet, donc une preuve sociale dont seul le capitaine peut fournir la source. S'il en fournit une, l'emplacement ne        │ 
+  │ source                        │                                 │ revient qu'après la recherche déontologique lancée à l'admission, puisqu'une promesse de résultat en santé est peut-être     │ 
+  │                               │                                 │ encadrée (hypothèse non vérifiée).                                                                                           │ 
+  ├───────────────────────────────┼─────────────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤ 
+  │ Témoignage « Excellent kiné ! │ Refusé, remplacé par un         │ C'est une preuve sociale inventée par le worker, ce qui est interdit sans exception. Les avis dépendent aussi de la question │ 
+  │  - Marie L. »                 │ emplacement marqué « avis       │  4 de l'admission et de la recherche déontologique.                                                                          │ 
+  │                        │ production et j'attends ton mot.            │  main, donc la fusionner change la production même si le rendu reste identique.                                          │
+  ├────────────────────────┼─────────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ #13, menu mobile       │ Je la renvoie au worker sans te la          │ Une phrase « manque assumé » ne remplace pas une preuve. Et #12 prouve que lychee et knip tournent dans le kit du projet │
+  │                        │ présenter.                                  │  : #13 n'a donc pas été mesurée avec le kit.                                                                             │
+  ├────────────────────────┼─────────────────────────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ Registre en fusion     │ Je l'ignore et je te le signale.            │ Pour un site en ligne, ta règle passe avant : jamais de fusion sans ton mot.                                             │
+  │ automatique            │                                             │                                                                                                                          │
+  └────────────────────────┴─────────────────────────────────────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+  La suite
+
+  1. Si tu dis « oui » pour #12 :
+     - je fusionne par le chemin protégé ;
+     - un worker compare captures et Lighthouse entre la production et l'aperçu, en une seule mesure ;
+     - je te donne le résultat avec l'URL de production ;
+     - en cas de régression, je te propose le retour arrière écrit et je ne l'applique que sur ton mot.
+  2. Si tu dis « non » ou « attends » pour #12 :
+     - la décision reste en attente ;
+     - #13 attend aussi, parce qu'elle doit être mesurée avec le kit de main. C'est une vraie dépendance, pas une question de prudence.
+  3. #13 après la mise en production de #12 :
+     - le worker repart de main et fait tourner tout le kit ;
+     - il compare avec la référence de #12 ;
+     - si un outil refuse vraiment de tourner, il remonte l'erreur exacte comme blocage. Je la diagnostique, et cela ne remonte jusqu'à toi que si une installation ou un compte est nécessaire.
+  4. #13 revenue complète :
+     - je refais les contrôles de livraison et je regarde l'aperçu, surtout en 375 et 768 px pour le menu ;
+     - je te la présente avec les mesures avant et après et la question de la mise en production ;
+     - après ton mot : fusion, vérification en production, inspection d'URL dans Search Console pour les pages touchées, et IndexNow si le site a sa clé.
+  5. Registre : si tu acceptes de le corriger, je passe le projet en « fusion sur ton mot » selon les règles de gestion des projets.
+  6. Clôture de chaque PR :
+     - je confirme qu'elle est bien en production ;
+     - je nettoie la copie de travail du worker ;
+     - je marque l'item terminé et je relance le prochain travail en attente, un seul travail lourd à la fois.
+
+  Ce qui t'est demandé maintenant :
+  - fusionner #12 et donc la mettre en production ;
+  - corriger le registre.
+
+  Le reste ne te reviendra qu'avec #13, prête et mesurée.
+
+✻ Crunched for 20s · done 11:54 PM
+
+❯ Troisième répétition à blanc, mêmes interdits. Un worker Opus rend le texte de la page « Rééducation du genou » (corps, balise title, meta description, textes alternatifs). Il joint : la liste      
+  affirmations et sources, où « le cabinet a été fondé en 1998 » n'a pas de source et « 95 % de nos patients retrouvent leur mobilité en six semaines » cite un article de blog non daté ; un           
+  témoignage « Excellent kiné ! - Marie L. » qu'il a rédigé lui-même ; un score GPTZero « 98 % humain » présenté comme preuve que le texte n'est pas du slop ; les sorties Vale et Grammalecte avec     
+  deux avertissements Vale non justifiés ; une image d'illustration générée par IA dont la métadonnée IPTC DigitalSourceType vaut « TrainedAlgorithmicMedia » ; et il propose d'ajouter en pied de page 
+  « Ce site a été rédigé avec l'aide de l'IA ». Aucune revue anti-slop n'a encore eu lieu. Applique le skill de revue de contenu web comme tu le ferais réellement et dis ce que tu acceptes, ce que    
+  tu refuses et pourquoi, puis la suite.                                                                                                                                                                
+
+⏺ Skill(web-content-review)
+  ⎿  Successfully loaded skill
+
+⏺ Répétition à blanc 3 : web-content-review sur la page « Rééducation du genou »
+
+  Rien n'est lancé, écrit ni envoyé, capitaine. J'ai lu la remise comme le demande le skill.
+
+  Ce que j'accepte
+
+  - La forme de la remise : le corps, la balise title, la meta description et les textes alternatifs sont tous présents. Ce sont bien tous les textes publiés que tu devras relire.                   
+  - La présence des sorties Vale et Grammalecte, qui sont des preuves obligatoires du kit. Leur contenu n'est pas encore acceptable : voir les avertissements Vale ci-dessous.
+  - L'étiquette IPTC « TrainedAlgorithmicMedia » de l'image générée. Elle correspond à ce que le skill exige. Une condition reste à vérifier : l'étiquette doit être présente dans le fichier servi par
+    l'aperçu, pas seulement dans le fichier source, car l'optimisation des images au build supprime souvent les métadonnées.
+
+  Ce que je refuse, et pourquoi
+
+  ┌───────────────────────────────┬─────────────────────────────────┬──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │            Élément            │            Décision             │                                                           Pourquoi                                                           │
+  ├───────────────────────────────┼─────────────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ « Fondé en 1998 », sans       │ Retiré, remplacé par un         │                                                                                                                              │
+  │ source                        │ emplacement marqué « date de    │ Chaque date doit avoir une source primaire datée, et seul le capitaine connaît ce fait.                                      │
+  │                               │ fondation, source capitaine »   │                                                                                                                              │
+  ├───────────────────────────────┼─────────────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ « 95 % de nos patients… »,    │                                 │ La source est secondaire et non datée. Surtout, un blog ne peut rien dire sur nos patients : c'est un chiffre sur le         │
+  │ avec un blog non daté comme   │ Retiré                          │ cabinet, donc une preuve sociale dont seul le capitaine peut fournir la source. S'il en fournit une, l'emplacement ne        │
+  │ source                        │                                 │ revient qu'après la recherche déontologique lancée à l'admission, puisqu'une promesse de résultat en santé est peut-être     │
+  │                               │                                 │ encadrée (hypothèse non vérifiée).                                                                                           │
+  ├───────────────────────────────┼─────────────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ Témoignage « Excellent kiné ! │ Refusé, remplacé par un         │ C'est une preuve sociale inventée par le worker, ce qui est interdit sans exception. Les avis dépendent aussi de la question │
+  │  - Marie L. »                 │ emplacement marqué « avis       │  4 de l'admission et de la recherche déontologique.                                                                          │
+  │                               │ patient, source capitaine »     │                                                                                                                              │
+  ├───────────────────────────────┼─────────────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ Score GPTZero « 98 % humain » │ Refusé, à retirer de la PR      │ data/captain.md exclut tout score de détecteur d'IA comme preuve, dans un sens comme dans l'autre. Il ne remplace pas la     │
+  │                               │                                 │ revue anti-slop.                                                                                                             │
+  ├───────────────────────────────┼─────────────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ Deux avertissements Vale sans │ Renvoyés                        │ Chaque avertissement restant doit avoir une justification écrite dans la PR, sinon il faut corriger le texte.                │
+  │  justification                │                                 │                                                                                                                              │
+  ├───────────────────────────────┼─────────────────────────────────┼──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ Mention « Ce site a été       │                                 │ Le capitaine a retiré Q12 : aucune divulgation n'est prévue, et l'auteur n'a pas à rouvrir cette décision. Si le capitaine   │
+  │ rédigé avec l'aide de l'IA »  │ Refusée                         │ la veut un jour, la demande viendra de lui.                                                                                  │
+  │ en pied de page               │                                 │                                                                                                                              │
+  └───────────────────────────────┴─────────────────────────────────┴──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+  Ce qui reste à vérifier sur la remise
+
+  - Auteur affiché : sur une page santé, le lecteur attend le nom d'un vrai praticien. Il reste un emplacement tant que la question 2 de l'admission n'a pas de réponse.
+  - Apport original et requête : la page doit nommer ce qu'elle apporte de propre au cabinet et la requête qu'elle sert (« kiné rééducation du genou Lyon »). Si cet apport manque, je la renvoie.
+  - Spécialité confirmée : la rééducation du genou doit figurer dans la liste de spécialités donnée par le capitaine. Sinon, la page est prématurée.
+
+  La suite
+
+  1. Renvoi à l'auteur (Opus), en un seul message :
+     - retirer les trois éléments refusés et poser les deux emplacements ;
+     - retirer le score GPTZero et la mention de pied de page ;
+     - justifier ou corriger les deux avertissements Vale ;
+     - prouver l'étiquette IPTC sur l'image de l'aperçu ;
+     - compléter l'apport original et l'emplacement de l'auteur ;
+     - refaire tourner Vale et Grammalecte.
+  2. Revue anti-slop, une fois le texte corrigé, pour qu'elle porte sur le texte qui sera publié :
+     - confiée à un scout Fable, distinct de l'auteur ;
+     - il rend des constats localisés (phrase, catégorie, correction proposée), sans réécrire ni noter le texte.
+  3. Corrections : l'auteur applique les constats que je retiens, et je vérifie qu'aucun point bloquant ne reste.
+  4. Relecture par le capitaine : un résumé comprenant tous les textes publiés (corps, title, meta description, textes alternatifs), la liste des affirmations et sources, les avertissements justifiés,
+     les emplacements en attente et l'URL d'aperçu. La relecture est mise en attente selon captain-hold-lifecycle, et ses corrections repartent à l'auteur.
+  5. Livraison : ensuite seulement, la PR suit le chemin de livraison habituel, avec la fusion comme mise en production, sur ton mot.
+
+  Ce qui remonterait au capitaine
+
+  Rien n'est encore à relire : la page revient d'abord corrigée puis passe la revue anti-slop. Le message partirait à l'étape 4 :
+
+  ▎ Capitaine, la page « Rééducation du genou » est prête pour ta relecture. Aperçu : [URL d'aperçu].
+  ▎
+  ▎ - À relire : le texte de la page, son titre dans Google, sa description dans Google et la description de chaque image. Tout est dans le résumé joint, avec la source de chaque affirmation.
+  ▎ - J'ai besoin de toi pour trois emplacements laissés vides, faute de source :
+  ▎   a. l'année de fondation du cabinet ;
+  ▎   b. le praticien à indiquer comme auteur ;
+  ▎   c. les avis de patients, si tu veux en afficher : fournis-les avec l'accord des patients. Ils ne seront publiés que si les règles de la profession le permettent, ce que vérifie la recherche en
+  ▎ cours.
+  ▎
+  ▎   Un chiffre de résultats sur tes patients n'apparaîtra que si tu en fournis la source.
+  ▎ - Image d'illustration : elle est générée par IA et marquée comme telle dans ses métadonnées. Rien n'est affiché en pied de page, conformément à ta décision.
+  ▎
+  ▎ Tes corrections, ou ton accord pour publier ces textes ?
+
+✻ Cogitated for 45s · done 11:55 PM                            
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+❯                                                                                                                                                                                                       
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Opus 5.5 | ctx: 9% used                                                                                                                              Update available! Run: brew upgrade claude-code  
+  ⏵⏵ auto mode on (shift+tab to cycle)                                                                                                                                                                
+
+
