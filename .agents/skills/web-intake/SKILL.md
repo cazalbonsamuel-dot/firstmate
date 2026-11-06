@@ -42,7 +42,7 @@ Le firstmate n'écrit jamais dans le projet (`AGENTS.md` règle 1) : il décide 
    - preuve sociale (témoignage, logo, chiffre, note, prix, distinction) dont le capitaine doit fournir la source ;
    - robots d'entraînement IA, si le besoin change la matrice décidée ;
    - fusion d'une PR sur un site en ligne, qui vaut mise en production (`web-livraison`).
-   Envoyer ensemble, une question concise par ligne « remonte », avec son effet sur la suite ; pendant l'attente, lancer seulement les travaux compatibles avec toutes les réponses possibles, dont la mesure de départ.
+   Envoyer ensemble, une question concise par ligne « remonte », avec son effet sur la suite ; la relecture des textes et la fusion s'annoncent dès l'admission et se demandent à la livraison ; pendant l'attente, lancer seulement les travaux compatibles avec toutes les réponses possibles, dont la mesure de départ.
 6. Résoudre le mode de livraison selon `AGENTS.md` section 7 ; `yolo` reste désactivé pour tout site en ligne, même si le registre du projet dit autre chose : dans ce cas, le signaler au capitaine.
 7. Décider le premier découpage en unités de travail, chacune avec son livrable vérifiable de bout en bout (`web-worker-brief`).
 8. Tenir le besoin comme item du backlog du home ; la note dit le classement, l'objectif mesurable, la requête visée et les questions ouvertes.
