@@ -353,7 +353,7 @@ if OUT=$(run_control hsmoke exit 2>&1); then
   fail "exit should fail closed when the agent's composer is not proven empty: $OUT"
 fi
 case "$OUT" in
-  *"composer visibly holds pending text; refusing to type the /exit exit command"*|*"not proven empty; refusing to type the /exit exit command"*) : ;;
+  *"composer visibly holds pending text; refusing to type the /exit"*" exit command"*|*"not proven empty; refusing to type the /exit"*" exit command"*) : ;;
   *) fail "the exit failure should refuse to type the /exit command for an unproven or pending composer, got: $OUT" ;;
 esac
 [ "$(fm_backend_agent_state herdr "$SESSION:$PANE_ID")" = alive ] \

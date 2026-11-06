@@ -5533,6 +5533,66 @@ test_send_text_submit_claude_slash_popup_composer_is_still_proven_and_submitted(
   pass "fm_backend_herdr_send_text_submit: a typed slash command hidden behind its popup is still proven and submitted"
 }
 
+# herdr_claude_picker_screen: what Claude Code 2.1.309 draws for <typed>
+# (captured live on Herdr 0.9.3). While the composer holds a bare command
+# token, the slash-command picker sits below the composer's closing rule and
+# its selected row starts with the same prompt glyph as the composer. An
+# empty composer has no picker, and a trailing space ends the token and closes
+# it, leaving the composer.
+herdr_claude_picker_screen() {  # <typed>
+  local typed=$1 rule
+  rule=$(printf '%0.s\xe2\x94\x80' $(seq 1 60))
+  printf '%s\n' "$rule"
+  printf '\xe2\x9d\xaf %s\n' "$typed"
+  printf '%s\n' "$rule"
+  case "$typed" in
+    ''|*' ') ;;
+    *)
+      printf '  \xe2\x9d\xaf %s                                           Exit the CLI\n' "$typed"
+      printf '    /context                                        Visualize current context usage as a colored grid\n'
+      printf '    /marketing:email-sequence                       (marketing) Design and draft multi-email sequences with full copy,\n'
+      printf '                                                    timing, branching logic, exit conditions, and performance benchma\xe2\x80\xa6\n'
+      return 0
+      ;;
+  esac
+  printf '  \xe2\x8f\xb5\xe2\x8f\xb5 bypass permissions on (shift+tab to cycle)\n'
+}
+
+# fm-control exit on Claude 2.1.309 (the 2026-11-05 breakage): a typed bare
+# /exit reads back as the picker's selected row, so the payload proof refuses
+# it and clears the composer. The exit command fm-control sends for Claude
+# closes the picker first, so the composer read shows the command and it is
+# submitted.
+test_send_text_submit_claude_exit_command_closes_the_picker() {
+  local dir log resp fb out enter_count text
+  dir="$TMP_ROOT/submit-claude-picker-bare"; mkdir -p "$dir/responses"; log="$dir/log"; resp="$dir/responses"; : > "$log"
+  herdr_submit_claude_prefix "$resp" /exit
+  herdr_claude_picker_screen /exit > "$resp/4.out"
+  herdr_claude_picker_screen '' > "$resp/6.out"
+  fb=$(make_herdr_fakebin "$dir")
+  out=$( PATH="$fb:$PATH" FM_HERDR_LOG="$log" FM_HERDR_RESPONSES="$resp" FM_BACKEND_HERDR_SUBMIT_POLLS=1 \
+    bash -c '. "$0/bin/backends/herdr.sh"; fm_backend_herdr_send_text_submit default:w1:p2 /exit 3 0.01 0.01' "$ROOT" )
+  [ "$out" = send-failed ] || fail "a bare /exit read back as Claude's picker row should not be proven, got '$out'"
+  enter_count=$(grep -c $'\x1f''pane'$'\x1f''send-keys'$'\x1f''w1:p2'$'\x1f''enter' "$log")
+  [ "$enter_count" -eq 0 ] || fail "an unproven bare /exit must not be submitted, sent $enter_count Enter(s)"
+
+  dir="$TMP_ROOT/submit-claude-picker-closed"; mkdir -p "$dir/responses"; log="$dir/log"; resp="$dir/responses"; : > "$log"
+  text=$(. "$ROOT/bin/fm-control-lib.sh"; fm_control_exit_command claude; printf x)
+  text=${text%x}
+  herdr_submit_claude_prefix "$resp" "$text"
+  herdr_claude_picker_screen "$text" > "$resp/4.out"
+  printf '{"result":{"agent":{"agent":"claude","agent_status":"idle"}}}\n' > "$resp/5.out"
+  printf '{"result":{"agent":{"agent_status":"working"}}}\n' > "$resp/7.out"
+  fb=$(make_herdr_fakebin "$dir")
+  out=$( PATH="$fb:$PATH" FM_HERDR_LOG="$log" FM_HERDR_RESPONSES="$resp" FM_BACKEND_HERDR_SUBMIT_POLLS=1 \
+    bash -c '. "$0/bin/backends/herdr.sh"; fm_backend_herdr_send_text_submit default:w1:p2 "$1" 3 0.01 0.01' "$ROOT" "$text" )
+  [ "$out" = empty ] || fail "fm-control's Claude exit command '$text' should close the picker and be submitted, got '$out'"
+  enter_count=$(grep -c $'\x1f''pane'$'\x1f''send-keys'$'\x1f''w1:p2'$'\x1f''enter' "$log")
+  [ "$enter_count" -eq 1 ] || fail "the Claude exit command should be submitted once, sent $enter_count Enter(s)"
+  [ "$(herdr_ctrl_u_count "$log")" -eq 0 ] || fail "a proven Claude exit command must not be cleared"
+  pass "fm_backend_herdr_send_text_submit: fm-control's Claude exit command closes the 2.1.309 picker and is submitted"
+}
+
 # Live Claude Code 2.1.283 draws a recognized typed slash command in muted
 # truecolor grey (38;2;112;112;112, luminance 112), below the grok-tuned
 # dark-foreground ghost threshold. Claude's own ghost suggestion is SGR-2 dim,
@@ -6487,6 +6547,7 @@ test_send_text_submit_refuses_marked_digest_missing_its_head
 test_composer_state_claude_slash_popup_pushes_composer_above_tail_window
 test_send_text_submit_claude_slash_popup_composer_is_still_proven_and_submitted
 test_send_text_submit_claude_grey_slash_command_is_proven_and_submitted
+test_send_text_submit_claude_exit_command_closes_the_picker
 test_send_text_submit_lone_paste_placeholder_submits_the_long_payload
 test_send_text_submit_multiline_paste_placeholder_submits_the_long_payload
 test_send_text_submit_refuses_placeholder_followed_by_a_literal_remainder

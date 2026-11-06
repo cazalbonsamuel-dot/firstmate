@@ -79,7 +79,7 @@ case "${1:-}" in
       esac
       printf '%s\n' "$payload" >> "$D/literal"
       case "$payload" in
-        /exit|/quit)
+        /exit|'/exit '|/quit)
           printf 'zsh' > "$D/command"
           [ -z "${FM_FAKE_EXIT_TRANSPORT_FAIL_AFTER_STOP:-}" ] || exit 1
           ;;

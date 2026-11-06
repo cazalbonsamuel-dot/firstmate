@@ -280,6 +280,12 @@ fm_control_interrupt_ack_source() {  # <harness>
 # /exit command. The detected major is recorded at spawn (bin/fm-spawn.sh) and
 # passed as $2; when it is absent or 1 the version-agnostic /exit is used, which
 # exits both lines.
+# Claude's /exit carries a trailing space. Typing `/` opens Claude's
+# slash-command picker, and from 2.1.309 its selected row starts with the same
+# prompt glyph as the composer, so Herdr's pre-Enter payload proof read the
+# picker row instead of the typed command and refused to submit (verified live
+# on Herdr 0.9.3). The space closes the picker, Claude still runs /exit, and the
+# whitespace-insensitive proof matches the composer.
 fm_control_exit_command() {  # <harness> [opencode-major]
   case "${1-}" in
     opencode)
@@ -288,7 +294,8 @@ fm_control_exit_command() {  # <harness> [opencode-major]
         *) printf 'C-c' ;;
       esac
       ;;
-    claude|grok|kimi|cursor|muse|rovo) printf '/exit' ;;
+    claude) printf '/exit ' ;;
+    grok|kimi|cursor|muse|rovo) printf '/exit' ;;
     codex|pi|pi-signed|omp|gemini|agy|devin|commandcode|polytoken|cortex|kiro) printf '/quit' ;;
     *) return 1 ;;
   esac
