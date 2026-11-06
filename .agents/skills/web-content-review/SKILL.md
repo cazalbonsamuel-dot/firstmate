@@ -33,6 +33,7 @@ Aucun agent ne remplace la relecture du capitaine, que Google exige pour le cont
    - typographie de gabarit (tiret cadratin comme ponctuation, émojis dans les titres, gras sur un mot par phrase).
 5. Faire corriger par l'auteur les constats retenus, puis vérifier qu'aucun point bloquant ne reste.
 6. Vérifier la byline d'un auteur réel là où le lecteur l'attend, et qu'une image générée publiée garde ses métadonnées IPTC de type de source numérique `trainedAlgorithmicMedia` (http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia).
+   La valeur est exacte, casse comprise (`trainedAlgorithmicMedia` ou l'URI complète ci-dessus) ; toute autre valeur, `TrainedAlgorithmicMedia` compris, renvoie au worker.
    Aucune page ni mention de divulgation de l'usage de l'IA n'est imposée (Q12 retirée par le capitaine).
 7. Préparer pour le capitaine un résumé à relire lui-même : tous les textes publiés de la PR (y compris `<title>`, meta description, JSON-LD, textes alternatifs), la liste « affirmations et sources », les avertissements justifiés, les emplacements de preuve sociale en attente de sa source, et l'URL d'aperçu.
    Tenir sa relecture selon `captain-hold-lifecycle` ; ses corrections repartent au worker auteur.
