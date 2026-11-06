@@ -1,0 +1,13 @@
+CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION=false claude --dangerously-skip-permissions
+wt on  cx
+❯ CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION=false claude --dangerously-skip-permissions
+ ▐▛███▛█   Claude Code v2.1.309
+▝▜██████▀  Opus 5.5 with high effort · Claude Ultra
+ ▝▝   ▝▝   /private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-ctl-exit-live.qAOcX6/wt
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+❯
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Opus 5.5                                                                                            ● high · /effort
+  ⏵⏵ bypass permissions on (shift+tab to cycle) · ← for agents

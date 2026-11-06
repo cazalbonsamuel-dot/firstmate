@@ -1,0 +1,40 @@
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Opus 5.5                                                             Update available! Run: brew upgrade claude-code
+  ⏵⏵ bypass permissions on (shift+tab to cycle)                                           Ctrl+Y to paste deleted text
+wt on  cx 13s
+❯ cd -- '/private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-ctl-exit-live.qAOcX6/wt'
+wt on  cx
+❯ export GOTMPDIR=/tmp/fm-cx/gotmp
+wt on  cx
+❯ export COMPACT_ADVISER_DISABLE=1
+wt on  cx
+❯ export FM_TASK_ID=cx
+wt on  cx
+❯ . '/tmp/fm-cx+9a4258404e2836f3084a815bd288679eb265469cc584c3105a52b7264277e8d9/launch.s1793998928.6820.18658.sh'
+ ▐▛███▛█   Claude Code v2.1.309
+▝▜██████▀  Opus 5.5 with high effort · Claude Ultra
+ ▝▝   ▝▝   /private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-ctl-exit-live.qAOcX6/wt
+
+
+❯ : Firstmate operational input waiting: read '/private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-ctl-exit-liv
+  e.qAOcX6/home/state/operational-inbox/1793998931-12c76feb57c70a9b.msg' and handle its contents as Firstmate
+  operational input.
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ ready
+
+✻ Worked for 5s · done 10:02 PM
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+❯ /exit
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Opus 5.5 | ctx: 4% used
+  ⏵⏵ bypass permissions on (shift+tab to cycle)
+                                                                       Update available! Run: brew upgrade claude-code
+  You've used 81% of your weekly limit · resets Nov 9 at 3am (Europe/Paris) · /usage-credits to keep using Claude Code
+
+Resume this session with:
+claude --resume 2ef96413-4cc0-46a5-912b-f04897e320ef
+wt on  cx 14s
+❯

@@ -1,0 +1,30 @@
+lab: session=fm-lab-fmctl-exit-1867-26117 pane=w1:p2 claude=2.1.309 (Claude Code) herdr=herdr 0.9.3
+launch: claude idle (agent_status=idle)
+agent state before exit: alive
+--- BASE (pre-fix, bare /exit) fm-control.sh cx exit ---
+rc=1 out: fm-gate-refuse: gate agent lifecycle permitted only against lab home /private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-ctl-exit-live.qAOcX6/home
+error: the exit command could not be sent to task cx on herdr
+agent state after base exit: alive
+post-base: claude idle (agent_status=idle)
+--- FIXED fm-control.sh cx exit ---
+rc=0 out: fm-gate-refuse: gate agent lifecycle permitted only against lab home /private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-ctl-exit-live.qAOcX6/home
+stopped cx harness=claude backend=herdr endpoint=fm-lab-fmctl-exit-1867-26117:w1:p2 worktree=/private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-ctl-exit-live.qAOcX6/wt
+agent state after fixed exit: dead
+--- FIXED fm-control.sh cx relaunch ---
+rc=0 out: fm-gate-refuse: gate agent lifecycle permitted only against lab home /private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-ctl-exit-live.qAOcX6/home
+fm-gate-refuse: gate agent lifecycle permitted only against lab home /private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-ctl-exit-live.qAOcX6/home
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+●  WATCHER DOWN - SUPERVISION IS OFF
+●  1 task(s) in flight, but no watcher has a fresh beacon (last beat: never, grace 300s).
+●  Trust the emitted supervision protocol for this harness; do not use shell & for watcher repair.
+●  This is a supervision warning only; the guarded operation WILL still run.
+●  watcher supervision needs Stop-owned automatic recovery; inspect the hook registration and startup status before ending the turn.
+●━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+relaunched cx harness=claude from=claude model=default effort=default backend=herdr endpoint=fm-lab-fmctl-exit-1867-26117:w1:p2 worktree=/private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-ctl-exit-live.qAOcX6/wt
+agent state after relaunch: alive
+relaunched: claude idle (agent_status=idle)
+--- FIXED fm-control.sh cx exit (second incarnation) ---
+rc=0 out: fm-gate-refuse: gate agent lifecycle permitted only against lab home /private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-ctl-exit-live.qAOcX6/home
+stopped cx harness=claude backend=herdr endpoint=fm-lab-fmctl-exit-1867-26117:w1:p2 worktree=/private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-ctl-exit-live.qAOcX6/wt
+agent state after second exit: dead
+teardown: lab session fm-lab-fmctl-exit-1867-26117 removed
