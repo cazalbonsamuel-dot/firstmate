@@ -1,6 +1,6 @@
 ---
 name: web-livraison
-description: Load in a web (firstmate-web) home when a web worker reports a ready PR, and before any production release.
+description: Load in a web (firstmate-web) home when a web worker reports a ready PR, before any production release, and again after the merge to verify production.
 user-invocable: false
 metadata:
   internal: true
@@ -21,13 +21,14 @@ Ce skill précède `ship-landing` et ne le remplace pas ; le pipeline de livrais
 
 1. Vérifier la présence et la cohérence des preuves exigées par le brief (`web-worker-brief`), sans refaire la revue du pipeline :
    - captures 375, 768 et 1440 px avant et après, prises sur le rendu ;
-   - tableau des mesures avant/après : Lighthouse cinq passes en médiane, axe, sorties du kit du projet ou manque écrit ;
+   - tableau des mesures avant/après : Lighthouse cinq passes en médiane (JSON), rapport axe ;
+   - sorties de html-validate, lychee, knip et size-limit, et pour un contenu de Vale et Grammalecte (seule la PR qui crée le kit, lot 3, en est dispensée et montre leur première sortie) ;
    - pour un contenu : liste « affirmations et sources », revue anti-slop sans point bloquant et résumé de relecture (`web-content-review`) ;
    - pour un rendu nouveau ou refait : conformité au DESIGN.md retenu (`web-design-direction`) ;
    - URL d'aperçu qui répond et montre la branche de la PR ;
    - contrôles automatiques verts ;
    - retour arrière écrit dans la PR (commit à annuler ou déploiement précédent à rétablir chez l'hébergeur).
-   Une preuve manquante renvoie au worker ; un contrôle rouge ne se présente pas.
+   Une preuve manquante renvoie au worker, un manque écrit à la place d'une preuve du kit compris ; un contrôle rouge ne se présente pas.
 2. Ouvrir l'URL d'aperçu dans `chrome-devtools-axi` et regarder le rendu ; tout défaut visible, même hors sujet, est signalé.
 3. Présenter au capitaine la fusion comme une mise en production, dans un seul message :
    - le résultat en une phrase ;
@@ -49,7 +50,7 @@ Ce skill précède `ship-landing` et ne le remplace pas ; le pipeline de livrais
 - **Capitaine** : toute fusion sur un site en ligne, toute mise en production, tout retour arrière en production, tout compte ou nom de domaine nécessaire au déploiement.
 - **Firstmate** : présence des preuves, renvoi au worker, moment de la présentation, vérification après fusion.
 - **Worker** : production des preuves et vérifications après fusion ; jamais de fusion, de déploiement manuel ni de connecteur d'écriture en production.
-- Refuser de présenter une PR sans URL d'aperçu, sans mesures avant/après jointes, ou dont un texte publié n'a pas suivi `web-content-review`.
+- Refuser de présenter une PR sans URL d'aperçu, sans mesures avant/après jointes, sans les sorties du kit exigées par `web-worker-brief`, ou dont un texte publié n'a pas suivi `web-content-review`.
 - Refuser `yolo` pour un site en ligne, même si le registre du projet l'active : le signaler au capitaine.
 
 ## Références

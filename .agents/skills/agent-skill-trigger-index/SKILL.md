@@ -42,6 +42,6 @@ These skills are not captain-invocable; load them only at their precise triggers
 - `web-worker-brief` - in a web home, load before writing the brief of any web worker.
 - `web-design-direction` - in a web home, load before having a design direction chosen for a site, and before accepting a new or redone rendering.
 - `web-content-review` - in a web home, load before accepting any text meant to be published, metadata and alternative text included, and before presenting it to the captain for reading.
-- `seo-geo-audit` - in a web home, load before commissioning or presenting an SEO or GEO audit; it replaces `marketing:seo-audit` there.
+- `seo-geo-audit` - in a web home, load before commissioning or presenting an SEO or GEO audit, and before presenting any SEO or GEO recommendation, even outside an audit; it replaces `marketing:seo-audit` there.
 - `web-livraison` - in a web home, load when a web worker reports a ready PR, before any production release, and again after the merge.
 - `firstmate-coding-guidelines` - load before changing firstmate's shared, tracked material, as defined by section 1's list, whether editing directly or briefing a crewmate for a firstmate-repo task.

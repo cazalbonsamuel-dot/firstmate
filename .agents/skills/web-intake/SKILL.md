@@ -29,7 +29,7 @@ Le firstmate n'écrit jamais dans le projet (`AGENTS.md` règle 1) : il décide 
 3. Avant toute nouvelle page, faire vérifier dans Search Console qu'aucune URL existante ne sert déjà cette requête ; sinon consolider par redirection ou canonique plutôt que créer.
    Sans propriété Search Console (site neuf), le consigner et vérifier sur le plan du site.
 4. Prévoir la mesure de l'état de départ avant toute modification, par un premier worker ou en tête du worker de la modification : captures 375, 768 et 1440 px sur le rendu, Lighthouse cinq passes en médiane, axe, export Search Console quand la propriété existe.
-   Les outils de mesure par projet (Lighthouse CLI, Playwright avec axe) sont attendus du kit de contrôles du projet ; tant qu'ils manquent, `chrome-devtools-axi` fournit captures, accessibilité, SEO de base et traces, et le manque est dit.
+   Ces mesures sortent du kit de contrôles du projet (Playwright avec axe, Lighthouse CI) ; un projet sans kit commence par la PR qui le crée (lot 3), et un outil empêché est un blocage remonté au firstmate, pas un manque accepté (`web-worker-brief`).
    Une mesure à la fois sur ce Mac, jamais pendant un travail lourd d'un autre home.
 5. Dresser la liste de ce qui remonte au capitaine en passant chaque ligne de cette grille, marquée « remonte » avec la question concrète ou « sans objet » :
    - nom de domaine, registraire ;
@@ -51,7 +51,7 @@ Le firstmate n'écrit jamais dans le projet (`AGENTS.md` règle 1) : il décide 
 ## Refuser ou remonter
 
 - **Capitaine** : toute ligne « remonte » de la grille de l'étape 5, et toute inconnue qui change l'objectif, le public ou le périmètre.
-- **Firstmate** : classement, objectif mesurable dérivé de la demande, hypothèses bornées, découpage, ordre des travaux, choix de l'outil de mesure disponible.
+- **Firstmate** : classement, objectif mesurable dérivé de la demande, hypothèses bornées, découpage, ordre des travaux et des mesures.
 - **Worker** : aucun worker de modification avant la mesure de départ ; seuls mesure, audit et recherche peuvent partir avant les réponses du capitaine.
 - Refuser une série de pages générées (villes, variantes, synonymes, traductions automatiques) et toute page qui ne nomme pas la requête réelle qu'elle sert et ce qu'elle apporte.
 - Refuser tout connecteur d'écriture en production (WordPress.com, achat de domaine) pour un worker.
@@ -62,4 +62,3 @@ Le firstmate n'écrit jamais dans le projet (`AGENTS.md` règle 1) : il décide 
 - Google, politiques anti-spam (scaled content abuse, doorway abuse) : https://developers.google.com/search/docs/essentials/spam-policies
 - Google, canonicalisation : https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls
 - Lighthouse, variabilité (médiane de cinq passes, pas de passes parallèles) : https://github.com/GoogleChrome/lighthouse/blob/main/docs/variability.md
-- `chrome-devtools-axi --help` pour les commandes de capture et d'audit disponibles.

@@ -22,8 +22,8 @@ Aucun agent ne remplace la relecture du capitaine, que Google exige pour le cont
 1. Vérifier que la remise porte la liste « affirmations et sources » : chaque chiffre, date, citation, règle de moteur ou fait technique a sa source primaire (documentation officielle, étude, donnée du site), datée, qui soutient vraiment l'affirmation.
    Une source secondaire, absente ou qui ne dit pas ce qu'on lui fait dire renvoie au worker.
 2. Vérifier que la page nomme l'élément original qu'elle apporte (mesure, expérience vécue, exemple réel, donnée du capitaine) et la requête réelle qu'elle sert.
-3. Lire les sorties de Vale (tournures interdites, en avertissement) et de Grammalecte ou LanguageTool quand le kit du projet les fournit ; chaque avertissement restant porte une justification écrite dans la PR.
-   Tant que ces outils manquent, la revue de l'étape 4 couvre aussi ces catégories, et le manque est dit.
+3. Lire les sorties de Vale (tournures interdites, en avertissement) et de Grammalecte, preuves du kit obligatoires (`web-worker-brief`) ; chaque avertissement restant porte une justification écrite dans la PR.
+   Une remise sans ces sorties renvoie au worker, hors la PR qui crée le kit (lot 3) ; un outil empêché est un blocage remonté au firstmate, pas un manque accepté.
 4. Page de contenu rédactionnel : lancer la revue anti-slop par un worker Fable distinct de l'auteur, brief écrit avec `web-worker-brief`, en scout ; il rend des constats localisés (phrase, catégorie, correction proposée), sans réécrire ni noter le texte.
    Catégories de départ, à calibrer sur les premiers textes réels avant de durcir quoi que ce soit :
    - ouvertures et transitions creuses (« Dans un monde en constante évolution », « Il est important de noter que », « Plongeons dans ») ;
@@ -32,7 +32,7 @@ Aucun agent ne remplace la relecture du capitaine, que Google exige pour le cont
    - structures mécaniques (« Ce n'est pas X, c'est Y » en série, énumérations systématiques par trois, « En conclusion », « N'hésitez pas à », questions rhétoriques en intertitre) ;
    - typographie de gabarit (tiret cadratin comme ponctuation, émojis dans les titres, gras sur un mot par phrase).
 5. Faire corriger par l'auteur les constats retenus, puis vérifier qu'aucun point bloquant ne reste.
-6. Vérifier la byline d'un auteur réel là où le lecteur l'attend, et qu'une image générée publiée garde ses métadonnées IPTC `TrainedAlgorithmicMedia`.
+6. Vérifier la byline d'un auteur réel là où le lecteur l'attend, et qu'une image générée publiée garde ses métadonnées IPTC de type de source numérique `trainedAlgorithmicMedia` (http://cv.iptc.org/newscodes/digitalsourcetype/trainedAlgorithmicMedia).
    Aucune page ni mention de divulgation de l'usage de l'IA n'est imposée (Q12 retirée par le capitaine).
 7. Préparer pour le capitaine un résumé à relire lui-même : tous les textes publiés de la PR (y compris `<title>`, meta description, JSON-LD, textes alternatifs), la liste « affirmations et sources », les avertissements justifiés, les emplacements de preuve sociale en attente de sa source, et l'URL d'aperçu.
    Tenir sa relecture selon `captain-hold-lifecycle` ; ses corrections repartent au worker auteur.

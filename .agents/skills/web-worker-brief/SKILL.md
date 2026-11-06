@@ -35,10 +35,12 @@ Les règles du domaine dans `data/captain.md` restent l'autorité ; le brief les
 5. Écrire la définition de fini avec ses preuves, jointes à la PR ou au rapport :
    - captures 375, 768 et 1440 px avant et après, prises sur le rendu, clair et sombre si le site a les deux ;
    - Lighthouse cinq passes en médiane avant et après (JSON) ; rapport axe ;
-   - sorties des contrôles du kit du projet quand il existe (html-validate, lychee, knip, size-limit, Vale, Grammalecte ou LanguageTool), sinon le manque est écrit ;
-   - pour un texte : la liste « affirmations et sources » et l'élément original de la page ;
+   - sorties de html-validate, lychee, knip et size-limit ;
+   - pour un texte : sorties de Vale et Grammalecte, la liste « affirmations et sources » et l'élément original de la page ;
    - pour une PR : l'URL d'aperçu ;
    - aucune affirmation sur le site décrite comme vérifiée à la seule lecture du code.
+   Ces preuves sortent du kit de contrôles du projet et sont obligatoires sur toute PR d'un projet web ; seule la PR qui crée le kit (lot 3) en est dispensée, et elle montre leur première sortie.
+   Un outil absent ou empêché est un blocage que le worker remonte au firstmate (`blocked:`), jamais un manque écrit dans la PR.
 6. Hors périmètre, à écrire dans le brief : toute mise en production, toute fusion, tout compte, achat ou connecteur d'écriture en production (WordPress.com, domaine), tout autre projet.
 7. Arrêt : une question qui touche le DESIGN.md retenu, le plan de contenu, une source manquante ou une ligne de la grille de `web-intake` donne `needs-decision` au firstmate.
 8. Avant de lancer, relire le brief : une unité, des entrées figées, un livrable, des preuves.
@@ -47,7 +49,7 @@ Les règles du domaine dans `data/captain.md` restent l'autorité ; le brief les
 
 - **Capitaine** : rien directement ; une unité impossible sans nouvelle décision passe par la grille de `web-intake`.
 - **Firstmate** : unité, entrées figées, modèle, ordre des travaux et des mesures, preuves exigées.
-- **Worker** : détails d'implémentation sans effet sur le DESIGN.md, le plan de contenu ou les sources, et manière de produire ses preuves.
+- **Worker** : détails d'implémentation sans effet sur le DESIGN.md, le plan de contenu ou les sources ; jamais le remplacement ni l'omission d'une preuve du kit.
 - Refuser d'écrire un brief « site entier » quand le travail se découpe par page, un brief qui autorise la mise en production, ou un brief de rédaction sans sources fournies ni consigne de source primaire.
 
 ## Références
