@@ -24,6 +24,7 @@ Le choix de la direction revient au capitaine (`data/captain.md`) ; le firstmate
    - quatre à six couleurs nommées avec leurs rôles, polices et rôles, échelle typographique, espacements, mise en page, clair et sombre si le site a les deux ;
    - relu contre les signatures du design généré par IA listées par `frontend-design`, toute signature conservée justifiée par écrit ;
    - illustré par une maquette de la page d'accueil rendue et capturée, marquée « proposition non validée ».
+   Pour un site neuf, les maquettes partent du plan de contenu retenu (`web-intake`) ; le design sublime et sert ce contenu.
    Le skill `website-design:web-design-system` sert de trame ; sans UXKIN, le DESIGN.md dit qu'il ne s'appuie pas sur sa base.
 3. Construire une seule planche Lavish de comparaison (`lavish-axi`) : par direction, captures, palette, typographie, sites de référence, signatures justifiées ; puis une seule question de choix.
 4. Tenir le choix pour le capitaine selon `captain-hold-lifecycle` ; pendant l'attente, seuls les travaux indépendants du design continuent (contenu, mesure, technique).
@@ -33,6 +34,10 @@ Le choix de la direction revient au capitaine (`data/captain.md`) ; le firstmate
    - comparer les captures 375, 768 et 1440 px au DESIGN.md retenu (couleurs, polices, échelle, espacements, mise en page) ;
    - chercher les signatures de `frontend-design` non justifiées et toute valeur hors tokens ;
    - vérifier les points mesurables : longueur de ligne inférieure à 80 caractères, contraste au moins 4,5:1, cibles tactiles d'au moins 44 px, aucun défilement horizontal à 375 px, focus visible, `prefers-reduced-motion` respecté ;
+   - premier écran à 375 et 1440 px sans défiler : ce que propose le site en une phrase, un élément de confiance sourcé, le bouton de l'action principale, et le début de la section suivante qui dépasse ; aucune information critique seulement dans un carrousel ;
+   - action principale à un clic depuis tout endroit du site (en-tête qui suit le défilement ou bouton répété) ;
+   - chaque image apporte ou clarifie une information ; une image décorative qui répète le texte voisin est renvoyée ;
+   - chaque formulaire : étiquette visible liée à son champ, `type` et `autocomplete` adaptés, erreur annoncée près du champ sans effacer la saisie, ce qui se passe après l'envoi et sous quel délai, usage des données collectées ;
    - renvoyer au worker avec des écarts précis (capture, élément, valeur attendue, valeur vue), jamais avec un « à améliorer » ;
    - signaler aussi tout défaut visuel hors sujet vu à l'écran (exigence visuelle du capitaine).
 7. La revue des signatures et des tokens de l'étape 6 se fait toujours sur les captures et le code, pour tout rendu nouveau ou refait.
@@ -48,8 +53,12 @@ Le choix de la direction revient au capitaine (`data/captain.md`) ; le firstmate
 
 ## Références
 
-- `data/captain.md` : règle de design et décision sur les références visuelles.
+- `data/captain.md` : règle de design, décision sur les références visuelles, conversion et contenu.
 - Skill `frontend-design` : signatures du design généré par IA, plan de tokens relu contre le brief avant le code.
 - Skills `website-design:web-design-system` (trame du DESIGN.md) et `website-design:web-review` (revue du rendu).
-- WCAG 2.2 : https://www.w3.org/TR/WCAG22/ (contraste 4,5:1 au critère 1.4.3 ; 44 px est le critère AAA 2.5.5, retenu par `landing-page`).
+- WCAG 2.2 : https://www.w3.org/TR/WCAG22/ (contraste 4,5:1 au critère 1.4.3 ; 44 px est le critère AAA 2.5.5, retenu par `landing-page` ; formulaires aux critères 1.3.5, 3.3.1 et 3.3.2).
+- NN/g, Scrolling and Attention (2018, 57 % du temps de lecture au-dessus de la ligne de flottaison) : https://www.nngroup.com/articles/scrolling-and-attention/
+- NN/g, Homepage Design: 4 Common Mistakes (faux plancher, carrousel) : https://youtu.be/lSwwFqWqZqQ
+- web.dev, bonnes pratiques des formulaires (`type`, `autocomplete`) : https://web.dev/articles/payment-and-address-form-best-practices
+- Service-public, information des personnes dont les données sont collectées : https://entreprendre.service-public.gouv.fr/vosdroits/F24270
 - `lavish-axi --help` pour la planche.

@@ -22,9 +22,12 @@ Le firstmate n'écrit jamais dans le projet (`AGENTS.md` règle 1) : il décide 
    Un audit seul se traite avec `seo-geo-audit` et ne produit pas de PR.
 2. Citer la demande mot pour mot, puis écrire séparément :
    - l'objectif mesurable (ce qui doit changer, sur quelle mesure) ;
+   - l'action principale du visiteur (appeler, réserver, demander un devis...) ;
    - le public visé ;
    - la requête réelle que la page sert, une intention par page ;
    - les faits sourcés, les hypothèses bornées et les inconnues.
+   Pour un site neuf, écrire aussi l'objectif du visiteur, ses freins, craintes et objections : ils forment le plan de contenu.
+   Pour un lieu qui reçoit du public, le plan de contenu inclut ses infos pratiques en texte HTML visibles depuis l'accueil : adresse et accès, horaires avec exceptions, téléphone en lien `tel:`, carte et prix en HTML (un PDF n'est qu'un complément), identiques à la fiche Google d'entreprise.
    Ne pas élargir l'intention ni inventer de préférence.
 3. Avant toute nouvelle page, faire vérifier dans Search Console qu'aucune URL existante ne sert déjà cette requête ; sinon consolider par redirection ou canonique plutôt que créer.
    Sans propriété Search Console (site neuf), le consigner et vérifier sur le plan du site.
@@ -35,6 +38,8 @@ Le firstmate n'écrit jamais dans le projet (`AGENTS.md` règle 1) : il décide 
    - nom de domaine, registraire ;
    - hébergeur, compte, CGU ;
    - comptes Search Console, Bing Webmaster Tools ou autre service ;
+   - fiche Google d'entreprise d'un lieu qui reçoit du public, créée ou revendiquée par le capitaine ou le commerçant, jamais par un worker ;
+   - page de mentions légales de tout site professionnel (éditeur, immatriculation, hébergeur), dont le capitaine fournit les données ;
    - outil payant, abonnement, achat ;
    - traceur, outil d'audience, service tiers, police non auto-hébergée, bandeau de consentement ;
    - direction de design (nouveau rendu ou rendu refait : `web-design-direction`) ;
@@ -45,6 +50,8 @@ Le firstmate n'écrit jamais dans le projet (`AGENTS.md` règle 1) : il décide 
    Envoyer ensemble, une question concise par ligne « remonte », avec son effet sur la suite ; la relecture des textes et la fusion s'annoncent dès l'admission et se demandent à la livraison ; pendant l'attente, lancer seulement les travaux compatibles avec toutes les réponses possibles, dont la mesure de départ.
 6. Résoudre le mode de livraison selon `AGENTS.md` section 7 ; `yolo` reste désactivé pour tout site en ligne, même si le registre du projet dit autre chose : dans ce cas, le signaler au capitaine.
 7. Décider le premier découpage en unités de travail, chacune avec son livrable vérifiable de bout en bout (`web-worker-brief`).
+   Pour un site neuf, le plan de contenu précède la direction de design (`web-design-direction`) ; le design ne se néglige pas pour autant, il sublime et sert ce contenu.
+   Une refonte qui change des URL commence par un inventaire des URL existantes (crawl et Search Console) et une table de redirections 301 page à page, jamais vers l'accueil par défaut, entrée figée du worker de la refonte (`web-livraison`).
 8. Tenir le besoin comme item du backlog du home ; la note dit le classement, l'objectif mesurable, la requête visée et les questions ouvertes.
    Tenir chaque question du capitaine selon `captain-hold-lifecycle`.
 
@@ -58,7 +65,12 @@ Le firstmate n'écrit jamais dans le projet (`AGENTS.md` règle 1) : il décide 
 
 ## Références
 
-- `data/captain.md` : règles du domaine et décisions du capitaine (hébergeur, domaine, comptes, audience, robots IA).
+- `data/captain.md` : règles du domaine et décisions du capitaine (hébergeur, domaine, comptes, audience, robots IA, conversion et contenu).
 - Google, politiques anti-spam (scaled content abuse, doorway abuse) : https://developers.google.com/search/docs/essentials/spam-policies
 - Google, canonicalisation : https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls
 - Lighthouse, variabilité (médiane de cinq passes, pas de passes parallèles) : https://github.com/GoogleChrome/lighthouse/blob/main/docs/variability.md
+- Google Business Profile, classement local (pertinence, distance, notoriété ; infos complètes et exactes) : https://support.google.com/business/answer/7091
+- Google, données structurées d'entreprise locale (`Restaurant`, `menu`, `openingHoursSpecification`) : https://developers.google.com/search/docs/appearance/structured-data/local-business
+- NN/g, éviter le PDF pour la lecture à l'écran (2020) : https://www.nngroup.com/articles/avoid-pdf-for-on-screen-reading/
+- Google, déménagement de site avec changement d'URL (table des URL, redirections gardées au moins un an) : https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes
+- Service-public, mentions obligatoires sur le site d'une entreprise : https://entreprendre.service-public.gouv.fr/vosdroits/F37351
