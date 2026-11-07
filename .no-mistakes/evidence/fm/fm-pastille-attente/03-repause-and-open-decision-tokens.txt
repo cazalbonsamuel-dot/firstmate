@@ -1,0 +1,14 @@
+$ tail -n2 state/web-wait.status
+working: build finished
+paused: second background job
+$ tail -n3 state/web-run.status
+working: implementing
+needs-decision [key=b]: which db?
+paused: waiting meanwhile
+$ fm-herdr-groups.sh plan
+web-run	storefront	needs-captain	000.storefront.1.web-run	000.storefront
+web-wait	storefront	waiting	000.storefront.3.web-wait	000.storefront
+$ herdr pane list (lab) tokens
+{"pane_id":"w1:p1","tokens":null}
+{"pane_id":"w2:p1","tokens":{"fm_group":"storefront","fm_icon":"🟣","fm_sort":"000.storefront.3.web-wait","fm_state":"waiting","fm_task":"web-wait"}}
+{"pane_id":"w3:p1","tokens":{"fm_group":"storefront","fm_sort":"000.storefront.1.web-run","fm_state":"needs-captain","fm_task":"web-run"}}

@@ -1,0 +1,40 @@
+ spaces                  │   1      +
+                         │~
+ · firstmate             │❯
+ ● web-wait              │
+ ● web-run               │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+ new               ● menu│
+─────────────────────────│
+ agents          projects│
+                         │
+ ● store… · runn… · web-…│
+ 🟣 · ● sto… · wai… · we…│
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                        «│

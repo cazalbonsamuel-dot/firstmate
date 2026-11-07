@@ -1,0 +1,5 @@
+$ fm-herdr-groups.sh clear
+$ herdr pane list (lab) tokens
+{"pane_id":"w1:p1","tokens":null}
+{"pane_id":"w2:p1","tokens":null}
+{"pane_id":"w3:p1","tokens":null}

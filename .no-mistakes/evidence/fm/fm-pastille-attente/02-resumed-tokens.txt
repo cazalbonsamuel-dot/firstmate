@@ -1,0 +1,11 @@
+$ cat state/web-wait.status
+working: started
+paused: waiting on my background build
+working: build finished
+$ fm-herdr-groups.sh plan
+web-run	storefront	running	000.storefront.3.web-run	000.storefront
+web-wait	storefront	running	000.storefront.3.web-wait	000.storefront
+$ herdr pane list (lab) tokens
+{"pane_id":"w1:p1","tokens":null}
+{"pane_id":"w2:p1","tokens":{"fm_group":"storefront","fm_sort":"000.storefront.3.web-wait","fm_state":"running","fm_task":"web-wait"}}
+{"pane_id":"w3:p1","tokens":{"fm_group":"storefront","fm_sort":"000.storefront.3.web-run","fm_state":"running","fm_task":"web-run"}}
