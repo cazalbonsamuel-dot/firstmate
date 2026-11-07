@@ -19,6 +19,9 @@ herdr_forget_inherited_pane
 
 TMP_ROOT=$(fm_test_tmproot fm-herdr-groups)
 TOKEN_A='AbCdEfGhIjKlMnOpQrStUv'
+# The fake session list names /tmp/fm-groups-s1.sock; the adapter canonicalizes
+# its directory, which is /private/tmp on macOS.
+VIEW_SOCK="$(cd /tmp && pwd -P)/fm-groups-s1.sock"
 
 # make_fake_herdr <dir>: a `herdr` stand-in that logs every call (one line,
 # unit-separated arguments) to $FAKE_HERDR_LOG and answers from files:
@@ -135,6 +138,9 @@ test_on_groups_by_project_and_sorts_by_status_rank() {
   add_task api-new ship /p/api-server w7
   add_task api-resolved ship /p/api-server w8 "$(printf 'needs-decision [key=a]: q\nresolved [key=a]: answered')"
   add_task mate secondmate /p/api-server w9 'working: go'
+  add_task web-wait ship /p/storefront w10 'paused: waiting on my background build'
+  add_task web-resumed ship /p/storefront w11 "$(printf 'paused: build\nworking: build finished')"
+  add_task api-wait-ask ship /p/api-server w12 "$(printf 'needs-decision [key=b]: q\npaused: waiting meanwhile')"
   printf 'window=t:1\nproject=/p/api-server\nkind=ship\n' > "$HOME_DIR/state/tmux-task.meta"
   out=$(groups plan 2>&1) || fail "plan failed: $out"
   assert_contains "$out" $'web-ask\tstorefront\tneeds-captain\t000.storefront.1.web-ask\t000.storefront' "open decision"
@@ -144,12 +150,15 @@ test_on_groups_by_project_and_sorts_by_status_rank() {
   assert_contains "$out" $'api-held\tapi-server\tneeds-captain\t' "captain-held task"
   assert_contains "$out" $'api-new\tapi-server\trunning\t' "task without a status log"
   assert_contains "$out" $'api-resolved\tapi-server\trunning\t' "resolved decision"
+  assert_contains "$out" $'web-wait\tstorefront\twaiting\t000.storefront.3.web-wait\t' "declared pause"
+  assert_contains "$out" $'web-resumed\tstorefront\trunning\t' "a pause followed by working is running again"
+  assert_contains "$out" $'api-wait-ask\tapi-server\tneeds-captain\t' "an open decision outranks a later pause"
   assert_not_contains "$out" "mate" "a secondmate pane is not a grouped task"
   assert_not_contains "$out" "tmux-task" "a non-Herdr task is not grouped"
   sorted=$(printf '%s\n' "$out" | sort -t $'\t' -k4,4 | cut -f1 | tr '\n' ' ')
-  assert_equals "api-held api-new api-resolved web-ask web-fail web-run web-done " "$sorted" \
-    "sort keys must order by group, then needs-captain, problem, running, done"
-  pass "on: one group per project, status order needs-captain, problem, running, done"
+  assert_equals "api-held api-wait-ask api-new api-resolved web-ask web-fail web-wait web-resumed web-run web-done " "$sorted" \
+    "sort keys must order by group, then needs-captain, problem, waiting, running, done"
+  pass "on: one group per project, status order needs-captain, problem, waiting, running, done"
 }
 
 test_rules_order_groups_and_prefer_task_over_repo_over_catch_all() {
@@ -170,7 +179,7 @@ EOF
   add_task webby ship /p/tools w6 'working: go'
   : > "$HOME_DIR/state/task:web"
   out=$(cd "$HOME_DIR/state" && groups plan 2>"$FAKE_DIR/err") || fail "plan failed: $out"
-  assert_contains "$out" $'api-in-storefront\tBackend\trunning\t002.Backend.3.api-in-storefront\t002.Backend' \
+  assert_contains "$out" $'api-in-storefront\tBackend\trunning\t002.Backend.4.api-in-storefront\t002.Backend' \
     "a task-id prefix beats a repository rule on an earlier line"
   assert_contains "$out" $'shop-x\tWeb\t' "a group spanning two lines keeps its first rank"
   assert_contains "$out" $'storefront-thing\tWeb\t' "repository selector"
@@ -180,7 +189,7 @@ EOF
   assert_contains "$(cat "$FAKE_DIR/err")" 'unknown selector "bogus"' "unknown selector warning"
   printf 'Web task:web\n' > "$HOME_DIR/config/herdr-project-groups"
   out=$(groups plan 2>&1) || fail "plan failed: $out"
-  assert_contains "$out" $'loose-end\ttools\trunning\t999.tools.3.loose-end\t999.tools' \
+  assert_contains "$out" $'loose-end\ttools\trunning\t999.tools.4.loose-end\t999.tools' \
     "an unmatched task falls back to its project after every rule group"
   out=$(groups order-key web-new /p/whatever 2>&1) || fail "order-key failed: $out"
   assert_equals "001.Web" "$out" "order-key for a rule group"
@@ -199,7 +208,7 @@ EOF
   out=$(groups plan 2>"$FAKE_DIR/err") || fail "plan after all-invalid rules failed: $out"
   assert_contains "$(cat "$FAKE_DIR/err")" 'invalid group name "Bad/Name"' "invalid group warning"
   assert_contains "$(cat "$FAKE_DIR/err")" 'invalid group name "!!!"' "second invalid group warning"
-  assert_contains "$out" $'web-a\tstorefront\trunning\t999.storefront.3.web-a\t999.storefront' \
+  assert_contains "$out" $'web-a\tstorefront\trunning\t999.storefront.4.web-a\t999.storefront' \
     "with no valid rules the task falls back to its project under the unmatched rank"
   pass "all-invalid rules: empty RULE_GROUP still plans via project fallback"
 }
@@ -207,7 +216,7 @@ EOF
 write_live_lists() {  # <tagged 0|1>
   local tokens='{}' ws_tokens='{}'
   if [ "$1" = 1 ]; then
-    tokens='{"fm_group":"storefront","fm_state":"running","fm_task":"web-run","fm_sort":"000.storefront.3.web-run"}'
+    tokens='{"fm_group":"storefront","fm_state":"running","fm_task":"web-run","fm_sort":"000.storefront.4.web-run"}'
     ws_tokens='{"fm_group":"storefront","fm_state":"running","fm_group_order":"000.storefront"}'
   fi
   cat > "$FAKE_DIR/workspaces.json" <<EOF
@@ -238,7 +247,7 @@ test_sync_reports_only_differences_and_sets_the_view() {
   out=$(groups sync 2>&1) || fail "first sync failed: $out"
   pane_reports=$(reports pane)
   ws_reports=$(reports workspace)
-  assert_contains "$pane_reports" "pane report-metadata w2:p2 --source firstmate --token fm_group=storefront --token fm_state=running --token fm_task=web-run --token fm_sort=000.storefront.3.web-run" \
+  assert_contains "$pane_reports" "pane report-metadata w2:p2 --source firstmate --token fm_group=storefront --token fm_state=running --token fm_task=web-run --token fm_sort=000.storefront.4.web-run" \
     "projected task pane tokens"
   assert_contains "$pane_reports" "pane report-metadata w1:p2 --source firstmate --token fm_group=storefront --token fm_state=problem --token fm_task=flat-task --token fm_sort=000.storefront.2.flat-task" \
     "flat task pane tokens"
@@ -246,7 +255,7 @@ test_sync_reports_only_differences_and_sets_the_view() {
   assert_equals "1" "$(printf '%s\n' "$ws_reports" | grep -c 'report-metadata')" "workspace reports"
   assert_contains "$ws_reports" "workspace report-metadata w2 --source firstmate --token fm_group=storefront --token fm_state=running --token fm_group_order=000.storefront" \
     "only the exactly bound projected workspace gets workspace tokens"
-  assert_equals "/tmp/fm-groups-s1.sock	set" "$(cat "$FAKE_VIEW_LOG")" "agents view set once for the session"
+  assert_equals "$VIEW_SOCK	set" "$(cat "$FAKE_VIEW_LOG")" "agents view set once for the session"
 
   : > "$FAKE_HERDR_LOG"; : > "$FAKE_VIEW_LOG"
   rm -f "$HOME_DIR/state/flat-task.meta"
@@ -261,11 +270,37 @@ test_sync_reports_only_differences_and_sets_the_view() {
     "$(reports pane)" "a status change reports only the changed pane tokens"
   assert_contains "$(reports workspace)" "--token fm_state=needs-captain --session s1" "workspace status token follows"
   assert_not_contains "$(reports workspace)" "fm_group=" "unchanged workspace tokens are not re-reported"
-  assert_equals "/tmp/fm-groups-s1.sock	set" "$(cat "$FAKE_VIEW_LOG")" "agents view re-set after a pane change"
+  assert_equals "$VIEW_SOCK	set" "$(cat "$FAKE_VIEW_LOG")" "agents view re-set after a pane change"
   assert_not_contains "$(cat "$FAKE_HERDR_LOG")" $'\x1fmove' "sync never moves anything"
   assert_not_contains "$(cat "$FAKE_HERDR_LOG")" $'\x1fclose' "sync never closes anything"
   assert_not_contains "$(cat "$FAKE_HERDR_LOG")" $'\x1ffocus' "sync never changes focus"
   pass "sync: reports only drifted tokens, workspace tokens only on the exact projection, view set on change"
+}
+
+test_sync_shows_the_waiting_icon_only_while_paused() {
+  local out
+  new_home waiting
+  printf 'on\n' > "$HOME_DIR/config/herdr-project-groups"
+  add_task web-run ship /p/storefront w2 'paused: waiting on my background build'
+  add_v2_journal web-run w2
+  write_live_lists 1
+  out=$(groups sync 2>&1) || fail "paused sync failed: $out"
+  assert_equals "herdr pane report-metadata w2:p2 --source firstmate --token fm_icon=🟣 --token fm_state=waiting --token fm_sort=000.storefront.3.web-run --session s1" \
+    "$(reports pane)" "a declared pause sets the purple icon and the waiting status"
+  assert_contains "$(reports workspace)" "--token fm_state=waiting --session s1" "workspace status token follows"
+  assert_not_contains "$(reports workspace)" "fm_icon" "the icon is a pane token only"
+
+  : > "$FAKE_HERDR_LOG"
+  sed 's/"fm_state":"running","fm_task"/"fm_icon":"🟣","fm_state":"waiting","fm_task"/; s/storefront\.4\.web-run/storefront.3.web-run/' \
+    "$FAKE_DIR/panes.json" > "$FAKE_DIR/panes.next" && mv "$FAKE_DIR/panes.next" "$FAKE_DIR/panes.json"
+  out=$(groups sync 2>&1) || fail "unchanged paused sync failed: $out"
+  assert_equals "" "$(reports pane)" "an unchanged pause reports nothing"
+
+  printf 'working: build finished\n' >> "$HOME_DIR/state/web-run.status"
+  out=$(groups sync 2>&1) || fail "resumed sync failed: $out"
+  assert_equals "herdr pane report-metadata w2:p2 --source firstmate --clear-token fm_icon --token fm_state=running --token fm_sort=000.storefront.4.web-run --session s1" \
+    "$(reports pane)" "resuming clears the icon instead of leaving it set"
+  pass "sync: the purple icon is set while the latest declaration is a pause and cleared after it"
 }
 
 test_sync_skips_an_unverified_protocol_with_one_warning() {
@@ -291,8 +326,8 @@ test_clear_removes_tokens_and_the_view_even_when_off() {
   add_v2_journal web-run w2
   write_live_lists 1
   out=$(groups clear 2>&1) || fail "clear failed: $out"
-  assert_equals "/tmp/fm-groups-s1.sock	clear" "$(cat "$FAKE_VIEW_LOG")" "agents view cleared"
-  assert_contains "$(reports pane)" "pane report-metadata w2:p2 --source firstmate --clear-token fm_group --clear-token fm_state --clear-token fm_task --clear-token fm_sort" \
+  assert_equals "$VIEW_SOCK	clear" "$(cat "$FAKE_VIEW_LOG")" "agents view cleared"
+  assert_contains "$(reports pane)" "pane report-metadata w2:p2 --source firstmate --clear-token fm_icon --clear-token fm_group --clear-token fm_state --clear-token fm_task --clear-token fm_sort" \
     "pane tokens cleared"
   assert_contains "$(reports workspace)" "workspace report-metadata w2 --source firstmate --clear-token fm_group --clear-token fm_state --clear-token fm_group_order" \
     "projected workspace tokens cleared"
@@ -306,6 +341,7 @@ test_sidebar_config_apply_backs_up_and_refuses_twice() {
   printf '[ui]\nagent_panel_sort = "spaces"\n' > "$cfg"
   out=$(groups sidebar-config 2>&1) || fail "sidebar-config print failed: $out"
   assert_contains "$out" '[ui.sidebar.agents]' "printed rows"
+  assert_contains "$out" "  [\"\$fm_icon\", \"state_icon\", " "the icon token leads the agent row"
   assert_equals "" "$(cat "$FAKE_HERDR_LOG")" "printing the rows calls no Herdr command"
   out=$(groups sidebar-config --apply "$cfg" 2>&1) || fail "sidebar-config apply failed: $out"
   backups=$(find "$FAKE_DIR" -maxdepth 1 -name 'config.toml.bak-*')
@@ -393,6 +429,7 @@ test_on_groups_by_project_and_sorts_by_status_rank
 test_rules_order_groups_and_prefer_task_over_repo_over_catch_all
 test_all_invalid_rules_leave_empty_rule_group_and_still_plan
 test_sync_reports_only_differences_and_sets_the_view
+test_sync_shows_the_waiting_icon_only_while_paused
 test_sync_skips_an_unverified_protocol_with_one_warning
 test_clear_removes_tokens_and_the_view_even_when_off
 test_sidebar_config_apply_backs_up_and_refuses_twice
