@@ -18,24 +18,27 @@ Le choix de la direction revient au capitaine (`data/captain.md`) ; le firstmate
 
 ## Faire
 
-1. Pour une refonte, garder l'identité visuelle en place et la moderniser, sauf demande contraire du capitaine : le scout relève d'abord, depuis le code du site actuel (feuille de style, images, captures) et avec la preuve de chaque valeur, ses couleurs, son logo, son mot-symbole et ses messages clés, ainsi que les règles en place (consignes du site, plan de contenu).
-2. Réunir les références, d'abord du thème du site : son métier et les métiers voisins.
+1. Pour une refonte, écrire dans le brief du scout de garder l'identité visuelle en place et de la moderniser, sauf demande contraire du capitaine : il relève d'abord, depuis le code du site actuel (feuille de style, images, captures) et avec la preuve de chaque valeur, ses couleurs, son logo, son mot-symbole et ses messages clés, ainsi que les règles en place (consignes du site, plan de contenu).
+2. Écrire dans le brief du scout de réunir les références d'abord du thème du site : son métier et les métiers voisins.
    UXKIN d'abord quand il est connecté (`find_ui_materials`, `find_ui_references`, packs listés avec leur lien), puis les galeries gratuites, avec les trois à cinq sites réels que donne le capitaine ; aucune autre référence payante (`data/captain.md` Q8).
    Les sites de SaaS et d'agence ne servent qu'à une technique de structure.
    Le rapport liste les bibliothèques essayées et celles qui n'ont pas pu être lues.
-3. Lancer un scout, brief écrit avec `web-worker-brief`, qui produit deux ou trois DESIGN.md différents de structure, pas seulement de couleurs et de polices :
+3. Lancer le scout, brief écrit avec `web-worker-brief` et portant les consignes des étapes 1, 2 et 4, qui produit deux ou trois DESIGN.md différents de structure, pas seulement de couleurs et de polices :
    - une matrice de structure dans le rapport (archétype du premier écran, grille, en-tête et navigation, accès à l'action principale, traitement des photos, densité, contraste typographique) ; chaque direction diffère des autres et des maquettes déjà faites du projet sur au moins trois axes ; une direction volontairement audacieuse par planche ;
    - chaque DESIGN.md fondé sur trois à cinq sites réels nommés avec URL et date de consultation, et ce qui en est retenu (principe, pas copie) ;
    - quatre à six couleurs nommées avec leurs rôles, polices et rôles, échelle typographique, espacements, mise en page, clair et sombre si le site a les deux ;
    - pour chaque direction, le processus en deux passes de `frontend-design` en entier, écrit avant tout code : plan avec concept de mise en page et wireframe ASCII, revue d'unicité contre une demande voisine, révisions écrites ; toute signature du design généré par IA conservée justifiée par écrit ;
-   - une maquette de la page d'accueil rendue et capturée, marquée « proposition non validée », passée au contrôle du design générique de `website-design:web-review` ; son code source reste sous le dossier de données du scout, et la direction retenue se construit à partir de lui.
+   - une maquette de la page d'accueil rendue et capturée, marquée « proposition non validée », passée au contrôle du design générique de `website-design:web-review` ; son code source reste sous le dossier de données du scout, point de départ que le worker de construction peut reprendre, jamais à la place du DESIGN.md retenu.
    Pour un site neuf, les maquettes partent du plan de contenu retenu (`web-intake`) ; le design sublime et sert ce contenu.
    Le skill `website-design:web-design-system` sert de trame ; sans UXKIN, le DESIGN.md dit qu'il ne s'appuie pas sur sa base.
    Un rapport précédent sert de format, jamais de modèle de design.
-4. Construire une seule planche Lavish de comparaison (`lavish-axi`) : par direction, captures, palette, typographie, sites de référence, signatures justifiées ; puis une seule question de choix, dont la réponse suit le schéma `fm-bearings-answer.v1` avec pour clé l'identifiant de la tâche tenue, pour que la réponse du capitaine ferme la décision (`bin/fm-procevent-lavish.sh`, commande `answers`).
-5. Tenir le choix pour le capitaine selon `captain-hold-lifecycle` ; pendant l'attente, seuls les travaux indépendants du design continuent (contenu, mesure, technique).
+4. Le scout construit et héberge une seule planche Lavish de comparaison (`lavish-axi`) : par direction, captures, palette, typographie, sites de référence, signatures justifiées ; puis une seule question de choix.
+   La question suit la forme produite par `.agents/skills/bearings/assets/board-template.html` : une invite marquée `choice` dont le Context data JSON porte `schema` `fm-bearings-answer.v1`, `question` égal à l'identifiant de la tâche tenue, une `selection` en forme de slug et une `note` présente même vide.
+   Une ligne à laquelle manque l'un de ces champs est écartée sans message par `bin/fm-procevent-lavish.sh answers`, et la réponse du capitaine ne ferme alors pas la décision.
+   Le scout arme la planche avec `bin/fm-procevent-lavish.sh arm <planche> --for <id de sa tâche>` et remonte `needs-decision [key=board-review]` avec l'URL de la planche ; il ne s'adresse jamais au capitaine.
+5. Le firstmate tient le choix pour le capitaine selon `captain-hold-lifecycle`, lui présente la question avec l'URL de la planche et enregistre sa réponse ; pendant l'attente, seuls les travaux indépendants du design continuent (contenu, mesure, technique).
 6. À la réponse, faire écrire dans le projet, par un worker, le DESIGN.md retenu et ses tokens, avec la citation ou la référence de la réponse du capitaine et la version de la planche présentée.
-   Ce DESIGN.md devient une entrée figée de tout worker de rendu.
+   Ce DESIGN.md devient une entrée figée de tout worker de rendu et reste l'autorité de la construction ; le code de la maquette retenue n'en est qu'un point de départ.
 7. À la réception d'un rendu nouveau ou refait :
    - comparer les captures 375, 768 et 1440 px au DESIGN.md retenu (couleurs, polices, échelle, espacements, mise en page) ;
    - chercher les signatures de `frontend-design` non justifiées et toute valeur hors tokens ;
@@ -52,8 +55,8 @@ Le choix de la direction revient au capitaine (`data/captain.md`) ; le firstmate
 ## Refuser ou remonter
 
 - **Capitaine** : le choix de la direction, tout changement de direction en cours de projet, toute référence ou ressource payante hors UXKIN.
-- **Firstmate** : références complémentaires, nombre de directions (deux ou trois), forme de la planche, acceptation ou renvoi d'un rendu contre le DESIGN.md retenu.
-- **Worker** : le contenu de ses directions, sans recommander de choix ni contacter le capitaine.
+- **Firstmate** : références complémentaires, nombre de directions (deux ou trois), forme de la planche écrite dans le brief, présentation de la question au capitaine et enregistrement de sa réponse, acceptation ou renvoi d'un rendu contre le DESIGN.md retenu.
+- **Worker** : le contenu de ses directions, la construction, l'hébergement et l'armement de la planche, sans recommander de choix ni s'adresser au capitaine.
 - Refuser comme candidates : des directions qui ne diffèrent que par les couleurs et les polices, une refonte qui abandonne la DA en place sans demande du capitaine.
 - Refuser comme choix : une direction par défaut, une recommandation reprise telle quelle, un « fais au mieux », une planche non présentée.
 - Refuser un rendu jugé sur le code seul, sans captures du rendu.
