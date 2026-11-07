@@ -23,7 +23,7 @@ Le choix de la direction revient au capitaine (`data/captain.md`) ; le firstmate
    UXKIN d'abord quand il est connecté (`find_ui_materials`, `find_ui_references`, packs listés avec leur lien), puis les galeries gratuites, avec les trois à cinq sites réels que donne le capitaine ; aucune autre référence payante (`data/captain.md` Q8).
    Les sites de SaaS et d'agence ne servent qu'à une technique de structure.
    Le rapport liste les bibliothèques essayées et celles qui n'ont pas pu être lues.
-3. Lancer le scout, brief écrit avec `web-worker-brief` et portant les consignes des étapes 1, 2 et 4, qui produit deux ou trois DESIGN.md différents de structure, pas seulement de couleurs et de polices :
+3. Tenir d'abord pour le capitaine, selon `captain-hold-lifecycle`, le travail que le choix conditionne, puis lancer le scout, brief écrit avec `web-worker-brief` et portant les consignes des étapes 1, 2 et 4 ainsi que l'identifiant de cette tâche tenue comme clé `question` de la planche, qui produit deux ou trois DESIGN.md différents de structure, pas seulement de couleurs et de polices :
    - une matrice de structure dans le rapport (archétype du premier écran, grille, en-tête et navigation, accès à l'action principale, traitement des photos, densité, contraste typographique) ; chaque direction diffère des autres et des maquettes déjà faites du projet sur au moins trois axes ; une direction volontairement audacieuse par planche ;
    - chaque DESIGN.md fondé sur trois à cinq sites réels nommés avec URL et date de consultation, et ce qui en est retenu (principe, pas copie) ;
    - quatre à six couleurs nommées avec leurs rôles, polices et rôles, échelle typographique, espacements, mise en page, clair et sombre si le site a les deux ;
@@ -33,10 +33,11 @@ Le choix de la direction revient au capitaine (`data/captain.md`) ; le firstmate
    Le skill `website-design:web-design-system` sert de trame ; sans UXKIN, le DESIGN.md dit qu'il ne s'appuie pas sur sa base.
    Un rapport précédent sert de format, jamais de modèle de design.
 4. Le scout construit et héberge une seule planche Lavish de comparaison (`lavish-axi`) : par direction, captures, palette, typographie, sites de référence, signatures justifiées ; puis une seule question de choix.
-   La question suit la forme produite par `.agents/skills/bearings/assets/board-template.html` : une invite marquée `choice` dont le Context data JSON porte `schema` `fm-bearings-answer.v1`, `question` égal à l'identifiant de la tâche tenue, une `selection` en forme de slug et une `note` présente même vide.
+   La question suit la forme produite par `.agents/skills/bearings/assets/board-template.html` : une invite marquée `choice` dont le Context data JSON porte `schema` `fm-bearings-answer.v1`, `question` égal à l'identifiant de la tâche tenue donné par le brief, une `selection` en forme de slug et une `note` présente même vide.
    Une ligne à laquelle manque l'un de ces champs est écartée sans message par `bin/fm-procevent-lavish.sh answers`, et la réponse du capitaine ne ferme alors pas la décision.
    Le scout arme la planche avec `bin/fm-procevent-lavish.sh arm <planche> --for <id de sa tâche>` et remonte `needs-decision [key=board-review]` avec l'URL de la planche ; il ne s'adresse jamais au capitaine.
-5. Le firstmate tient le choix pour le capitaine selon `captain-hold-lifecycle`, lui présente la question avec l'URL de la planche et enregistre sa réponse ; pendant l'attente, seuls les travaux indépendants du design continuent (contenu, mesure, technique).
+5. Avant de présenter la planche, le firstmate lie sa source à la tâche tenue : `bin/fm-procevent-lavish.sh source-id <planche>`, puis `bin/fm-captain-hold.sh bind <source-id>`.
+   Il présente ensuite la question au capitaine avec l'URL de la planche et enregistre sa réponse selon `captain-hold-lifecycle` ; pendant l'attente, seuls les travaux indépendants du design continuent (contenu, mesure, technique).
 6. À la réponse, faire écrire dans le projet, par un worker, le DESIGN.md retenu et ses tokens, avec la citation ou la référence de la réponse du capitaine et la version de la planche présentée.
    Ce DESIGN.md devient une entrée figée de tout worker de rendu et reste l'autorité de la construction ; le code de la maquette retenue n'en est qu'un point de départ.
 7. À la réception d'un rendu nouveau ou refait :
