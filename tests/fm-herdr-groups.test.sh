@@ -78,6 +78,14 @@ add_task() {  # <id> <kind> <project-path> <workspace> [<status line>]
   [ -z "${5:-}" ] || printf '%s\n' "$5" > "$HOME_DIR/state/$1.status"
 }
 
+# set_busy <id> <busy|idle>: records the task's Claude turn state through the
+# real busy-state writer, as the Claude lifecycle hooks do.
+set_busy() {
+  printf 'harness=claude\n' >> "$HOME_DIR/state/$1.meta"
+  "$ROOT/bin/fm-busy-event.sh" arm "$HOME_DIR/state" "$1" --state "$2" --source claude-hook --event hook >/dev/null \
+    || fail "could not record $1 as $2"
+}
+
 add_v2_journal() {  # <id> <workspace>
   printf 'version=2\ntask_id=%s\nprojection_id=%s\nhome=%s\nsession=s1\nworkspace_id=%s\ntab_id=%s:t2\npane_id=%s:p2\nparent_workspace_id=w1\nparent_label=firstmate\nworkspace_label=└ %s · p:%s\ntask_label=fm-%s\n' \
     "$1" "$TOKEN_A" "$HOME_DIR" "$2" "$2" "$2" "$1" "$TOKEN_A" "$1" > "$HOME_DIR/state/$1.herdr-presentation"
@@ -141,6 +149,10 @@ test_on_groups_by_project_and_sorts_by_status_rank() {
   add_task web-wait ship /p/storefront w10 'paused: waiting on my background build'
   add_task web-resumed ship /p/storefront w11 "$(printf 'paused: build\nworking: build finished')"
   add_task api-wait-ask ship /p/api-server w12 "$(printf 'needs-decision [key=b]: q\npaused: waiting meanwhile')"
+  add_task web-wait-idle ship /p/storefront w13 'paused: waiting on my background build'
+  set_busy web-wait-idle idle
+  add_task web-wait-busy ship /p/storefront w14 'paused: waiting on my background build'
+  set_busy web-wait-busy busy
   printf 'window=t:1\nproject=/p/api-server\nkind=ship\n' > "$HOME_DIR/state/tmux-task.meta"
   out=$(groups plan 2>&1) || fail "plan failed: $out"
   assert_contains "$out" $'web-ask\tstorefront\tneeds-captain\t000.storefront.1.web-ask\t000.storefront' "open decision"
@@ -152,11 +164,13 @@ test_on_groups_by_project_and_sorts_by_status_rank() {
   assert_contains "$out" $'api-resolved\tapi-server\trunning\t' "resolved decision"
   assert_contains "$out" $'web-wait\tstorefront\twaiting\t000.storefront.3.web-wait\t' "declared pause"
   assert_contains "$out" $'web-resumed\tstorefront\trunning\t' "a pause followed by working is running again"
+  assert_contains "$out" $'web-wait-idle\tstorefront\twaiting\t' "a pause with an idle worker is waiting"
+  assert_contains "$out" $'web-wait-busy\tstorefront\trunning\t' "a pause with a busy worker is running again"
   assert_contains "$out" $'api-wait-ask\tapi-server\tneeds-captain\t' "an open decision outranks a later pause"
   assert_not_contains "$out" "mate" "a secondmate pane is not a grouped task"
   assert_not_contains "$out" "tmux-task" "a non-Herdr task is not grouped"
   sorted=$(printf '%s\n' "$out" | sort -t $'\t' -k4,4 | cut -f1 | tr '\n' ' ')
-  assert_equals "api-held api-wait-ask api-new api-resolved web-ask web-fail web-resumed web-run web-wait web-done " "$sorted" \
+  assert_equals "api-held api-wait-ask api-new api-resolved web-ask web-fail web-resumed web-run web-wait web-wait-busy web-wait-idle web-done " "$sorted" \
     "sort keys must order by group, then needs-captain, problem, waiting or running, done"
   pass "on: one group per project, status order needs-captain, problem, waiting or running, done"
 }
@@ -283,6 +297,7 @@ test_sync_shows_the_waiting_icon_only_while_paused() {
   printf 'on\n' > "$HOME_DIR/config/herdr-project-groups"
   add_task web-run ship /p/storefront w2 'paused: waiting on my background build'
   add_v2_journal web-run w2
+  set_busy web-run idle
   write_live_lists 1
   out=$(groups sync 2>&1) || fail "paused sync failed: $out"
   assert_equals "herdr pane report-metadata w2:p2 --source firstmate --token fm_icon=🟣 --token fm_state=waiting --session s1" \
@@ -296,11 +311,22 @@ test_sync_shows_the_waiting_icon_only_while_paused() {
   out=$(groups sync 2>&1) || fail "unchanged paused sync failed: $out"
   assert_equals "" "$(reports pane)" "an unchanged pause reports nothing"
 
-  printf 'working: build finished\n' >> "$HOME_DIR/state/web-run.status"
-  out=$(groups sync 2>&1) || fail "resumed sync failed: $out"
+  : > "$FAKE_HERDR_LOG"
+  "$ROOT/bin/fm-busy-event.sh" apply "$HOME_DIR/state" web-run busy --current-gen --source claude-hook --event hook \
+    || fail "could not record web-run as busy"
+  out=$(groups sync 2>&1) || fail "busy sync failed: $out"
   assert_equals "herdr pane report-metadata w2:p2 --source firstmate --clear-token fm_icon --token fm_state=running --session s1" \
-    "$(reports pane)" "resuming clears the icon instead of leaving it set"
-  pass "sync: the purple icon is set while the latest declaration is a pause and cleared after it"
+    "$(reports pane)" "a worker busy again clears the icon while its pause is still the latest declaration"
+
+  : > "$FAKE_HERDR_LOG"
+  "$ROOT/bin/fm-busy-event.sh" apply "$HOME_DIR/state" web-run idle --current-gen --source claude-hook --event hook \
+    || fail "could not record web-run as idle"
+  printf 'working: build finished\n' >> "$HOME_DIR/state/web-run.status"
+  sed 's/"fm_icon":"🟣","fm_state":"waiting"/"fm_state":"running"/' \
+    "$FAKE_DIR/panes.json" > "$FAKE_DIR/panes.next" && mv "$FAKE_DIR/panes.next" "$FAKE_DIR/panes.json"
+  out=$(groups sync 2>&1) || fail "resumed sync failed: $out"
+  assert_equals "" "$(reports pane)" "a later non-paused declaration keeps the icon off even when the worker is idle"
+  pass "sync: the purple icon shows only while a declared pause is a live wait"
 }
 
 test_sync_skips_an_unverified_protocol_with_one_warning() {

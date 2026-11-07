@@ -546,7 +546,7 @@ For each ship and scout task recorded in the home with Herdr endpoint metadata, 
 
 | Token | On | Value |
 | --- | --- | --- |
-| `fm_icon` | pane | `🟣` while the display status is `waiting`, absent otherwise. |
+| `fm_icon` | pane | `🟣` while the display status is `waiting`, so only while the declared wait is still live, absent otherwise. |
 | `fm_group` | pane and projected workspace | The group name. |
 | `fm_state` | pane and projected workspace | The display status. |
 | `fm_task` | pane | The task id. |
@@ -562,11 +562,12 @@ The display status comes from the task's status log through the shared classifie
 | --- | --- | --- |
 | 1 | `needs-captain` | An open decision, or a captain-held transfer. |
 | 2 | `problem` | `blocked` or `failed`. |
-| 3 | `waiting` | A declared `paused` wait, such as a result the worker launched in the background. |
-| 3 | `running` | Anything else, including `working` and no status yet. |
+| 3 | `waiting` | A declared `paused` wait that is still live, such as a result the worker launched in the background: the busy state that `bin/fm-busy-lib.sh` owns does not show the worker busy. |
+| 3 | `running` | Anything else, including `working`, no status yet, and a declared `paused` wait whose worker is busy again. |
 | 4 | `done` | `done`. |
 
-It is the worker's latest declaration, not the reconciled current state that `bin/fm-crew-state.sh` owns, and it can lag one watcher poll behind the log.
+Apart from that busy check on a pause, it is the worker's latest declaration, not the reconciled current state that `bin/fm-crew-state.sh` owns.
+It can lag one watcher poll (`FM_POLL`, 15 seconds by default) behind the log or the busy state, so the dot clears within one poll of the worker's turn resuming.
 Herdr's own agent status dot stays live beside it.
 
 The watcher reconciles every task once per poll cycle, and a spawn tags its new task at once.

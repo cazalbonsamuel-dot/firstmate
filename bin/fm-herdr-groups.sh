@@ -202,6 +202,8 @@ load_status_libs() {
   . "$SCRIPT_DIR/fm-wake-lib.sh" || return 1
   # shellcheck source=bin/fm-classify-lib.sh
   . "$SCRIPT_DIR/fm-classify-lib.sh" || return 1
+  # shellcheck source=bin/fm-busy-lib.sh
+  . "$SCRIPT_DIR/fm-busy-lib.sh" || return 1
   LIBS_LOADED=1
 }
 
@@ -209,16 +211,22 @@ load_status_libs() {
 # from the task's status log through the shared classifier: an open decision or
 # a captain-held transfer waits on the captain, blocked or failed is a problem,
 # a declared pause is waiting (the only state with an icon) and sorts with
-# running, done is done, and everything else is running.
+# running, done is done, and everything else is running. A pause is a live wait
+# only while bin/fm-busy-lib.sh does not classify the worker busy: a busy worker
+# has resumed, so it reads running. Herdr's native busy fallback for a task
+# without a busy record applies only once sync has loaded the adapter, so plan
+# still never contacts Herdr.
 resolve_state() {
-  local line verb
+  local line verb meta
   STATE_LABEL=running
   STATE_RANK=3
   STATE_ICON=
   load_status_libs || return 0
   line=$(status_current_line "$STATE/$1.status" "$2" 2>/dev/null) || line=
   if status_is_paused "$line" 2>/dev/null; then
-    STATE_LABEL=waiting; STATE_ICON=$FM_HERDR_GROUPS_WAITING_ICON
+    meta="$STATE/$1.meta"
+    fm_busy_is_busy herdr "$(meta_value "$meta" window)" "$(meta_value "$meta" harness)" "$1" "$STATE" \
+      || { STATE_LABEL=waiting; STATE_ICON=$FM_HERDR_GROUPS_WAITING_ICON; }
     return 0
   fi
   verb=$(status_line_verb "$line" 2>/dev/null) || verb=
