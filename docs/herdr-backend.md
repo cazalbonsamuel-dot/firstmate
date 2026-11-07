@@ -563,8 +563,8 @@ The display status comes from the task's status log through the shared classifie
 | 1 | `needs-captain` | An open decision, or a captain-held transfer. |
 | 2 | `problem` | `blocked` or `failed`. |
 | 3 | `waiting` | A declared `paused` wait, such as a result the worker launched in the background. |
-| 4 | `running` | Anything else, including `working` and no status yet. |
-| 5 | `done` | `done`. |
+| 3 | `running` | Anything else, including `working` and no status yet. |
+| 4 | `done` | `done`. |
 
 It is the worker's latest declaration, not the reconciled current state that `bin/fm-crew-state.sh` owns, and it can lag one watcher poll behind the log.
 Herdr's own agent status dot stays live beside it.

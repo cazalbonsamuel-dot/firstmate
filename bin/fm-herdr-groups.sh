@@ -208,17 +208,17 @@ load_status_libs() {
 # resolve_state <task> <kind>: sets STATE_LABEL, STATE_RANK, and STATE_ICON
 # from the task's status log through the shared classifier: an open decision or
 # a captain-held transfer waits on the captain, blocked or failed is a problem,
-# a declared pause is waiting (the only state with an icon), done is done, and
-# everything else is running.
+# a declared pause is waiting (the only state with an icon) and sorts with
+# running, done is done, and everything else is running.
 resolve_state() {
   local line verb
   STATE_LABEL=running
-  STATE_RANK=4
+  STATE_RANK=3
   STATE_ICON=
   load_status_libs || return 0
   line=$(status_current_line "$STATE/$1.status" "$2" 2>/dev/null) || line=
   if status_is_paused "$line" 2>/dev/null; then
-    STATE_LABEL=waiting; STATE_RANK=3; STATE_ICON=$FM_HERDR_GROUPS_WAITING_ICON
+    STATE_LABEL=waiting; STATE_ICON=$FM_HERDR_GROUPS_WAITING_ICON
     return 0
   fi
   verb=$(status_line_verb "$line" 2>/dev/null) || verb=
@@ -226,7 +226,7 @@ resolve_state() {
     needs-decision|"${FM_CLASSIFY_CAPTAIN_HELD_VERB:-$FM_CLASSIFY_CAPTAIN_HELD_VERB_DEFAULT}")
       STATE_LABEL=needs-captain; STATE_RANK=1 ;;
     blocked|failed) STATE_LABEL=problem; STATE_RANK=2 ;;
-    done) STATE_LABEL="done"; STATE_RANK=5 ;;
+    done) STATE_LABEL="done"; STATE_RANK=4 ;;
   esac
 }
 
