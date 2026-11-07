@@ -1,0 +1,17 @@
+## Scenario 2: worker resumes its turn without writing a new status line
+$ cat state/web-wait.status   (unchanged: the pause is still the latest declaration)
+paused: waiting on my final Lighthouse 5-pass run and my themed-reference research subagent
+$ cat state/web-wait.busy-state   (written by the real Claude UserPromptSubmit hook)
+v1 gen=g1794090417.75037.32251 seq=6 state=busy source=claude-hook event=user-prompt-submit ts=1794090495
+$ FM_HOME=$LAB bin/fm-crew-state.sh web-wait
+state: working · source: pane · harness busy (claude-hook)
+$ FM_HOME=$LAB bin/fm-herdr-groups.sh plan
+web-wait	storefront	running	000.storefront.3.web-wait	000.storefront
+$ FM_HOME=$LAB bin/fm-herdr-groups.sh sync
+exit=0
+--- herdr report calls made by sync:
+pane report-metadata w1:p1 --source firstmate --clear-token fm_icon --token fm_state=running --session fm-lab-pastille-67657-9018
+$ herdr pane list (tokens)
+{"pane_id":"w1:p1","tokens":{"fm_group":"storefront","fm_sort":"000.storefront.3.web-wait","fm_state":"running","fm_task":"web-wait"}}
+$ cat state/web-wait.busy-state   (still busy after sync)
+v1 gen=g1794090417.75037.32251 seq=6 state=busy source=claude-hook event=user-prompt-submit ts=1794090495

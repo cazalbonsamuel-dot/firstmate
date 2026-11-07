@@ -1,0 +1,10 @@
+## Scenario 5a: no busy record, Claude idle, latest declaration paused:
+$ ls state/web-wait.busy*
+(eval):8: no matches found: /private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-lab.sdrFak/state/web-wait.busy*
+$ herdr agent get w1:p1
+{"agent":"claude","agent_status":"idle"}
+$ FM_HOME=$LAB bin/fm-herdr-groups.sh sync
+exit=0
+pane report-metadata w1:p1 --source firstmate --token fm_icon=🟣 --token fm_state=waiting --session fm-lab-pastille-67657-9018
+$ herdr pane list (tokens)
+{"pane_id":"w1:p1","tokens":{"fm_group":"storefront","fm_icon":"🟣","fm_sort":"000.storefront.3.web-wait","fm_state":"waiting","fm_task":"web-wait"}}

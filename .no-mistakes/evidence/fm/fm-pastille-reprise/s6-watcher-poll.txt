@@ -1,0 +1,17 @@
+## Scenario 6: the real watcher poll clears the dot of a paused worker that is busy again
+--- worker idle: one watcher poll sets the dot
+check: rearm-resurface
+pane report-metadata w1:p1 --source firstmate --token fm_icon=🟣 --token fm_state=waiting --session fm-lab-pastille-67657-9018
+$ herdr pane list (tokens)
+{"pane_id":"w1:p1","tokens":{"fm_group":"storefront","fm_icon":"🟣","fm_sort":"000.storefront.3.web-wait","fm_state":"waiting","fm_task":"web-wait"}}
+--- worker resumes (prompt submitted, no new status line)
+$ tail -1 state/web-wait.status
+paused: waiting on my final Lighthouse 5-pass run
+$ herdr agent get w1:p1
+{"agent":"claude","agent_status":"working"}
+$ FM_HOME=$LAB FM_POLL=1 bin/fm-watch-checkpoint.sh --seconds 3
+checkpoint: no actionable wake within 3s
+--- report calls made during the poll:
+pane report-metadata w1:p1 --source firstmate --clear-token fm_icon --token fm_state=running --session fm-lab-pastille-67657-9018
+$ herdr pane list (tokens) after the poll
+{"pane_id":"w1:p1","tokens":{"fm_group":"storefront","fm_sort":"000.storefront.3.web-wait","fm_state":"running","fm_task":"web-wait"}}

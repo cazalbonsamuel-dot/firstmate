@@ -1,0 +1,17 @@
+## Scenario 3: the turn ends (real Stop hook) and the pause is still the latest declaration
+$ cat state/web-wait.busy-state
+v1 gen=g1794090417.75037.32251 seq=8 state=idle source=claude-hook event=stop ts=1794090544
+$ FM_HOME=$LAB bin/fm-crew-state.sh web-wait
+state: paused · source: status-log · waiting on my final Lighthouse 5-pass run and my themed-reference research subagent
+$ FM_HOME=$LAB bin/fm-herdr-groups.sh sync
+exit=0
+pane report-metadata w1:p1 --source firstmate --token fm_icon=🟣 --token fm_state=waiting --session fm-lab-pastille-67657-9018
+$ herdr pane list (tokens)
+{"pane_id":"w1:p1","tokens":{"fm_group":"storefront","fm_icon":"🟣","fm_sort":"000.storefront.3.web-wait","fm_state":"waiting","fm_task":"web-wait"}}
+
+## Scenario 4: the worker writes a non-paused line while idle
+$ FM_HOME=$LAB bin/fm-herdr-groups.sh sync
+exit=0
+pane report-metadata w1:p1 --source firstmate --clear-token fm_icon --token fm_state=running --session fm-lab-pastille-67657-9018
+$ herdr pane list (tokens)
+{"pane_id":"w1:p1","tokens":{"fm_group":"storefront","fm_sort":"000.storefront.3.web-wait","fm_state":"running","fm_task":"web-wait"}}

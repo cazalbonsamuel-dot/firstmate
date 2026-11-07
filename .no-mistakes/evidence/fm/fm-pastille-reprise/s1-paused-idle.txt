@@ -1,0 +1,11 @@
+## Scenario 1: worker idle, latest declaration is paused:
+$ cat state/web-wait.busy-state
+v1 gen=g1794090417.75037.32251 seq=3 state=idle source=claude-hook event=stop ts=1794090434
+$ cat state/web-wait.status
+paused: waiting on my final Lighthouse 5-pass run and my themed-reference research subagent
+$ FM_HOME=$LAB bin/fm-herdr-groups.sh plan
+web-wait	storefront	waiting	000.storefront.3.web-wait	000.storefront
+$ FM_HOME=$LAB bin/fm-herdr-groups.sh sync
+exit=0
+$ herdr pane get w1:p1 (tokens)
+{"pane_id":"w1:p1","tokens":{"fm_group":"storefront","fm_icon":"🟣","fm_sort":"000.storefront.3.web-wait","fm_state":"waiting","fm_task":"web-wait"}}
