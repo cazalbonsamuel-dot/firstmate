@@ -68,7 +68,8 @@ FM_HERDR_GROUPS_MIN_PROTOCOL=22
 FM_HERDR_GROUPS_UNSUPPORTED_PREFIX=".herdr-groups-unsupported-"
 FM_HERDR_GROUPS_UNMATCHED_RANK=999
 FM_HERDR_GROUPS_TOKEN_MAX=80
-FM_HERDR_GROUPS_PANE_TOKENS="fm_group fm_state fm_task fm_sort"
+FM_HERDR_GROUPS_PANE_TOKENS="fm_icon fm_group fm_state fm_task fm_sort"
+FM_HERDR_GROUPS_WAITING_ICON="🟣"
 FM_HERDR_GROUPS_WORKSPACE_TOKENS="fm_group fm_state fm_group_order"
 
 usage() {
@@ -204,16 +205,22 @@ load_status_libs() {
   LIBS_LOADED=1
 }
 
-# resolve_state <task> <kind>: sets STATE_LABEL and STATE_RANK from the task's
-# status log through the shared classifier: an open decision or a captain-held
-# transfer waits on the captain, blocked or failed is a problem, done is done,
-# and everything else is running.
+# resolve_state <task> <kind>: sets STATE_LABEL, STATE_RANK, and STATE_ICON
+# from the task's status log through the shared classifier: an open decision or
+# a captain-held transfer waits on the captain, blocked or failed is a problem,
+# a declared pause is waiting (the only state with an icon) and sorts with
+# running, done is done, and everything else is running.
 resolve_state() {
   local line verb
   STATE_LABEL=running
   STATE_RANK=3
+  STATE_ICON=
   load_status_libs || return 0
   line=$(status_current_line "$STATE/$1.status" "$2" 2>/dev/null) || line=
+  if status_is_paused "$line" 2>/dev/null; then
+    STATE_LABEL=waiting; STATE_ICON=$FM_HERDR_GROUPS_WAITING_ICON
+    return 0
+  fi
   verb=$(status_line_verb "$line" 2>/dev/null) || verb=
   case "$verb" in
     needs-decision|"${FM_CLASSIFY_CAPTAIN_HELD_VERB:-$FM_CLASSIFY_CAPTAIN_HELD_VERB_DEFAULT}")
@@ -281,6 +288,7 @@ EOF
   resolve_state "$P_TASK" "$P_KIND"
   P_GROUP=$GROUP
   P_STATE=$STATE_LABEL
+  P_ICON=$STATE_ICON
   P_ORDER=$(printf '%03d.%s' "$RANK" "$GROUP")
   P_SORT=$(clip "$P_ORDER.$STATE_RANK.$P_TASK")
 }
@@ -334,8 +342,8 @@ projected_workspace() {
     && [ "$FM_BACKEND_HERDR_JOURNAL_PANE_ID" = "$pane" ]
 }
 
-# changed_tokens <live-json-object> <name=value>...: prints the --token
-# arguments whose live value differs, one per line.
+# changed_tokens <live-json-object> <name=value>...: prints the name=value
+# pairs whose live value differs, one per line; an empty value means absent.
 changed_tokens() {
   local live=$1 pair name value current
   shift
@@ -345,6 +353,21 @@ changed_tokens() {
     current=$(printf '%s' "$live" | jq -r --arg n "$name" '.[$n] // empty' 2>/dev/null) || current=
     [ "$current" = "$value" ] || printf '%s\n' "$pair"
   done
+}
+
+# token_args <changed-pairs>: sets args to one --token per pair, or one
+# --clear-token for a pair whose planned value is empty.
+token_args() {
+  local pair
+  args=()
+  while IFS= read -r pair; do
+    case "$pair" in
+      *=) args+=(--clear-token "${pair%=}") ;;
+      *) args+=(--token "$pair") ;;
+    esac
+  done <<EOF
+$1
+EOF
 }
 
 agent_view() { # <session> set|clear
@@ -361,7 +384,7 @@ agent_view() { # <session> set|clear
 }
 
 cmd_sync() {
-  local only=${1:-} record session workspaces panes live_pane live_ws pane_count changed pair diff rc=0
+  local only=${1:-} record session workspaces panes live_pane live_ws pane_count changed diff rc=0
   local -a args=()
   collect_tasks "$only"
   [ "${#TASKS[@]}" -gt 0 ] || return 0
@@ -383,12 +406,9 @@ cmd_sync() {
         | if length == 1 then (.[0].tokens // {}) else empty end' 2>/dev/null) || live_pane=
       [ -n "$live_pane" ] || continue
       diff=$(changed_tokens "$live_pane" \
-        "fm_group=$P_GROUP" "fm_state=$P_STATE" "fm_task=$P_TASK" "fm_sort=$P_SORT")
+        "fm_icon=$P_ICON" "fm_group=$P_GROUP" "fm_state=$P_STATE" "fm_task=$P_TASK" "fm_sort=$P_SORT")
       if [ -n "$diff" ]; then
-        args=()
-        while IFS= read -r pair; do args+=(--token "$pair"); done <<EOF
-$diff
-EOF
+        token_args "$diff"
         if fm_backend_herdr_cli "$session" pane report-metadata "$P_PANE" \
           --source "$FM_HERDR_GROUPS_SOURCE" "${args[@]}" >/dev/null 2>&1; then
           changed=1
@@ -406,10 +426,7 @@ EOF
       diff=$(changed_tokens "$live_ws" \
         "fm_group=$P_GROUP" "fm_state=$P_STATE" "fm_group_order=$P_ORDER")
       [ -n "$diff" ] || continue
-      args=()
-      while IFS= read -r pair; do args+=(--token "$pair"); done <<EOF
-$diff
-EOF
+      token_args "$diff"
       fm_backend_herdr_cli "$session" workspace report-metadata "$P_WORKSPACE" \
         --source "$FM_HERDR_GROUPS_SOURCE" "${args[@]}" >/dev/null 2>&1 || {
         warn "could not tag workspace $P_WORKSPACE for task $P_TASK"; rc=1
@@ -470,7 +487,7 @@ rows = [
 
 [ui.sidebar.agents]
 rows = [
-  ["state_icon", { token = "$fm_group", bold = true }, "$fm_state", "$fm_task"],
+  ["$fm_icon", "state_icon", { token = "$fm_group", bold = true }, "$fm_state", "$fm_task"],
 ]
 EOF
 }
