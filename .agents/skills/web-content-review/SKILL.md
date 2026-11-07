@@ -22,6 +22,7 @@ Aucun agent ne remplace la relecture du capitaine, que Google exige pour le cont
 1. Vérifier que la remise porte la liste « affirmations et sources » : chaque chiffre, date, citation, règle de moteur ou fait technique a sa source primaire (documentation officielle, étude, donnée du site), datée, qui soutient vraiment l'affirmation.
    Une source secondaire, absente ou qui ne dit pas ce qu'on lui fait dire renvoie au worker.
 2. Vérifier que la page nomme l'élément original qu'elle apporte (mesure, expérience vécue, exemple réel, donnée du capitaine) et la requête réelle qu'elle sert.
+   Vérifier aussi que le texte répond aux objections et craintes du plan de contenu et mène à l'action principale (`web-intake`) ; une FAQ visible est permise pour cela, sans balisage FAQPage.
 3. Lire les sorties de Vale (tournures interdites, en avertissement) et de Grammalecte, preuves du kit obligatoires (`web-worker-brief`) ; chaque avertissement restant porte une justification écrite dans la PR.
    Une remise sans ces sorties renvoie au worker, hors la PR qui crée le kit (lot 3) ; un outil empêché est un blocage remonté au firstmate, pas un manque accepté.
 4. Page de contenu rédactionnel : lancer la revue anti-slop par un worker Fable distinct de l'auteur, brief écrit avec `web-worker-brief`, en scout ; il rend des constats localisés (phrase, catégorie, correction proposée), sans réécrire ni noter le texte.

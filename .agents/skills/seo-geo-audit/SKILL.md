@@ -29,7 +29,9 @@ La documentation officielle des moteurs et les mesures du site sont l'autorité 
    - canoniques et redirections ; plusieurs URL sur une même requête dans Search Console (la « cannibalisation » n'est pas une notion Google) ;
    - données structurées : types de la Search gallery, contenu visible, ni FAQPage ni HowTo ; Rich Results Test et Schema Markup Validator à la main (pas d'API) ;
    - Core Web Vitals : labo (Lighthouse cinq passes en médiane) et terrain (Search Console, CrUX quand le site a assez de trafic), seuils LCP 2 500 ms, INP 200 ms, CLS 0,1 au 75e percentile ;
-   - hreflang seulement pour de vraies variantes de langue ou de région.
+   - hreflang seulement pour de vraies variantes de langue ou de région ;
+   - fiche Google d'entreprise d'un lieu qui reçoit du public, lue sans la modifier : complète et cohérente avec le site, nom réel sans mot-clé ajouté, catégorie principale exacte, horaires y compris exceptionnels, lien vers la page qui sert la requête ;
+   - avis : demandés à tous les clients par le lien ou le QR code de la fiche, sans contrepartie, sans tri et sans texte suggéré, chacun avec une réponse.
 4. Contrôles GEO, limités à ce que les moteurs déclarent ou à ce qui est mesuré sur le site :
    - indexation et éligibilité au snippet (Google ne déclare aucune optimisation spéciale pour AI Overviews et AI Mode) ;
    - matrice des robots IA : robots de recherche autorisés (Googlebot, Bingbot, OAI-SearchBot, Claude-SearchBot, Claude-User, PerplexityBot, Applebot), robots d'entraînement selon la décision du capitaine, vérifiée aussi côté CDN ;
@@ -45,10 +47,11 @@ La documentation officielle des moteurs et les mesures du site sont l'autorité 
 
 ## Refuser ou remonter
 
-- **Capitaine** : tout compte (Search Console, Bing, Google Cloud), tout outil payant (Ahrefs, Semrush, DataForSEO, suivi GEO), tout traceur ou service tiers sur le site (Microsoft Clarity compris), tout changement de la matrice des robots d'entraînement, la mise en œuvre des recommandations.
+- **Capitaine** : tout compte (Search Console, Bing, Google Cloud, fiche Google d'entreprise, que seul le capitaine ou le commerçant modifie), tout outil payant (Ahrefs, Semrush, DataForSEO, suivi GEO), tout traceur ou service tiers sur le site (Microsoft Clarity compris), tout changement de la matrice des robots d'entraînement, la mise en œuvre des recommandations.
 - **Firstmate** : périmètre de l'audit, contrôles retenus, priorisation présentée.
 - **Worker scout** : ses constats et leur statut, sans recommander d'achat ni contacter le capitaine.
 - Refuser une recommandation sans source ou une source non officielle présentée comme règle de moteur ; une étude de vendeur d'outils se cite avec son conflit d'intérêts.
+- Refuser toute recommandation d'avis orientés, achetés ou filtrés, et de mots-clés ajoutés au nom de la fiche.
 
 ## Références
 
@@ -58,5 +61,9 @@ La documentation officielle des moteurs et les mesures du site sont l'autorité 
 - Google, galerie des données structurées : https://developers.google.com/search/docs/appearance/structured-data/search-gallery
 - Google, robots.txt : https://developers.google.com/search/docs/crawling-indexing/robots/intro
 - Seuils Core Web Vitals : https://web.dev/articles/vitals
+- Google Business Profile, classement local : https://support.google.com/business/answer/7091
+- Google Business Profile, règles de représentation (nom réel, catégories) : https://support.google.com/business/answer/3038177
+- Google Business Profile, demander des avis et y répondre : https://support.google.com/business/answer/3474122
+- Google Maps, règles des contributions (ni contrepartie ni sollicitation sélective) : https://support.google.com/contributionpolicy/answer/7400114
 - Bing, AI Performance : https://blogs.bing.com/webmaster/2026/2/Introducing-AI-Performance-in-Bing-Webmaster-Tools-Public-Preview/
 - Robots des moteurs IA : https://developers.openai.com/api/docs/bots ; https://support.claude.com/en/articles/8896518 ; https://docs.perplexity.ai/guides/bots ; https://support.apple.com/en-us/119829

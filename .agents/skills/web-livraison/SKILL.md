@@ -27,10 +27,13 @@ Ce skill précède `ship-landing` et ne le remplace pas ; le pipeline de livrais
    - pour un rendu nouveau ou refait : conformité au DESIGN.md retenu (`web-design-direction`) ;
    - URL d'aperçu qui répond et montre la branche de la PR ;
    - contrôles automatiques verts ;
-   - retour arrière écrit dans la PR (commit à annuler ou déploiement précédent à rétablir chez l'hébergeur).
+   - retour arrière écrit dans la PR (commit à annuler ou déploiement précédent à rétablir chez l'hébergeur) ;
+   - pour une refonte qui change des URL : la table de redirections 301 page à page (`web-intake`), testée sur l'aperçu, chaque ancienne URL menant à sa nouvelle page, à garder au moins un an.
    Seule la PR qui crée le kit (lot 3) est dispensée des mesures avant et des sorties du kit : elle montre leur première sortie, mesure de départ des PR suivantes.
    Une preuve manquante renvoie au worker, un manque écrit à la place d'une preuve du kit compris ; un contrôle rouge ne se présente pas.
 2. Ouvrir l'URL d'aperçu dans `chrome-devtools-axi` et regarder le rendu ; tout défaut visible, même hors sujet, est signalé.
+   Avant la mise en ligne d'un site neuf ou refait, exiger du worker le parcours de l'action principale au clavier seul, joint à la PR.
+   Proposer au capitaine, comme option et non comme porte, que trois à cinq personnes accomplissent l'action principale sur leur téléphone en pensant à voix haute, sans aide.
 3. Présenter au capitaine la fusion comme une mise en production, dans un seul message :
    - le résultat en une phrase ;
    - l'URL complète de la PR et l'URL d'aperçu ;
@@ -43,7 +46,8 @@ Ce skill précède `ship-landing` et ne le remplace pas ; le pipeline de livrais
    - captures et Lighthouse sur l'URL de production, comparés à l'aperçu ;
    - inspection d'URL dans Search Console pour les pages nouvelles ou modifiées, quand la propriété existe ;
    - notification IndexNow pour Bing quand le site porte sa clé ;
-   - robots.txt et réponses HTTP testés pour chaque agent de la matrice des robots IA quand ils ont changé.
+   - robots.txt et réponses HTTP testés pour chaque agent de la matrice des robots IA quand ils ont changé ;
+   - après une refonte qui change des URL : suivi dans Search Console (404, pages indexées) pendant les semaines qui suivent, quand la propriété existe.
 6. Rapporter au capitaine le résultat en production avec l'URL ; une régression déclenche le retour arrière écrit, sur son mot.
 
 ## Refuser ou remonter
@@ -60,3 +64,6 @@ Ce skill précède `ship-landing` et ne le remplace pas ; le pipeline de livrais
 - Google, inspection d'URL : https://support.google.com/webmasters/answer/9012289
 - IndexNow (moteurs participants, Google n'en fait pas partie) : https://www.indexnow.org/faq
 - Lighthouse, variabilité : https://github.com/GoogleChrome/lighthouse/blob/main/docs/variability.md
+- Google, déménagement de site avec changement d'URL : https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes
+- WCAG 2.2, critère 2.1.1 Keyboard : https://www.w3.org/TR/WCAG22/
+- NN/g, tester avec cinq utilisateurs (2000) : https://www.nngroup.com/articles/why-you-only-need-to-test-with-5-users/

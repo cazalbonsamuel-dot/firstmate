@@ -21,6 +21,7 @@ Les règles du domaine dans `data/captain.md` restent l'autorité ; le brief les
    Audit, mesure et revue de contenu sont des scouts ; toute unité qui écrit dans le projet est un ship.
 2. Vérifier que ses entrées sont figées avant de lancer, et les nommer dans le brief avec leur chemin, à ne pas modifier :
    - rendu nouveau ou refait : le DESIGN.md retenu par le capitaine (`web-design-direction`) ;
+   - tout rendu d'un site neuf : le plan de contenu (`web-intake`) ;
    - page de contenu : le plan de contenu (une intention par page, requête visée) et les sources fournies ;
    - toute modification : la mesure de l'état de départ par le kit de contrôles du projet (`web-intake`).
    Une entrée non figée interdit le lancement.
@@ -31,11 +32,12 @@ Les règles du domaine dans `data/captain.md` restent l'autorité ; le brief les
    - tout code : ponytail, HTML natif avant une bibliothèque, aucune dépendance directe nouvelle sans justification dans la PR, zéro JavaScript client par défaut sur un site vitrine ;
    - tout texte : les catégories de tournures interdites de `web-content-review`, une source primaire datée par affirmation factuelle, aucune preuve sociale sans source fournie par le capitaine (emplacement marqué à la place) ;
    - données structurées : types de la Search gallery seulement, contenu visible seulement, ni FAQPage ni HowTo ;
+   - lieu qui reçoit du public : infos pratiques du plan de contenu en texte HTML visibles depuis l'accueil, téléphone en lien `tel:`, carte et prix en HTML (un PDF n'est qu'un complément), identiques à la fiche Google d'entreprise et reprises en données structurées `LocalBusiness` ou `Restaurant` ;
    - polices auto-hébergées, aucun traceur ni service tiers sans accord du capitaine ;
    - un seul travail lourd à la fois : construction, Playwright et Lighthouse en série, jamais deux mesures simultanées ni pendant un travail lourd d'un autre home ; avant d'attendre une commande lourde, déclarer `paused` selon la règle de statut du brief.
 5. Écrire la définition de fini avec ses preuves, jointes à la PR ou au rapport :
    - captures 375, 768 et 1440 px avant et après, prises sur le rendu, clair et sombre si le site a les deux ;
-   - Lighthouse cinq passes en médiane avant et après (JSON) ; rapport axe ;
+   - Lighthouse cinq passes en médiane avant et après (JSON), avec l'objectif LCP ≤ 2,5 s sur mobile dans la médiane ; rapport axe ;
    - sorties de html-validate, lychee, knip et size-limit ;
    - pour un texte : sorties de Vale et Grammalecte, la liste « affirmations et sources » et l'élément original de la page ;
    - pour une PR : l'URL d'aperçu ;
@@ -59,4 +61,8 @@ Les règles du domaine dans `data/captain.md` restent l'autorité ; le brief les
 - Skills `frontend-design` (signatures du design généré par IA) et `website-design` (`landing-page` : preuves inventées, mots interdits, contrôle à 375/768/1440 px).
 - Google, galerie des données structurées : https://developers.google.com/search/docs/appearance/structured-data/search-gallery
 - Google, politiques des données structurées : https://developers.google.com/search/docs/appearance/structured-data/sd-policies
+- Google, données structurées d'entreprise locale : https://developers.google.com/search/docs/appearance/structured-data/local-business
+- Google, carte de restaurant en HTML plutôt qu'en PDF : https://youtu.be/wJukFIpZybY?t=1299
+- NN/g, éviter le PDF pour la lecture à l'écran (2020) : https://www.nngroup.com/articles/avoid-pdf-for-on-screen-reading/
+- web.dev, LCP (seuil « bon » 2,5 s) : https://web.dev/lcp
 - `bin/fm-brief.sh --help` pour la forme du brief.
