@@ -29,6 +29,7 @@ Les règles du domaine dans `data/captain.md` restent l'autorité ; le brief les
 3. Modèle et effort : Opus pour le code et la rédaction, Fable pour l'audit et la revue ; effort selon `harness-adapters`.
 4. Écrire dans le brief les consignes de l'unité :
    - tout rendu : skills `frontend-design` et `website-design` (`web-design-system`, `landing-page`, `web-review`) ; aucune signature de design IA listée par `frontend-design` sans justification écrite dans le DESIGN.md ; tokens du DESIGN.md seulement ;
+   - direction de design : les consignes du scout de `web-design-direction` (étapes 1 à 4), dont la DA relevée pour une refonte, les références du thème, la matrice de structure, les deux passes de `frontend-design` et le contrôle de `web-review` par direction, le code source des maquettes sous son dossier de données et le schéma de réponse de la planche ;
    - tout code : ponytail, HTML natif avant une bibliothèque, aucune dépendance directe nouvelle sans justification dans la PR, zéro JavaScript client par défaut sur un site vitrine ;
    - tout texte : les catégories de tournures interdites de `web-content-review`, une source primaire datée par affirmation factuelle, aucune preuve sociale sans source fournie par le capitaine (emplacement marqué à la place) ;
    - données structurées : types de la Search gallery seulement, contenu visible seulement, ni FAQPage ni HowTo ;
