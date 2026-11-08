@@ -32,7 +32,7 @@ Aucun agent ne remplace la relecture du capitaine, que Google exige pour le cont
    - attributions vagues (« les experts s'accordent », « de nombreuses études montrent ») ;
    - structures mécaniques (« Ce n'est pas X, c'est Y » en série, énumérations systématiques par trois, « En conclusion », « N'hésitez pas à », questions rhétoriques en intertitre) ;
    - typographie de gabarit (tiret cadratin comme ponctuation, émojis dans les titres, gras sur un mot par phrase) ;
-   - voix : chaque phrase comparée à la `VOIX.md` du site, et signalée quand on ne la dirait pas à voix haute à un client ;
+   - voix : chaque phrase comparée à la fiche `VOIX.md` du site, entrée figée de l'auteur (`web-intake`, `web-worker-brief`) nommée dans le brief du réviseur, et signalée quand on ne la dirait pas à voix haute à un client ;
    - langage clair : terme technique expliqué à sa première occurrence ou retiré, l'essentiel d'abord, intertitres qui disent ce que contient la section, une idée par paragraphe, mots du visiteur plutôt que ceux du métier ; sans longueur maximale de phrase, sans bannir le passif ni la négation, sans score de lisibilité ;
    - liens et titres, contrôlés sur la liste des liens et des titres extraite de la page : chaque lien, bouton et entrée de menu dit où il mène ou ce qu'il fait, compréhensible seul (jamais « cliquez ici », « en savoir plus » ou « nos services » seuls), et le `<title>` de la page dit sa fonction.
 5. Faire corriger par l'auteur les constats retenus, puis vérifier qu'aucun point bloquant ne reste.

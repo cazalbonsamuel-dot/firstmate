@@ -27,7 +27,7 @@ Le firstmate n'écrit jamais dans le projet (`AGENTS.md` règle 1) : il décide 
    - la requête réelle que la page sert, une intention par page ;
    - les faits sourcés, les hypothèses bornées et les inconnues.
    Pour un site neuf, écrire aussi l'objectif du visiteur, ses freins, craintes et objections : ils forment le plan de contenu.
-   Pour un site neuf ou refait, le plan de contenu comprend aussi des verbatims de clients fournis par le capitaine ou le commerçant (avis, messages, questions posées au téléphone, entretien), jamais recueillis par un worker auprès d'un client, et une fiche `VOIX.md` du site sur le modèle de celle de l'agence : personne qui parle, vouvoiement ou non, ton sur les quatre échelles de NN/g (humour, formalité, respect, enthousiasme), mots à employer et à éviter, exemples avant/après.
+   Au premier travail de texte d'un site, quel que soit le classement (site neuf, refonte, contenu sur un site existant), le plan de contenu crée la fiche `VOIX.md` du site, reprise ensuite par tout travail de texte, avec les verbatims de clients quand il en existe, fournis par le capitaine ou le commerçant (avis, messages, questions posées au téléphone, entretien), jamais recueillis par un worker auprès d'un client ; la fiche suit le modèle de celle de l'agence : personne qui parle, vouvoiement ou non, ton sur les quatre échelles de NN/g (humour, formalité, respect, enthousiasme), mots à employer et à éviter, exemples avant/après.
    Pour un lieu qui reçoit du public, le plan de contenu inclut ses infos pratiques en texte HTML visibles depuis l'accueil : adresse et accès, horaires avec exceptions, téléphone en lien `tel:`, carte et prix en HTML (un PDF n'est qu'un complément), identiques à la fiche Google d'entreprise.
    Ne pas élargir l'intention ni inventer de préférence.
 3. Avant toute nouvelle page, faire vérifier dans Search Console qu'aucune URL existante ne sert déjà cette requête ; sinon consolider par redirection ou canonique plutôt que créer.
@@ -44,6 +44,7 @@ Le firstmate n'écrit jamais dans le projet (`AGENTS.md` règle 1) : il décide 
    - outil payant, abonnement, achat ;
    - traceur, outil d'audience, service tiers, police non auto-hébergée, bandeau de consentement ;
    - direction de design (nouveau rendu ou rendu refait : `web-design-direction`) ;
+   - fiche `VOIX.md` d'un site sans fiche, à son premier travail de texte : les choix de la fiche et les verbatims de clients, fournis par le capitaine ou le commerçant ;
    - texte à publier, métadonnées et textes alternatifs compris (relecture du capitaine, `web-content-review`) ;
    - preuve sociale (témoignage, logo, chiffre, note, prix, distinction) dont le capitaine doit fournir la source ;
    - robots d'entraînement IA, si le besoin change la matrice décidée ;
