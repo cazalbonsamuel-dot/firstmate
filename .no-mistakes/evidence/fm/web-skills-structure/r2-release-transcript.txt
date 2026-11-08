@@ -1,0 +1,98 @@
+## step 4 (scout boulangerie-scout): host board
+session:
+  url: "http://127.0.0.1:4387/session/e5a6d9f89c838adb"
+next_step: "Do not respond to the user just yet. Now you must run `lavish-axi poll /private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-lab.YGdXuO/data/boulangerie-scout/planche.html`. This command long-polls until the user sends feedback, ends the session, or leaves every review window disconnected past the reconnect grace period, and it stays silent the whole time - that is normal, never kill it. Layout issues the browser detects do not return this poll; they wait in the user's Layout issues inbox until the user queues them, then arrive as an ordinary tag \"layout-warnings\" prompt. Do not pass --timeout-ms during normal agent use. Keep the poll in the foreground by default and let it return the feedback directly to the agent. A background poll is allowed only through a harness-native tracked background-job facility whose completion result is guaranteed to resume or notify the same agent. Never use `nohup`, shell `&`, `disown`, redirected fire-and-forget processes, or a detached terminal without an explicit verified callback merely to keep polling alive. If the harness has no completion-aware background facility, use the foreground poll or first wire a verified wake callback into the surrounding supervisor. Do not tell the user the artifact is being monitored until that wake path is live. If the poll gets killed or times out before feedback arrives, re-run it - feedback remains queued until delivery. Poll delivery consumes the response, so read it completely. If it returns browser_disconnected, the review window stayed disconnected past its reconnect grace period but the session remains resumable; ask the user whether to reopen or end it, and do neither uninvited. After applying feedback, run `lavish-axi poll /private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-lab.YGdXuO/data/boulangerie-scout/planche.html --agent-reply \"<message for the user>\"` without --timeout-ms to show a concise response in Lavish Editor and keep waiting for more feedback. If instead you are handing back a result without starting another long-poll, run `lavish-axi reply /private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-lab.YGdXuO/data/boulangerie-scout/planche.html --agent-reply \"<message for the user>\"` to get an acceptance receipt. Keep the reply concise. Only when a longer reply is genuinely necessary, use Markdown structure - blank-line paragraphs, `- ` / `1. ` lists, `## ` headings - so it renders scannably instead of a wall of text, and pass that body with `--agent-reply-file <path>` (`-` reads stdin) so newlines survive quoting. The Conversation panel's Markdown subset is in `lavish-axi poll --help` and README. If the user ends the session, stop polling and do not reopen it by re-running `lavish-axi /private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-lab.YGdXuO/data/boulangerie-scout/planche.html` unless the user asks for further review or something genuinely important needs their visual attention - deliver routine updates directly in this conversation instead. When reopening is warranted, run `lavish-axi /private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-lab.YGdXuO/data/boulangerie-scout/planche.html --reopen`."
+## step 4 (scout boulangerie-scout): arm
+registered: lavish-e5a6d9f89c838adb (lavish, task=boulangerie-scout)
+armed: lavish-e5a6d9f89c838adb
+artifact: /private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-lab.YGdXuO/data/boulangerie-scout/planche.html
+owner-task: boulangerie-scout
+## step 4 (scout scout-away): host board
+session:
+  url: "http://127.0.0.1:4387/session/b998b7486c148cdd"
+next_step: "Do not respond to the user just yet. Now you must run `lavish-axi poll /private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-lab.YGdXuO/data/scout-away/planche.html`. This command long-polls until the user sends feedback, ends the session, or leaves every review window disconnected past the reconnect grace period, and it stays silent the whole time - that is normal, never kill it. Layout issues the browser detects do not return this poll; they wait in the user's Layout issues inbox until the user queues them, then arrive as an ordinary tag \"layout-warnings\" prompt. Do not pass --timeout-ms during normal agent use. Keep the poll in the foreground by default and let it return the feedback directly to the agent. A background poll is allowed only through a harness-native tracked background-job facility whose completion result is guaranteed to resume or notify the same agent. Never use `nohup`, shell `&`, `disown`, redirected fire-and-forget processes, or a detached terminal without an explicit verified callback merely to keep polling alive. If the harness has no completion-aware background facility, use the foreground poll or first wire a verified wake callback into the surrounding supervisor. Do not tell the user the artifact is being monitored until that wake path is live. If the poll gets killed or times out before feedback arrives, re-run it - feedback remains queued until delivery. Poll delivery consumes the response, so read it completely. If it returns browser_disconnected, the review window stayed disconnected past its reconnect grace period but the session remains resumable; ask the user whether to reopen or end it, and do neither uninvited. After applying feedback, run `lavish-axi poll /private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-lab.YGdXuO/data/scout-away/planche.html --agent-reply \"<message for the user>\"` without --timeout-ms to show a concise response in Lavish Editor and keep waiting for more feedback. If instead you are handing back a result without starting another long-poll, run `lavish-axi reply /private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-lab.YGdXuO/data/scout-away/planche.html --agent-reply \"<message for the user>\"` to get an acceptance receipt. Keep the reply concise. Only when a longer reply is genuinely necessary, use Markdown structure - blank-line paragraphs, `- ` / `1. ` lists, `## ` headings - so it renders scannably instead of a wall of text, and pass that body with `--agent-reply-file <path>` (`-` reads stdin) so newlines survive quoting. The Conversation panel's Markdown subset is in `lavish-axi poll --help` and README. If the user ends the session, stop polling and do not reopen it by re-running `lavish-axi /private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-lab.YGdXuO/data/scout-away/planche.html` unless the user asks for further review or something genuinely important needs their visual attention - deliver routine updates directly in this conversation instead. When reopening is warranted, run `lavish-axi /private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-lab.YGdXuO/data/scout-away/planche.html --reopen`."
+## step 4 (scout scout-away): arm
+registered: lavish-b998b7486c148cdd (lavish, task=scout-away)
+armed: lavish-b998b7486c148cdd
+artifact: /private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-lab.YGdXuO/data/scout-away/planche.html
+owner-task: scout-away
+
+## step 5 (firstmate): source-id on the absolute path reported by the scout, then bind
+source-id -> lavish-e5a6d9f89c838adb
+bound: lavish-e5a6d9f89c838adb -> (any)
+binding: (any)
+source-id (away board) -> lavish-b998b7486c148cdd
+bound: lavish-b998b7486c148cdd -> (any)
+
+## attended board: captain chose comptoir-quartier, clicked Send to Agent
+SOURCE                       ADAPTER      OWNER      PENDING
+lavish-b998b7486c148cdd      lavish       task:scout-away/listening 0
+lavish-e5a6d9f89c838adb      lavish       task:boulangerie-scout/round-open 1
+## fm-procevent-lavish.sh answers on the capture:
+boulangerie-home	comptoir-quartier	Direction -> comptoir-quartier	release
+## tasks-axi show boulangerie-home (state/held):
+  state: queued
+  held: no
+  hold_kind: "-"
+  closed: "-"
+
+## away posture set: echo away > state/.afk
+## away board: captain chose audacieuse-typo with a note, clicked Send to Agent
+SOURCE                       ADAPTER      OWNER      PENDING
+lavish-b998b7486c148cdd      lavish       task:scout-away/round-open 1
+lavish-e5a6d9f89c838adb      lavish       task:boulangerie-scout/round-open 1
+## fm-procevent-lavish.sh answers on the capture:
+boulangerie-home-away	audacieuse-typo	Direction -> audacieuse-typo - garder le logo actuel	release
+## direct replay of that row into the intake while away (what the runner fed):
+refused: boulangerie-home-away (the away-posture record exists, and a captain hold is released only by the captain in an attended session; retry --release after the return archives the record)
+answers: closed=0 skipped=1
+exit=1
+## tasks-axi show boulangerie-home-away:
+  state: queued
+  held: yes
+  hold_kind: captain
+  closed: "-"
+
+## captain returns: rm state/.afk, replay the same captured answer into the intake
+closed: boulangerie-home-away
+answers: closed=1 skipped=0
+exit=0
+  state: queued
+  held: no
+  hold_kind: "-"
+  closed: "-"
+
+## adversarial: source-id on the board URL instead of the reported path
+error: cannot resolve the artifact path: http://127.0.0.1:4387/session/e5a6d9f89c838adb
+exit=1
+
+## final backlog (data/backlog.md)
+# Backlog
+
+## In flight
+## Queued
+- [ ] boulangerie-home - Construire la page d'accueil selon la direction retenue (since 2026-11-08)
+  Resolution recorded by fm-captain-hold.
+  Decision digest: 104ffd7d325e4436bbe742b83b36d221ddbb0956ab264c55484dde48476a9c70
+  Resolution mode: released
+
+  Captain decision:
+  Captain answered this call through the captured result lavish-e5a6d9f89c838adb sequence 1.
+  Task: boulangerie-home
+  Answer: comptoir-quartier
+  Answer as shown to the captain: Direction -> comptoir-quartier
+
+- [ ] boulangerie-scout - Scout: directions de design pour la refonte (since 2026-11-08)
+- [ ] boulangerie-home-away - Travail conditionné (posture d'absence) (since 2026-11-08)
+  Resolution recorded by fm-captain-hold.
+  Decision digest: bfe80bac5617676e4d1cc7593a57ade77de603506606c0ee0bd5e79fc9128699
+  Resolution mode: released
+
+  Captain decision:
+  Captain answered this call through the captured result lavish-b998b7486c148cdd sequence 1.
+  Task: boulangerie-home-away
+  Answer: audacieuse-typo
+  Answer as shown to the captain: Direction -> audacieuse-typo - garder le logo actuel
+
+- [ ] scout-away - Scout absence (since 2026-11-08)
+## Done

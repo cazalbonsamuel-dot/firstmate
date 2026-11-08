@@ -1,0 +1,92 @@
+# web-design-direction steps 3-5 driven live in a disposable lab home (real fm-captain-hold.sh, fm-procevent*.sh, lavish-axi 0.1.83, headless Chromium as the captain)
+
+## step 3 (firstmate): fm-captain-hold.sh hold boulangerie-home --reason ...
+## step 4 (scout): arm output
+registered: lavish-1d3453746a883ca2 (lavish, task=boulangerie-scout)
+armed: lavish-1d3453746a883ca2
+artifact: /private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-lab.6bdRhO/data/boulangerie-scout/planche.html
+owner-task: boulangerie-scout
+
+## step 5 (firstmate): source-id on the reported absolute path, then bind
+source-id -> lavish-1d3453746a883ca2
+bound: lavish-1d3453746a883ca2 -> (any)
+## adversarial: source-id on the board URL instead of the path
+error: cannot resolve the artifact path: http://127.0.0.1:4387/session/1d3453746a883ca2
+
+## procevent runner after captain clicked 'Send to Agent'
+reconciles-fed: lavish-1d3453746a883ca2
+answers-fed: lavish-1d3453746a883ca2
+not-autohandled: lavish-1d3453746a883ca2 (left for the handler; still unacknowledged)
+captured: /private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-lab.6bdRhO/state/procevent-inbox/lavish-1d3453746a883ca2.1.result
+
+## boulangerie-scout (lavish-1d3453746a883ca2): captured choice prompt
+## fm-procevent-lavish.sh answers ->
+boulangerie-home	comptoir-quartier	Direction -> comptoir-quartier
+## binding:
+(any)
+
+## scout-sans-note (lavish-fd04f5f3a3b86b6d): captured choice prompt
+## fm-procevent-lavish.sh answers ->
+## binding:
+(any)
+
+## scout-release (lavish-4239fbdb9435c599): captured choice prompt
+## fm-procevent-lavish.sh answers ->
+boulangerie-home-release	audacieuse-typo	Direction -> audacieuse-typo - garder le logo actuel	release
+## binding:
+(any)
+
+## scout-unbound (lavish-4c091fc8b56653b0): captured choice prompt
+## fm-procevent-lavish.sh answers ->
+boulangerie-home-unbound	atelier-editorial	Direction -> atelier-editorial
+## binding:
+
+## final backlog (data/backlog.md)
+## In flight
+
+## Queued
+- [ ] boulangerie-scout - Scout: directions de design pour la refonte (since 2026-11-08)
+- [ ] boulangerie-home-sans-note - Travail conditionné par le choix (sans-note) (since 2026-11-08) (hold: fm-hold-v1:Q2hvaXggZGUgZGlyZWN0aW9uIChzYW5zLW5vdGUp) (hold-kind: captain)
+  Captain hold set: 2026-11-07T23:52:30Z
+- [ ] scout-sans-note - Scout sans-note (since 2026-11-08)
+- [ ] boulangerie-home-release - Travail conditionné par le choix (release) (since 2026-11-08)
+  Resolution recorded by fm-captain-hold.
+  Decision digest: cb7b651abb52e1462dac6b94b7f024f1b09a8960e9ab3abcf5d219b7f26590b7
+  Resolution mode: released
+
+  Captain decision:
+  Captain answered this call through the captured result lavish-4239fbdb9435c599 sequence 1.
+  Task: boulangerie-home-release
+  Answer: audacieuse-typo
+  Answer as shown to the captain: Direction -> audacieuse-typo - garder le logo actuel
+
+- [ ] scout-release - Scout release (since 2026-11-08)
+- [ ] boulangerie-home-unbound - Travail conditionné (non lié) (since 2026-11-08) (hold: fm-hold-v1:Q2hvaXggZGUgZGlyZWN0aW9uIChub24gbGnDqSk=) (hold-kind: captain)
+  Captain hold set: 2026-11-07T23:54:00Z
+- [ ] scout-unbound - Scout non lié (since 2026-11-08)
+## Done
+- [x] boulangerie-home - Construire la page d'accueil selon la direction retenue (done 2026-11-08) (hold: fm-hold-v1:Q2hvaXggZGUgbGEgZGlyZWN0aW9uIGRlIGRlc2lnbiBwYXIgbGUgY2FwaXRhaW5lICh3ZWItZGVzaWduLWRpcmVjdGlvbik=) (hold-kind: captain)
+  Resolution recorded by fm-captain-hold.
+  Decision digest: 1ea8d8d04badd49b7b8640c3df91cad4f7cc938c76b3ddca827df23957d90112
+  Resolution mode: answered
+
+  Captain decision:
+  Captain answered this call through the captured result lavish-1d3453746a883ca2 sequence 1.
+  Task: boulangerie-home
+  Answer: comptoir-quartier
+  Answer as shown to the captain: Direction -> comptoir-quartier
+
+
+## raw captured prompt rows (prompts block) per board
+### boulangerie-scout
+prompts[1]{uid,prompt,selector,tag,text}:
+  "1","Choix de direction : comptoir-quartier\n\nContext data:\n{\n  \"schema\": \"fm-bearings-answer.v1\",\n  \"question\": \"boulangerie-home\",\n  \"selection\": \"comptoir-quartier\",\n  \"note\": \"\"\n}",form#choice,choice,Direction -> comptoir-quartier
+### scout-sans-note
+prompts[1]{uid,prompt,selector,tag,text}:
+  "1","Choix de direction : atelier-editorial\n\nContext data:\n{\n  \"schema\": \"fm-bearings-answer.v1\",\n  \"question\": \"boulangerie-home-sans-note\",\n  \"selection\": \"atelier-editorial\"\n}",form#choice,choice,Direction -> atelier-editorial
+### scout-release
+prompts[1]{uid,prompt,selector,tag,text}:
+  "1","Choix de direction : audacieuse-typo - garder le logo actuel\n\nContext data:\n{\n  \"schema\": \"fm-bearings-answer.v1\",\n  \"question\": \"boulangerie-home-release\",\n  \"selection\": \"audacieuse-typo\",\n  \"note\": \"garder le logo actuel\",\n  \"close\": \"release\"\n}",form#choice,choice,Direction -> audacieuse-typo - garder le logo actuel
+### scout-unbound
+prompts[1]{uid,prompt,selector,tag,text}:
+  "1","Choix de direction : atelier-editorial\n\nContext data:\n{\n  \"schema\": \"fm-bearings-answer.v1\",\n  \"question\": \"boulangerie-home-unbound\",\n  \"selection\": \"atelier-editorial\",\n  \"note\": \"\"\n}",form#choice,choice,Direction -> atelier-editorial
