@@ -27,6 +27,7 @@ Le firstmate n'écrit jamais dans le projet (`AGENTS.md` règle 1) : il décide 
    - la requête réelle que la page sert, une intention par page ;
    - les faits sourcés, les hypothèses bornées et les inconnues.
    Pour un site neuf, écrire aussi l'objectif du visiteur, ses freins, craintes et objections : ils forment le plan de contenu.
+   Pour un site neuf ou refait, le plan de contenu comprend aussi des verbatims de clients fournis par le capitaine ou le commerçant (avis, messages, questions posées au téléphone, entretien), jamais recueillis par un worker auprès d'un client, et une fiche `VOIX.md` du site sur le modèle de celle de l'agence : personne qui parle, vouvoiement ou non, ton sur les quatre échelles de NN/g (humour, formalité, respect, enthousiasme), mots à employer et à éviter, exemples avant/après.
    Pour un lieu qui reçoit du public, le plan de contenu inclut ses infos pratiques en texte HTML visibles depuis l'accueil : adresse et accès, horaires avec exceptions, téléphone en lien `tel:`, carte et prix en HTML (un PDF n'est qu'un complément), identiques à la fiche Google d'entreprise.
    Ne pas élargir l'intention ni inventer de préférence.
 3. Avant toute nouvelle page, faire vérifier dans Search Console qu'aucune URL existante ne sert déjà cette requête ; sinon consolider par redirection ou canonique plutôt que créer.
@@ -51,7 +52,7 @@ Le firstmate n'écrit jamais dans le projet (`AGENTS.md` règle 1) : il décide 
 6. Résoudre le mode de livraison selon `AGENTS.md` section 7 ; `yolo` reste désactivé pour tout site en ligne, même si le registre du projet dit autre chose : dans ce cas, le signaler au capitaine.
 7. Décider le premier découpage en unités de travail, chacune avec son livrable vérifiable de bout en bout (`web-worker-brief`).
    Pour un site neuf, le plan de contenu précède la direction de design (`web-design-direction`) ; le design ne se néglige pas pour autant, il sublime et sert ce contenu.
-   Une refonte qui change des URL commence par un inventaire des URL existantes (crawl et Search Console) et une table de redirections 301 page à page, jamais vers l'accueil par défaut, entrée figée du worker de la refonte (`web-livraison`).
+   Une refonte commence par un inventaire des URL existantes (crawl et Search Console) qui porte pour chaque page son objectif, son trafic dans Search Console quand la propriété existe et une décision (garder, fusionner, supprimer) ; le plan de contenu et, quand des URL changent, la table de redirections 301 page à page, jamais vers l'accueil par défaut, sortent de cette même liste, entrée figée du worker de la refonte (`web-livraison`).
 8. Tenir le besoin comme item du backlog du home ; la note dit le classement, l'objectif mesurable, la requête visée et les questions ouvertes.
    Tenir chaque question du capitaine selon `captain-hold-lifecycle`.
 
@@ -62,6 +63,7 @@ Le firstmate n'écrit jamais dans le projet (`AGENTS.md` règle 1) : il décide 
 - **Worker** : aucun worker de modification avant la mesure de départ, hors celui de la PR qui crée le kit (lot 3) ; seuls mesure (dont la PR qui crée le kit du projet), audit et recherche peuvent partir avant les réponses du capitaine.
 - Refuser une série de pages générées (villes, variantes, synonymes, traductions automatiques) et toute page qui ne nomme pas la requête réelle qu'elle sert et ce qu'elle apporte.
 - Refuser tout connecteur d'écriture en production (WordPress.com, achat de domaine) pour un worker.
+- Refuser toute surcouche ou tout widget d'accessibilité sur un site : ils ne remplacent jamais l'accessibilité du code.
 
 ## Références
 
@@ -74,3 +76,9 @@ Le firstmate n'écrit jamais dans le projet (`AGENTS.md` règle 1) : il décide 
 - NN/g, éviter le PDF pour la lecture à l'écran (2020) : https://www.nngroup.com/articles/avoid-pdf-for-on-screen-reading/
 - Google, déménagement de site avec changement d'URL (table des URL, redirections gardées au moins un an) : https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes
 - Service-public, mentions obligatoires sur le site d'une entreprise : https://entreprendre.service-public.gouv.fr/vosdroits/F37351
+- GOV.UK, Use clear language (les mots que les visiteurs emploient eux-mêmes) : https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-language/
+- GOV.UK, Use the right tone (« Write conversationally ») : https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/right-tone/
+- NN/g, The Four Dimensions of Tone of Voice (2023-08-16) : https://www.nngroup.com/articles/tone-of-voice-dimensions/
+- Mailchimp, Voice and Tone (voix constante, ton qui varie) : https://styleguide.mailchimp.com/voice-and-tone/
+- GOV.UK, Manage existing GOV.UK content (audit de contenu, retrait du contenu obsolète) : https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/plan-manage-content/manage-existing-govuk-content/
+- NN/g, utilisateurs de lecteurs d'écran et surcouches d'accessibilité (2024) : https://youtu.be/mvKTItqsOCg
