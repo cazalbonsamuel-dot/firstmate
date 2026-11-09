@@ -1,0 +1,37 @@
+❯ Deuxième test. Charge avec l'outil Skill web-intake, web-design-direction, web-content-review et seo-geo-audit (aucun autre outil, rien à modifier). Réponds ensuite d'après leur texte seul, en
+  citant la phrase et le numéro de règle : 1) quels trois éléments la fiche d'admission ajoute (règle 10) ; 2) combien de directions, différentes sur combien d'axes, et une direction ne différant que
+  par couleurs et polices est-elle acceptée ; 3) une grande typographie ou une photo pleine largeur est-elle suspecte comme signature IA ; 4) quel modèle seo-geo-audit donne au scout ; 5)
+  web-content-review accepte-t-il un score de détecteur de texte IA comme preuve ; 6) un des quatre skills mentionne-t-il Fable comme modèle possible.
+⏺ Captain, je charge les quatre skills, puis je réponds d'après leur texte seul.
+⏺ Skill(web-intake)
+  ⎿  Successfully loaded skill
+⏺ Skill(web-design-direction)
+  ⎿  Successfully loaded skill
+⏺ Skill(web-content-review)
+  ⎿  Successfully loaded skill
+⏺ Skill(seo-geo-audit)
+  ⎿  Successfully loaded skill
+⏺ Captain, les quatre skills sont chargés. Réponses d'après leur texte seul.
+  1) Les trois éléments de la fiche d'admission (règle 10), web-intake étape 2 :
+  - Règle 10a : « trois mots pour l'impression voulue (par exemple : précis, chaleureux, haut de gamme) (règle 10a) »
+  - Règle 10b : « ce que le métier a de concret à montrer (matières, outils, lieux, gestes, résultats), d'où viennent les choix visuels distinctifs (règle 10b) »
+  - Règle 10c : « la liste des photos nécessaires (sujet, cadrage, lumière, format), pour savoir dès le départ quelles images le site aura (règle 10c) »
+  La section Refuser le confirme : « Refuser une fiche d'admission sans action principale, sans les trois mots, sans ce que le métier a de concret à montrer ou sans la liste des photos (règles 7 et
+  10). »
+  2) Nombre de directions et axes, web-design-direction : deux ou trois directions, différentes de structure sur au moins trois axes. Étape 3 : « différentes de structure sur au moins trois axes
+  (premier écran, grille, en-tête et navigation, accès à l'action, photos, densité, contraste typographique), avec la matrice de ces axes dans le rapport ; chacune doit pouvoir être retenue, sans
+  direction « sûre » de remplissage, et au moins une prend un vrai risque (règle 11) ». Une direction qui ne diffère que par couleurs et polices est refusée : « Refuser comme candidates : des
+  directions qui ne diffèrent que par couleurs et polices, une direction de remplissage, une refonte qui abandonne l'identité en place sans demande du capitaine (règles 11, 20 et 62). »
+  3) Grande typographie ou photo pleine largeur : non, pas suspectes. Étape 3, règle 16 : « ce qui n'est pas dans la liste n'est pas suspect : grande typographie, photo pleine largeur, fonds de
+  section alternés, couleur franche restent permis (règle 16) ».
+  4) Modèle du scout dans seo-geo-audit, étape 1 : « Écrire le brief du scout avec web-worker-brief ; modèle Opus, effort élevé ; le site rendu est la source, pas le code seul. »
+  5) Score de détecteur de texte IA dans web-content-review : refusé. Section Refuser : « Refuser tout score de détecteur de texte IA comme preuve, contrôle ou argument, dans un sens comme dans
+  l'autre (règle 45). »
+  6) Fable comme modèle possible : aucun des quatre skills ne mentionne Fable. Les seuls modèles nommés sont Opus, pour la revue anti-slop dans web-content-review (« un worker distinct de l'auteur
+  (Opus, effort élevé) ») et pour le scout d'audit dans seo-geo-audit. web-intake et web-design-direction ne nomment aucun modèle.
+✻ Worked for 16s · done 1:55 PM
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+❯ 
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Fable 5.1 | ctx: 8% used
+  ⏵⏵ auto mode on (shift+tab to cycle)
