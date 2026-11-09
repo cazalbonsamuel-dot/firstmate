@@ -33,8 +33,7 @@ Ce skill précède `ship-landing` et ne le remplace pas ; le pipeline de livrais
    Seule la PR qui crée le kit (lot 3) est dispensée des mesures avant et des sorties du kit : elle montre leur première sortie, mesure de départ des PR suivantes.
    Une preuve manquante renvoie au worker, un manque écrit à la place d'une preuve du kit compris ; un contrôle rouge ne se présente pas.
 2. Ouvrir l'URL d'aperçu dans `chrome-devtools-axi` et regarder le rendu ; tout ce qui a l'air faux à l'écran, même hors sujet, est signalé et corrigé (règle 61).
-   Avant la mise en ligne d'un site neuf ou refait, exiger du worker la page de mentions légales avec les données du capitaine et le parcours de l'action principale au clavier seul (règle 54), puis un passage VoiceOver avec Safari sur la page de l'action principale (titre de page, liste des titres, régions, liste des liens, étiquettes du formulaire), tous deux joints à la PR.
-   Proposer au capitaine, comme option et non comme porte, que trois à cinq personnes accomplissent l'action principale sur leur téléphone en pensant à voix haute, sans aide.
+   Avant la mise en ligne d'un site neuf ou refait, exiger du worker la page de mentions légales avec les données du capitaine et le parcours de l'action principale au clavier seul (règle 54), tous deux joints à la PR.
 3. Présenter au capitaine la fusion comme une mise en production, dans un seul message :
    - le résultat en une phrase ;
    - l'URL complète de la PR et l'URL d'aperçu ;
@@ -61,13 +60,10 @@ Ce skill précède `ship-landing` et ne le remplace pas ; le pipeline de livrais
 
 ## Références
 
-- `data/regles-design.md` : fusion et mise en production (règles 4 et 63), preuves sur le rendu (règles 57 et 58), revue en deux temps (règle 60), maquettes non publiées (règle 56).
+- `data/regles-design.md` : fusion et mise en production (règles 4 et 63), preuves sur le rendu (règles 57 et 58), revue en deux temps (règle 60), mentions légales et parcours au clavier (règle 54), maquettes non publiées (règle 56).
 - `data/captain.md` : fusion = mise en production, sans `yolo`.
 - Google, inspection d'URL : https://support.google.com/webmasters/answer/9012289
 - IndexNow (moteurs participants, Google n'en fait pas partie) : https://www.indexnow.org/faq
 - Lighthouse, variabilité : https://github.com/GoogleChrome/lighthouse/blob/main/docs/variability.md
 - Google, déménagement de site avec changement d'URL : https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes
 - WCAG 2.2, critère 2.1.1 Keyboard : https://www.w3.org/TR/WCAG22/
-- RGAA 4.1.2, environnement de test (VoiceOver avec Safari parmi les combinaisons de référence) : https://accessibilite.numerique.gouv.fr/methode/environnement-de-test/
-- Sara Soueidan, test au lecteur d'écran avec VoiceOver et Safari : https://youtu.be/jXaQsSUMiAY
-- NN/g, tester avec cinq utilisateurs (2000) : https://www.nngroup.com/articles/why-you-only-need-to-test-with-5-users/
