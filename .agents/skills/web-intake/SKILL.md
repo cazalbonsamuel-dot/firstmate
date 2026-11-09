@@ -27,6 +27,8 @@ Le firstmate n'écrit jamais dans le projet (`AGENTS.md` règle 1) : il décide 
    - la requête réelle que la page sert, une intention par page ;
    - les faits sourcés, les hypothèses bornées et les inconnues.
    Pour un site neuf, écrire aussi l'objectif du visiteur, ses freins, craintes et objections : ils forment le plan de contenu.
+   Le plan de contenu classe la matière par priorité, sans ordre de sections, car la structure de la page est une décision de design : A, ce que le visiteur doit comprendre en cinq secondes, trois choses au plus ; B, ce qui le décide (preuves, prix d'appel, zone, délais, réalisations, avis) ; C, le détail (grille complète des tarifs, communes, majorations, justificatifs), qui va sur les pages et pas sur l'accueil.
+   Il porte aussi trois mots pour l'impression voulue, ce que le métier a de concret à montrer (matières, outils, lieux, gestes, résultats) et la liste des photos nécessaires (sujet, cadrage, lumière, format), avec un portrait au travail, visage visible, en tête pour un artisan ou une petite équipe.
    Au premier travail de texte d'un site, quel que soit le classement (site neuf, refonte, contenu sur un site existant), le plan de contenu crée la fiche `VOIX.md` du site, reprise ensuite par tout travail de texte, avec les verbatims de clients quand il en existe, fournis par le capitaine ou le commerçant (avis, messages, questions posées au téléphone, entretien), jamais recueillis par un worker auprès d'un client ; la fiche suit le modèle de celle de l'agence : personne qui parle, vouvoiement ou non, ton sur les quatre échelles de NN/g (humour, formalité, respect, enthousiasme), mots à employer et à éviter, exemples avant/après.
    Pour un lieu qui reçoit du public, le plan de contenu inclut ses infos pratiques en texte HTML visibles depuis l'accueil : adresse et accès, horaires avec exceptions, téléphone en lien `tel:`, carte et prix en HTML (un PDF n'est qu'un complément), identiques à la fiche Google d'entreprise.
    Ne pas élargir l'intention ni inventer de préférence.
@@ -43,7 +45,7 @@ Le firstmate n'écrit jamais dans le projet (`AGENTS.md` règle 1) : il décide 
    - page de mentions légales de tout site professionnel (éditeur, immatriculation, hébergeur), dont le capitaine fournit les données ;
    - outil payant, abonnement, achat ;
    - traceur, outil d'audience, service tiers, police non auto-hébergée, bandeau de consentement ;
-   - direction de design (nouveau rendu ou rendu refait : `web-design-direction`) ;
+   - direction de design (nouveau rendu ou rendu refait : `web-design-direction`), puis validation du premier écran et de l'accueil complet (`web-mise-au-point`) ;
    - fiche `VOIX.md` d'un site sans fiche, à son premier travail de texte : les choix de la fiche et les verbatims de clients, fournis par le capitaine ou le commerçant ;
    - texte à publier, métadonnées et textes alternatifs compris (relecture du capitaine, `web-content-review`) ;
    - preuve sociale (témoignage, logo, chiffre, note, prix, distinction) dont le capitaine doit fournir la source ;
@@ -53,6 +55,7 @@ Le firstmate n'écrit jamais dans le projet (`AGENTS.md` règle 1) : il décide 
 6. Résoudre le mode de livraison selon `AGENTS.md` section 7 ; `yolo` reste désactivé pour tout site en ligne, même si le registre du projet dit autre chose : dans ce cas, le signaler au capitaine.
 7. Décider le premier découpage en unités de travail, chacune avec son livrable vérifiable de bout en bout (`web-worker-brief`).
    Pour un site neuf, le plan de contenu précède la direction de design (`web-design-direction`) ; le design ne se néglige pas pour autant, il sublime et sert ce contenu.
+   Un rendu neuf ou refait suit trois temps, chacun en petites tâches confiées à des workers distincts : exploration (`web-design-direction`), mise au point de l'accueil section par section (`web-mise-au-point`), construction page par page (`web-worker-brief`) ; le capitaine tranche à la planche, au premier écran et à l'accueil complet.
    Une refonte commence par un inventaire des URL existantes (crawl et Search Console) qui porte pour chaque page son objectif, son trafic dans Search Console quand la propriété existe et une décision (garder, fusionner, supprimer) ; le plan de contenu et, quand des URL changent, la table de redirections 301 page à page, jamais vers l'accueil par défaut, sortent de cette même liste, entrée figée du worker de la refonte (`web-livraison`).
 8. Tenir le besoin comme item du backlog du home ; la note dit le classement, l'objectif mesurable, la requête visée et les questions ouvertes.
    Tenir chaque question du capitaine selon `captain-hold-lifecycle`.

@@ -342,6 +342,10 @@
       "audience": "agent-runtime"
     },
     {
+      "path": ".agents/skills/web-mise-au-point/SKILL.md",
+      "audience": "agent-runtime"
+    },
+    {
       "path": ".agents/skills/web-worker-brief/SKILL.md",
       "audience": "agent-runtime"
     },
