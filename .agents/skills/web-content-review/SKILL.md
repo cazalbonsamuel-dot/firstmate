@@ -25,7 +25,7 @@ Aucun agent ne remplace la relecture du capitaine, que Google exige pour le cont
    Vérifier aussi que le texte répond aux objections et craintes du plan de contenu et mène à l'action principale (`web-intake`) ; une FAQ visible est permise pour cela, sans balisage FAQPage.
 3. Lire les sorties de Vale (tournures interdites, en avertissement) et de Grammalecte, preuves du kit obligatoires (`web-worker-brief`) ; chaque avertissement restant porte une justification écrite dans la PR.
    Une remise sans ces sorties renvoie au worker, hors la PR qui crée le kit (lot 3) ; un outil empêché est un blocage remonté au firstmate, pas un manque accepté.
-4. Page de contenu rédactionnel : lancer la revue anti-slop par un worker Fable distinct de l'auteur, brief écrit avec `web-worker-brief`, en scout ; il rend des constats localisés (phrase, catégorie, correction proposée), sans réécrire ni noter le texte.
+4. Page de contenu rédactionnel : lancer la revue anti-slop par un worker distinct de l'auteur (Opus, effort élevé), brief écrit avec `web-worker-brief`, en scout ; il rend des constats localisés (phrase, catégorie, correction proposée), sans réécrire ni noter le texte.
    Catégories de départ, à calibrer sur les premiers textes réels avant de durcir quoi que ce soit :
    - ouvertures et transitions creuses (« Dans un monde en constante évolution », « Il est important de noter que », « Plongeons dans ») ;
    - superlatifs de promotion sans preuve (« révolutionnaire », « incontournable », « de pointe », « clé en main », « booster ») ;
