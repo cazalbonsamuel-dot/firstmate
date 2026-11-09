@@ -45,10 +45,12 @@ Le choix de la direction revient au capitaine (`data/captain.md`) ; le firstmate
    - comparer les captures 375, 768 et 1440 px au DESIGN.md retenu (couleurs, polices, échelle, espacements, mise en page) ;
    - chercher les signatures de `frontend-design` non justifiées et toute valeur hors tokens ;
    - vérifier les points mesurables : longueur de ligne inférieure à 80 caractères, contraste au moins 4,5:1, cibles tactiles d'au moins 44 px, aucun défilement horizontal à 375 px, focus visible, `prefers-reduced-motion` respecté ;
+   - vérifier le zoom : tailles de texte en `rem` (un `clamp()` garde une part en `rem`, jamais d'unité viewport seule), zoom à 200 % sans perte, aucune perte à 320 px CSS de large ni avec l'espacement de texte de WCAG 1.4.12 ;
+   - chaque lien, bouton et entrée de menu dit où il mène ou ce qu'il fait, compréhensible seul, et chaque page a un `<title>` qui dit sa fonction (`web-content-review`) ;
    - premier écran à 375 et 1440 px sans défiler : ce que propose le site en une phrase, un élément de confiance sourcé, le bouton de l'action principale, et le début de la section suivante qui dépasse ; aucune information critique seulement dans un carrousel ;
    - action principale à un clic depuis tout endroit du site (en-tête qui suit le défilement ou bouton répété) ;
    - chaque image apporte ou clarifie une information ; une image décorative qui répète le texte voisin est renvoyée ;
-   - chaque formulaire : étiquette visible liée à son champ, `type` et `autocomplete` adaptés, erreur annoncée près du champ sans effacer la saisie, ce qui se passe après l'envoi et sous quel délai, usage des données collectées ;
+   - chaque formulaire : étiquette visible liée à son champ, `type` et `autocomplete` adaptés, erreur annoncée près du champ sans effacer la saisie, texte de l'erreur qui dit ce qui ne va pas et comment corriger, sans reproche ni plaisanterie, une phrase de réassurance à côté de chaque donnée sensible demandée (pourquoi le téléphone, pas de prospection), ce qui se passe après l'envoi et sous quel délai, usage des données collectées ;
    - renvoyer au worker avec des écarts précis (capture, élément, valeur attendue, valeur vue), jamais avec un « à améliorer » ;
    - signaler aussi tout défaut visuel hors sujet vu à l'écran (exigence visuelle du capitaine).
 8. La revue des signatures et des tokens de l'étape 7 se fait toujours sur les captures et le code, pour tout rendu nouveau ou refait.
@@ -69,7 +71,10 @@ Le choix de la direction revient au capitaine (`data/captain.md`) ; le firstmate
 - Skill `frontend-design` : signatures du design généré par IA, processus en deux passes (plan, revue d'unicité, révisions) avant le code.
 - UXKIN, systèmes de design tirés de vrais sites (plugin `website-design`, compte du capitaine) : https://uxkin.com
 - Skills `website-design:web-design-system` (trame du DESIGN.md) et `website-design:web-review` (revue du rendu).
-- WCAG 2.2 : https://www.w3.org/TR/WCAG22/ (contraste 4,5:1 au critère 1.4.3 ; 44 px est le critère AAA 2.5.5, retenu par `landing-page` ; formulaires aux critères 1.3.5, 3.3.1 et 3.3.2).
+- WCAG 2.2 : https://www.w3.org/TR/WCAG22/ (contraste 4,5:1 au critère 1.4.3 ; 44 px est le critère AAA 2.5.5, retenu par `landing-page` ; formulaires aux critères 1.3.5, 3.3.1, 3.3.2 et 3.3.3 ; zoom aux critères 1.4.4, 1.4.10 et 1.4.12 ; liens et titres aux critères 2.4.2, 2.4.4 et 2.4.6).
+- NN/g, Error-Message Guidelines (2023-05-14) : https://www.nngroup.com/articles/error-message-guidelines/
+- GOV.UK, Write effective links : https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/add-links/
+- Kevin Powell, tailles de texte en unités viewport et zoom : https://youtu.be/G1buM51f09s
 - NN/g, Scrolling and Attention (2018, 57 % du temps de lecture au-dessus de la ligne de flottaison) : https://www.nngroup.com/articles/scrolling-and-attention/
 - NN/g, Homepage Design: 4 Common Mistakes (faux plancher, carrousel) : https://youtu.be/lSwwFqWqZqQ
 - web.dev, bonnes pratiques des formulaires (`type`, `autocomplete`) : https://web.dev/articles/payment-and-address-form-best-practices

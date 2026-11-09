@@ -23,6 +23,7 @@ Les règles du domaine dans `data/captain.md` restent l'autorité ; le brief les
    - rendu nouveau ou refait : le DESIGN.md retenu par le capitaine (`web-design-direction`) ;
    - tout rendu d'un site neuf : le plan de contenu (`web-intake`) ;
    - page de contenu : le plan de contenu (une intention par page, requête visée) et les sources fournies ;
+   - tout texte : la fiche `VOIX.md` du site et les verbatims de clients du plan de contenu quand il en existe (`web-intake`) ;
    - toute modification : la mesure de l'état de départ par le kit de contrôles du projet (`web-intake`).
    Une entrée non figée interdit le lancement.
    Seule la PR qui crée le kit du projet (lot 3) part sans cette mesure ; elle montre la première sortie du kit, qui sert de mesure de départ aux PR suivantes.
@@ -31,10 +32,10 @@ Les règles du domaine dans `data/captain.md` restent l'autorité ; le brief les
    - tout rendu : skills `frontend-design` et `website-design` (`web-design-system`, `landing-page`, `web-review`) ; aucune signature de design IA listée par `frontend-design` sans justification écrite dans le DESIGN.md ; tokens du DESIGN.md seulement ;
    - direction de design : les consignes du scout de `web-design-direction` (étapes 1 à 4), dont la DA relevée pour une refonte, les références du thème, la matrice de structure, les deux passes de `frontend-design` et le contrôle de `web-review` par direction, le code source des maquettes sous son dossier de données (point de départ, jamais à la place du DESIGN.md retenu), la planche qu'il construit, héberge et arme avant de remonter `needs-decision [key=board-review]` avec le chemin absolu du fichier de la planche et son URL, sans s'adresser au capitaine, et la forme de sa question de choix (`.agents/skills/bearings/assets/board-template.html` : invite `choice`, Context data avec `schema` `fm-bearings-answer.v1`, `question` égal à l'identifiant de la tâche tenue donné par le brief, `selection` en forme de slug, `note` présente même vide, `close` `release` pour libérer le travail tenu sans le clore ; sinon `bin/fm-procevent-lavish.sh answers` écarte la ligne sans message) ;
    - tout code : ponytail, HTML natif avant une bibliothèque, aucune dépendance directe nouvelle sans justification dans la PR, zéro JavaScript client par défaut sur un site vitrine ;
-   - tout texte : les catégories de tournures interdites de `web-content-review`, une source primaire datée par affirmation factuelle, aucune preuve sociale sans source fournie par le capitaine (emplacement marqué à la place) ;
+   - tout texte : la fiche `VOIX.md` du site et les mots des verbatims de clients quand il en existe, les catégories de `web-content-review` (tournures interdites, langage clair, liens et titres), une source primaire datée par affirmation factuelle, aucune preuve sociale sans source fournie par le capitaine (emplacement marqué à la place) ;
    - données structurées : types de la Search gallery seulement, contenu visible seulement, ni FAQPage ni HowTo ;
    - lieu qui reçoit du public : infos pratiques du plan de contenu en texte HTML visibles depuis l'accueil, téléphone en lien `tel:`, carte et prix en HTML (un PDF n'est qu'un complément), identiques à la fiche Google d'entreprise et reprises en données structurées `LocalBusiness` ou `Restaurant` ;
-   - polices auto-hébergées, aucun traceur ni service tiers sans accord du capitaine ;
+   - polices auto-hébergées, en WOFF2 seulement, en sous-ensemble quand la licence le permet, avec un `font-display` choisi et écrit dans la PR, au plus un préchargement (la police du texte courant), et le nombre de fichiers de police compté dans size-limit ; aucun traceur ni service tiers sans accord du capitaine ;
    - un seul travail lourd à la fois : construction, Playwright et Lighthouse en série, jamais deux mesures simultanées ni pendant un travail lourd d'un autre home ; avant d'attendre une commande lourde, déclarer `paused` selon la règle de statut du brief.
 5. Écrire la définition de fini avec ses preuves, jointes à la PR ou au rapport :
    - captures 375, 768 et 1440 px avant et après, prises sur le rendu, clair et sombre si le site a les deux ;
@@ -66,4 +67,7 @@ Les règles du domaine dans `data/captain.md` restent l'autorité ; le brief les
 - Google, carte de restaurant en HTML plutôt qu'en PDF : https://youtu.be/wJukFIpZybY?t=1299
 - NN/g, éviter le PDF pour la lecture à l'écran (2020) : https://www.nngroup.com/articles/avoid-pdf-for-on-screen-reading/
 - web.dev, LCP (seuil « bon » 2,5 s) : https://web.dev/lcp
+- web.dev, Best practices for fonts (2022-10-04 ; WOFF2, sous-ensemble, `font-display`, préchargement) : https://web.dev/articles/font-best-practices
+- GOV.UK, Use clear language et Use the right tone (mots des visiteurs, ton de conversation) : https://guidance.publishing.service.gov.uk/writing-to-gov-uk-standards/writing-guidelines/clear-language/
+- NN/g, The Four Dimensions of Tone of Voice (2023-08-16) : https://www.nngroup.com/articles/tone-of-voice-dimensions/
 - `bin/fm-brief.sh --help` pour la forme du brief.
