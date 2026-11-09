@@ -8,7 +8,7 @@ metadata:
 
 # Livraison web et mise en production
 
-Sur un hébergeur qui déploie la branche principale, fusionner une PR, c'est mettre le site en production : la fusion attend toujours le mot du capitaine, jamais `yolo` (`data/captain.md`).
+Sur un hébergeur qui déploie la branche principale, fusionner une PR, c'est mettre le site en production : la fusion attend toujours le mot du capitaine, jamais `yolo` (règles 4 et 63 de `data/regles-design.md`).
 Ce skill précède `ship-landing` et ne le remplace pas ; le pipeline de livraison reste seul juge de la revue, des tests et de la CI.
 
 ## Quand charger
@@ -19,20 +19,21 @@ Ce skill précède `ship-landing` et ne le remplace pas ; le pipeline de livrais
 
 ## Faire
 
-1. Vérifier la présence et la cohérence des preuves exigées par le brief (`web-worker-brief`), sans refaire la revue du pipeline :
-   - captures 375, 768 et 1440 px avant et après, prises sur le rendu ;
-   - tableau des mesures avant/après : Lighthouse cinq passes en médiane (JSON), rapport axe ;
+1. Vérifier la présence et la cohérence des preuves exigées par le brief (`web-worker-brief`), sans refaire la revue du pipeline, chacune prise sur le rendu, jamais sur le code seul (règles 57 et 58) :
+   - captures 375, 768 et 1440 px avant et après ;
+   - tableau des mesures avant/après : Lighthouse cinq passes en médiane (JSON) avec LCP ≤ 2,5 s sur mobile (règle 53), rapport axe ;
    - sorties de html-validate, lychee, knip et size-limit, et pour un contenu de Vale et Grammalecte ;
    - pour un contenu : liste « affirmations et sources », revue anti-slop sans point bloquant et résumé de relecture (`web-content-review`) ;
-   - pour un rendu nouveau ou refait : conformité au DESIGN.md retenu (`web-design-direction`) ;
-   - URL d'aperçu qui répond et montre la branche de la PR ;
+   - pour un rendu nouveau ou refait : la revue en deux temps, conformité puis niveau, de `web-design-direction` étape 7, sans écart ouvert (règle 60) ;
+   - aucune preuve sociale en ligne sans sa source : un emplacement marqué dont la source manque n'est jamais mis en ligne vide (règle 43) ; aucune photo provisoire sans sa marque (règle 38) ;
+   - URL d'aperçu qui répond et montre la branche de la PR ; une maquette non publiée y porte `noindex`, un badge fixe discret dans un coin qui ne masque pas le premier écran et des données fictives sûres (règle 56) ;
    - contrôles automatiques verts ;
    - retour arrière écrit dans la PR (commit à annuler ou déploiement précédent à rétablir chez l'hébergeur) ;
    - pour une refonte qui change des URL : la table de redirections 301 page à page (`web-intake`), testée sur l'aperçu, chaque ancienne URL menant à sa nouvelle page, à garder au moins un an.
    Seule la PR qui crée le kit (lot 3) est dispensée des mesures avant et des sorties du kit : elle montre leur première sortie, mesure de départ des PR suivantes.
    Une preuve manquante renvoie au worker, un manque écrit à la place d'une preuve du kit compris ; un contrôle rouge ne se présente pas.
-2. Ouvrir l'URL d'aperçu dans `chrome-devtools-axi` et regarder le rendu ; tout défaut visible, même hors sujet, est signalé.
-   Avant la mise en ligne d'un site neuf ou refait, exiger du worker le parcours de l'action principale au clavier seul, puis un passage VoiceOver avec Safari sur la page de l'action principale (titre de page, liste des titres, régions, liste des liens, étiquettes du formulaire), tous deux joints à la PR.
+2. Ouvrir l'URL d'aperçu dans `chrome-devtools-axi` et regarder le rendu ; tout ce qui a l'air faux à l'écran, même hors sujet, est signalé et corrigé (règle 61).
+   Avant la mise en ligne d'un site neuf ou refait, exiger du worker la page de mentions légales avec les données du capitaine et le parcours de l'action principale au clavier seul (règle 54), puis un passage VoiceOver avec Safari sur la page de l'action principale (titre de page, liste des titres, régions, liste des liens, étiquettes du formulaire), tous deux joints à la PR.
    Proposer au capitaine, comme option et non comme porte, que trois à cinq personnes accomplissent l'action principale sur leur téléphone en pensant à voix haute, sans aide.
 3. Présenter au capitaine la fusion comme une mise en production, dans un seul message :
    - le résultat en une phrase ;
@@ -52,7 +53,7 @@ Ce skill précède `ship-landing` et ne le remplace pas ; le pipeline de livrais
 
 ## Refuser ou remonter
 
-- **Capitaine** : toute fusion sur un site en ligne, toute mise en production, tout retour arrière en production, tout compte ou nom de domaine nécessaire au déploiement.
+- **Capitaine** : toute fusion, toute mise en production, tout retour arrière en production, tout compte, nom de domaine, hébergeur ou fiche Google nécessaire au déploiement (règles 4 et 63).
 - **Firstmate** : présence des preuves, renvoi au worker, moment de la présentation, vérification après fusion.
 - **Worker** : production des preuves et vérifications après fusion ; jamais de fusion, de déploiement manuel ni de connecteur d'écriture en production.
 - Refuser de présenter une PR sans URL d'aperçu, sans mesures avant/après jointes ni les sorties du kit exigées par `web-worker-brief` (hors PR qui crée le kit, étape 1), ou dont un texte publié n'a pas suivi `web-content-review`.
@@ -60,7 +61,8 @@ Ce skill précède `ship-landing` et ne le remplace pas ; le pipeline de livrais
 
 ## Références
 
-- `data/captain.md` : fusion = mise en production, mesure avant/après, relecture des textes.
+- `data/regles-design.md` : fusion et mise en production (règles 4 et 63), preuves sur le rendu (règles 57 et 58), revue en deux temps (règle 60), maquettes non publiées (règle 56).
+- `data/captain.md` : fusion = mise en production, sans `yolo`.
 - Google, inspection d'URL : https://support.google.com/webmasters/answer/9012289
 - IndexNow (moteurs participants, Google n'en fait pas partie) : https://www.indexnow.org/faq
 - Lighthouse, variabilité : https://github.com/GoogleChrome/lighthouse/blob/main/docs/variability.md

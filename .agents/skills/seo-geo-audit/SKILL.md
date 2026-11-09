@@ -18,7 +18,7 @@ La documentation officielle des moteurs et les mesures du site sont l'autorité 
 
 ## Faire
 
-1. Écrire le brief du scout avec `web-worker-brief` ; modèle Fable ; le site rendu est la source, pas le code seul.
+1. Écrire le brief du scout avec `web-worker-brief` ; modèle Opus, effort élevé ; le site rendu est la source, pas le code seul.
 2. Méthode imposée au scout :
    - chaque constat marqué [F] mesuré (outil, version, date, commande ou export) ou [H] hypothèse ;
    - chaque recommandation marquée [R], avec l'URL officielle et sa date « Last updated », une donnée Search Console ou Bing, ou un test reproductible ;
