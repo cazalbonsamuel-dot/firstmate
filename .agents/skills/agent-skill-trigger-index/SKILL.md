@@ -41,6 +41,7 @@ These skills are not captain-invocable; load them only at their precise triggers
 - `web-intake` - in a web (firstmate-web) home, load when a web need arrives (site, page, redesign, fix, content, audit), before writing any brief for it.
 - `web-worker-brief` - in a web home, load before writing the brief of any web worker.
 - `web-design-direction` - in a web home, load before having a design direction chosen for a site, and before accepting a new or redone rendering.
+- `web-mise-au-point` - in a web home, load once the captain has chosen a design direction, before writing its DESIGN.md, before each task that builds or reviews the homepage mock-up, and before presenting the first screen or the full homepage to the captain.
 - `web-content-review` - in a web home, load before accepting any text meant to be published, metadata and alternative text included, and before presenting it to the captain for reading.
 - `seo-geo-audit` - in a web home, load before commissioning or presenting an SEO or GEO audit, and before presenting any SEO or GEO recommendation, even outside an audit; it replaces `marketing:seo-audit` there.
 - `web-livraison` - in a web home, load when a web worker reports a ready PR, before any production release, and again after the merge.
