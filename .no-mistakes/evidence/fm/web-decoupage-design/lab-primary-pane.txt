@@ -1,0 +1,80 @@
+ ▐▛███▛█   Claude Code v2.1.311
+▝▜██████▀  Fable 5.1 with high effort · Claude Ultra
+ ▝▝   ▝▝   ~/.no-mistakes/worktrees/bd8473d389e2/01M70D8E5TVWMDBEDJS0D2M10R
+
+
+❯ Exercice à blanc dans ce home web de labo : ne lance aucun worker, aucun script fm-*, n'écris rien hors de /var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T//fm-lab.dqKhnE/data. Charge avec l'outil
+  Skill les skills web-mise-au-point et web-worker-brief. Situation : le capitaine vient de répondre à la planche de direction : « B, avec le titre de A ». 1) Liste numérotée des tâches que tu
+  créerais d'ici la construction dans le projet, avec pour chacune qui la fait (scout ou ship, constructeur ou relecteur) et ce qui est tenu pour le capitaine. 2) Le capitaine te demande ensuite
+  d'écrire un seul brief pour qu'un worker construise tout l'accueil d'un coup et se relise lui-même. Que réponds-tu ? Écris ta réponse complète dans
+  /var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T//fm-lab.dqKhnE/data/answer.md puis affiche-la.
+
+⏺ Captain, exercice à blanc compris : aucun worker, aucun script, écriture limitée au dossier data du labo. Je charge les deux skills.
+
+⏺ Skill(web-mise-au-point)
+  ⎿  Successfully loaded skill
+
+⏺ Skill(web-worker-brief)
+  ⎿  Successfully loaded skill
+
+  Listed 2 directories (ctrl+o to expand)
+
+⏺ Les deux skills sont chargés. Le home de labo n'ayant ni projet ni plan de contenu, la liste des sections reste tirée du schéma de la direction B, sans noms concrets, et je rédige la réponse.
+  · summary
+
+  Read 1 file (ctrl+o to expand)
+
+⏺ Captain, la réponse est écrite dans /var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T//fm-lab.dqKhnE/data/answer.md. Rien d'autre n'a été touché, aucun worker ni script lancé. La voici en entier.
+
+  ---
+
+  Exercice à blanc - réponse du capitaine à la planche : « B, avec le titre de A »
+
+  Cadre : home web de labo, aucun worker lancé, aucun script, rien écrit hors de ce dossier.
+  Skills appliqués : web-mise-au-point (découpage et boucle de la maquette) et web-worker-brief (forme et preuves des briefs).
+
+  Une question à poser avant la première tâche : « le titre de A » désigne-t-il le texte du titre du premier écran de A, ou son traitement typographique ? Sans réponse, lecture retenue : les deux
+  (mots et typographie du titre de A, posés dans la structure de B), et la citation exacte du capitaine est portée telle quelle dans le DESIGN.md.
+
+  1. Tâches jusqu'à la construction
+
+  Avant toute tâche, action du firstmate seul (pas un worker) : écrire dans la note de l'item du backlog la liste ordonnée des sections de l'accueil, tirée du schéma de B, premier écran en tête ;
+  matière A du plan de contenu au premier écran, matière B dans les sections, C aux autres pages. La maquette part du code de B, copié depuis le dossier de données de son scout.
+
+  1. DESIGN.md (en mise au point) - scout rédacteur (ni constructeur ni relecteur). Il l'écrit sous son dossier de données à partir du code de B, de la note « titre de A », et du DESIGN.md UXKIN d'une
+     référence retenue s'il y en a une (logique reprise, jamais les valeurs ni les composants d'un autre type de site). Il porte la citation « B, avec le titre de A », la version de la planche
+     présentée, les deux ou trois moments signature, chaque écart aux repères avec sa raison, et la mention « en mise au point ».
+     Tenu pour le capitaine : rien à ce stade ; toute modification avant l'accord est une décision du firstmate, écrite par un scout.
+  2. Section : Premier écran - scout constructeur, contexte neuf. Entrées figées nommées avec leur chemin : DESIGN.md en mise au point, matière A, VOIX.md, maquette telle qu'elle est et ses captures,
+     captures des références de B (et le premier écran de A pour le titre). Trois à cinq critères de fin vérifiables sur capture ; captures 1440 et 375 px de la section et de la page entière. Ne
+     touche qu'à sa section ; remonte needs-decision [key=relecture] au firstmate.
+     Tenu pour le capitaine : rien ; la décision ouverte est pour le firstmate.
+  3. Relecture : Premier écran - scout relecteur distinct, contexte neuf, n'a rien construit. Compare à la même largeur face aux références et au DESIGN.md ; rend les trois écarts les plus visibles
+     (où, quoi, valeur attendue) ou dit qu'il n'en voit plus ; juge aussi la page entière. Remonte needs-decision [key=ecarts].
+     Boucle tenue par le firstmate (relais des écarts et des nouvelles captures par --resolve-key), trois à six tours pour le premier écran ; au-delà, le blocage est montré au capitaine avec captures.
+     Tenu pour le capitaine : rien, sauf un blocage de la boucle.
+  4. Planche du premier écran - scout présentateur. Captures 1440 et 375 à côté de celles des références, puis une seule question : valider, ou changer avec une note.
+     Tenu pour le capitaine : la validation du premier écran. La suite de l'accueil est tenue en attendant (captain-hold-lifecycle) ; une note de changement relance la boucle des tâches 2 et 3.
+  5. Section : <2e section de B> - scout constructeur neuf, mêmes entrées que la tâche 2 plus le rapport du constructeur précédent (maquette et captures) ; ne démarre qu'après la validation du premier
+     écran.
+     Tenu pour le capitaine : rien.
+  6. Relecture : <2e section de B> - scout relecteur neuf ; boucle d'un à trois tours tenue par le firstmate.
+     Tenu pour le capitaine : rien, sauf blocage.
+  7. à N. Section / Relecture : <sections suivantes de B> - même paire constructeur neuf / relecteur neuf pour chaque section, dans l'ordre de la liste, une section ne démarrant pas avant que la
+     précédente ait passé sa relecture.
+     Tenu pour le capitaine : rien, sauf blocage.
+
+  N+1. Passe d'ensemble - un constructeur et un relecteur neufs, page entière face aux références : rythme, transitions, cohérence, densité ; boucle de trois à six tours.
+     Tenu pour le capitaine : rien, sauf blocage.
+
+  N+2. Mobile - un scout reprend la page à 375 px, vérifiée à la main (matière A et bouton au premier écran, le reste en un défilement), captures ; puis un tour de relecture par un relecteur distinct.
+     Tenu pour le capitaine : rien.
+
+  N+3. Planche de l'accueil - scout présentateur. Page entière à 1440 et 375 à côté des références, une seule question : valider, ou changer avec une note.
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+❯ 
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Fable 5.1 | ctx: 7% used
+  ⏵⏵ auto mode on (shift+tab to cycle)
+
