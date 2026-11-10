@@ -10,6 +10,7 @@ metadata:
 
 Ce skill possède l'identité de marque : brief, logo, système de logo, palette et typographie de marque, charte, kit de fichiers.
 L'identité est un livrable distinct du site, créé seulement quand le client n'en a pas.
+Elle se crée aussi quand l'issue « remplacer » de `agence-projet-client` point 1.10 est retenue [décision du capitaine, 10 novembre 2026].
 Firstmate s'en sert pour briefer le worker et pour vérifier chaque livraison, dans l'ordre ci-dessous.
 
 ## Quand charger

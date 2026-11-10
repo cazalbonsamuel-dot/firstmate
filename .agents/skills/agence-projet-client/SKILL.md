@@ -34,7 +34,17 @@ Ce skill porte la relation client et le contrat de périmètre, du cadrage à la
 7. Commencer par le côté business : une proposition passe si elle mène au résultat que l'entreprise vise déjà [4013140 S2 Step 01 R-14 [préférence], R-15].
 8. Identifier qui décide, finance et crée le contenu ; demander à chacun ce qui doit s'être passé trois mois après le lancement [412738 L12-L13 PR4].
 9. Demander technologie en place, décisions déjà prises, règles du secteur [412738 L13 P38-P40].
-10. Récupérer logo, couleurs, polices et si possible les fichiers sources [3918934 S6 Introduction R33] ; une charte existante se réutilise, sans refaire palette ni polices [437398 S7 R93, 1544922 L7 n°16].
+10. Récupérer logo, couleurs, polices et si possible les fichiers sources [3918934 S6 Introduction R33] ; une charte existante et réelle se réutilise, sans refaire palette ni polices [437398 S7 R93, 1544922 L7 n°16].
+   Les couleurs et la police d'un site ancien ne sont pas une charte : ce sont souvent des réglages par défaut que personne n'a choisis [décision du capitaine, 10 novembre 2026].
+   - La marque est ce que les clients reconnaissent : nom, logo, couleur signature, ton [décision du capitaine, 10 novembre 2026].
+   - La marque vit souvent hors du site (véhicule, enseigne, factures, cartes) : la chercher là aussi [décision du capitaine, 10 novembre 2026].
+   - L'habillage du site (mise en page, polices, fonds, tailles) est ce qu'une refonte remplace : aucune raison de le conserver [décision du capitaine, 10 novembre 2026].
+   - Avant de décider, tester : identité conçue par quelqu'un ou réglage par défaut ? Présente ailleurs que sur le site ? Logo disponible en bonne qualité ? Couleurs qui passent les contrôles de lisibilité (`accessibilite`) ? Les clients la reconnaîtraient-ils si elle changeait ? [décision du capitaine, 10 novembre 2026]
+   - Trois issues [décision du capitaine, 10 novembre 2026] :
+     - conserver : la charte est réelle et saine, on la reprend telle quelle ;
+     - faire évoluer : on garde les repères reconnaissables et on modernise tout le reste ; cas le plus fréquent ;
+     - remplacer : rien n'est récupérable ou le client veut changer ; vraie création d'identité, `identite-marque-logo`.
+   - Le choix de l'issue remonte au capitaine : voir « Refuser ou remonter » [décision du capitaine, 10 novembre 2026].
 11. Pour un site existant, l'audit UX passe avant toute liste de souhaits et tout design [4013140 S1 R-06].
 12. Planifier à rebours depuis l'échéance : tâches, durées, calendrier [1783776 Edit, série 2, L1].
 13. Faire fixer dès le cadrage le niveau d'accessibilité visé : `accessibilite`.
@@ -98,7 +108,8 @@ Ce skill porte la relation client et le contrat de périmètre, du cadrage à la
 - tout message, présentation ou livrable au client, tout engagement envers un tiers ;
 - ajout de périmètre, travail gratuit, dépense ;
 - affichage des prix, où le cours hésite [2633036 Entr P170 [préférence]], et usage d'un client dans le portfolio ;
-- toute question réglementaire ou juridique [412738 L13 P39].
+- toute question réglementaire ou juridique [412738 L13 P39] ;
+- conserver, faire évoluer ou remplacer l'identité existante (point 1.10) : ce choix appartient au client, ni firstmate ni le worker ne le tranchent ; dans le doute, montrer une proposition qui fait évoluer l'existant et une qui s'en affranchit [décision du capitaine, 10 novembre 2026].
 
 **Firstmate** [autorité firstmate] : questions, ordre et relances ; skills de domaine nommés dans chaque brief ; listes et page d'hypothèses ; réception de chaque livrable contre le périmètre signé.
 

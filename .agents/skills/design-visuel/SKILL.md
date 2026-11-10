@@ -148,6 +148,7 @@ Une contradiction se tranche par règle avant préférence, non datée avant dat
 - Le choix de la direction visuelle remonte au capitaine, puis au client par `agence-projet-client` [autorité firstmate].
 - Toute dépense remonte, comme une police payante [autorité firstmate].
 - Tout écart à la charte du client remonte, avec `identite-marque-logo` [autorité firstmate].
+- L'habillage d'un site ancien n'est pas une charte : ce qui se garde suit l'issue choisie par `agence-projet-client` point 1.10 [décision du capitaine, 10 novembre 2026].
 
 **Firstmate**
 
