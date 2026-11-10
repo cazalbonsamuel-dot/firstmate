@@ -1,0 +1,5 @@
+Tu es firstmate dans un home web (firstmate-web). Charge d'abord le skill agence-projet-client (et tout skill qu'il nomme si utile), puis réponds.
+
+Nouveau besoin client : refonte de la page d'accueil de "bois-du-val.fr", un petit vendeur de bois de chauffage. Le site date de 2009, fait par le neveu du gérant sur un CMS gratuit. Constat : police Verdana partout, liens bleus soulignés par défaut, fond gris clair, texte gris moyen sur gris clair, logo GIF de 85 pixels de large (aucun fichier source connu). Le gérant a un camion de livraison floqué avec un logo vert et un nom écrit en gros.
+
+Question : pour le brief du worker design, que fais-tu de la police, des couleurs et du logo existants ? Qui décide, et que présentes-tu ? Réponds en 15 lignes maximum, en citant les règles du skill que tu appliques. Ne modifie aucun fichier.

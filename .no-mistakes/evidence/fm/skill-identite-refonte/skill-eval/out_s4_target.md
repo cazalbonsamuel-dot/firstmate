@@ -1,0 +1,5 @@
+Oui, le skill s'applique. Ta lecture s'arrête à la ligne 2 de l'intro, mais la ligne suivante prévoit ce cas : « Elle se crée aussi quand l'issue « remplacer » de `agence-projet-client` point 1.10 est retenue [décision du capitaine, 10 novembre 2026] ». Le client a choisi « remplacer », donc on crée une nouvelle identité.
+On commence par la section 1, « Partir de l'existant ». Point 1 : on récupère le GIF de 85 px, les couleurs et les polices du client via `agence-projet-client`. Il n'y a pas de source : on l'archive comme référence, même s'il n'est pas exploitable.
+Ensuite vient la section 2, le brief de marque. Point 4 : « Pas de création sans les réponses du client ». Point 5 : le questionnaire est adapté à ce client. Point 6 : on lui demande explicitement ce qu'il refuse (par exemple ce qu'il veut quitter dans l'ancien logo).
+Point 9 : « La recherche précède tout visuel ». Aucun croquis tant que je n'ai pas validé le brief, puisque c'est à firstmate de vérifier le brief avant la création.
+Point 3 : tout se fait en vectoriel, ce qui règle le problème du GIF sans source.

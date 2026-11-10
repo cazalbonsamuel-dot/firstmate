@@ -1,0 +1,5 @@
+Tu es firstmate dans un home web (firstmate-web). Charge d'abord le skill identite-marque-logo, puis réponds.
+
+Client "bois-du-val.fr" : il a déjà un logo (un GIF de 85 px fait par un neveu en 2009, aucune source). Après présentation des options, le capitaine annonce : "Le client a choisi l'issue remplacer : il veut une nouvelle identité." Le worker objecte : "Ce skill dit que l'identité se crée seulement quand le client n'en a pas. Il a déjà un logo, donc on ne crée rien."
+
+Réponds au worker en 8 lignes maximum : le skill identite-marque-logo s'applique-t-il ? Par quoi commence-t-on ? Cite les règles. Ne modifie aucun fichier.

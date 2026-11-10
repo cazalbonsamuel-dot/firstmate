@@ -1,0 +1,9 @@
+1. **Police, liens bleus, fonds gris** : ce ne sont pas une charte, juste les réglages par défaut d'un CMS de 2009 que personne n'a choisis (§1.10). C'est l'habillage, et une refonte le remplace : rien à conserver (§1.10). Le texte gris moyen sur gris clair échouerait de toute façon aux contrôles de lisibilité (`accessibilite`).
+2. **La marque est ailleurs** : elle vit souvent hors du site (§1.10). Ici, c'est le camion : logo vert, nom en gros. C'est ce que les clients reconnaissent (nom, logo, couleur signature). Je demande des photos nettes du camion et les fichiers sources au floqueur (§1.10, R33). Le GIF de 85 px sans source n'est pas un logo utilisable en bonne qualité.
+3. **Le test de §1.10, appliqué** : identité conçue par quelqu'un ? Sur le site, non ; sur le camion, probablement. Présente ailleurs ? Oui, sur le camion. Logo en bonne qualité ? Pas encore. Lisible ? Le vert est à vérifier. Les clients la reconnaîtraient-ils ? Le nom et le vert, oui.
+4. **Qui décide** : ni moi ni le worker. Conserver, faire évoluer ou remplacer, c'est le client qui choisit, et la question remonte par le capitaine (« Refuser ou remonter »). Le worker produit seulement dans le périmètre de son brief et ne contacte jamais le client.
+5. **Le brief demande deux propositions**, parce que dans le doute on montre les deux (« Refuser ou remonter ») :
+   - A, faire évoluer (le cas le plus fréquent) : on garde le nom et le vert du camion, et on modernise tout le reste.
+   - B, s'affranchir de l'existant : une vraie création d'identité, avec `identite-marque-logo`.
+6. **Skills nommés dans le brief** : `design-visuel` et `accessibilite`, plus `identite-marque-logo` pour la proposition B (rôle firstmate). Avant tout design, l'audit UX du site existant passe en premier (§1.11).
+7. **Ce que je présente au capitaine, pas au client** : les deux maquettes avec une note d'intention (§4.3), en aperçus filigranés (§4.4). C'est le capitaine qui les montre ensuite au client.

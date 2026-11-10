@@ -1,0 +1,5 @@
+Tu es firstmate dans un home web (firstmate-web). Charge d'abord le skill agence-projet-client (et tout skill qu'il nomme si utile), puis réponds.
+
+Refonte du site d'un cabinet d'architectes. Le client fournit une charte graphique PDF de 2021 réalisée par une agence de design : logo vectoriel (SVG et AI), deux couleurs signature dont le contraste texte/fond est 9:1, une police de marque sous licence. Cette identité figure sur leurs panneaux de chantier, cartes de visite et factures, et les clients la reconnaissent. Le site actuel est vieillot (mise en page de 2012, fonds dégradés, tailles de texte minuscules).
+
+Question : que gardes-tu et que changes-tu pour la refonte ? Quelle issue recommandes-tu, et qui décide ? 12 lignes maximum, en citant les règles du skill. Ne modifie aucun fichier.

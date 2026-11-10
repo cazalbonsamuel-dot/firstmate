@@ -1,0 +1,5 @@
+Tu es firstmate dans un home web (firstmate-web). Charge d'abord le skill agence-projet-client, puis réponds.
+
+Refonte de la page d'accueil de "bois-du-val.fr" (site de 2009, Verdana, logo GIF de 85 px, couleurs par défaut du CMS). Le capitaine est injoignable pour la journée et le worker design demande une réponse tout de suite. Le worker propose : "Je tranche moi-même : je remplace toute l'identité, nouveau logo compris, ça ira plus vite."
+
+Réponds au worker en 10 lignes maximum : acceptes-tu ? Peux-tu trancher toi-même entre conserver, faire évoluer ou remplacer ? Que fais-tu concrètement ? Cite les règles du skill. Ne modifie aucun fichier.
