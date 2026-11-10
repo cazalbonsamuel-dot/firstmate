@@ -30,7 +30,7 @@ Une contradiction se tranche par règle avant préférence, non datée avant dat
 ### 2. Briefer la direction visuelle
 
 - Le brief dit pour qui l'on conçoit [412738 L74 P257] : utilisateurs, spectateurs ou lecteurs [P254-P256].
-- Chaque couleur, image et police sert les objectifs et le public [412738 L75 P260].
+- Chaque couleur, image et police sert les objectifs et le public [412738 L75 P260] ; le sens des couleurs : `identite-marque-logo` point 38.
 - Le brief fixe une personnalité de site qui guide chaque ingrédient [437398 S5 R47, R77] [préférence].
 - Le design ne doit pas être générique : si un autre logo y marche aussi, il l'est [412738 L74 P258].
 - On ne part ni du travail d'autres designers ni des tendances [1595266 S1/L2 P16, P18].
@@ -73,16 +73,40 @@ Une contradiction se tranche par règle avant préférence, non datée avant dat
 
 - La couleur est fonctionnelle ; « elle a l'air jolie » est la mauvaise raison [1595266 S6/L25 P178].
 - Système minimal : une couleur principale, des gris, puis un accent, en teintes claires et foncées [437398 S5 R56].
+- La palette du site vient de la palette de marque ; sans elle, elle se construit par `identite-marque-logo` point 37, avant la maquette [5313020 L35, L43].
+- Au travail, on ne prend que dans la palette, en ne changeant que valeur et saturation [5313020 L30].
+- Répartition 60-30-10 : 60 % d'un neutre (blanc, gris, noir), 30 % d'une couleur de contraste pour zones de texte et éléments, 10 % de l'accent le plus intense pour les appels à l'action et les détails [5313020 L31].
+  Le cours la donne comme orientation fiable, pas comme règle ; chaque part peut être un groupe de couleurs quasi identiques sur deux des trois aspects teinte, valeur, saturation [5313020 L31].
+- Site riche en images : un grand neutre et un petit accent là où l'on clique, ou des photos qui suivent la palette [5313020 L31].
+- Peu de teintes : la variété vient de la valeur et de la saturation, pas d'une teinte de plus [5313020 L21].
+- Toute couleur forte ajoutée se dompte : petite, désaturée, très sombre ou très claire ; plus il y a de couleurs, plus on dompte [5313020 L21].
+- Un accent intense et petit sur un ensemble calme « marche toujours » ; en grande surface, une couleur vive se désature [5313020 L43, L08, L11].
+- Au-delà de deux ou trois couleurs saturées, chacune a une raison d'être [5313020 L43].
+- La valeur dirige l'attention mieux que la teinte ; on règle les valeurs avant de compter sur les teintes [5313020 L04, L38].
+- Tout clair, l'œil va au sombre, et inversement ; sur un ensemble désaturé, il va au plus coloré [5313020 L04, L17].
+- Pour faire ressortir un élément, on vérifie d'abord valeur et forme ; la saturation n'est pas nécessaire [5313020 L43].
 - La couleur principale est celle du logo, par petites touches [3918934 S7 R39].
 - Les couleurs exactes du logo ne couvrent pas de grandes surfaces : trop saturées [1595266 S6/L29 P206].
 - On baisse la saturation jusqu'à ce que les bords ne vibrent plus (exemple : 86 % à 72 %) [1595266 S6/L29 P208] [daté : valeur à vérifier au moment du projet].
 - Une palette imposée par le client se saisit en valeurs exactes [4860984 A n°36].
 - Ni noir pur ni blanc pur : le foncé est un gris teinté de la primaire [4860984 N n°28-n°29 ; 412738 L87 P377].
-  Autre position : le noir sur blanc est « le mieux » [417316 S8 R137].
+  Autres positions : le noir sur blanc est « le mieux » [417316 S8 R137] ; texte noir ou bleu foncé sur blanc, blanc sur noir ou gris foncé [5313020 L43].
+- Fond sombre et mode sombre : gris foncé plutôt que noir pur ; le mode sombre se prévoit dans la palette et se teste [5313020 L18, L30].
+- Beaucoup de couleurs saturées sur blanc peuvent fatiguer et font vite enfantin, un risque ; un fond noir ou gris foncé les porte sans fatiguer [5313020 L16, L17, L18].
 - Le blanc sur noir n'est pas plus difficile à lire, c'est un mythe [1595266 S6/L31 P214 ; 412738 L83 P319].
 - Les indices d'un même type ont la même couleur ; un changement d'état en a une autre [1595266 S6/L24 P166-P167].
 - Un indice établi est respecté partout [1595266 S6/L47 P322].
 - Les fonds de lecture sont clairs et désaturés ; le saturé reste un accent [412738 L87 P383 ; 1595266 S6/L24 P173].
+- Deux couleurs voisines s'influencent : on les juge côte à côte et on les distingue par la teinte, la valeur et la saturation [5313020 L20].
+- Les teintes suivent un schéma [5313020 L22, L29] :
+  - analogue : 2 à 4 teintes voisines, un quart de roue au plus, le plus sûr [L24] ;
+  - complémentaire : pour faire ressortir, une couleur domine et l'autre reste un petit accent [L25] ;
+  - triadique : site minimal, une dominante et deux accents, jamais trois parts égales [L26] ;
+  - split-complémentaire : pour se démarquer, une couleur principale et deux accents [L27] [préférence] ;
+  - tétradique : plutôt en image qu'en aplats, au risque d'imiter Google ou Microsoft [L28] [préférence].
+- Dégradés : par valeur, saturation ou teintes analogues, sur une plage courte ; jamais entre complémentaires ou teintes éloignées, au milieu gris et boueux ; un dégradé étendu compte dans la palette [5313020 L33].
+- Une palette par page ou section perçue comme un tout ; jamais deux schémas qui se suivent au défilement : on change de page ou on passe lentement par des neutres [5313020 L41].
+- L'intensité se garde pour les moments forts, jamais la plus forte en ouverture sauf choix voulu [5313020 L41] [préférence].
 
 **Composants et boutons**
 
@@ -126,8 +150,9 @@ Une contradiction se tranche par règle avant préférence, non datée avant dat
 
 ### 6. Contrôler la maquette rendue
 
-- Test du gris : en niveaux de gris, l'ordre d'importance tient [1595266 S6/L33 P228 ; 412738 L84 PR25] ; la dépendance à la couleur se contrôle dans `accessibilite`.
+- Test du gris : en niveaux de gris, l'ordre d'importance tient [1595266 S6/L33 P228 ; 412738 L84 PR25] ; sur une capture d'écran, zones importantes, boutons et éléments restent distinguables [5313020 L38] ; la dépendance à la couleur se contrôle dans `accessibilite`.
 - Couleur : parcimonie, hiérarchie renforcée, cohérence d'écran en écran, usage fonctionnel [1595266 S6/L25 P177].
+- Erreurs de couleur à écarter : trop de couleurs ou de saturation, contraste de valeur faible, couleurs non décidées avant la maquette, tendance suivie au lieu d'une intention, palette générée [5313020 L43].
 - La maquette soutient les objectifs, clarifie les options, donne une priorité claire et laisse prédire la suite [412738 L82 P309].
 - On dézoome pour juger, puis on regarde à 100 % [4860984 N n°23-n°24].
 - Fin de maquette : proximité, styles partout, multiples de 8, chaque bouton testé [4860984 N P6].
@@ -148,6 +173,7 @@ Une contradiction se tranche par règle avant préférence, non datée avant dat
 - Le choix de la direction visuelle remonte au capitaine, puis au client par `agence-projet-client` [autorité firstmate].
 - Toute dépense remonte, comme une police payante [autorité firstmate].
 - Tout écart à la charte du client remonte, avec `identite-marque-logo` [autorité firstmate].
+- Tout changement de couleur après présentation de la palette au client, même de valeur ou de saturation, remonte : il change la perception du design [5313020 L35].
 - L'habillage d'un site ancien n'est pas une charte : ce qui se garde suit l'issue choisie par `agence-projet-client` point 1.10 [décision du capitaine, 10 novembre 2026].
 
 **Firstmate**
@@ -182,6 +208,7 @@ Cours sources :
 - 3012636 « How To Design for Accessibility: for UX Designers » : S6.
 - 663850 BCS Foundation Certificate in User Experience : S4 Visual Design.
 - 417316 « Modern SEO » : S8.
+- 5313020 « the color class », cours dédié à la couleur : L04, L08-L11, L16-L18, L20-L31, L33, L35, L38, L41, L43.
 
 Frontières :
 - La structure, la navigation et les wireframes relèvent de `architecture-information`.

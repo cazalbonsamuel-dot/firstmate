@@ -41,6 +41,7 @@ Une mauvaise photo peut ruiner un design [3918934 S10 Image d'illustration R70].
 3. Bibliothèque fixe et règle de quantité par design (exemple du cours : deux photos au plus, au-delà le point focal se perd) [3543948 P22, R143].
 4. Ne pas mélanger les styles de photos [3918934 S10 Image d'illustration R68].
 5. En banque, des séries du même photographe [412738 L86 P353].
+6. Les couleurs des photos suivent la palette du site ; l'autre issue, un site réduit à un neutre et un petit accent, relève de `design-visuel` [5313020 L31].
 
 ### 4. Briefer une séance
 
@@ -144,6 +145,7 @@ Cours sources :
 - 3918934 Fondamentaux du webdesign : S10 Image d'illustration.
 - 412738 UX & Web Design Master Course: Strategy, Design, Development : L77, L86, L87.
 - 437398 Build Responsive Real-World Websites with HTML and CSS : S5 WDR#3.
+- 5313020 the color class : L31.
 
 Frontières :
 
