@@ -1,0 +1,191 @@
+---
+name: design-visuel
+description: Load in a web (firstmate-web) home before briefing a visual direction, a mockup or a design system for a site, and before accepting a mockup for handoff to integration.
+user-invocable: false
+metadata:
+  internal: true
+---
+
+# design-visuel
+
+Ce skill possède le passage de la structure validée à la maquette acceptée et remise à l'intégration : composition, grille, typographie web, couleur à l'écran, composants, design system, passation.
+Il existe parce qu'aucune décision visuelle ne doit être arbitraire [1595266 S1/L1 P8].
+Firstmate s'en sert pour briefer le worker, puis pour juger sa maquette.
+
+## Quand charger
+
+- Avant de briefer une direction visuelle, une maquette ou un design system.
+- Avant d'accepter une maquette et de la remettre à l'intégration.
+
+## Faire
+
+[préférence] marque un avis du formateur ; [daté : valeur à vérifier au moment du projet], une valeur à vérifier au moment du projet.
+Une contradiction se tranche par règle avant préférence, non datée avant datée, cours dédié avant mention ; l'autre position suit.
+
+### 1. Vérifier les entrées
+
+- Le design part du wireframe validé [412738 L87 P364].
+- Le contenu guide le design, jamais l'inverse [437398 S7 R91].
+
+### 2. Briefer la direction visuelle
+
+- Le brief dit pour qui l'on conçoit [412738 L74 P257] : utilisateurs, spectateurs ou lecteurs [P254-P256].
+- Chaque couleur, image et police sert les objectifs et le public [412738 L75 P260].
+- Le brief fixe une personnalité de site qui guide chaque ingrédient [437398 S5 R47, R77] [préférence].
+- Le design ne doit pas être générique : si un autre logo y marche aussi, il l'est [412738 L74 P258].
+- On ne part ni du travail d'autres designers ni des tendances [1595266 S1/L2 P16, P18].
+  Autre position : ouvrir 20 à 50 sites et adapter [437398 S5 P9, R78] [préférence].
+- On ne quitte une convention que sur preuve d'une expérience nettement meilleure [412738 L94 P446].
+
+### 3. Poser le design system avant les pages
+
+- Un design system se crée même pour un petit site [4860984 N n°52].
+- Un élément réutilisé devient un composant [4860984 N n°59].
+- Un style par niveau de texte, partout le même [3918934 S8 R48].
+
+**Grille et espacements**
+
+- La largeur du document se fixe dès le début ; la hauteur suit le contenu [1544922 L57 n°39].
+- La grille web a 12 colonnes [4860984 N n°15].
+- Les espacements sont des multiples de 8, avec 4 et 12 permis ; aucun pixel au hasard [4860984 N n°11].
+  L'échelle 2, 4, 8, 12, 16, 24, 32, 48, 64 px y entre [437398 S5 R69] ; 1544922 prend des valeurs libres [L24-L30].
+- Beaucoup d'espace entre sections, moins entre groupes, peu entre petits éléments [437398 S5 R67].
+- Aucun espacement ambigu, comme un titre à égale distance de deux sections [437398 S5 R68].
+
+**Typographie**
+
+- Deux familles au maximum [1595266 S6/L38 P247 ; 437398 S5 R49].
+  Autres positions : trois « grand maximum » [1544922 L21 n°48] ; une par page [417316 S8 R136].
+- Les tailles viennent d'une échelle prédéfinie [437398 S5 R50].
+- Texte courant de 16 à 32 px, long texte de 20 px ou plus, graisse jamais sous 400 [437398 S5 R51 ; 4860984 N n°41].
+  Autre position : 10 à 14 px [1544922 L29 n°50] [daté : valeur à vérifier au moment du projet].
+- Moins de 75 caractères par ligne [437398 S5 R51].
+  Autre position : environ 60, 30 à 40 sur mobile [1595266 S6/L38 P250] [daté : valeur à vérifier au moment du projet].
+- Interligne de 1,5 à 2, de 1,1 à 1,2 pour les gros titres [437398 S5 R51].
+  Égalité : trois règles non datées, chacune dans une leçon de typographie ; position gardée parce qu'elle donne directement la valeur CSS ; autres positions, moitié de la hauteur des caractères [1595266 S6/L38 P258], 0,5 à 1,5 fois la hauteur de ligne [1544922 L21 n°44].
+- Texte aligné à gauche, jamais justifié ; seuls de très petits blocs se centrent [437398 S5 R52].
+- L'écart entre paragraphes dépasse l'écart entre lignes [1595266 S6/L37 P245].
+
+**Couleur à l'écran**
+
+- La couleur est fonctionnelle ; « elle a l'air jolie » est la mauvaise raison [1595266 S6/L25 P178].
+- Système minimal : une couleur principale, des gris, puis un accent, en teintes claires et foncées [437398 S5 R56].
+- La couleur principale est celle du logo, par petites touches [3918934 S7 R39].
+- Les couleurs exactes du logo ne couvrent pas de grandes surfaces : trop saturées [1595266 S6/L29 P206].
+- On baisse la saturation jusqu'à ce que les bords ne vibrent plus (exemple : 86 % à 72 %) [1595266 S6/L29 P208] [daté : valeur à vérifier au moment du projet].
+- Une palette imposée par le client se saisit en valeurs exactes [4860984 A n°36].
+- Ni noir pur ni blanc pur : le foncé est un gris teinté de la primaire [4860984 N n°28-n°29 ; 412738 L87 P377].
+  Autre position : le noir sur blanc est « le mieux » [417316 S8 R137].
+- Le blanc sur noir n'est pas plus difficile à lire, c'est un mythe [1595266 S6/L31 P214 ; 412738 L83 P319].
+- Les indices d'un même type ont la même couleur ; un changement d'état en a une autre [1595266 S6/L24 P166-P167].
+- Un indice établi est respecté partout [1595266 S6/L47 P322].
+- Les fonds de lecture sont clairs et désaturés ; le saturé reste un accent [412738 L87 P383 ; 1595266 S6/L24 P173].
+
+**Composants et boutons**
+
+- Un bouton ressemble à un bouton [412738 L81 P294 ; 3918934 S10 R57].
+- Primaire pleine, secondaire en contour, tertiaire sans bordure [3012636 S6 R92 ; 1595266 S6/L48 P327].
+- L'action primaire garde même couleur et même place [1595266 S6/L46 P315].
+- « Enregistrer » et « annuler » ne sont jamais deux boutons identiques [1595266 S6/L48 P325].
+- Casse de phrase, la même partout [3012636 S6 R105].
+  Autre position : libellés de boutons en majuscules [1595266 S6/L46 P314].
+- Rayon : 0 sérieux, 3 à 6 px traditionnel, 100 % ludique, selon la marque [3012636 S6 R91].
+  Autre position : jamais 15 px [1544922 L22 n°59] [daté : valeur à vérifier au moment du projet].
+- Ombres légères et rares, d'autant plus que le design est sérieux [437398 S5 R64].
+- Ce qui n'est pas cliquable ne ressemble pas à un bouton [3012636 S6 R101].
+- Hors formulaire, un objet inutilisable se retire plutôt que d'être grisé [4013140 S4 R-66] ; le bouton d'envoi indisponible d'un formulaire relève de `formulaires`.
+- Un seul pack d'icônes, un seul style, même taille, même couleur [437398 S5 R62 ; 3918934 S9 R53].
+- Un concept courant garde son icône établie [1595266 S6/L42 P289].
+- Le carrousel d'accueil est une habitude à questionner [412738 L74 P251].
+  Autres positions : « très dépassé » [1544922 L58] ; décrit sans réserve [437398 S6 R81].
+
+### 4. Composer chaque page
+
+- L'espace négatif suffit souvent à créer les groupes [1595266 S6/L9 P84].
+- Ce qui est lié est proche, le reste est éloigné [1595266 S6/L20 P147].
+- Dans le doute, tout s'aligne avec tout, bords droits compris [1595266 S6/L19 P145, P139].
+- Un seul élément dominant, puis un ordre décroissant [1595266 S6/L15 P120].
+- Le contenu se sépare des contrôles [1595266 S6/L47 P321].
+- Chaque écran a un seul point focal évident [3769310 Wrapping up > Simplicité P70].
+- Un design qui ne marche pas manque d'alignement, de proximité, de répétition ou de contraste [412738 L82 P310 ; 663850 S4 2.2.46].
+- Motif en Z pour peu de contenu ; motif en F avec un élément convaincant dans le tiers supérieur [412738 L84 P327, P329].
+- Pas de faux bas de page : le contenu suivant dépasse [412738 L86 P354].
+- Le haut de page n'a pas d'avalanche de publicités [417316 S8 R142].
+- Un texte sur image reste lisible grâce à un fondu sombre ou un fond flouté [4860984 A n°77].
+- On conçoit pour le cas non idéal : un nom sur trois lignes [412738 L92 P436].
+
+### 5. Décliner par écran
+
+- On maquette au moins le desktop et le mobile [3918934 S10 R104], en maquettes distinctes [4860984 N n°73].
+- Mobile first : le mobile d'abord, puis l'enrichissement [3918934 S10 R102].
+  Autre position : les démonstrations partent du desktop [1544922 L34 ; 4860984 N Hero section].
+- La taille des éléments ne change pas ; le nombre de colonnes diminue [1544922 L36 n°103].
+
+### 6. Contrôler la maquette rendue
+
+- Test du gris : en niveaux de gris, l'ordre d'importance tient [1595266 S6/L33 P228 ; 412738 L84 PR25] ; la dépendance à la couleur se contrôle dans `accessibilite`.
+- Couleur : parcimonie, hiérarchie renforcée, cohérence d'écran en écran, usage fonctionnel [1595266 S6/L25 P177].
+- La maquette soutient les objectifs, clarifie les options, donne une priorité claire et laisse prédire la suite [412738 L82 P309].
+- On dézoome pour juger, puis on regarde à 100 % [4860984 N n°23-n°24].
+- Fin de maquette : proximité, styles partout, multiples de 8, chaque bouton testé [4860984 N P6].
+- Puis `accessibilite` contrôle la maquette avant toute acceptation.
+
+### 7. Remettre à l'intégration
+
+- Après validation, toutes les ressources de l'intégrateur sont prêtes [3918934 S10 R153].
+- Seuls les styles de police utilisés sont fournis [3918934 S10 R154].
+- Survols et animations se décrivent aux développeurs [1544922 L22 n°61].
+- La section prête est marquée « Ready for dev » [4860984 A n°108] [daté : valeur à vérifier au moment du projet].
+- Les améliorations proposées sont dites abandonnables [412738 L92 P438] [préférence].
+
+## Refuser ou remonter
+
+**Capitaine**
+
+- Le choix de la direction visuelle remonte au capitaine, puis au client par `agence-projet-client` [autorité firstmate].
+- Toute dépense remonte, comme une police payante [autorité firstmate].
+- Tout écart à la charte du client remonte, avec `identite-marque-logo` [autorité firstmate].
+
+**Firstmate**
+
+- Il fixe dans le brief la personnalité, la grille, les espacements, les polices et les couleurs [autorité firstmate].
+- Il accepte ou refuse une maquette d'après l'étape 6 et `accessibilite` [autorité firstmate].
+- Il fait vérifier toute valeur [daté] avant usage [autorité firstmate].
+
+**Worker**
+
+- Il choisit les valeurs dans les échelles fixées [4860984 N n°11].
+- Il corrige dans le composant, jamais instance par instance [4860984 N n°58].
+
+**Refus nets**
+
+- Aucune décision visuelle arbitraire ; « cool » n'est jamais une justification [1595266 S1/L1 P8 ; 412738 L82 P308].
+- Pas de décoration qui ne communique rien [412738 L82 P307].
+- Une seule action primaire par zone [437398 S7 R97 ; 3012636 S6 R92, R100].
+- Choix par défaut jamais destructeur : `formulaires`.
+
+## Références
+
+Cours sources :
+- 1595266 « Design Rules » : S1/L1-L2, S6/L9-L48.
+- 437398 « Build Responsive Real-World Websites with HTML and CSS » : S5, S6, S7.
+- 1544922 web design sur Adobe XD, sans titre : L16-L36, L56-L58.
+- 3918934 « Fondamentaux du webdesign » : S7-S10.
+- 4860984 formation Figma, sans titre : N et A.
+- 412738 « UX & Web Design Master Course » : L73-L94.
+- 3769310 « Usability » : Wrapping up > Simplicité, Formulaires.
+- 4013140 « The Simple Way to Conduct a UX Audit » : S4.
+- 3012636 « How To Design for Accessibility: for UX Designers » : S6.
+- 663850 BCS Foundation Certificate in User Experience : S4 Visual Design.
+- 417316 « Modern SEO » : S8.
+
+Frontières :
+- La structure, la navigation et les wireframes relèvent de `architecture-information`.
+- La palette de marque relève de `identite-marque-logo`.
+- Le contraste, les cibles, le focus et les états relèvent de `accessibilite`.
+- Le contenu des images relève de `photographie-web`.
+- Les formats d'export relèvent de `performance-web`.
+- Le CSS relève de `construction-web`.
+- Le texte des boutons relève de `contenu-ecriture`.
+- L'affichage des erreurs relève de `formulaires`.
+- La présentation des maquettes relève de `agence-projet-client`.
