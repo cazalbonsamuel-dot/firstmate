@@ -1,0 +1,8 @@
+Static checks of the 13 web skill files (the files are the deliverable, an owned text contract):
+- All 13: frontmatter name == directory, user-invocable: false, description == trigger-index entry (2 folded >- descriptions checked by eye: same text).
+- No em dash in any of the 13 files. No reference to "la carte" left (the "carte" hits are a payment card code and "tri de cartes", i.e. card sorting).
+- Every "Égalité :" block ends with "firstmate choisit à l'admission du projet et l'écrit dans le brief." (architecture-information, contenu-ecriture x2, design-visuel, formulaires, performance-web, seo x3; the other hits are the header lines that describe the rule).
+- seo rule 4 Longueur matches the captain's exact wording; 2649302 P126 is [daté] and 417316 R184 is [préférence] in the reading notes.
+- seo sitemap tie: robots.txt (7.4), reception (9.2, 9.3) and worker duties all say "si le brief en retient un".
+- performance-web 3.3: 5581394 R58, 437398 R121, 4860984 n°81 and 1544922 n°110 are all non-dated [règle] in the notes -> criterion 3 decides, as written; n°81 is cited only on the "Autre" side now.
+- contenu-ecriture boundary: the section 3.2 pointer is replaced by the rule itself; the gaps are marked "[hors cours : remonte au capitaine]".

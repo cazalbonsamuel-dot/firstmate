@@ -1,0 +1,4 @@
+Contexte de test : tu es dans un home web (firstmate-web). Un client, une boulangerie de quartier, demande un petit site vitrine et attend du trafic de recherche. Ne lance aucun script, aucun worker, n'écris aucun fichier. Avant toute réponse, charge avec l'outil Skill les skills de ce dépôt dont le déclencheur correspond à cette situation (au minimum agence-projet-client et seo). Puis réponds, en citant le texte du skill :
+1. La liste exacte des skills que tu as chargés.
+2. Le texte exact de la règle « 4. Longueur » du skill seo.
+3. Ce que le skill seo dit du sitemap (égalité ou non, qui choisit) et si robots.txt et la réception exigent un sitemap sans condition.

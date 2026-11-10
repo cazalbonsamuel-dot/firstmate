@@ -1,0 +1,6 @@
+$ bin/fm-doc-audience-check.sh
+fm-doc-audience-check: ok surfaces=158 local_links=1116
+exit=0
+$ (adversarial: seo entry removed) bin/fm-doc-audience-check.sh --root <copy>
+fm-doc-audience-check: unclassified: .agents/skills/seo/SKILL.md
+exit=1
