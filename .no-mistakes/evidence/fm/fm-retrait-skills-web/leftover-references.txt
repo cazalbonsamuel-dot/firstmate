@@ -1,0 +1,40 @@
+$ grep -rnE "web-intake|web-design-direction|web-mise-au-point|web-worker-brief|web-content-review|web-livraison|seo-geo-audit" (tracked files, target commit)
+matches_exit=1 (1 = no references left)
+
+$ ls .agents/skills
+afk
+agent-skill-trigger-index
+ahoy
+ask-user-authority
+away-quiet-supervision
+bearings
+bootstrap-diagnostics
+cao-freecad-execution
+cao-intake
+cao-livraison
+cao-reception
+cao-recherche-options
+cao-worker-brief
+captain-hold-lifecycle
+diagnostic-reasoning
+firstmate-calm
+firstmate-codexapp
+firstmate-coding-guidelines
+firstmate-orca
+firstmate-self-repo
+fmx-respond
+grill-me
+harness-adapters
+operational-home-layout
+process-event-sources
+project-management
+quiet
+quota-array-dispatch
+scout-completion
+secondmate-provisioning
+session-start-recovery
+ship-landing
+stow
+stuck-crewmate-recovery
+updatefirstmate
+validation-supervision

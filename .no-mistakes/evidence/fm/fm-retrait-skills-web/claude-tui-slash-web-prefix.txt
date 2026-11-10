@@ -1,0 +1,18 @@
+ ▐▛███▛█   Claude Code v2.1.311
+▝▜██████▀  Fable 5.1 with high effort · Claude Ultra
+ ▝▝   ▝▝   ~/.no-mistakes/worktrees/bd8473d389e2/01M72GESSNGDZ3HFP2MKXSK5CZ
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+❯ /web
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  ❯ /web-setup                                               Set up cloud sessions with your GitHub account
+    /deep-research                                           [dynamic workflow] Deep research harness — fan-out web searches, fetch sources, adversarially verify claims, synthesize a cited report.
+    /claude-in-chrome                                        Let Claude browse and interact with pages in your Chrome
+    /ultrareview                                             3 free left · Start a cloud agent that finds and verifies bugs in your branch (~5-15 min, $5-$25 USD) · Runs in a cloud session. See
+                                                             https://code.claude.com/docs/en/claude-code-on-the-web
+    /computer-use                                            Read this skill before the first step of any request to do something in an app on the person's own computer (Notes, Finder, System Settings, any desktop
+                                                             app), to look at their screen, or for "computer use". Computer use (desktop control) lets Claude take screenshots of the person's desktop and control it wit…
+    /anthropic-skills:deep-research                          Use this skill when the user's prompt requires (1) researching a topic across multiple sources, comparing options or alternatives, analyzing trends or
+                                                             history, understanding markets or industries, or reviewing literature or studies and (2) synthesizing that research into a comprehensive, narrative report. …
+    /claude.ai UXKIN:find_design_system (MCP)                Find real website design systems that fit a product and mood, with their DESIGN.md. (arguments: product, mood)
+    /claude.ai WordPress.com:wpcom-mcp-sample-prompt (MCP)   Prompt template for analyzing website performance over a specified time period. Returns structured messages for LLM-driven performance insights and
+                                                             optimization recommendations. (arguments: time_period)

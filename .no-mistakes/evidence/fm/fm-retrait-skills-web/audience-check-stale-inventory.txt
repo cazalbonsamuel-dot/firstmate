@@ -1,0 +1,3 @@
+$ bin/fm-doc-audience-check.sh --inventory <base-commit inventory, still listing the 7 web skills>
+fm-doc-audience-check: not tracked/in scope: .agents/skills/seo-geo-audit/SKILL.md, .agents/skills/web-content-review/SKILL.md, .agents/skills/web-design-direction/SKILL.md, .agents/skills/web-intake/SKILL.md, .agents/skills/web-livraison/SKILL.md, .agents/skills/web-mise-au-point/SKILL.md, .agents/skills/web-worker-brief/SKILL.md
+exit=1
