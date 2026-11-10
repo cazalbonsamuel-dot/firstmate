@@ -72,8 +72,8 @@ Le brief du worker demande :
 2. Champ lexical plutôt que répétition ; aucune densité cible [2649302 IV P120, P122 ; 5613976 PF·L45].
    Autre : 805992 Yoast 146 veut « assez de densité » ; 2649302 l'emporte, cours dédié.
 3. Une réponse unique, qui apporte plus que le top 10 [2649302 IV P124 ; 417316 S3 R28].
-4. 800 mots au moins, 1 500 au mieux, plus que les concurrents, à tester [2649302 IV P126] [daté : valeur à vérifier au moment du projet].
-   Autre : aucune longueur minimale [417316 S9 R184] [préférence] ; règle avant préférence.
+4. Longueur : 800 mots au moins, 400 au minimum, au mieux 1 500, plus que les concurrents [2649302 IV P126] [daté : valeur à vérifier au moment du projet].
+   Autre : 417316 S9 R184 ne regarde pas le nombre de mots [préférence] ; la règle l'emporte sur la préférence (premier critère), la règle datée reste marquée.
 5. Aucun contenu dupliqué : jamais le texte du fabricant, ni republication, ni blocs répétés [2649302 IV P128, P131, P133].
 6. Un contenu, une URL : 301 ou canonical auto-référente [2649302 IV P132-P133].
 7. Multilingue : une langue et une URL par page, hreflang [2649302 VI P170, P173].
@@ -94,7 +94,7 @@ Le brief du worker demande :
 2. Désindexer les pages d'auteur, d'étiquettes et d'archives [2649302 III P93 ; 805992 Yoast 144].
 3. Indexer ou non contact et conditions importe peu [417316 S6 R90].
    Autre : 3828556 Balises meta #27, noindex [préférence].
-4. Toujours un robots.txt à la racine, avec l'URL du sitemap, copié avant toute modification [2649302 III P78, P80].
+4. Toujours un robots.txt à la racine, avec l'URL du sitemap si le brief en retient un, copié avant toute modification [2649302 III P78, P80].
    Autre : 417316 S6 R97, seulement s'il y a des pages à exclure [daté : valeur à vérifier au moment du projet].
 5. robots.txt ne protège rien : un mot de passe, et noindex pour ne pas apparaître [2649302 III P79 ; 3828556 Créer un robots.txt #30].
 6. Égalité :
@@ -118,8 +118,8 @@ Le brief du worker demande :
 
 À la réception, firstmate vérifie :
 1. Aucun `Disallow: /` hérité [3828556 Créer un robots.txt #32].
-2. URL de test remplacées, title unique par page, sitemap XML [412738 L186 P576].
-3. Search Console validée, sitemap soumis, robots.txt testé sans erreur [2649302 III PR11-PR12 ; 417316 S8 R132] [daté pour l'interface : valeur à vérifier au moment du projet].
+2. URL de test remplacées, title unique par page, sitemap XML si le brief en retient un [412738 L186 P576].
+3. Search Console validée, sitemap soumis si le brief en retient un, robots.txt testé sans erreur [2649302 III PR11-PR12 ; 417316 S8 R132] [daté pour l'interface : valeur à vérifier au moment du projet].
 4. Même contenu sur mobile et ordinateur, Google indexant le mobile [2649302 VI P179-P180] [daté : valeur à vérifier au moment du projet].
 
 ### 10. Popularité
@@ -161,7 +161,7 @@ Le brief du worker demande :
 - Refuse à la réception tout livrable qui viole un refus net [autorité firstmate].
 
 **Worker**
-- Rédige titles, méta, URL, robots.txt, sitemap, redirections et JSON-LD, et les teste [autorité firstmate].
+- Rédige titles, méta, URL, robots.txt, sitemap si le brief en retient un, redirections et JSON-LD, et les teste [autorité firstmate].
 - Laisse par défaut un réglage qu'il ne comprend pas [805992 Yoast 142] et ne suit pas Yoast au pied de la lettre [2649302 III P92].
 
 **Refus nets**

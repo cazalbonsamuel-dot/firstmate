@@ -54,7 +54,7 @@ Ce que le worker applique à chaque image :
 1. L'image est-elle nécessaire ? CSS et polices peuvent la remplacer [5581394 M2 R56].
 2. SVG, minifié, pour logos, icônes et formes simples ; jamais pour une photo [5581394 R57-R58, R64, 3828556 #128, 4860984 N Exporter n°82, 1544922 L40 n°108].
 3. Photo en WebP ou AVIF [5581394 R58, 437398 S9 R121].
-   Autre position : JPEG pour le web, PNG dès qu'il faut la transparence [4860984 N Exporter n°81, 1544922 L40 n°110] ; règles non datées des deux côtés, retenu 5581394, cours dédié.
+   Autre position : JPEG pour le web, PNG dès qu'il faut la transparence [4860984 N Exporter n°81, 1544922 L40 n°110] ; règles non datées des deux côtés, les deux premiers critères ne départagent pas ; retenu 5581394, cours dédié avant simple mention (troisième critère).
 4. Dans `picture`, avec repli JPEG ou PNG [5581394 R63, R70, 437398 S9 R121] [daté : valeur à vérifier au moment du projet].
 5. Exporter en sRGB, sans agrandir [2633036 PS/Enregistrement P145, 4044684 S8 P14].
 6. Égalité :
