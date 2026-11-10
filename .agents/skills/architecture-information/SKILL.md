@@ -49,8 +49,11 @@ Si le client attend du trafic de recherche, le plan de mots-clés précède l'ar
 4. Combiner des modèles seulement entre systèmes distincts, jamais dans un même site [936690 R87-R88].
 5. Dans une catégorie chargée, ordonner par date, alphabet, lieu, popularité ou processus [936690 R69].
 6. Appliquer la divulgation progressive [936690 R76].
-7. Aucun contenu important à plus de trois clics de l'accueil [2649302 P97, 3918934 R30].
-   Égalité : quatre règles non datées, aucun cours dédié ; position gardée parce qu'elle se vérifie à la réception ; autre position, trois clics est un mythe si chaque clic apporte de la valeur [412738 P344, 1595266 P71] ; deux clics au plus [417316 R88 [préférence]], écarté : règle avant préférence.
+7. Égalité :
+   aucun contenu important à plus de trois clics de l'accueil [2649302 P97, 3918934 R30] ;
+   trois clics est un mythe si chaque clic apporte de la valeur [412738 P344, 1595266 P71] ;
+   firstmate choisit à l'admission du projet et l'écrit dans le brief.
+   Autre : deux clics au plus [417316 R88] [préférence] ; règle avant préférence.
 8. Noms de fichiers et répertoires identiques aux libellés des catégories, 1 à 1 [936690 R65].
 
 ### 3. Libellés

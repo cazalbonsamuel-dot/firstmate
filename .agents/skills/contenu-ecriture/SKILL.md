@@ -71,8 +71,11 @@ Un même sens, un même mot, partout [4013140 R-55 ; 412738 P352].
 2. Propre à la tâche : « Publier » un avis, pas « Enregistrer » [3012636 R69].
 3. Ni « Envoyer » ni « Soumettre » nus ; « je veux » + libellé reste une phrase [3918934 R90 ; 4013140 R-49].
 4. « Get started » seul ne suffit pas [936690 R58].
-5. 1 à 3 mots, 5 à 8 au plus sur un lien [4280514 R57].
-   Égalité avec 5613976 MC·L15 (2 à 3 mots), deux règles non datées de cours dédiés : position gardée parce qu'elle contient l'autre et fixe aussi les liens. 3012636 R71 « aussi long que nécessaire » cède : cours dédié avant simple mention.
+5. Égalité :
+   1 à 3 mots, 5 à 8 au plus sur un lien [4280514 R57] ;
+   2 à 3 mots [5613976 MC·L15] ;
+   firstmate choisit à l'admission du projet et l'écrit dans le brief.
+   Autre : aussi long que nécessaire [3012636 R71] ; cours dédié avant simple mention.
 6. Exact plutôt que malin, sans mot inventé [936690 R59, R60].
 
 ### 6. Liens
@@ -99,8 +102,11 @@ Erreurs :
 
 Autres messages :
 
-1. Succès : l'action réussie et la suite ; l'enthousiasme suit la voix [4280514 R60].
-   Égalité : deux règles non datées de cours dédiés ; position gardée pour rester dans la voix décidée (critère « brandé ») ; autre position, toujours enthousiaste [5613976 MC·L18].
+1. Succès : l'action réussie et la suite [4280514 R60].
+   Égalité :
+   l'enthousiasme suit la voix [4280514 R60] ;
+   toujours enthousiaste [5613976 MC·L18] ;
+   firstmate choisit à l'admission du projet et l'écrit dans le brief.
 2. État vide : ce qu'on trouverait ici et comment le remplir, sans négatif [4280514 R63].
 3. 404 : ce qui s'est passé et quoi faire, par un CTA [4280514 R65].
 4. Confirmation : immédiate, étapes suivantes, délais, numéro [5613976 MC·L22].
@@ -131,12 +137,12 @@ Autres messages :
 
 - Textes juridiques, à faire écrire par un juriste [préférence], et traduction [4280514 R69].
 - Toute dépense : rédacteur, traducteur, contreparties de test [autorité firstmate ; 4593434 entrée 34].
-- Copywriting de conversion, pages de vente, site multilingue : au cas par cas [carte section 5].
+- Copywriting de conversion, pages de vente, site multilingue : au cas par cas [hors cours : remonte au capitaine].
 
 **Firstmate** [autorité firstmate]
 
 - La classe de chaque élément, la voix retenue, le test à commander, l'acceptation.
-- Une frontière douteuse, selon la section 3.2 de la carte.
+- Une frontière douteuse : une règle partagée appartient au skill que ses Références nomment propriétaire et, dans le doute, au skill du domaine où elle s'applique à l'écran.
 
 **Worker**
 

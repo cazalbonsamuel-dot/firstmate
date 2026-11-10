@@ -20,7 +20,7 @@ Firstmate s'en sert pour briefer le worker, puis pour juger sa maquette.
 ## Faire
 
 [préférence] marque un avis du formateur ; [daté : valeur à vérifier au moment du projet], une valeur à vérifier au moment du projet.
-Une contradiction se tranche par règle avant préférence, non datée avant datée, cours dédié avant mention ; l'autre position suit.
+Une contradiction se tranche par règle avant préférence, non datée avant datée, cours dédié avant mention ; l'autre position suit. À égalité, « Égalité : » donne les positions et firstmate choisit à l'admission du projet.
 
 ### 1. Vérifier les entrées
 
@@ -61,8 +61,11 @@ Une contradiction se tranche par règle avant préférence, non datée avant dat
   Autre position : 10 à 14 px [1544922 L29 n°50] [daté : valeur à vérifier au moment du projet].
 - Moins de 75 caractères par ligne [437398 S5 R51].
   Autre position : environ 60, 30 à 40 sur mobile [1595266 S6/L38 P250] [daté : valeur à vérifier au moment du projet].
-- Interligne de 1,5 à 2, de 1,1 à 1,2 pour les gros titres [437398 S5 R51].
-  Égalité : trois règles non datées, chacune dans une leçon de typographie ; position gardée parce qu'elle donne directement la valeur CSS ; autres positions, moitié de la hauteur des caractères [1595266 S6/L38 P258], 0,5 à 1,5 fois la hauteur de ligne [1544922 L21 n°44].
+- Égalité :
+  interligne de 1,5 à 2, de 1,1 à 1,2 pour les gros titres [437398 S5 R51] ;
+  interligne d'environ la moitié de la hauteur des caractères [1595266 S6/L38 P258] ;
+  interligne de 0,5 à 1,5 fois la hauteur d'une ligne de texte [1544922 L21 n°44] ;
+  firstmate choisit à l'admission du projet et l'écrit dans le brief.
 - Texte aligné à gauche, jamais justifié ; seuls de très petits blocs se centrent [437398 S5 R52].
 - L'écart entre paragraphes dépasse l'écart entre lignes [1595266 S6/L37 P245].
 

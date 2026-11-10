@@ -45,8 +45,10 @@ Ce skill possède la structure, la disposition, la validation, l'envoi et la sé
 - Le libellé précède immédiatement son champ, aligné à gauche, visible pendant la saisie [412738 L83, P315 ; 3769310 Formulaires, P153].
 - Le placeholder montre le format attendu, d'une date par exemple [3739678 S5, n° 60], disparaît à la saisie, se distingue de la valeur saisie [437398 S7 · CTA, R106 ; 3769310 Formulaires, P150, P151].
 - Il est inutile si l'explication est au-dessus [4860984 N Amélioration du site, n°50].
-- Son texte décrit sans instruire (« Prénom », pas « Entrez votre prénom »), sans jargon [5613976 MC·L16].
-  Égalité avec 4280514 R59 (question, CTA ou exemple), deux règles non datées de cours dédiés : position gardée pour un champ de formulaire, au libellé visible.
+- Égalité :
+  le placeholder décrit sans instruire (« Prénom », pas « Entrez votre prénom »), sans jargon [5613976 MC·L16] ;
+  le placeholder donne une question, un CTA ou un exemple de saisie [4280514 R59] ;
+  firstmate choisit à l'admission du projet et l'écrit dans le brief.
 - Au plus 5 ou 6 champs visibles à la fois [3769310 Formulaires, P159].
 - Long, il passe en étapes avec barre de progression [3918934 S10 Formulaire, R88].
 - Aucun lien qui invite à partir [3918934 S10 Formulaire, R89].
@@ -93,7 +95,7 @@ Ce skill possède la structure, la disposition, la validation, l'envoi et la sé
 **Capitaine**
 - Données personnelles collectées et mention légale : conditions, confidentialité, RGPD [3769310 Formulaires, P145] [daté : valeur à vérifier au moment du projet].
 - Service payant d'envoi ou de paiement, engagement envers un tiers, ajout ou retrait d'un champ voulu par le client [autorité firstmate].
-- Anti-spam, captcha, CSRF : aucun cours ne les traite, chaque cas remonte [carte, section 5].
+- Anti-spam, captcha, CSRF [hors cours : remonte au capitaine].
 
 **Firstmate** [autorité firstmate] : fixe champs, requis et étapes dans le brief ; refuse ce qui viole les positions retenues.
 

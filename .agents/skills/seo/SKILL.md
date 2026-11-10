@@ -21,7 +21,7 @@ Il existe parce que le SEO court de la découverte à la mise en ligne et que ci
 ## Faire
 
 Marques des cours : [préférence] avis du formateur ; [daté] valeur à vérifier au moment du projet, avant de l'appliquer.
-Une contradiction se tranche par les critères fixes (règle avant préférence, non datée avant datée, cours dédié avant simple mention) ; l'autre position tient sur une ligne « Autre ».
+Une contradiction se tranche par les critères fixes (règle avant préférence, non datée avant datée, cours dédié avant simple mention) ; l'autre position tient sur une ligne « Autre ». À égalité, « Égalité : » donne les positions et firstmate choisit à l'admission du projet.
 
 ### 1. Cadrer
 
@@ -65,13 +65,15 @@ Le brief du worker demande :
 
 ### 5. Contenu
 
-1. Mot-clé principal placé avec naturel dans title, méta, URL, H1 et début du texte [2649302 IV P127 ; 805992 Yoast 146].
-   Autre : 417316 S3 R31 juge risqué d'optimiser un mot-clé unique ; les critères ne départagent pas (deux règles non datées de cours dédiés), la position retenue est celle que 417316 admet en S4 (R45, R61 : le sujet au début du title et du H1).
+1. Égalité :
+   mot-clé principal placé avec naturel dans title, méta, URL, H1 et début du texte [2649302 IV P127 ; 805992 Yoast 146] ;
+   ne plus optimiser autour d'un mot-clé unique [417316 S3 R31] ;
+   firstmate choisit à l'admission du projet et l'écrit dans le brief.
 2. Champ lexical plutôt que répétition ; aucune densité cible [2649302 IV P120, P122 ; 5613976 PF·L45].
    Autre : 805992 Yoast 146 veut « assez de densité » ; 2649302 l'emporte, cours dédié.
 3. Une réponse unique, qui apporte plus que le top 10 [2649302 IV P124 ; 417316 S3 R28].
-4. Aucune longueur minimale [417316 S9 R184] [préférence].
-   Autre : 2649302 IV P126, 800 mots au moins [daté : valeur à vérifier au moment du projet] ; la position non datée l'emporte.
+4. 800 mots au moins, 1 500 au mieux, plus que les concurrents, à tester [2649302 IV P126] [daté : valeur à vérifier au moment du projet].
+   Autre : aucune longueur minimale [417316 S9 R184] [préférence] ; règle avant préférence.
 5. Aucun contenu dupliqué : jamais le texte du fabricant, ni republication, ni blocs répétés [2649302 IV P128, P131, P133].
 6. Un contenu, une URL : 301 ou canonical auto-référente [2649302 IV P132-P133].
 7. Multilingue : une langue et une URL par page, hreflang [2649302 VI P170, P173].
@@ -95,8 +97,10 @@ Le brief du worker demande :
 4. Toujours un robots.txt à la racine, avec l'URL du sitemap, copié avant toute modification [2649302 III P78, P80].
    Autre : 417316 S6 R97, seulement s'il y a des pages à exclure [daté : valeur à vérifier au moment du projet].
 5. robots.txt ne protège rien : un mot de passe, et noindex pour ne pas apparaître [2649302 III P79 ; 3828556 Créer un robots.txt #30].
-6. Toujours un sitemap, sans pages privées, soumis à la Search Console [2649302 III P73-P75 ; 412738 L186 P576].
-   Égalité : deux règles non datées de cours de SEO à leçon dédiée ; position gardée parce que ce skill sert un client qui attend du trafic, et #39 garde lui-même le sitemap pour être indexé vite ; autre position, inutile sur un petit site à navigation simple [3828556 Créer un sitemap #39].
+6. Égalité :
+   toujours un sitemap, sans pages privées, soumis à la Search Console [2649302 III P73-P75 ; 412738 L186 P576] ;
+   sitemap pas indispensable sur un petit site à navigation simple [3828556 Créer un sitemap #39] ;
+   firstmate choisit à l'admission du projet et l'écrit dans le brief.
 7. Une 301 à chaque URL changée ou page supprimée, jamais de 404 laissée [2649302 III P68-P70 ; 417316 S9 R176].
 8. Une seule version du site, les autres redirigées en 301 [2649302 III P71].
 
@@ -140,8 +144,12 @@ Le brief du worker demande :
 ## Refuser ou remonter
 
 **Capitaine**
-- Le nom de domaine, avec ces critères : extension de la zone visée, variantes réservées, quinze caractères au plus [2649302 III P59, P62-P63], sans accent ni mot-clé exact commercial [3828556 Nom de domaine #139 ; 417316 S9 R154].
-  Autre : 3828556 #135-#136, .com par défaut, extensions de pays à éviter [préférence pour l'évitement] ; à égalité de critères, le capitaine tranche.
+- Le nom de domaine, avec ces critères : variantes réservées, quinze caractères au plus [2649302 III P59, P62-P63], sans accent ni mot-clé exact commercial [3828556 Nom de domaine #139 ; 417316 S9 R154].
+  Égalité :
+  extension de la zone visée [2649302 III P59] ;
+  .com pour un projet sérieux [3828556 Nom de domaine #135] ;
+  firstmate choisit à l'admission du projet et l'écrit dans le brief.
+  Autre : éviter les extensions de pays [3828556 Nom de domaine #136] [préférence] ; règle avant préférence.
 - Tout désaveu de liens et toute demande de réexamen [417316 S7 R112, S9 P35].
 - Tout contact avec un site tiers : campagne de liens, retrait d'un contenu copié [2649302 V PR19, IV PR17] [autorité firstmate].
 - Toute dépense : outil payant [3828556 Rich snippets #57], publicité [2649302 I P3] [autorité firstmate].
