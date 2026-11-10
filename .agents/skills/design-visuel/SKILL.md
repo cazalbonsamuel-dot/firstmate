@@ -74,7 +74,7 @@ Une contradiction se tranche par règle avant préférence, non datée avant dat
 - La couleur est fonctionnelle ; « elle a l'air jolie » est la mauvaise raison [1595266 S6/L25 P178].
 - Système minimal : une couleur principale, des gris, puis un accent, en teintes claires et foncées [437398 S5 R56].
 - La palette du site vient de la palette de marque ; sans elle, elle se construit par `identite-marque-logo` point 37, avant la maquette [5313020 L35, L43].
-- Au travail, on ne prend que dans la palette, en ne changeant que valeur et saturation [5313020 L30].
+- Au travail, on ne prend que dans la palette, en ne changeant que valeur et saturation : c'est le travail normal du worker [5313020 L30].
 - Répartition 60-30-10 : 60 % d'un neutre (blanc, gris, noir), 30 % d'une couleur de contraste pour zones de texte et éléments, 10 % de l'accent le plus intense pour les appels à l'action et les détails [5313020 L31].
   Le cours la donne comme orientation fiable, pas comme règle ; chaque part peut être un groupe de couleurs quasi identiques sur deux des trois aspects teinte, valeur, saturation [5313020 L31].
 - Site riche en images : un grand neutre et un petit accent là où l'on clique, ou des photos qui suivent la palette [5313020 L31].
@@ -89,8 +89,8 @@ Une contradiction se tranche par règle avant préférence, non datée avant dat
 - Les couleurs exactes du logo ne couvrent pas de grandes surfaces : trop saturées [1595266 S6/L29 P206].
 - On baisse la saturation jusqu'à ce que les bords ne vibrent plus (exemple : 86 % à 72 %) [1595266 S6/L29 P208] [daté : valeur à vérifier au moment du projet].
 - Une palette imposée par le client se saisit en valeurs exactes [4860984 A n°36].
-- Ni noir pur ni blanc pur : le foncé est un gris teinté de la primaire [4860984 N n°28-n°29 ; 412738 L87 P377].
-  Autres positions : le noir sur blanc est « le mieux » [417316 S8 R137] ; texte noir ou bleu foncé sur blanc, blanc sur noir ou gris foncé [5313020 L43].
+- Texte noir ou bleu foncé sur blanc, blanc sur noir ou gris foncé [5313020 L43] ; retenu 5313020, cours dédié à la couleur.
+  Autres positions : ni noir pur ni blanc pur, le foncé est un gris teinté de la primaire [4860984 N n°28-n°29 ; 412738 L87 P377] ; le noir sur blanc est « le mieux » [417316 S8 R137].
 - Fond sombre et mode sombre : gris foncé plutôt que noir pur ; le mode sombre se prévoit dans la palette et se teste [5313020 L18, L30].
 - Beaucoup de couleurs saturées sur blanc peuvent fatiguer et font vite enfantin, un risque ; un fond noir ou gris foncé les porte sans fatiguer [5313020 L16, L17, L18].
 - Le blanc sur noir n'est pas plus difficile à lire, c'est un mythe [1595266 S6/L31 P214 ; 412738 L83 P319].
@@ -173,7 +173,7 @@ Une contradiction se tranche par règle avant préférence, non datée avant dat
 - Le choix de la direction visuelle remonte au capitaine, puis au client par `agence-projet-client` [autorité firstmate].
 - Toute dépense remonte, comme une police payante [autorité firstmate].
 - Tout écart à la charte du client remonte, avec `identite-marque-logo` [autorité firstmate].
-- Tout changement de couleur après présentation de la palette au client, même de valeur ou de saturation, remonte : il change la perception du design [5313020 L35].
+- Modifier la palette présentée au client (ajouter, retirer ou remplacer une couleur, changer une teinte) remonte [autorité firstmate] : le cours veut tout changement de couleur coordonné avec le client et juge risqués même les ajustements de valeur ou de saturation [5313020 L35].
 - L'habillage d'un site ancien n'est pas une charte : ce qui se garde suit l'issue choisie par `agence-projet-client` point 1.10 [décision du capitaine, 10 novembre 2026].
 
 **Firstmate**
@@ -208,7 +208,7 @@ Cours sources :
 - 3012636 « How To Design for Accessibility: for UX Designers » : S6.
 - 663850 BCS Foundation Certificate in User Experience : S4 Visual Design.
 - 417316 « Modern SEO » : S8.
-- 5313020 « the color class », cours dédié à la couleur : L04, L08-L11, L16-L18, L20-L31, L33, L35, L38, L41, L43.
+- 5313020 « the color class », cours dédié à la couleur : L04, L08, L11, L16-L18, L20-L22, L24-L31, L33, L35, L38, L41, L43.
 
 Frontières :
 - La structure, la navigation et les wireframes relèvent de `architecture-information`.
