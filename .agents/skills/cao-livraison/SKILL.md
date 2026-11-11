@@ -19,14 +19,14 @@ La méthode du dépôt `agent-conception-cao`, à la tête de sa branche par dé
 
 1. Un seul worker S5, brief écrit avec `cao-worker-brief` sur la ligne « Réception et re-pointage S5 » du §13 ; il est le seul à faire le re-pointage final complet du manifeste et ses revendications de maturité.
 2. Ses commandes sont celles du contrat (« Commandes du worker », worker de réception S5), en série et sous la règle du travail lourd (`cao-freecad-execution`) ; le brief fixe la portée de `delivery --execute`, lot de cas (`--case`) ou plein périmètre, selon les critères de cette section, et le délai et le Mac éveillé d'une passe longue (`cao-freecad-execution`).
-   `--case` vérifie lui-même les versions de FreeCAD et de macOS contre `method/versions-reference.json` ; la durée du plein périmètre se lit dans `method/performance.md` (« Versions locales observées »), jamais recopiée, et le lot qui le passe met à jour ce fichier en plus de cette ligne.
+   `--case` vérifie lui-même les versions de FreeCAD et de macOS contre `method/versions-reference.json` ; s'il refuse (`delivery_case_versions_refused`), le plein périmètre est obligatoire et la mise à jour de la référence des versions (`method/versions-reference.json` et la ligne de `method/performance.md`) relève d'un lot méthode séparé qui passe ce plein périmètre, lancé par le superviseur ; le worker S5 s'arrête et le signale, il ne touche pas ces fichiers. La durée du plein périmètre se lit dans `method/performance.md` (« Versions locales observées »), jamais recopiée.
 3. Contenu attendu de la PR :
    - manifeste complet selon le §3 (« Squelette d'un nouveau cas », manifeste minimal) avec `decision_record` en `option_validee`, plus `definition_scope` si le prototype fabricable est revendiqué ;
    - `cases/<cas>/README.md`, `params.json`, `interfaces.json`, et la décision et ses annexes pour un nouveau cas (le gabarit en un seul fichier pour un cas qui l'a déjà) ;
    - modèles dont la géométrie a changé, et seulement eux ; captures avec leur identité ;
    - dossier, plans, BOM ; pages TechDraw contrôlées et relues en image selon `method/guides/techdraw.md`, ce qui n'est pas une preuve ;
    - les fiches de remise de `outputs/remises/`.
-4. Règles de commit selon `method/worker.md` §6 ; aucun autre cas, helper, lanceur ou fichier de méthode modifié (§7), hors la mise à jour des versions de référence de l'étape 2.
+4. Règles de commit selon `method/worker.md` §6 ; aucun autre cas, helper, lanceur ou fichier de méthode modifié (§7).
 5. La PR suit le mode de livraison enregistré pour le projet (`AGENTS.md` section 7) ; le second maître n'intègre jamais lui-même.
 6. Recevoir la PR avec `cao-reception`, `reception` en rôle `s5`, sur la branche de la PR.
 7. Message au capitaine par le canal parent, en plus de la ligne que les scripts y publient déjà (`docs/secondmate-parent-channel.md`) :
