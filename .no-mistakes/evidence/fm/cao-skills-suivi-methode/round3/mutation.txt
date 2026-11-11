@@ -1,0 +1,12 @@
+lab: fiche sans le point des définitions ouvertes
+
+ cases/inclinometre-jimny-boitier/outputs/remises/s5-2026-11-10.json | 1 -
+ 1 file changed, 1 deletion(-)
+@@ -737,7 +737,6 @@
+     "note": "itérations : (1) plans et mise en page ; (2) critères en metrics et check_all ; (3) manifeste final (entrée de modèle de page hors dépôt retirée)"
+   },
+   "open_points": [
+-    "Pas de prototype prêt : cotes du module écran UnVision, angle de vision (œil), zone de pose sur la planche et prise de la Nano à mesurer (docs/mesures-a-fournir.md).",
+     "Impression et essais physiques non faits (CTRL-IMPRESSION, CTRL-ESSAIS-PHYSIQUES non_verifie) ; essais à prévoir au dossier, section 9.",
+     "Estimations d'impression en PETG faute de profil PC dans le dépôt, pièces tranchées dans le repère de leur STL.",
+     "Suivis d'un lot méthode, hors de ce cas : method/README.md décompte encore sept cas (huit manifestes) ; un .FCBak est versionné sous cases/electronique/cad/."

@@ -1,0 +1,20 @@
+summary maturity.definition : definition_encore_incomplete
+summary maturity.open_items : ['definition_scope']
+manifest limits[] entries   : 15
+   - "Consigne Suzuki 99011-77R42 p. 2-5 (ne rien poser sur le dessus de la planche) en défaut : choix du capitaine en connaissance de cause."
+   - "Écran au-dessus de sa plage (70 °C en marche, 80 °C au repos) sur une planche à 85 °C quand la boîte reste en place."
+   - "Cotes du module UnVision non mesurées : enveloppe d'un module de même brochage."
+   - "Angle de façade estimé (20°) tant que l'œil du capitaine n'est pas mesuré."
+   - "Planéité et matière du dessus de planche non établies."
+   - "Aucune qualification physique, aucun essai."
+   - "C5 lu « boîte posée sur sa semelle, ruban non compris » (décision du second maître, 2026-11-10) : 49,56 mm sur la semelle ; avec le ruban VHB de 1,1 mm, le sommet (tête de la vis haute) est à 50,66 mm du plan de pose."
+   - "Définition ouverte : position de la prise micro-USB de la Nano estimée ; l'ouverture est remontée de 0,73 mm sur cette estimation (gel n°10)."
+   - "Enveloppes de composants estimées dans l'assemblage (écran, Nano, encodeur et bouton, supports de LED, fiche et câble USB, réserves de câblage) ; masse des composants 37 g estimée."
+   - "Collage : pelage, traction, fatigue sous vibrations et adhérence sur la planche réelle non chiffrés ; 3 g est une accélération de calcul estimée."
+   - "Verrou : propriétés du PC « typiques » du fabricant, facteur 0,5 en hypothèse ; fluage et fatigue non calculés."
+   - "Pare-brise non modélisé : passage du câble USB près du pare-brise non vérifié."
+   - "Impression non vérifiée : estimations PrusaSlicer en PETG faute de profil PC, pièces tranchées dans le repère de leur STL, jamais mesurées."
+   - "Électronique, câblage et firmware hors périmètre (boîtier d'intégration mécanique, méthode §8)."
+   - "Pas de prototype prêt : définitions ouvertes (cotes du module écran, angle de vision, zone de pose sur la planche, prise de la Nano) à mesurer par le capitaine (docs/mesures-a-fournir.md)."
+fiche keys                  : ['base', 'budget', 'captures', 'case_id', 'commands', 'commit', 'decisions_consumed', 'delivered_files', 'freecad_version', 'invalidated_proofs', 'manifest_changes', 'open_invalidations_before_execute', 'open_points', 'repointed_proofs', 'results', 'unit']
+fiche open_points           : ["Pas de prototype prêt : cotes du module écran UnVision, angle de vision (œil), zone de pose sur la planche et prise de la Nano à mesurer (docs/mesures-a-fournir.md).", "Impression et essais physiques non faits (CTRL-IMPRESSION, CTRL-ESSAIS-PHYSIQUES non_verifie) ; essais à prévoir au dossier, section 9.", "Estimations d'impression en PETG faute de profil PC dans le dépôt, pièces tranchées dans le repère de leur STL.", "Suivis d'un lot méthode, hors de ce cas : method/README.md décompte encore sept cas (huit manifestes) ; un .FCBak est versionné sous cases/electronique/cad/."]

@@ -1,0 +1,744 @@
+{
+ "unit": "S5 réception finale : dossier, plans TechDraw, estimation d'impression et maillage, check_all.sh, manifeste complet, delivery --execute",
+ "case_id": "inclinometre-jimny-boitier",
+ "commit": "385072e0e2e819e0d1479a2ba3b81fe96c28e982",
+ "base": {
+  "branch": "fm/cao-inclinometre-boitier",
+  "commit": "01b88f2",
+  "note": "fiche S4 bis ; liste des invalidations ouvertes vide avant S5"
+ },
+ "delivered_files": [
+  {
+   "path": "cases/inclinometre-jimny-boitier/README.md",
+   "sha256": "70c359ee2a7c920dcd3be723870bc026413e9812af4772f8725d3e6a2d7ea3b3"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C1.json",
+   "sha256": "ad32c03f209e3048277eec8fd41e9134ade69254da0e7d3027f9325fa2908a34"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C10.json",
+   "sha256": "2ff3fee751238e598669966cb968bee3247e22492053c32286675467bf5df5e3"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C2.json",
+   "sha256": "87039f27e478a2f345a083128b3993608d4be60385e0efd66ce2c302b921ea1f"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C3.json",
+   "sha256": "586db8616c27c3b77421da17633ac91dfcae945f63fe9a613c3883e09ab0a529"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C4.json",
+   "sha256": "dea40a01a183293c31aa62c9cf3a043f006266b305dc6ea30f8b4e2647520c6c"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C5.json",
+   "sha256": "5db1eadc051d8820d32c3e20388a37f163658235fd29c1a7025ad5b43ba6e25c"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C6.json",
+   "sha256": "c27c8966f643e51634edb6d5bc0e089e904dd8b39abb0266d588fca8cbd0556e"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C7.json",
+   "sha256": "d37c0b428b7d1479119ca33461c70cfc3b4f4841c276808048f189c3860e452b"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C8.json",
+   "sha256": "e02782cbeaa8efefe43d0dfcda7549518a223e39947eacbe2aa424d4abc97f97"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C9.json",
+   "sha256": "a19f67583c796ef54ce7b6c4d743cca303bd9ae0679eb01a7b5ad96ba98697d1"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/design/calculs.json",
+   "sha256": "453ff07f9f82157492505bbd77a031d5a1373fcc493463db26fa8df70ceb999c"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/design/calculs_verrou.json",
+   "sha256": "28de2570cd62bc5a88d9ce8d50f81e70ca8b6f53e962abdff8650acebcf58ae8"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/docs/dossier-conception.md",
+   "sha256": "6b50c6e3dbe19a9dd8b5722cd5eab10b09703920a60eb76a3b6e4475da6b454f"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/docs/mesures-a-fournir.md",
+   "sha256": "abd1e8b62b3339f5b941011369e7c0a5f08983b29415fa2898b257d7081e5832"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/docs/nomenclature.csv",
+   "sha256": "c759be517ec861656fec71ea41caa01159517992f094c83359dbd9631a0b3109"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/docs/plans/coque/coque-p1.pdf",
+   "sha256": "e98bb33cd6c21dfecbbc648df8129efab09206540daba93ed7cbe3a727f4cac1"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/docs/plans/coque/coque-p1.svg",
+   "sha256": "e8899af2973f041b327d29dba2457c3b23020590da71684e7e9ec74fbd6a1f64"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/docs/plans/coque/pages.json",
+   "sha256": "58751351eea23a83aa526a88707226cefaa24e7482da4be225f5716ad2c7bfa5"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/docs/plans/coque/techdraw_report.json",
+   "sha256": "814506c7f7b2a59f509de75af3bad5f57066804b241ff550d1058f1181d753cf"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/docs/plans/facade/facade-p1.pdf",
+   "sha256": "85042cb727b964e02b765c9c7bc788289c683d7105f3774e84b230259937b551"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/docs/plans/facade/facade-p1.svg",
+   "sha256": "4b6067a134d27a4576b241c31141be14c44a93f7da32f75b599529efef118e75"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/docs/plans/facade/pages.json",
+   "sha256": "7042ea7cd527c3fec5e547547875116659f46fba62e28cb046d8bf559476582c"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/docs/plans/facade/techdraw_report.json",
+   "sha256": "44fcaafc2537ad0c9de5780a498b32945fcaf943c96346a092506ee367a61c5d"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/docs/plans/semelle/pages.json",
+   "sha256": "588f3b9f8448b31462079106acd199208fe81ece25f24f1259b82e71158a2ff2"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/docs/plans/semelle/semelle-p1.pdf",
+   "sha256": "4223099d04753a20b318d4be483eaf8398c7cbb42afe6e48612298dd9c3aca74"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/docs/plans/semelle/semelle-p1.svg",
+   "sha256": "7f8459cc0c35a152d5f9d3149fe2398a8901be3a5814df03b345b825b8740659"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/docs/plans/semelle/techdraw_report.json",
+   "sha256": "50a7e5fff5f91d40932e7455c70986bde37e04fd4d22ff1ef715a9345a75061f"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/outputs/check_assemblage.json",
+   "sha256": "221b03bb1907a2f6fed10f8a2185b350fcd3c144bd526c2763e0f52fde631f00"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/outputs/check_coque.json",
+   "sha256": "ba06f4fdce10f4cee79625b6a2af696cbd24bce19dca06cdf90e1ef55d322eaa"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/outputs/check_facade.json",
+   "sha256": "6c4b91b5bf940e5ede8ffaa0a08255f3b833d80f7ea9b097cfc547dc6d524ca9"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/outputs/check_semelle.json",
+   "sha256": "6299f6b314304a60309919ea6bd8e30e4881a8eb6558db7aa4abc4eb3c32b3f1"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/outputs/impression/coque-estimation.json",
+   "sha256": "f17a148538e44dab85f6bd2e9884d676d39304aea09bf04eacb29b8d7a695097"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/outputs/impression/coque-maillage.json",
+   "sha256": "550703feb6da3ab37ee8f29556b006cb839227385dc88e2219d538c77852e3c1"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/outputs/impression/facade-estimation.json",
+   "sha256": "70bb0d8749fe09d80e376a10fe4802bb54f13164c213326de204bcb9ac557595"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/outputs/impression/facade-maillage.json",
+   "sha256": "1bc15c6d59547da88e5aeae484930e1ae4735ccdc6009c6ccd33ebcbe74b94bd"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/outputs/impression/semelle-estimation.json",
+   "sha256": "8bfb8c6f2b69ed359c51238fd4c151c245d4236ba2ce3cb36627dd8cd6a08598"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/outputs/impression/semelle-maillage.json",
+   "sha256": "19a74184a5133f10c8775c8588435c94a07683fc556954117d09180534f69d2e"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/scripts/build_assemblage.py",
+   "sha256": "ddc82ae0a1b4c62e89c16befb222a1931d6d913da9ddbf345229f4898fc9a17a"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/scripts/build_semelle.py",
+   "sha256": "e941070062a4f8f33f32ab719984f4077160cbd52e26fb01990d78e56509557f"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/scripts/check_all.sh",
+   "sha256": "a7256b8322001f8610cc41eb44a1b505e0b98dfd70ba1bb94293d6a738493233"
+  },
+  {
+   "path": "method/cases/inclinometre-jimny-boitier/manifest.json",
+   "sha256": "547682cd56baa87f51897793d79dc9eb91c0820127df04020c9264f92cacd24f"
+  }
+ ],
+ "commands": [
+  {
+   "command": "TECHDRAW_SPEC=cases/inclinometre-jimny-boitier/docs/plans/facade/pages.json TECHDRAW_OUTPUT_DIR=cases/inclinometre-jimny-boitier/docs/plans/facade scripts/run_freecad_capture.sh --script scripts/techdraw_pages.py",
+   "rc": 0,
+   "duration_s": 10.4,
+   "heavy": true,
+   "note": "S5 lourde 1 : verifie 8/8 ; page relue : légende sur une cote, texte du cartouche débordant, cote sur le trait de coupe ; reprise"
+  },
+  {
+   "command": "TECHDRAW_SPEC=cases/inclinometre-jimny-boitier/docs/plans/facade/pages.json TECHDRAW_OUTPUT_DIR=cases/inclinometre-jimny-boitier/docs/plans/facade scripts/run_freecad_capture.sh --script scripts/techdraw_pages.py",
+   "rc": 0,
+   "duration_s": 10.2,
+   "heavy": true,
+   "note": "S5 lourde 2 : verifie ; pages relues : traits de coupe décalés hors du cadre (origine de coupe en x = 0), textes au contact ; reprise"
+  },
+  {
+   "command": "TECHDRAW_SPEC=cases/inclinometre-jimny-boitier/docs/plans/semelle/pages.json TECHDRAW_OUTPUT_DIR=cases/inclinometre-jimny-boitier/docs/plans/semelle scripts/run_freecad_capture.sh --script scripts/techdraw_pages.py",
+   "rc": 0,
+   "duration_s": 10.2,
+   "heavy": true,
+   "note": "S5 lourde 3 : verifie ; pages relues : traits de coupe décalés hors du cadre (origine de coupe en x = 0), textes au contact ; reprise"
+  },
+  {
+   "command": "TECHDRAW_SPEC=cases/inclinometre-jimny-boitier/docs/plans/coque/pages.json TECHDRAW_OUTPUT_DIR=cases/inclinometre-jimny-boitier/docs/plans/coque scripts/run_freecad_capture.sh --script scripts/techdraw_pages.py",
+   "rc": 0,
+   "duration_s": 10.2,
+   "heavy": true,
+   "note": "S5 lourde 4 : verifie ; pages relues : traits de coupe décalés hors du cadre (origine de coupe en x = 0), textes au contact ; reprise"
+  },
+  {
+   "command": "TECHDRAW_SPEC=cases/inclinometre-jimny-boitier/docs/plans/facade/pages.json TECHDRAW_OUTPUT_DIR=cases/inclinometre-jimny-boitier/docs/plans/facade scripts/run_freecad_capture.sh --script scripts/techdraw_pages.py",
+   "rc": 0,
+   "duration_s": 10.2,
+   "heavy": true,
+   "note": "S5 lourde 5 : verifie ; traits de coupe centrés ; restent des textes au contact des fins de traits de coupe ; reprise"
+  },
+  {
+   "command": "TECHDRAW_SPEC=cases/inclinometre-jimny-boitier/docs/plans/semelle/pages.json TECHDRAW_OUTPUT_DIR=cases/inclinometre-jimny-boitier/docs/plans/semelle scripts/run_freecad_capture.sh --script scripts/techdraw_pages.py",
+   "rc": 0,
+   "duration_s": 10.2,
+   "heavy": true,
+   "note": "S5 lourde 6 : verifie ; traits de coupe centrés ; restent des textes au contact des fins de traits de coupe ; reprise"
+  },
+  {
+   "command": "TECHDRAW_SPEC=cases/inclinometre-jimny-boitier/docs/plans/coque/pages.json TECHDRAW_OUTPUT_DIR=cases/inclinometre-jimny-boitier/docs/plans/coque scripts/run_freecad_capture.sh --script scripts/techdraw_pages.py",
+   "rc": 0,
+   "duration_s": 10.2,
+   "heavy": true,
+   "note": "S5 lourde 7 : verifie ; traits de coupe centrés ; restent des textes au contact des fins de traits de coupe ; reprise"
+  },
+  {
+   "command": "TECHDRAW_SPEC=cases/inclinometre-jimny-boitier/docs/plans/facade/pages.json TECHDRAW_OUTPUT_DIR=cases/inclinometre-jimny-boitier/docs/plans/facade scripts/run_freecad_capture.sh --script scripts/techdraw_pages.py",
+   "rc": 0,
+   "duration_s": 10.2,
+   "heavy": true,
+   "note": "S5 lourde 8 : verifie ; page relue sans chevauchement"
+  },
+  {
+   "command": "TECHDRAW_SPEC=cases/inclinometre-jimny-boitier/docs/plans/semelle/pages.json TECHDRAW_OUTPUT_DIR=cases/inclinometre-jimny-boitier/docs/plans/semelle scripts/run_freecad_capture.sh --script scripts/techdraw_pages.py",
+   "rc": 0,
+   "duration_s": 10.2,
+   "heavy": true,
+   "note": "S5 lourde 9 : verifie ; page relue sans chevauchement sauf la cote 4 au contact de l'arête de la lèvre"
+  },
+  {
+   "command": "TECHDRAW_SPEC=cases/inclinometre-jimny-boitier/docs/plans/coque/pages.json TECHDRAW_OUTPUT_DIR=cases/inclinometre-jimny-boitier/docs/plans/coque scripts/run_freecad_capture.sh --script scripts/techdraw_pages.py",
+   "rc": 0,
+   "duration_s": 10.2,
+   "heavy": true,
+   "note": "S5 lourde 10 : verifie ; page relue sans chevauchement"
+  },
+  {
+   "command": "TECHDRAW_SPEC=cases/inclinometre-jimny-boitier/docs/plans/semelle/pages.json TECHDRAW_OUTPUT_DIR=cases/inclinometre-jimny-boitier/docs/plans/semelle scripts/run_freecad_capture.sh --script scripts/techdraw_pages.py",
+   "rc": 0,
+   "duration_s": 10.3,
+   "heavy": true,
+   "note": "S5 lourde 11 : verifie 6/6, page relue sans chevauchement ; plans livrés : façade et coque de la lourde 8 et 10, semelle de celle-ci"
+  },
+  {
+   "command": "uv run --project tools/maillage --frozen python scripts/mesh_check.py cases/inclinometre-jimny-boitier/cad/<pièce>.stl --json cases/inclinometre-jimny-boitier/outputs/impression/<pièce>-maillage.json --expect-volume-mm3 <B-Rep> --expect-bbox-mm <B-Rep>",
+   "rc": 0,
+   "duration_s": 2.2,
+   "heavy": false,
+   "note": "trois pièces, verifie ; références : volume et boîte des rapports natifs"
+  },
+  {
+   "command": "python3 scripts/slice_estimate.py cases/inclinometre-jimny-boitier/cad/<pièce>.stl --profile method/profils-impression/petg-buse04-couche02-plein.json --output cases/inclinometre-jimny-boitier/outputs/impression/<pièce>-estimation.json",
+   "rc": 0,
+   "duration_s": 1.0,
+   "heavy": false,
+   "note": "trois pièces, PrusaSlicer 2.9.7 ; estimé, PETG faute de profil PC"
+  },
+  {
+   "command": "bash cases/inclinometre-jimny-boitier/scripts/check_all.sh",
+   "rc": 0,
+   "duration_s": 14.9,
+   "heavy": true,
+   "note": "S5 lourde 12 : calculs ; 4 constructions hors dépôt, 8 digests (FCStd et STEP) identiques aux modèles livrés ; 4 contrôles natifs régénérés après la reprise des critères en metrics, tous verifie ; captures non rejouées (digest égal) ; FreeCAD signale « TopoShapeExpansion.cpp(922): hasher mismatch » pendant un contrôle, sans effet sur le résultat"
+  },
+  {
+   "command": "python3 method/check_method.py cases",
+   "rc": 0,
+   "duration_s": 11.1,
+   "heavy": false
+  },
+  {
+   "command": "python3 method/check_method.py fixtures",
+   "rc": 0,
+   "duration_s": 0.1,
+   "heavy": false
+  },
+  {
+   "command": "python3 method/check_method.py self-test",
+   "rc": 0,
+   "duration_s": 2.0,
+   "heavy": false
+  },
+  {
+   "command": "python3 method/check_method.py delivery",
+   "rc": 0,
+   "duration_s": 6.1,
+   "heavy": false
+  },
+  {
+   "command": "python3 method/check_method.py summary method/cases/inclinometre-jimny-boitier/manifest.json",
+   "rc": 0,
+   "duration_s": 1.6,
+   "heavy": false,
+   "note": "conforme, controles_reussis, maturité revendiquée et observée cao_numerique_verifiee"
+  },
+  {
+   "command": "python3 method/check_method.py delivery --execute",
+   "rc": 0,
+   "duration_s": 1375.1,
+   "heavy": true,
+   "note": "S5 lourde 13 : plein périmètre, contrôles natifs déclarés de tous les manifestes rejoués"
+  }
+ ],
+ "freecad_version": "1.1.4 (4fd3bf320)",
+ "captures": [
+  {
+   "path": "cases/inclinometre-jimny-boitier/outputs/captures/assemblage-axo.png",
+   "sha256": "0c6afac56f37ecd8fb1c463c94ff6abc9f9aed923b40905e5d6f9939d0c21c53",
+   "document": "cases/inclinometre-jimny-boitier/cad/assemblage.FCStd",
+   "digest": "e0aa3dae7b0d003bfb70eaa1f45519879d5466a1b14d2fc56f783f903160ee57",
+   "view": "axo",
+   "state": "ensemble assemblé, axonométrie avant droite (côté conducteur, à droite, au-dessus)",
+   "date": "2026-11-10T16:17:54+00:00",
+   "note": "capture de S4 bis, non rejouée en S5 : digest de l'assemblage inchangé"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/outputs/captures/assemblage-cote.png",
+   "sha256": "93198cc5f1599d600c157715733aaa9e127166ee96b8a88971cefb2c01930d0f",
+   "document": "cases/inclinometre-jimny-boitier/cad/assemblage.FCStd",
+   "digest": "e0aa3dae7b0d003bfb70eaa1f45519879d5466a1b14d2fc56f783f903160ee57",
+   "view": "cote",
+   "state": "vue de côté depuis la gauche : coin, angle de façade, hauteur sur semelle ; câble et fiche USB masqués (ils seraient devant le profil)",
+   "date": "2026-11-10T16:17:56+00:00",
+   "note": "capture de S4 bis, non rejouée en S5 : digest de l'assemblage inchangé"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/outputs/captures/assemblage-coupe_ecran.png",
+   "sha256": "407fa31f6bb03ac9a03bdfbf454a75486dd69989b3f3343614da127640ed1bff",
+   "document": "cases/inclinometre-jimny-boitier/cad/assemblage.FCStd",
+   "digest": "e0aa3dae7b0d003bfb70eaa1f45519879d5466a1b14d2fc56f783f903160ee57",
+   "view": "coupe_ecran",
+   "state": "coupe d'affichage dans le plan x du centre de la dalle : moitié x > plan masquée par un plan de découpe Coin, chapeaux de section colorés ; empilement façade, dalle, carte, réserve de câblage, Nano sur ses plots, plancher de la coque, semelle et ruban",
+   "date": "2026-11-10T16:18:02+00:00",
+   "note": "capture de S4 bis, non rejouée en S5 : digest de l'assemblage inchangé"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/outputs/captures/assemblage-coupe_verrou.png",
+   "sha256": "641259715ef43e5541889ed77d3e4211216586d65332ec5c832dc6bf7200cd3c",
+   "document": "cases/inclinometre-jimny-boitier/cad/assemblage.FCStd",
+   "digest": "e0aa3dae7b0d003bfb70eaa1f45519879d5466a1b14d2fc56f783f903160ee57",
+   "view": "coupe_verrou",
+   "state": "coupe d'affichage dans le plan de l'axe du rail (x = glissiere_axe_x_mm) : moitié x > axe masquée par un plan de découpe Coin, chapeaux de section colorés ; rail, languette, dent dans le cran, plafond de la rainure, encodeur",
+   "date": "2026-11-10T16:18:05+00:00",
+   "note": "capture de S4 bis, non rejouée en S5 : digest de l'assemblage inchangé"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/outputs/captures/assemblage-dessous_arriere.png",
+   "sha256": "e5a72bdd24dd6c0eb51738f524944ab1c5f4e61897bff0ee70b2bdacc88c97f0",
+   "document": "cases/inclinometre-jimny-boitier/cad/assemblage.FCStd",
+   "digest": "e0aa3dae7b0d003bfb70eaa1f45519879d5466a1b14d2fc56f783f903160ee57",
+   "view": "dessous_arriere",
+   "state": "dessous et arrière : ruban sous la semelle, fenêtre de la languette, butée arrière, bout de la languette",
+   "date": "2026-11-10T16:18:00+00:00",
+   "note": "capture de S4 bis, non rejouée en S5 : digest de l'assemblage inchangé"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/outputs/captures/assemblage-facade_deposee.png",
+   "sha256": "b5ef372631f09f41bbbd02a587b2e3f06ef2ec87c2ac8a8f49d5f5a8cab84aa1",
+   "document": "cases/inclinometre-jimny-boitier/cad/assemblage.FCStd",
+   "digest": "e0aa3dae7b0d003bfb70eaa1f45519879d5466a1b14d2fc56f783f903160ee57",
+   "view": "facade_deposee",
+   "state": "façade déposée : façade et composants qu'elle porte masqués à leur place et redessinés à part, sortis de 25 mm le long de la normale et décalés de 75 mm vers +x ; lèvre, fentes du rebord gauche, tenons, inserts et Nano visibles",
+   "date": "2026-11-10T16:18:07+00:00",
+   "note": "capture de S4 bis, non rejouée en S5 : digest de l'assemblage inchangé"
+  },
+  {
+   "path": "cases/inclinometre-jimny-boitier/outputs/captures/assemblage-face.png",
+   "sha256": "96b1cc1c8a4722d7d01f346f54b3aed766693a5ad4119c30ab53e43448d2e723",
+   "document": "cases/inclinometre-jimny-boitier/cad/assemblage.FCStd",
+   "digest": "e0aa3dae7b0d003bfb70eaa1f45519879d5466a1b14d2fc56f783f903160ee57",
+   "view": "face",
+   "state": "vue de face, perpendiculaire à la façade : écran, encodeur, LED, vis",
+   "date": "2026-11-10T16:17:58+00:00",
+   "note": "capture de S4 bis, non rejouée en S5 : digest de l'assemblage inchangé"
+  }
+ ],
+ "decisions_consumed": [
+  {
+   "proof": "DEC-ARCHI",
+   "state": "option_validee",
+   "option": "A1 - coin imprimé monobloc, angle fixe, collé"
+  },
+  {
+   "decision": "brief S4 bis et S5 du second maître (2026-11-10)",
+   "contenu": "reprise des seuils en metrics dans les critères (autorisée) ; C5 lu sans le ruban ; maturité revendiquée limitée à ce que le contrôleur observe"
+  }
+ ],
+ "invalidated_proofs": [
+  {
+   "proof": "CALC-ANGLE",
+   "cites": [
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C10.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C5.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C7.json"
+   ]
+  },
+  {
+   "proof": "CALC-COLLAGE",
+   "cites": [
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C10.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C5.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C7.json"
+   ]
+  },
+  {
+   "proof": "NAT-PIECE-FACADE",
+   "cites": [
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C2.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C3.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C8.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C9.json"
+   ]
+  },
+  {
+   "proof": "NAT-PIECE-COQUE",
+   "cites": [
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C1.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C10.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C2.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C3.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C4.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C5.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C6.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C7.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C8.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C9.json"
+   ]
+  },
+  {
+   "proof": "CALC-VERROU",
+   "cites": [
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C10.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C6.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C8.json"
+   ]
+  },
+  {
+   "proof": "NAT-PIECE-SEMELLE",
+   "cites": [
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C10.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C6.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C7.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C8.json",
+    "cases/inclinometre-jimny-boitier/design/calculs_verrou.json",
+    "cases/inclinometre-jimny-boitier/scripts/build_semelle.py"
+   ]
+  },
+  {
+   "proof": "NAT-COLLISION",
+   "cites": [
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C1.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C10.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C2.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C3.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C4.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C5.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C6.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C7.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C8.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C9.json",
+    "cases/inclinometre-jimny-boitier/design/calculs_verrou.json",
+    "cases/inclinometre-jimny-boitier/scripts/build_assemblage.py",
+    "cases/inclinometre-jimny-boitier/scripts/build_semelle.py"
+   ]
+  },
+  {
+   "proof": "NAT-MESURES",
+   "cites": [
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C1.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C10.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C2.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C3.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C4.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C5.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C6.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C7.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C8.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C9.json",
+    "cases/inclinometre-jimny-boitier/design/calculs_verrou.json",
+    "cases/inclinometre-jimny-boitier/scripts/build_assemblage.py",
+    "cases/inclinometre-jimny-boitier/scripts/build_semelle.py"
+   ]
+  },
+  {
+   "proof": "NAT-ASSEMBLAGE",
+   "cites": [
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C1.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C10.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C2.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C3.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C4.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C5.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C6.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C7.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C8.json",
+    "cases/inclinometre-jimny-boitier/design/acceptance_criteria/C9.json",
+    "cases/inclinometre-jimny-boitier/design/calculs_verrou.json",
+    "cases/inclinometre-jimny-boitier/scripts/build_assemblage.py",
+    "cases/inclinometre-jimny-boitier/scripts/build_semelle.py"
+   ]
+  }
+ ],
+ "repointed_proofs": [
+  {
+   "proof": "CALC-ANGLE",
+   "old_sha256": "4643d8d63a583ac0c10a385127b0aa00a8d9c7975f06ab66fc414acd26250095",
+   "new_sha256": "453ff07f9f82157492505bbd77a031d5a1373fcc493463db26fa8df70ceb999c"
+  },
+  {
+   "proof": "CALC-COLLAGE",
+   "old_sha256": "4643d8d63a583ac0c10a385127b0aa00a8d9c7975f06ab66fc414acd26250095",
+   "new_sha256": "453ff07f9f82157492505bbd77a031d5a1373fcc493463db26fa8df70ceb999c"
+  },
+  {
+   "proof": "NAT-PIECE-FACADE",
+   "old_sha256": "dd87fab321e8a4aa3f4d5e45abb809081aa1ffd6b0ea0d4afd3088ebe68d527f",
+   "new_sha256": "6c4b91b5bf940e5ede8ffaa0a08255f3b833d80f7ea9b097cfc547dc6d524ca9"
+  },
+  {
+   "proof": "NAT-PIECE-COQUE",
+   "old_sha256": "28fbcf2e3a33047c08edfad098ade42a745e0cdd53ed2a3837a8c8965a1da772",
+   "new_sha256": "ba06f4fdce10f4cee79625b6a2af696cbd24bce19dca06cdf90e1ef55d322eaa"
+  },
+  {
+   "proof": "CALC-VERROU",
+   "old_sha256": "005fa1718d68c1182e4967d8ab89f8d63a68d9ee0de13e3769627508423dad31",
+   "new_sha256": "28de2570cd62bc5a88d9ce8d50f81e70ca8b6f53e962abdff8650acebcf58ae8"
+  },
+  {
+   "proof": "NAT-PIECE-SEMELLE",
+   "old_sha256": "e9477cd1eb8e9aff4a36984524136229651ff83c2cd1d8297765c8d2b329265b",
+   "new_sha256": "6299f6b314304a60309919ea6bd8e30e4881a8eb6558db7aa4abc4eb3c32b3f1"
+  },
+  {
+   "proof": "NAT-COLLISION",
+   "old_sha256": "47c5b9bb358f3837ef96b1cfe2dbaee4c0ae434dfe826243c016df80f07c6ecc",
+   "new_sha256": "221b03bb1907a2f6fed10f8a2185b350fcd3c144bd526c2763e0f52fde631f00"
+  },
+  {
+   "proof": "NAT-MESURES",
+   "old_sha256": "47c5b9bb358f3837ef96b1cfe2dbaee4c0ae434dfe826243c016df80f07c6ecc",
+   "new_sha256": "221b03bb1907a2f6fed10f8a2185b350fcd3c144bd526c2763e0f52fde631f00"
+  },
+  {
+   "proof": "NAT-ASSEMBLAGE",
+   "old_sha256": "47c5b9bb358f3837ef96b1cfe2dbaee4c0ae434dfe826243c016df80f07c6ecc",
+   "new_sha256": "221b03bb1907a2f6fed10f8a2185b350fcd3c144bd526c2763e0f52fde631f00"
+  }
+ ],
+ "open_invalidations_before_execute": [],
+ "manifest_changes": [
+  "écrivain 4 (S5) : re-pointage final complet sur les rapports frais de check_all.sh",
+  "requirements C1 à C10 : statut verifie, méthode de vérification citant les preuves, empreintes des critères re-pointées",
+  "critères C1 à C10 : seuils repris en metrics avec l'id de leur preuve (autorisé par le second maître)",
+  "preuves ajoutées : PLAN-COQUE, PLAN-FACADE, PLAN-SEMELLE (json_metrics, rapports TechDraw ; modèle de page FreeCAD hors dépôt retiré des entrées), MAILLAGE-COQUE, MAILLAGE-FACADE, MAILLAGE-SEMELLE (json_metrics, mesh_check)",
+  "controls : 11 contrôles, dont CTRL-IMPRESSION et CTRL-ESSAIS-PHYSIQUES non_verifie avec raison ; matrix : C1 à C10 vers leurs preuves",
+  "limits : complétées (définitions ouvertes, enveloppes estimées, collage, verrou, pare-brise, impression, périmètre, pas de prototype prêt)",
+  "delivery_checks : DELIVERY-INCLINOMETRE-HASHES retiré ; les quatre contrôles natifs re-pointés sur les entrées et sources de leurs rapports",
+  "case_state « dossier livré » ; lifecycle_status cao_numerique_verifiee, lifecycle_proofs : les six preuves natives",
+  "delivered_files : dossier de conception, nomenclature consolidée, mesures à fournir, check_all.sh, plans (spécification, SVG, PDF, rapport) et rapports d'impression ajoutés ; tous re-pointés"
+ ],
+ "results": {
+  "maturite": {
+   "revendiquee": [
+    "cao_numerique_verifiee"
+   ],
+   "observee": "cao_numerique_verifiee",
+   "prototype_ready": false,
+   "definition": "definition_encore_incomplete"
+  },
+  "plans": {
+   "coque": {
+    "hauteur": {
+     "mesure": 46.053206,
+     "attendue": 46.0532,
+     "texte": "46,05"
+    },
+    "ouverture_usb_hauteur": {
+     "mesure": 10.5,
+     "attendue": 10.5,
+     "texte": "10,5"
+    },
+    "ouverture_usb_largeur": {
+     "mesure": 12.6,
+     "attendue": 12.6,
+     "texte": "12,6"
+    },
+    "largeur": {
+     "mesure": 87.0,
+     "attendue": 87.0,
+     "texte": "87"
+    },
+    "profondeur": {
+     "mesure": 48.0,
+     "attendue": 48.0,
+     "texte": "48"
+    },
+    "rainure_bas_chanfreins": {
+     "mesure": 17.074018,
+     "attendue": 17.074,
+     "texte": "17,07"
+    },
+    "rainure_plafond": {
+     "mesure": 21.03923,
+     "attendue": 21.0392,
+     "texte": "21,04"
+    },
+    "rainure_hauteur": {
+     "mesure": 4.3,
+     "attendue": 4.3,
+     "texte": "4,3"
+    }
+   },
+   "facade": {
+    "plaque_largeur": {
+     "mesure": 83.9,
+     "attendue": 83.9,
+     "texte": "83,9"
+    },
+    "plaque_hauteur": {
+     "mesure": 41.4,
+     "attendue": 41.4,
+     "texte": "41,4"
+    },
+    "fenetre_largeur": {
+     "mesure": 37.04,
+     "attendue": 37.04,
+     "texte": "37,04"
+    },
+    "fenetre_hauteur": {
+     "mesure": 30.03,
+     "attendue": 30.03,
+     "texte": "30,03"
+    },
+    "percage_led": {
+     "mesure": 7.0,
+     "attendue": 7.0,
+     "texte": "⌀7"
+    },
+    "percage_encodeur": {
+     "mesure": 7.6,
+     "attendue": 7.6,
+     "texte": "⌀7,6"
+    },
+    "passage_vis": {
+     "mesure": 3.4,
+     "attendue": 3.4,
+     "texte": "⌀3,4"
+    },
+    "epaisseur_plaque": {
+     "mesure": 2.5,
+     "attendue": 2.5,
+     "texte": "2,5"
+    }
+   },
+   "semelle": {
+    "largeur": {
+     "mesure": 87.0,
+     "attendue": 87.0,
+     "texte": "87"
+    },
+    "longueur": {
+     "mesure": 51.0,
+     "attendue": 51.0,
+     "texte": "51"
+    },
+    "languette_largeur": {
+     "mesure": 5.4,
+     "attendue": 5.4,
+     "texte": "5,4"
+    },
+    "rail_largeur": {
+     "mesure": 20.0,
+     "attendue": 20.0,
+     "texte": "20"
+    },
+    "rail_hauteur": {
+     "mesure": 4.0,
+     "attendue": 4.0,
+     "texte": "4"
+    },
+    "epaisseur_plaque": {
+     "mesure": 3.0,
+     "attendue": 3.0,
+     "texte": "3"
+    }
+   }
+  },
+  "estimations_impression": {
+   "coque": {
+    "temps": "3h 24m 45s",
+    "filament_g": 48.01,
+    "couches": 230
+   },
+   "facade": {
+    "temps": "34m 43s",
+    "filament_g": 7.39,
+    "couches": 26
+   },
+   "semelle": {
+    "temps": "1h 15m 50s",
+    "filament_g": 21.54,
+    "couches": 42
+   }
+  },
+  "binaires_ajoutes_par_la_branche": {
+   "fichiers": 21,
+   "total_mo": 2.68,
+   "plus_gros": "cad/assemblage.step, 452 Ko"
+  }
+ },
+ "budget": {
+  "iterations": 3,
+  "heavy_runs": 13,
+  "max_iterations": 3,
+  "max_heavy_runs_per_brief": 12,
+  "cumul_brief_s4bis_s5": {
+   "heavy_runs": 20,
+   "s4bis": 7,
+   "s5": 13
+  },
+  "depassement": "12 exécutions lourdes annoncées pour S4 bis, aucune pour S5 ; S5 en a pris 13, dont 11 de plans TechDraw (trois jeux, quatre passes pour lisser la mise en page : toutes rendaient 'verifie', les reprises ne corrigent que des chevauchements relus en image), check_all.sh et delivery --execute. Aucune preuve non conforme ; dépassement remonté ici.",
+  "note": "itérations : (1) plans et mise en page ; (2) critères en metrics et check_all ; (3) manifeste final (entrée de modèle de page hors dépôt retirée)"
+ },
+ "open_points": [
+  "Impression et essais physiques non faits (CTRL-IMPRESSION, CTRL-ESSAIS-PHYSIQUES non_verifie) ; essais à prévoir au dossier, section 9.",
+  "Estimations d'impression en PETG faute de profil PC dans le dépôt, pièces tranchées dans le repère de leur STL.",
+  "Suivis d'un lot méthode, hors de ce cas : method/README.md décompte encore sept cas (huit manifestes) ; un .FCBak est versionné sous cases/electronique/cad/."
+ ]
+}

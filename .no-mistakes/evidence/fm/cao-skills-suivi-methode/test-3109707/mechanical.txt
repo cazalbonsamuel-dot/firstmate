@@ -1,0 +1,26 @@
+== rec-orig (7d74a39 Outils natifs : mise en page des plans TechDraw (B5), lanceur de la table (B9), budget-demo (B10), dépendances communes (#16))
+$ python3 method/check_method.py delivery
+rc=0
+{"ok": true, "mode": "delivery-strict-full-artifact-contract", "execute_native_checks": false, "note": "Full strict proof contract; a positive numeric result never implies prototype readiness. Read maturity and open definitions separately. Compact view; --full adds the checked lists.", "results": [{"manifest": "method/cases/assiette-reequilibrage/manifest.json", "ok": true, "numeric_ok": true, "maturity": {"claimed": [], "observed": "non_etabli", "prototype_ready": false, "definition": "definition_encore_incomplete", "native_proofs": [], "open_items": ["definition_scope"]}, "error_count": 0, "warning_count": 0, "errors": [], "warnings": []}, {"manifest": "method/cases/bras-robot/manifest.json", "ok": true, "numeric_ok": true, "maturity": {"claimed": [], "observed": "cao_numerique_verifiee", "prototype_ready": false, "definition": "definition_encore_incomplete", "native_proofs": ["NATIVE"
+$ python3 method/check_method.py summary method/cases/inclinometre-jimny-boitier/manifest.json
+rc=0
+maturity= {"claimed": ["cao_numerique_verifiee"], "observed": "cao_numerique_verifiee", "prototype_ready": false, "definition": "definition_encore_incomplete", "native_proofs": ["NAT-PIECE-FACADE", "NAT-PIECE-COQUE", "NAT-PIECE-SEMELLE", "NAT-MESURES", "NAT-ASSEMBLAGE"], "open_items": ["definition_scope"]}
+error_codes= {}
+$ python3 method/check_method.py reception method/cases/inclinometre-jimny-boitier/manifest.json --fiche cases/inclinometre-jimny-boitier/outputs/remises/s5-2026-11-10.json --base 01b88f2 --role s5
+rc=1
+{"ok": false, "mode": "reception", "role": "s5", "manifest": "method/cases/inclinometre-jimny-boitier/manifest.json", "fiche": "cases/inclinometre-jimny-boitier/outputs/remises/s5-2026-11-10.json", "base": "01b88f2", "open_invalidations": {}, "allowed_open_mismatches": [], "errors": [{"code": "reception_personal_path", "message": "method/fixtures/reception/chemin-personnel.json: chemin personnel absolu"}, {"code": "reception_file_not_repointed", "message": "cases/inclinometre-jimny-boitier/docs/plans/coque/coque-p1.pdf: empreinte du manifeste différente de celle de la fiche"}, {"code": "reception_file_not_repointed", "message": "cases/inclinometre-jimny-boitier/docs/plans/coque/coque-p1.svg: empreinte du manifeste différente de celle de la fiche"}, {"code": "reception_file_not_repointed", "message": "cases/inclinometre-jimny-boitier/docs/plans/coque/pages.json: empreinte du manifeste dif
+$ git status --short
+(fin)
+== rec-mut (c14a899 lab: fiche sans le point des définitions ouvertes)
+$ python3 method/check_method.py delivery
+rc=0
+{"ok": true, "mode": "delivery-strict-full-artifact-contract", "execute_native_checks": false, "note": "Full strict proof contract; a positive numeric result never implies prototype readiness. Read maturity and open definitions separately. Compact view; --full adds the checked lists.", "results": [{"manifest": "method/cases/assiette-reequilibrage/manifest.json", "ok": true, "numeric_ok": true, "maturity": {"claimed": [], "observed": "non_etabli", "prototype_ready": false, "definition": "definition_encore_incomplete", "native_proofs": [], "open_items": ["definition_scope"]}, "error_count": 0, "warning_count": 0, "errors": [], "warnings": []}, {"manifest": "method/cases/bras-robot/manifest.json", "ok": true, "numeric_ok": true, "maturity": {"claimed": [], "observed": "cao_numerique_verifiee", "prototype_ready": false, "definition": "definition_encore_incomplete", "native_proofs": ["NATIVE"
+$ python3 method/check_method.py summary method/cases/inclinometre-jimny-boitier/manifest.json
+rc=0
+maturity= {"claimed": ["cao_numerique_verifiee"], "observed": "cao_numerique_verifiee", "prototype_ready": false, "definition": "definition_encore_incomplete", "native_proofs": ["NAT-PIECE-FACADE", "NAT-PIECE-COQUE", "NAT-PIECE-SEMELLE", "NAT-MESURES", "NAT-ASSEMBLAGE"], "open_items": ["definition_scope"]}
+error_codes= {}
+$ python3 method/check_method.py reception method/cases/inclinometre-jimny-boitier/manifest.json --fiche cases/inclinometre-jimny-boitier/outputs/remises/s5-2026-11-10.json --base 01b88f2 --role s5
+rc=1
+{"ok": false, "mode": "reception", "role": "s5", "manifest": "method/cases/inclinometre-jimny-boitier/manifest.json", "fiche": "cases/inclinometre-jimny-boitier/outputs/remises/s5-2026-11-10.json", "base": "01b88f2", "open_invalidations": {}, "allowed_open_mismatches": [], "errors": [{"code": "reception_personal_path", "message": "method/fixtures/reception/chemin-personnel.json: chemin personnel absolu"}, {"code": "reception_file_not_repointed", "message": "cases/inclinometre-jimny-boitier/docs/plans/coque/coque-p1.pdf: empreinte du manifeste différente de celle de la fiche"}, {"code": "reception_file_not_repointed", "message": "cases/inclinometre-jimny-boitier/docs/plans/coque/coque-p1.svg: empreinte du manifeste différente de celle de la fiche"}, {"code": "reception_file_not_repointed", "message": "cases/inclinometre-jimny-boitier/docs/plans/coque/pages.json: empreinte du manifeste dif
+$ git status --short
+(fin)

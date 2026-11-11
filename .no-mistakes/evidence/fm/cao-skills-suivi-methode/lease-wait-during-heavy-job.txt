@@ -1,0 +1,4 @@
+# lease /tmp/freecad.lease held by a running fleet 'delivery --execute' (pid 97300, since 09:50:52Z)
+$ FREECAD_LEASE_WAIT_S=5 python3 method/check_method.py summary method/cases/support-camera-v1/manifest.json
+ok= True maturity.observed= non_etabli first_failures= []
+elapsed_s=6

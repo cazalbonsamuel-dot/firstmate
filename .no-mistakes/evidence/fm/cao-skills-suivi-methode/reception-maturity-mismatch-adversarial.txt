@@ -1,0 +1,8 @@
+# reception error codes, original fiche:
+ok= False {'reception_personal_path': 1, 'reception_delivery_error': 1, 'reception_maturity_below_claim': 1, 'reception_file_not_repointed': 12, 'reception_out_of_scope': 80, 'reception_commit_mismatch': 1}
+# fiche open_points after removing the open-definition line (definition_scope still open in summary):
+['Impression et essais physiques non faits (CTRL-IMPRESSION, CTRL-ESSAIS-PHYSIQUES non_verifie) ; essais à prévoir au dossier, section 9.', "Estimations d'impression en PETG faute de profil PC dans le dépôt, pièces tranchées dans le repère de leur STL.", "Suivis d'un lot méthode, hors de ce cas : method/README.md décompte encore sept cas (huit manifestes) ; un .FCBak est versionné sous cases/electronique/cad/."]
+# reception error codes, mutated fiche:
+ok= False {'reception_personal_path': 1, 'reception_delivery_error': 1, 'reception_maturity_below_claim': 1, 'reception_file_not_repointed': 12, 'reception_out_of_scope': 80, 'reception_commit_mismatch': 1}
+# fiche restored; git status:
+(clean)

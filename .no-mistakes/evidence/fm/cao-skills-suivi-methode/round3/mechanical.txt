@@ -1,0 +1,18 @@
+== lab/cao (fiche originale)
+$ python3 method/check_method.py summary method/cases/inclinometre-jimny-boitier/manifest.json
+rc=1
+maturity= {"claimed": ["cao_numerique_verifiee"], "observed": "non_etabli", "prototype_ready": false, "definition": "definition_encore_incomplete", "native_proofs": [], "open_items": ["definition_scope"]}
+$ python3 method/check_method.py reception method/cases/inclinometre-jimny-boitier/manifest.json --fiche cases/inclinometre-jimny-boitier/outputs/remises/s5-2026-11-10.json --base 01b88f2 --role s5
+rc=1
+{'ok': False}
+$ git status --short
+(fin)
+== lab/mut (fiche sans le point des définitions ouvertes)
+$ python3 method/check_method.py summary method/cases/inclinometre-jimny-boitier/manifest.json
+rc=1
+maturity= {"claimed": ["cao_numerique_verifiee"], "observed": "non_etabli", "prototype_ready": false, "definition": "definition_encore_incomplete", "native_proofs": [], "open_items": ["definition_scope"]}
+$ python3 method/check_method.py reception method/cases/inclinometre-jimny-boitier/manifest.json --fiche cases/inclinometre-jimny-boitier/outputs/remises/s5-2026-11-10.json --base 01b88f2 --role s5
+rc=1
+{'ok': False}
+$ git status --short
+(fin)

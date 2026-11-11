@@ -1,0 +1,3 @@
+ cases/inclinometre-jimny-boitier/outputs/remises/s5-2026-11-10.json | 1 -
+ 1 file changed, 1 deletion(-)
+-    "Pas de prototype prêt : cotes du module écran UnVision, angle de vision (œil), zone de pose sur la planche et prise de la Nano à mesurer (docs/mesures-a-fournir.md).",
