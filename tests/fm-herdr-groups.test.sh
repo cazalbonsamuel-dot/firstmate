@@ -367,6 +367,9 @@ test_sidebar_config_apply_backs_up_and_refuses_twice() {
   printf '[ui]\nagent_panel_sort = "spaces"\n' > "$cfg"
   out=$(groups sidebar-config 2>&1) || fail "sidebar-config print failed: $out"
   assert_contains "$out" '[ui.sidebar.agents]' "printed rows"
+  assert_contains "$out" "  [\"\$fm_icon\", \"state_icon\", { token = \"workspace\", bold = true }]," "every agent row names its workspace"
+  assert_not_contains "$out" 'hide = true' "no rule hides an agent's only name"
+  assert_contains "$out" '  ["terminal_title_stripped"],' "agents keep a title row"
   assert_contains "$out" "  [\"\$fm_icon\", \"state_icon\", " "the icon token leads the agent row"
   assert_equals "" "$(cat "$FAKE_HERDR_LOG")" "printing the rows calls no Herdr command"
   out=$(groups sidebar-config --apply "$cfg" 2>&1) || fail "sidebar-config apply failed: $out"
@@ -429,19 +432,37 @@ PY
 }
 
 test_watcher_poll_tags_tasks() {
-  local out
+  local out sentinel reader i=0
   new_home watcher
   printf 'on\n' > "$HOME_DIR/config/herdr-project-groups"
   printf '%s\n' "$$" > "$HOME_DIR/state/.lock"
   touch "$HOME_DIR/state/.last-watcher-beat"
   add_task web-run ship /p/storefront w2 'working: go'
   write_live_lists 0
+  # The watcher publishes the home summary detached (bin/fm-watch.sh
+  # home_summary_refresh_detached), so a refresh can outlive the checkpoint
+  # and write under state/ while the suite's EXIT cleanup removes it. Every
+  # descendant inherits fd 9 on this FIFO; its reader sees EOF only once the
+  # last of them has exited.
+  sentinel="$FAKE_DIR/watcher-sentinel"
+  mkfifo "$sentinel"
+  cat "$sentinel" >/dev/null &
+  reader=$!
   out=$(env FM_ROOT_OVERRIDE='' FM_HOME="$HOME_DIR" FM_STATE_OVERRIDE="$HOME_DIR/state" \
     FM_CONFIG_OVERRIDE="$HOME_DIR/config" FM_DATA_OVERRIDE="$HOME_DIR/data" \
     PATH="$FAKEBIN:$PATH" FAKE_DIR="$FAKE_DIR" FAKE_HERDR_LOG="$FAKE_HERDR_LOG" \
     FAKE_VIEW_LOG="$FAKE_VIEW_LOG" FM_HERDR_GROUPS_AGENT_VIEW="$FAKEBIN/agent-view" \
     FM_POLL=1 FM_SIGNAL_GRACE=1 FM_CHECK_INTERVAL=999999 \
-    "$ROOT/bin/fm-watch-checkpoint.sh" --seconds 2 2>&1)
+    "$ROOT/bin/fm-watch-checkpoint.sh" --seconds 2 2>&1 9>"$sentinel")
+  while kill -0 "$reader" 2>/dev/null; do
+    if [ "$i" -ge 300 ]; then
+      kill "$reader" 2>/dev/null || true
+      fail "detached watcher work was still running 30s after the checkpoint returned"
+    fi
+    sleep 0.1
+    i=$((i + 1))
+  done
+  wait "$reader" 2>/dev/null || true
   case "$out" in *"checkpoint:"*|*"signal:"*|*"stale:"*) ;; *) fail "watcher checkpoint did not run: $out" ;; esac
   assert_contains "$(reports pane)" "pane report-metadata w2:p2 --source firstmate --token fm_group=storefront" \
     "the watcher poll tagged the task pane"

@@ -597,12 +597,16 @@ rows = [
 
 [ui.sidebar.agents]
 rows = [
-  ["$fm_icon", "state_icon", { token = "$fm_group", bold = true }, "$fm_state", "$fm_task"],
+  ["$fm_icon", "state_icon", { token = "workspace", bold = true }],
+  [{ token = "$fm_group", bold = true }, "$fm_state", "$fm_task"],
+  ["terminal_title_stripped"],
 ]
 ```
 
 Run `herdr server reload-config` afterwards to apply them.
-`$fm_icon` leads the agent row so the purple dot sits in front of a waiting agent, and Herdr renders nothing for it otherwise.
+`$fm_icon` leads the first agent row so the purple dot sits in front of a waiting agent, and Herdr renders nothing for it otherwise.
+The first agent row always names the agent's workspace and the last shows its terminal title, so an agent without Firstmate tags, such as a firstmate itself or a worker of a home with project groups off, never renders as a bare dot.
+The group, state, and task row appears only for a tagged agent.
 Colors can be added with Herdr's inline token styles.
 
 ### Placement inside the group
@@ -617,7 +621,8 @@ A task whose group changes later keeps its position until it ends.
 The tags, the agents view, and the placement are covered by offline tests against a scripted Herdr CLI and socket helper (`tests/fm-herdr-groups.test.sh` and the ordering cases in `tests/fm-backend-herdr.test.sh`).
 They were also exercised against a real Herdr 0.9.5 server (protocol 22) in a guarded lab session: after one watcher poll `herdr pane list` showed the `fm_*` tokens on each task pane, the agents list header read `projects` with tasks ordered by group and then status, a newly spawned projected task landed after the other tasks of its group with only that workspace moving and no focus change, and `fm-herdr-groups.sh clear` removed the tokens and the view.
 To repeat the check on a live session, turn the feature on, wait one watcher poll, and confirm the same four results.
-The waiting dot was checked against a real Herdr 0.9.3 server (protocol 22) in a guarded lab session using the suggested rows: an agent pane carrying `fm_icon=🟣` rendered as `🟣 · ○ web · wai…` at the front of its agents-list row, and clearing that token left the row as `○ web · running · …` with no leftover separator.
+The waiting dot was checked against a real Herdr 0.9.3 server (protocol 22) in a guarded lab session using the earlier single agent row `["$fm_icon", "state_icon", { token = "$fm_group", bold = true }, "$fm_state", "$fm_task"]`: an agent pane carrying `fm_icon=🟣` rendered as `🟣 · ○ web · wai…` at the front of its agents-list row, and clearing that token left the row as `○ web · running · …` with no leftover separator.
+The current three-row agent layout has not yet been checked against a live Herdr server.
 
 ## Default-tab prune safety
 
