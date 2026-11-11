@@ -1,0 +1,45 @@
+ spaces                  │   1      +
+                         │/private/tmp
+ ○ firstmate             │❯
+ ● fm-other-home         │
+ ● └ web-login · p:abc…  │
+ ○ └ api-auth · p:bcde…  │
+ ○ └ docs-fix · p:cdef…  │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+ new               ● menu│
+─────────────────────────│
+ agents           grouped│
+                         │
+ ○                       │
+ ●                       │
+ ● web · running · web-l…│
+ 🟣 · ○ api · wai… · api…│
+ ○                       │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                        «│
