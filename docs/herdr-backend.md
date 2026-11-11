@@ -604,8 +604,8 @@ rows = [
 ```
 
 Run `herdr server reload-config` afterwards to apply them.
-`$fm_icon` leads the agent row so the purple dot sits in front of a waiting agent, and Herdr renders nothing for it otherwise.
-Every agent row names its workspace, so an agent without Firstmate tags, such as a firstmate itself or a worker of a home with project groups off, still shows its workspace name and terminal title rather than a bare dot.
+`$fm_icon` leads the first agent row so the purple dot sits in front of a waiting agent, and Herdr renders nothing for it otherwise.
+The first agent row always names the agent's workspace and the last shows its terminal title, so an agent without Firstmate tags, such as a firstmate itself or a worker of a home with project groups off, never renders as a bare dot.
 The group, state, and task row appears only for a tagged agent.
 Colors can be added with Herdr's inline token styles.
 
