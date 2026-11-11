@@ -495,8 +495,9 @@ rows = [
 
 [ui.sidebar.agents]
 rows = [
-  ["$fm_icon", "state_icon", { token = "workspace", bold = true, rules = [{ starts_with = "└ ", hide = true }] }, { token = "$fm_group", bold = true }, "$fm_state", "$fm_task"],
-  [{ token = "terminal_title_stripped", dim = true }],
+  ["$fm_icon", "state_icon", { token = "workspace", bold = true }],
+  [{ token = "$fm_group", bold = true }, "$fm_state", "$fm_task"],
+  ["terminal_title_stripped"],
 ]
 EOF
 }

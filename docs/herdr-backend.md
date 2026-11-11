@@ -597,15 +597,16 @@ rows = [
 
 [ui.sidebar.agents]
 rows = [
-  ["$fm_icon", "state_icon", { token = "workspace", bold = true, rules = [{ starts_with = "└ ", hide = true }] }, { token = "$fm_group", bold = true }, "$fm_state", "$fm_task"],
-  [{ token = "terminal_title_stripped", dim = true }],
+  ["$fm_icon", "state_icon", { token = "workspace", bold = true }],
+  [{ token = "$fm_group", bold = true }, "$fm_state", "$fm_task"],
+  ["terminal_title_stripped"],
 ]
 ```
 
 Run `herdr server reload-config` afterwards to apply them.
 `$fm_icon` leads the agent row so the purple dot sits in front of a waiting agent, and Herdr renders nothing for it otherwise.
-The workspace name identifies an agent without Firstmate tags, such as a firstmate itself or a worker of a home with project groups off; it is hidden only for a projected task workspace, whose `└ ` label the group and task tokens replace.
-The second row shows the agent's terminal title, so even an untagged projected task never renders as a bare dot.
+Every agent row names its workspace, so an agent without Firstmate tags, such as a firstmate itself or a worker of a home with project groups off, still shows its workspace name and terminal title rather than a bare dot.
+The group, state, and task row appears only for a tagged agent.
 Colors can be added with Herdr's inline token styles.
 
 ### Placement inside the group
