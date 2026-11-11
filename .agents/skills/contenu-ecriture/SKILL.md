@@ -52,6 +52,19 @@ Repères de 1783776 : I = Introduction, O = Organize, W = Write, E = Edit, E2 = 
 8. Le web se balaie : titres qui disent le point, paragraphes courts [5613976 PF·L45 ; 2649302 P123 ; 417316 R135].
 9. Orthographe et grammaire correctes [417316 R71].
 
+Charte de l'agence [décision du capitaine, 11 novembre 2026] :
+
+10. Les textes de toutes les pages sont écrits par un rédacteur, dans une étape à part, avant le design, puis montés mot pour mot (`agence-projet-client` point 4.4).
+11. En trente secondes, le visiteur de l'accueil a compris quatre choses : ce que fait l'entreprise, où ou pour quelle zone, pourquoi lui faire confiance, comment la contacter.
+12. Ces informations sont là d'emblée, mais amenées avec douceur : une belle phrase et une image, une idée par écran, dans un ordre qui raconte.
+13. Jamais une liste, un tableau ou un avertissement en majuscules pour les dire ; le détail reste replié ou plus bas.
+14. Le premier écran fait passer à l'action dont ce client vit (appeler, réserver, demander un devis, venir sur place) : son libellé et une ligne d'avis de clients y figurent ; sa mise en forme : `design-visuel`.
+15. Peu de mots par écran ; donner envie avant d'expliquer.
+16. Chaque phrase visible passe le test : un concurrent pourrait-il la signer ? Si oui, y mettre ce qui est propre au client ou utile au lecteur, ou la retirer.
+17. La confiance vient des avis de clients et de l'ancienneté, montrés avec calme : un ou deux vrais avis, courts, et un simple « depuis telle année ».
+18. Aucune preuve fabriquée : ni avis, ni date, ni chiffre, ni promesse ; ce qui manque se demande au client avant de concevoir.
+19. En attendant sa réponse, un texte de remplacement entre crochets, toujours marqué comme tel à l'écran et listé dans les demandes au client.
+
 ### 4. Microcopie : six critères dans l'ordre
 
 Un critère à la fois, dans cet ordre ; chaque choix se justifie par eux [4280514 R22, P1].

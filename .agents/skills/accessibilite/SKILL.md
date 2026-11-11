@@ -76,6 +76,7 @@ Cibles et gestes :
 Mouvement :
 1. Rien ne clignote plus de 3 fois par seconde [3739678 S5 n° 55].
 2. Une animation se met en pause et se relance [3739678 S5 n° 54].
+3. Mouvement réduit demandé : ni arrêt du défilement par écran ni animation de défilement [décision du capitaine, 11 novembre 2026].
 
 Tests :
 1. Test en niveaux de gris pendant la conception et à la fin, sur une capture d'écran : « que ne pouvez-vous plus identifier ? » [3012636 S4 R33, P4 ; 5313020 L38] ; une action principale qui disparaît trahit la dépendance à la couleur [1595266 S6/L33 P228] ; la hiérarchie en gris : `design-visuel`.
@@ -98,6 +99,10 @@ Clavier et focus :
 3. `tabindex` -1 et 0 seulement [2398160 Avoid An Artificial Tabindex ; 3828556 #86].
 4. Menu hamburger fermé : liens à -1, puis 0 à l'ouverture [2398160 Avoid An Artificial Tabindex].
 5. Nouvel onglet annoncé par un texte `sr-only` [3828556 BONUS › Liens et boutons #69].
+6. Défilement écran par écran, s'il est retenu : flèches, espace, page suivante et tabulation atteignent tout, l'élément ciblé reste visible, rien ne piège [décision du capitaine, 11 novembre 2026].
+
+Agrandissement :
+1. Texte agrandi à 150 % et 200 %, à plusieurs largeurs : rien ne déborde, ne se chevauche ni ne se coupe [décision du capitaine, 11 novembre 2026].
 
 ARIA :
 1. Pas d'ARIA si possible ; sémantique native changée en dernier recours ; élément ARIA navigable au clavier ; aucun élément focusable caché ; tout élément interactif a un nom [3828556 BONUS › ARIA #87-#91].

@@ -30,18 +30,28 @@ Une mauvaise photo peut ruiner un design [3918934 S10 Image d'illustration R70].
 
 ### 2. Choisir la source
 
-1. Selon le budget : ses photos, un photographe dirigé par vous, la bibliothèque du client (meilleur cas), le stock payant, le stock gratuit en dernier recours [3543948 Bonus › Setting Rules for Photos R142].
-2. Sinon un stock authentique, jamais générique ni surproduit [437398 S5 WDR#3 R60].
-3. Toute source payante remonte au capitaine avant le brief [3918934 R69] [autorité firstmate].
+1. La voie d'image se tranche au début du projet, avant toute proposition visuelle, selon la situation [décision du capitaine, 11 novembre 2026] :
+   - une séance photo, quand il y a quelque chose de beau à montrer et un budget ;
+   - une banque d'images, choisie comme une série cohérente ;
+   - un site sans photo, porté par la couleur, la typographie et le dessin, quand il n'y a rien à photographier.
+2. La banque est gratuite pour le moment, sous une licence qui permet l'usage commercial sans achat ; la banque payante est à revoir plus tard [décision du capitaine, 11 novembre 2026].
+   Autre position : selon le budget, ses photos, un photographe dirigé par vous, la bibliothèque du client (meilleur cas), le stock payant, le stock gratuit en dernier recours [3543948 Bonus › Setting Rules for Photos R142] ; retenue la décision du capitaine pour la banque, l'ordre du cours valant pour les autres sources.
+3. En banque, un stock authentique, jamais générique ni surproduit [437398 S5 WDR#3 R60].
+4. Chaque image de banque est relevée : page d'origine, auteur, licence, emplacement dans le site [décision du capitaine, 11 novembre 2026].
+5. Toute source payante remonte au capitaine avant le brief [3918934 R69] [autorité firstmate].
 
 ### 3. Fixer les règles photo du site
 
 1. Décrire les photos qui portent le message et le ton [3543948 Bonus › Setting Rules for Photos R141].
-2. Nommer trois caractéristiques de choix [3543948 R144].
-3. Bibliothèque fixe et règle de quantité par design (exemple du cours : deux photos au plus, au-delà le point focal se perd) [3543948 P22, R143].
-4. Ne pas mélanger les styles de photos [3918934 S10 Image d'illustration R68].
-5. En banque, des séries du même photographe [412738 L86 P353].
-6. Les couleurs des photos suivent la palette du site ; l'autre issue, un site réduit à un neutre et un petit accent, relève de `design-visuel` [5313020 L31].
+2. Sincérité : l'image de banque donne l'ambiance, la photo du client prouve [décision du capitaine, 11 novembre 2026].
+3. Une image de banque ne se fait jamais passer pour le produit, le lieu ou les personnes du client, ni par sa place ni par sa légende [décision du capitaine, 11 novembre 2026].
+4. Les petites photos du client, prises par lui et de qualité modeste, servent de preuve, en petit, jamais agrandies au-delà de leur taille réelle ; les photos d'une séance commandée restent de grandes images, retouchées selon l'étape 6 [décision du capitaine, 11 novembre 2026].
+5. Nommer trois caractéristiques de choix [3543948 R144].
+6. Bibliothèque fixe et règle de quantité par design [3543948 P22, R143] : une grande image par écran, les petites photos du client en preuve à côté [décision du capitaine, 11 novembre 2026].
+   Autre position : deux photos au plus par design, au-delà le point focal se perd [3543948 P22] ; retenue la décision du capitaine, éprouvée à l'essai, où la grande image garde le point focal.
+7. Ne pas mélanger les styles de photos [3918934 S10 Image d'illustration R68].
+8. En banque, des séries du même photographe [412738 L86 P353].
+9. Les couleurs des photos suivent la palette du site ; l'autre issue, un site réduit à un neutre et un petit accent, relève de `design-visuel` [5313020 L31].
 
 ### 4. Briefer une séance
 
@@ -104,7 +114,7 @@ Fichiers maîtres :
 2. Histogramme sans pic collé à un bord, sauf effet voulu [2633036 Expo P21, 4044684 S2 P23-P24].
 3. Revue d'un résultat raté : lumière ? composition ? déséquilibre ? props trop grands ou couleurs distrayantes ? angle ? image pas droite ? [4044684 S7 P143].
 4. Rien posé sur un visage [3543948 Bonus › Part 3 R145].
-5. Série conforme aux règles photo du site [3918934 R68].
+5. Série conforme aux règles photo du site [3918934 R68], sincérité comprise, relevé à l'appui [décision du capitaine, 11 novembre 2026].
 6. Pas de filigrane [4044684 S8 P132] [préférence] ; 2633036 LrC P149 le dit utile [préférence].
 7. Licence vérifiée [3918934 R72, 2633036 P186].
 8. RAW et originaux intacts remis [4044684 S2 P11, S6 P134].
