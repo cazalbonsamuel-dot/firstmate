@@ -28,13 +28,10 @@ Les règles communes à toute unité (rôle, lecture, entrées gelées, proprié
    - le livrable (colonne « Livrable accepté »), les fichiers que le worker possède, un seul propriétaire par FCStd et par dossier de sorties, et le chemin de sa fiche `cases/<cas>/outputs/remises/<unité>-<date>.json`, numérotée `-2`, `-3` pour une remise suivante le même jour ;
    - le budget de `method/iteration_budget.json`, réduit quand l'unité le permet, augmenté seulement avec justification écrite ; la fiche le déclare au schéma fixe du contrat (« Fiche de remise ») ;
    - les points propres au cas que la ligne et `method/worker.md` ne disent pas : cotes serrées connues, vues de capture exigées.
-4. Commandes de remise à exiger, d'après le contrat (« Commandes du worker ») :
-   - toute unité : `python3 method/check_method.py delivery` sans `--execute` quand `freecadcmd` est disponible, sinon `cases` ;
-   - unité native avant S5 : en plus le contrôle natif de son cas (`delivery_checks[]`), ou avant S4 le contrôle natif de la pièce, nommé par le brief ;
-   - `self-test` et `fixtures` seulement pour un lot qui touche le contrôleur, les fixtures ou les helpers du digest, donc jamais pour un lot de cas ;
-   - `delivery --execute` : worker S5 seul (`cao-livraison`).
-5. Pour une unité « Plans normatifs TechDraw », exiger en plus (`method/guides/techdraw.md`) : `--check` sur la spécification avant chaque exécution, `--check-svg` ou les `layout_defects` du rapport après, une relecture en image de la passe livrée, la spécification gardée dans le dossier de sortie, et le budget `max_techdraw_runs_per_page_set` de `method/iteration_budget.json`, compté aussi dans les exécutions lourdes.
-6. Exécutions lourdes : chacune attend l'autorisation du second maître, avec son délai maximal (`cao-freecad-execution`) ; le worker déclare `paused ... until <début + délai>` avant d'attendre.
+4. Commandes de remise : renvoyer à `method/worker.md` §8 et au contrat (« Commandes du worker »), qui les fixent selon que l'unité a ou non une exécution native et n'en demandent aucune à un scout ; le brief ne les recopie pas.
+   Avant S4, quand le cas n'a pas encore de contrôle natif, le brief nomme le contrôle natif de la pièce.
+5. Pour une unité « Plans normatifs TechDraw », le brief nomme le budget `max_techdraw_runs_per_page_set` de `method/iteration_budget.json` ; les contrôles de la passe sont ceux de `method/guides/techdraw.md`.
+6. Exécutions lourdes : chacune attend l'autorisation du second maître, avec son délai maximal (`cao-freecad-execution`) ; l'attente du worker suit `method/worker.md` §5.
 7. Gel complémentaire en cours d'unité : transmettre le nouveau commit par `fm-send`, sans empreintes ; le worker repart de lui selon `method/worker.md` §3.
 8. Base de branche : quand les artefacts gelés vivent sur la branche du cas et pas sur la branche par défaut, lancer le worker avec `--base-branch` sur la branche du cas (`AGENTS.md` section 7).
 9. Runtime : une unité native exige un runtime hors bac à sable sur ce Mac (§12) ; ne jamais la confier à un profil dont le bac à sable bloque Qt.
@@ -53,6 +50,6 @@ Les règles communes à toute unité (rôle, lecture, entrées gelées, proprié
 - §12 « Points d'entrée - second maître et workers ».
 - §13 « Travail parallèle sous un superviseur » (unités et colonne « Lire », S1-S5, gel complémentaire, ressources partagées) et « Budget par brief ».
 - `method/README.md` « Points d'entrée », brief (b) du worker.
-- `method/worker.md`.
+- `method/worker.md`, dont §5 « Exécutions FreeCAD » et §8 « Remise ».
 - Contrat, « Remise d'un worker et acceptation par le superviseur » : « Commandes du worker », « Fiche de remise ».
 - `method/guides/techdraw.md` ; `method/iteration_budget.json`.
