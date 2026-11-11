@@ -26,7 +26,7 @@ Commandes, écarts admis et partage entre contrôle mécanique et revue sont dan
    - vérifier ensuite que la copie est restée propre (`git status`).
 3. Faire la revue humaine que `reception` ne fait pas :
    - captures relues contre les vues exigées par le brief (`method/guides/captures.md`) ; une vue ne prouve pas le fonctionnement ; si le runtime du second maître ne lit pas les images de façon sûre, confier cette lecture à un worker de revue distinct du concepteur ;
-   - `maturity.definition` et `maturity.open_items` de `summary` comparés aux définitions déclarées ouvertes dans `limits[]` et dans les `open_points` de la fiche (`method/contrat/reception.md`) ;
+   - `maturity.definition` et `maturity.open_items` de `summary` comparés aux définitions déclarées ouvertes dans `limits[]` et dans les `open_points` de la fiche (`method/contrat/reception.md`) : une définition ouverte au contrôleur ou dans `limits[]` que la fiche ne nomme pas dans ses `open_points`, ou l'inverse, est un écart ;
    - plans TechDraw : contrôle de mise en page et relecture en image selon `method/guides/techdraw.md`, sans valeur de preuve ;
    - ordre d'intégration fixé par le second maître, provenance MCP, fichiers touchés comparés au périmètre du brief.
 4. Refuser la remise, sans la requalifier, sur tout motif du contrat (« Refus », section « Remise d'un worker et acceptation par le superviseur ») , en particulier une erreur de `delivery` hors des écarts admis par `method/contrat/reception.md`, `reception` différent de 0, ou un écart trouvé à la revue.
