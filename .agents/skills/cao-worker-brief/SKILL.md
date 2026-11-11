@@ -30,12 +30,12 @@ Les règles communes à toute unité (rôle, lecture, entrées gelées, proprié
    - les points propres au cas que la ligne et `method/worker.md` ne disent pas : cotes serrées connues, vues de capture exigées.
 4. Commandes de remise : renvoyer à `method/worker.md` §8 et au contrat (« Commandes du worker »), qui les fixent selon que l'unité a ou non une exécution native et n'en demandent aucune à un scout ; le brief ne les recopie pas.
    Avant S4, quand le cas n'a pas encore de contrôle natif, le brief nomme le contrôle natif de la pièce.
-5. Pour une unité « Plans normatifs TechDraw », le brief nomme le budget `max_techdraw_runs_per_page_set` de `method/iteration_budget.json` ; les contrôles de la passe sont ceux de `method/guides/techdraw.md`.
-6. Exécutions lourdes : chacune attend l'autorisation du second maître, avec son délai maximal (`cao-freecad-execution`) ; l'attente du worker suit `method/worker.md` §5.
+5. Pour une unité « Plans normatifs TechDraw », le brief nomme le budget `max_techdraw_runs_per_page_set` de `method/iteration_budget.json` et rien d'autre de la passe : ni ses contrôles avant ou après exécution, ni sa relecture en image, que le worker lit dans `method/guides/techdraw.md`.
+6. Exécutions lourdes : chacune attend l'autorisation du second maître, avec son délai maximal (`cao-freecad-execution`) ; l'attente du worker suit `method/worker.md` §5, et le brief n'en recopie pas la déclaration d'attente.
 7. Gel complémentaire en cours d'unité : transmettre le nouveau commit par `fm-send`, sans empreintes ; le worker repart de lui selon `method/worker.md` §3.
 8. Base de branche : quand les artefacts gelés vivent sur la branche du cas et pas sur la branche par défaut, lancer le worker avec `--base-branch` sur la branche du cas (`AGENTS.md` section 7).
 9. Runtime : une unité native exige un runtime hors bac à sable sur ce Mac (§12) ; ne jamais la confier à un profil dont le bac à sable bloque Qt.
-10. Avant de lancer, relire le brief contre la ligne du §13 : une entrée, un livrable, un propriétaire, un budget, aucune règle de `method/worker.md` recopiée.
+10. Avant de lancer, relire le brief contre la ligne du §13 : une entrée, un livrable, un propriétaire, un budget, aucune règle de `method/worker.md`, des guides ni des parties du contrat de la colonne « Lire » recopiée.
 
 ## Refuser ou remonter
 
