@@ -43,7 +43,7 @@ Une décision du capitaine passe avant une règle de cours, car elle a été ép
   - l'image d'abord : une grande image ou un grand visuel occupe l'écran, le texte l'accompagne ;
   - une ambiance choisie : des couleurs décidées franchement, reconnaissables d'un coup d'œil ;
   - le calme : peu de choses par écran, de l'air, pas de boîtes.
-- Du souffle : jamais une page d'un seul ton qui fatigue ; alterner des écrans sombres et clairs dans la même ambiance est une réponse parmi d'autres.
+- Du souffle : une page tout entière sombre fatigue ; quand l'ambiance est sombre, la page respire, par exemple par des écrans plus clairs ; la façon de donner du souffle se décide à chaque projet.
 - Moderne n'est pas à la mode : les effets spectaculaires vieillissent vite et gênent souvent le visiteur.
 - Le socle est obligatoire mais jamais suffisant : téléphone d'abord et juste à toutes les tailles, lisible par tous, rapide, utilisable au clavier, tout ce qui est écrit vrai et venu du client, l'action toujours à portée.
 - Ce qui rend un site mauvais :
@@ -53,10 +53,10 @@ Une décision du capitaine passe avant une règle de cours, car elle a été ép
   - on explique au lieu de donner envie ;
   - une ambiance timide, du beige par prudence ;
   - un rythme monotone, chaque section de la même forme ;
-  - une action énorme ou en bloc de couleur, ou à l'inverse une action qu'on ne remarque pas ;
+  - une action énorme ou en bloc de couleur, ou à l'inverse une action réduite à un texte qu'on ne remarque pas ;
   - des textes bateau, qu'un concurrent pourrait signer (`contenu-ecriture`) ;
   - une page si dépouillée qu'elle fait vide : épuré veut dire peu de mots et des écrans pleins.
-- Le premier écran fait passer à l'action dont ce client vit (appeler, réserver, demander un devis, venir sur place) : l'image et le titre dominent, l'action ressort sans écraser ; ce qu'il dit : `contenu-ecriture`.
+- Le premier écran fait passer à l'action dont ce client vit (appeler, réserver, demander un devis, venir sur place) : l'image et le titre dominent, l'action ressort dès le premier écran par un vrai bouton bien visible, sans devenir un bloc écrasant ; ce qu'il dit : `contenu-ecriture`.
 - Chaque site est différent :
   - chaque client a sa propre ambiance, tirée de son métier, de son lieu et de sa marque : ses images, ses couleurs, son ton ;
   - on ne reprend jamais la palette, les polices ni la mise en page d'un site précédent, et aucun site passé ne sert de gabarit ;

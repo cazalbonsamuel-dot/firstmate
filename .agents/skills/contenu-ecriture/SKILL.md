@@ -54,7 +54,7 @@ Repères de 1783776 : I = Introduction, O = Organize, W = Write, E = Edit, E2 = 
 
 Charte de l'agence [décision du capitaine, 11 novembre 2026] :
 
-10. Les textes de toutes les pages sont écrits par un rédacteur, dans une étape à part, avant le design, puis montés mot pour mot (`agence-projet-client` point 4.5).
+10. Les textes de toutes les pages sont écrits par un rédacteur, dans une étape à part, avant le design, puis montés mot pour mot (`agence-projet-client` point 4.4).
 11. En trente secondes, le visiteur de l'accueil a compris quatre choses : ce que fait l'entreprise, où ou pour quelle zone, pourquoi lui faire confiance, comment la contacter.
 12. Ces informations sont là d'emblée, mais amenées avec douceur : une belle phrase et une image, une idée par écran, dans un ordre qui raconte.
 13. Jamais une liste, un tableau ou un avertissement en majuscules pour les dire ; le détail reste replié ou plus bas.

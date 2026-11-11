@@ -44,10 +44,10 @@ Une mauvaise photo peut ruiner un design [3918934 S10 Image d'illustration R70].
 
 1. Décrire les photos qui portent le message et le ton [3543948 Bonus › Setting Rules for Photos R141].
 2. Sincérité : l'image de banque donne l'ambiance, la photo du client prouve [décision du capitaine, 11 novembre 2026].
-3. Jamais une image de banque là où le texte parle de l'entreprise, de ses personnes, de son lieu ou de son produit, ni légendée comme telle [décision du capitaine, 11 novembre 2026].
-4. Les photos du client servent de preuve, en petit, non retouchées, jamais agrandies au-delà de leur taille réelle [décision du capitaine, 11 novembre 2026].
+3. Une image de banque ne se fait jamais passer pour le produit, le lieu ou les personnes du client, ni par sa place ni par sa légende [décision du capitaine, 11 novembre 2026].
+4. Les petites photos du client, prises par lui et de qualité modeste, servent de preuve, en petit, jamais agrandies au-delà de leur taille réelle ; les photos d'une séance commandée restent de grandes images, retouchées selon l'étape 6 [décision du capitaine, 11 novembre 2026].
 5. Nommer trois caractéristiques de choix [3543948 R144].
-6. Bibliothèque fixe et règle de quantité par design [3543948 P22, R143] : une grande image par écran, les photos du client en preuve à côté [décision du capitaine, 11 novembre 2026].
+6. Bibliothèque fixe et règle de quantité par design [3543948 P22, R143] : une grande image par écran, les petites photos du client en preuve à côté [décision du capitaine, 11 novembre 2026].
    Autre position : deux photos au plus par design, au-delà le point focal se perd [3543948 P22] ; retenue la décision du capitaine, éprouvée à l'essai, où la grande image garde le point focal.
 7. Ne pas mélanger les styles de photos [3918934 S10 Image d'illustration R68].
 8. En banque, des séries du même photographe [412738 L86 P353].

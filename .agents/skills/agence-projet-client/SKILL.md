@@ -63,7 +63,7 @@ Ce skill porte la relation client, le contrat de périmètre et la chaîne de pr
 7. Écrire dans la proposition et le contrat une page d'hypothèses : « le périmètre et le coût supposent que... ; toute fonctionnalité au-delà sera estimée séparément » [412738 L24 PR9].
 8. Tenir une liste « maintenant » et une liste « plus tard », jamais de travail sans elle [412738 L24 P79-P80].
 9. Le contenu est fourni par le client ; le rédiger ou engager un rédacteur se facture en plus [437398 S7 R92].
-   Dans la chaîne en cinq postes, le client fournit les faits et le rédacteur du point 4.5 écrit les textes [décision du capitaine, 11 novembre 2026] ; la facturation suit le cours.
+   Dans la chaîne en cinq postes, le client fournit les faits et le rédacteur du point 4.4 écrit les textes [décision du capitaine, 11 novembre 2026] ; la facturation suit le cours.
 10. Design et intégration sont deux prestations distinctes [1544922 L5 n°2].
 
 ### 3. Chiffrer et contracter
@@ -80,33 +80,32 @@ Ce skill porte la relation client, le contrat de périmètre et la chaîne de pr
 Toutes les règles de cette étape sont des décisions du capitaine, éprouvées sur une refonte [décision du capitaine, 11 novembre 2026].
 
 1. Chaque poste est tenu par un worker distinct et lit le livrable écrit du précédent au lieu de tout refaire.
-2. Le travail borné va au modèle le plus économique.
-3. Deux moments remontent au capitaine, puis au client : le choix de l'ambiance et la présentation du résultat.
-4. Constat :
+2. Deux moments remontent au capitaine, puis au client : le choix de l'ambiance et la présentation du résultat.
+3. Constat :
    - reçoit le site existant ou le besoin, et les skills de cadrage ;
    - rend une fiche courte : faits du client, chacun avec sa source, « non indiqué » quand il manque, contradictions signalées sans les trancher ; défauts mesurés de l'existant ; images réutilisables avec leurs dimensions réelles ; preuves de confiance disponibles ; voie d'image qui s'impose ; test de l'identité (point 1.10) ; questions au client ;
    - ne conçoit rien, ne propose aucune direction, n'écrit aucun texte de page, ne tranche pas l'identité.
-5. Rédaction, avant le design :
+4. Rédaction, avant le design :
    - reçoit le constat, `contenu-ecriture` et `seo` ;
    - rend le plan du site, les textes de toutes les pages écran par écran (title, description, titres, phrases, libellés, textes alternatifs, replis), les questions-réponses, les données structurées, la voix et les demandes au client ;
    - fait relire ses textes par un sous-agent neuf qui chasse le bateau, le faux et le jargon ;
    - n'invente aucun fait, ne dessine rien, ne construit rien.
-6. Ambiances, puis choix :
+5. Ambiances, puis choix :
    - reçoit le constat, les textes, `design-visuel` et `photographie-web` ;
-   - rend trois ambiances vraiment différentes pour ce client-là (images, couleurs, ton), pas trois mises en page, dont une sans photo de banque ; aucun site passé ne sert de gabarit (`design-visuel`, charte) ; chacune rendue sur quelques écrans, ordinateur et téléphone, avec une fiche pour le constructeur et le relevé de ses images ;
+   - rend trois ambiances vraiment différentes pour ce client-là (images, couleurs, ton), pas trois mises en page, toutes dans la voie d'image tranchée au début du projet ; aucun site passé ne sert de gabarit (`design-visuel`, charte) ; chacune rendue sur quelques écrans, ordinateur et téléphone, avec une fiche pour le constructeur et le relevé de ses images ;
    - ne choisit pas et ne construit rien en entier avant le choix.
-7. Construction :
+6. Construction :
    - reçoit l'ambiance choisie et sa fiche, les textes, le constat ;
    - rend toutes les pages du site, avec navigation et pied de page communs, ses captures et le rapport de ses contrôles ;
    - monte les textes mot pour mot et signale celui qui ne tient pas au lieu de le réécrire ;
    - ne change pas d'ambiance et ne se relit pas lui-même, sous-agent compris.
-8. Relecture indépendante, corrections, présentation :
+7. Relecture indépendante, corrections, présentation :
    - le relecteur est neuf : il n'a ni écrit ni construit ;
    - il ne lit le rapport du constructeur qu'après avoir écrit ses remarques ;
    - il juge d'abord sur la charte, écran par écran et à chaque taille (`design-visuel`, étape 6), dont le fait que le site ne pourrait pas être celui d'un autre client, puis sur le socle ;
    - il ne modifie rien et rend un verdict, puis ses remarques de la plus grave à la moins grave, chacune avec sa preuve, « à corriger » séparé de « à discuter » ;
    - firstmate tranche les remarques à discuter ; un worker corrige ; le relecteur repasse après les corrections ; puis la présentation (étape 5).
-9. Contrôles obligatoires à la réception, chacun chez son propriétaire :
+8. Contrôles obligatoires à la réception, chacun chez son propriétaire :
    - plusieurs tailles d'écran dont un écran peu haut, et sans JavaScript (`construction-web`) ;
    - texte agrandi à 150 % et 200 %, texte posé sur photo, clavier (`accessibilite`) ;
    - sincérité des images (`photographie-web`) ;
