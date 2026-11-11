@@ -38,6 +38,7 @@ Le second maître n'écrit jamais dans le projet (`AGENTS.md` règle 1) : il dé
    - dicter chaque entrée de `design/interfaces.json` seulement quand elle passe toute la liste « Complétude avant gel » (§2) ; une entrée incomplète laisse S3 ouvert ;
    - faire produire par le worker de gel la pré-implantation chiffrée du cas et son rapport (§2 « Pré-implantation chiffrée avant S3 ») ; une contrainte en défaut se règle par une nouvelle dictée, jamais en lançant les pièces ;
    - gel complémentaire après S3 (§13, puce « Gel complémentaire ») : dicter la modification au worker de gel, en réglant d'un coup toutes les interfaces voisines incomplètes, puis transmettre aux unités en cours, par `fm-send`, le seul identifiant du commit obtenu (`method/worker.md` §3) ; jamais une liste d'empreintes.
+     Un gel, complémentaire compris, qui modifie une entrée gelée en re-pointe aussi le `sha256` dans chaque `delivery_checks[].inputs` qui la cite, rien d'autre du contrôle, et déclare invalidées dans sa fiche les preuves des propriétaires qui la citent (contrat, « Écrivains du manifeste de cas », écrivain 2).
 10. Tenir le cas comme item du backlog du home ; la note dit le classement, le dernier point de synchronisation atteint, le commit de base courant de la branche du cas et les questions ouvertes.
     Tenir chaque question du capitaine selon `captain-hold-lifecycle`.
 
