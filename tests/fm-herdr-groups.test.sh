@@ -367,6 +367,8 @@ test_sidebar_config_apply_backs_up_and_refuses_twice() {
   printf '[ui]\nagent_panel_sort = "spaces"\n' > "$cfg"
   out=$(groups sidebar-config 2>&1) || fail "sidebar-config print failed: $out"
   assert_contains "$out" '[ui.sidebar.agents]' "printed rows"
+  assert_contains "$out" '{ token = "workspace", bold = true, rules = [{ starts_with = "└ ", hide = true }] }' "untagged agents keep their workspace name"
+  assert_contains "$out" '[{ token = "terminal_title_stripped", dim = true }]' "agents keep a title row"
   assert_contains "$out" "  [\"\$fm_icon\", \"state_icon\", " "the icon token leads the agent row"
   assert_equals "" "$(cat "$FAKE_HERDR_LOG")" "printing the rows calls no Herdr command"
   out=$(groups sidebar-config --apply "$cfg" 2>&1) || fail "sidebar-config apply failed: $out"
