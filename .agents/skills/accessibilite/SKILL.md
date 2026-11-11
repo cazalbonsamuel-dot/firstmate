@@ -50,10 +50,11 @@ Contraste :
 7. Chaque couche d'un composant, focus compris, a 3:1 avec la suivante [3012636 S3 R28, R30].
 8. Sur image, viser la zone la plus claire ou la plus sombre, car l'image se recadre [3012636 S4 R49, S6 R95].
 9. Vérifier chaque couleur dès son choix, contre la vraie couleur de fond [3012636 S3 R23, R25].
+10. Un texte se lit par un fort contraste de valeur, jamais en couleurs complémentaires : le contraste de teinte fatigue l'œil [5313020 L25].
 
 Couleur :
 1. Jamais la couleur seule pour informer, indiquer une action ou distinguer [3012636 S4 R32 ; 1595266 S6/L24 P171 ; 3739678 S5 n° 52].
-2. Éviter d'abord rouge et vert [3012636 S3 R21].
+2. Éviter d'abord rouge et vert [3012636 S3 R21] : un daltonien ne les distingue pas à valeur égale, plus rarement bleu et jaune [5313020 L44].
 3. Erreur, correct, incorrect : icône ou symbole en plus de la couleur [3769310 Wrapping up > Accessibilité P176 ; 1595266 S6/L25 P180].
 4. Menu courant : forme, ligne, texte ou taille, à défaut 3:1 entre états ; un soulignement d'un pixel ne suffit pas [3012636 S4 R39, R41].
 5. Survol conforme et indépendant de la couleur ; la main du curseur ne suffit pas [3012636 S4 R43].
@@ -77,8 +78,8 @@ Mouvement :
 2. Une animation se met en pause et se relance [3739678 S5 n° 54].
 
 Tests :
-1. Test en niveaux de gris pendant la conception et à la fin : « que ne pouvez-vous plus identifier ? » [3012636 S4 R33, P4] ; une action principale qui disparaît trahit la dépendance à la couleur [1595266 S6/L33 P228] ; la hiérarchie en gris : `design-visuel`.
-2. Simuler les daltonismes [1595266 S6/L25 P179].
+1. Test en niveaux de gris pendant la conception et à la fin, sur une capture d'écran : « que ne pouvez-vous plus identifier ? » [3012636 S4 R33, P4 ; 5313020 L38] ; une action principale qui disparaît trahit la dépendance à la couleur [1595266 S6/L33 P228] ; la hiérarchie en gris : `design-visuel`.
+2. Simuler les daltonismes [1595266 S6/L25 P179] ; une hiérarchie portée par la valeur plutôt que par la teinte les sert, car personne n'est aveugle aux valeurs [5313020 L38].
 
 ### 4. Contrôler le site construit
 
@@ -158,6 +159,7 @@ Cours :
 - 3769310 « Usability » : Wrapping up > Accessibilité.
 - 3918934 « Fondamentaux du webdesign » : S10 Spécificités.
 - 663850 « BCS Foundation Certificate in User Experience » : S2.
+- 5313020 « the color class », cours dédié à la couleur : L25, L38, L44 ; il ne donne aucun seuil chiffré.
 
 Frontières :
 - `seo` : `<title>`, contenu des titres, mots-clés des pages.

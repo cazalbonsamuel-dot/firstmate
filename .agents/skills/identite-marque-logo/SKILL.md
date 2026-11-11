@@ -43,6 +43,7 @@ Firstmate s'en sert pour briefer le worker et pour vérifier chaque livraison, d
    - mots qui décrivent l'entreprise ;
    - besoins autres que le logo ;
    - attentes et objectifs.
+   - pour la couleur, le plus de mots-clés possible : frappant ou détendu, actif ou calme, bon marché ou cher, pastel ou franc, flashy ou authentique ; lieu et fréquence d'affichage [5313020 L35].
 6. Demander explicitement les interdits [3543948 Logo R12].
 7. Respecter les consignes du brief [3543948 Logo R13].
 8. Relever les mots récurrents des réponses [3543948 Système logo R18].
@@ -97,32 +98,51 @@ Firstmate s'en sert pour briefer le worker et pour vérifier chaque livraison, d
 35. Trois couleurs au plus dans le logo [2401332 S10·L27 P60] [préférence].
 36. Le système de marque décline nuances, tons et neutres [3543948 Bonus R123].
    Pas de contradiction avec la règle précédente : l'une vise le logo, l'autre la palette.
-37. Tester chaque couleur sur fond clair et foncé [2401332 S10·L38 P59].
-38. Donner RVB, CMJN, hex, et Pantone en option, arrondis [3543948 Bonus R125].
-39. Fixer les combinaisons autorisées et interdites [3543948 Bonus R128].
-40. Typographie : tailles, graisses, interlignage, alignement et césure spécifiés par niveau [3543948 Bonus R103, R111].
+37. Construire la palette dans l'ordre [5313020 L35, L30] :
+   - mots-clés du brief (point 5), puis sens des couleurs (point 38), puis schéma de teintes (`design-visuel`, « Couleur à l'écran ») ;
+   - 4 à 7 couleurs : les principales avec au moins une variation de chaque teinte, les plus utilisées, les extrêmes (plus claire, plus sombre, plus saturée) ;
+   - couleur principale et accents marqués, chacun à l'échelle de son usage ;
+   - palette présentée au client et ajustée avant formes et composition ;
+   - faite à la main : une palette générée ou d'utilisateurs sert au mieux d'inspiration, une tendance n'est pas une raison [5313020 L43] [préférence].
+   Autre position : 5313020 L35, cours dédié à la couleur, fixe la palette avant les formes ; pour le logo, retenu 2401332, cours dédié au logo : concepts en noir et blanc d'abord (point 25).
+38. Sens des couleurs, tel que le cours le présente : les sens associés sont des avis du formateur [préférence], les limites d'usage des règles [5313020 L06-L19] :
+   - des probabilités, pas des certitudes : âge, culture, climat et genre les déplacent ; le formateur les dit prouvés sans citer de source [L06, L19] ;
+   - le symbolisme change selon les pays : le vérifier pour chaque couleur retenue avant une marque ou une campagne [L19] ;
+   - bleu : confiance et compétence ; seul, ou en site bleu et blanc, générique : ajouter une couleur plus énergique en contraste [L07] ;
+   - rouge : attention, urgence, couleur d'appel à l'action ; fatigant en grande surface, risqué en couleur de marque unique [L08] ;
+   - jaune : optimisme ; vif et saturé, jamais sombre ; petit accent plutôt que couleur principale [L09] ;
+   - vert : nature, finance, très courant ; saturé sur un objet artificiel, « plastique bon marché » [L10] ;
+   - orange : polarisant, rare hors jouets et alimentation, donc différenciant ; désaturé en grande surface [L11] ;
+   - violet : luxe, seulement si l'offre est à la hauteur ; un peu, avec noir, blanc, gris ou beige [L12] ;
+   - rose : clair pour un public féminin, foncé pour un air moderne ; surutilisé, « cheap » [L14] ;
+   - turquoise : frais, sous-utilisé ; avec des couleurs peu saturées [L15] ;
+   - brun, gris, noir, blanc : fonds et soutiens ; seuls, ternes ou sans attrait [L13, L16-L18].
+39. Tester chaque couleur sur fond clair et foncé [2401332 S10·L38 P59 ; 5313020 L30].
+40. Donner RVB, CMJN, hex, et Pantone en option, arrondis [3543948 Bonus R125].
+41. Fixer les combinaisons autorisées et interdites [3543948 Bonus R128].
+42. Typographie : tailles, graisses, interlignage, alignement et césure spécifiés par niveau [3543948 Bonus R103, R111].
 
 ### 8. Présentation finale
 
-41. Le second tour est final ; un troisième ou quatrième tour de petits changements reste possible [2401332 S10·L26 P136].
-42. Contenu : versions, fonds, palette en hex, grille, applications, textes [2401332 S10·L39 PR16].
-43. Expliquer le logo d'abord [3543948 Bonus R149].
-44. Mockups, dont au moins une application numérique [2401332 S10·L39 P135 ; 3543948 Bonus R153].
+43. Le second tour est final ; un troisième ou quatrième tour de petits changements reste possible [2401332 S10·L26 P136].
+44. Contenu : versions, fonds, palette en hex, grille, applications, textes [2401332 S10·L39 PR16].
+45. Expliquer le logo d'abord [3543948 Bonus R149].
+46. Mockups, dont au moins une application numérique [2401332 S10·L39 P135 ; 3543948 Bonus R153].
 
 ### 9. Kit de fichiers
 
-45. Toujours une version vectorielle [2401332 S10·L19 P88].
-46. PNG transparents de toutes les versions [2401332 S10·L42 P106].
-47. CMJN pour l'impression, RVB pour l'écran, en dossiers séparés [2401332 S10·L42 P105].
-48. Jamais de JPEG à l'impression [2401332 S10·L42 P109].
-49. PNG d'impression au-dessus de 300 PPI [2401332 S10·L42 P107] [préférence] [daté : valeur à vérifier au moment du projet].
-50. Le client ne doit jamais redemander un fichier [2401332 S10·L40 P111].
+47. Toujours une version vectorielle [2401332 S10·L19 P88].
+48. PNG transparents de toutes les versions [2401332 S10·L42 P106].
+49. CMJN pour l'impression, RVB pour l'écran, en dossiers séparés [2401332 S10·L42 P105].
+50. Jamais de JPEG à l'impression [2401332 S10·L42 P109].
+51. PNG d'impression au-dessus de 300 PPI [2401332 S10·L42 P107] [préférence] [daté : valeur à vérifier au moment du projet].
+52. Le client ne doit jamais redemander un fichier [2401332 S10·L40 P111].
 
 ### 10. Charte
 
-51. Elle dit ce qui est visuellement permis et ce qui ne l'est pas [3918934 S6 R31].
-52. Elle est technique, claire, concise, intemporelle [3543948 Bonus R166, R167].
-53. Contenu : mission, versions, mauvais usages, espacement, couleurs, typo [3543948 Bonus P25, R164].
+53. Elle dit ce qui est visuellement permis et ce qui ne l'est pas [3918934 S6 R31].
+54. Elle est technique, claire, concise, intemporelle [3543948 Bonus R166, R167].
+55. Contenu : mission, versions, mauvais usages, espacement, couleurs, typo [3543948 Bonus P25, R164].
 
 ## Refuser ou remonter
 
@@ -135,7 +155,7 @@ Firstmate s'en sert pour briefer le worker et pour vérifier chaque livraison, d
 **Firstmate** [autorité firstmate]
 - Vérifie le brief avant la création.
 - Fixe le nombre de stylescapes et de concepts.
-- À la réception, refuse une livraison qui échoue à l'une de ces listes : tests du logo (points 18 à 21), tests des versions (point 34), kit de fichiers (points 45 à 50), charte (points 51 à 53).
+- À la réception, refuse une livraison qui échoue à l'une de ces listes : tests du logo (points 18 à 21), tests des versions (point 34), kit de fichiers (points 47 à 52), charte (points 53 à 55).
 - Renvoie le hors-périmètre à son propriétaire.
 
 **Worker** [autorité firstmate]
@@ -154,6 +174,7 @@ Firstmate s'en sert pour briefer le worker et pour vérifier chaque livraison, d
 - 2401332, « Logo Design Mastery » : entier.
 - 3543948, « The Branding Masterclass » : entier.
 - 3918934, « Fondamentaux du webdesign (français) » : S6 Introduction, S10 Logo & charte graphique.
+- 5313020, « the color class », cours dédié à la couleur : L06-L19, L30, L35, L43.
 
 **Frontières**
 - Voix, ton et langage de marque : `contenu-ecriture`.
