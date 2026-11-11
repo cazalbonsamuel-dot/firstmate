@@ -1,0 +1,14 @@
+Question ponctuelle de test, sans démarrage de session ni action sur la flotte : n'exécute aucun script, ne lance aucun worker. Charge seulement les skills nommés avec l'outil Skill (ou lis .agents/skills/<nom>/SKILL.md), puis réponds en français en citant pour chaque point la section et le numéro de règle du skill. Ne te fie qu'au texte des skills.
+Skills : design-visuel, construction-web, accessibilite.
+Pour chaque cas de maquette, dis CONFORME ou NON CONFORME, avec la règle :
+a. Une page entièrement claire, d'un seul ton du début à la fin, choisie pour ce client.
+b. Une page entièrement sombre, sans aucun écran plus clair.
+c. Premier écran : l'action « appeler » n'est qu'un numéro de téléphone écrit en texte simple, sans bouton.
+d. Premier écran : un énorme bloc de couleur pleine largeur « APPELEZ-NOUS ».
+e. Les trois services présentés dans trois cartes à contour et ombre.
+f. Défilement écran par écran fait en JavaScript qui intercepte la molette.
+g. Défilement écran par écran en scroll-snap, conservé pour un visiteur qui demande le mouvement réduit.
+h. Un écran plus haut que la fenêtre, à qui on force une hauteur de 100vh, le texte se coupe.
+i. Une page très dépouillée : trois mots par écran, de grands vides sans image.
+j. Un effet parallax spectaculaire en 3D sur toutes les sections.
+k. Ombres légères et rares sur des cartes, puisque le cours le permet : la décision du capitaine ou le cours, qui l'emporte ?

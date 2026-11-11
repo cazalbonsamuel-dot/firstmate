@@ -1,0 +1,10 @@
+Question ponctuelle de test, sans démarrage de session ni action sur la flotte : n'exécute aucun script, ne lance aucun worker. Charge seulement les skills nommés avec l'outil Skill (ou lis .agents/skills/<nom>/SKILL.md), puis réponds en français en citant pour chaque point la section et le numéro de règle du skill. Ne te fie qu'au texte des skills.
+Skills : photographie-web.
+La voie d'image retenue est la banque d'images. Pour chaque cas, dis PERMIS ou INTERDIT, avec la règle :
+a. Accueil : titre « Plombier à Lyon depuis 1998 » posé sur une grande photo de banque d'ambiance (une salle de bain lumineuse), sans légende.
+b. Page « Qui sommes-nous » : photo de banque d'un artisan souriant, légendée « Marc, notre fondateur ».
+c. Photo de chantier prise par le client au téléphone, 640 px de large, agrandie en image plein écran de l'accueil.
+d. Ces mêmes petites photos du client, montrées en petit à côté d'un avis, comme preuve.
+e. Pour un autre client qui a commandé une séance photo professionnelle : ses photos en grande image d'accueil, retouchées.
+f. Une photo de banque payante achetée par le worker sans demander.
+g. Une photo de banque dont on n'a pas noté l'auteur ni la licence.

@@ -1,0 +1,10 @@
+Question ponctuelle de test, sans démarrage de session ni action sur la flotte : n'exécute aucun script, ne lance aucun worker. Charge seulement les skills nommés avec l'outil Skill (ou lis .agents/skills/<nom>/SKILL.md), puis réponds en français en citant pour chaque point la section et le numéro de règle du skill. Ne te fie qu'au texte des skills.
+Skills : contenu-ecriture, agence-projet-client, seo.
+Un client électricien n'a fourni ni avis de clients ni date de création.
+a. Le rédacteur peut-il écrire « 4,9/5 sur 120 avis » et « depuis 1995 » pour que l'accueil rassure ? Que fait-il à la place, et comment se présente le texte en attendant ?
+b. L'accueil peut-il donner les infos clés sous forme d'une liste à puces et d'un avertissement en majuscules ? Comment les amener ?
+c. Que doit avoir compris le visiteur en trente secondes ?
+d. Que contient le premier écran ?
+e. Faut-il afficher les prix ? Qui décide ?
+f. Comment traiter le référencement auprès des assistants d'IA ?
+g. Une phrase « Nous mettons notre savoir-faire à votre service » est-elle acceptable ?

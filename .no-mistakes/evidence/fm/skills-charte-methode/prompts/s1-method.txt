@@ -1,0 +1,9 @@
+Question ponctuelle de test, sans démarrage de session ni action sur la flotte : n'exécute aucun script, ne lance aucun worker. Charge seulement les skills nommés avec l'outil Skill (ou lis .agents/skills/<nom>/SKILL.md), puis réponds en français en citant pour chaque point la section et le numéro de règle du skill. Ne te fie qu'au texte des skills.
+Skills : agence-projet-client, photographie-web.
+Un plombier veut refondre son vieux site. La voie d'image tranchée au cadrage est la banque d'images (rien de photogénique, pas de budget de séance).
+1. Décris la chaîne de production : quels postes, dans quel ordre, ce que chacun reçoit et rend, ce qu'il ne fait pas.
+2. À quels moments le client décide-t-il ?
+3. Qui écrit les textes des pages, et quand par rapport au design ?
+4. Le constructeur peut-il relire son propre travail, ou le faire relire par un de ses sous-agents ? Qui relit, sur quoi d'abord ?
+5. Pour l'étape des ambiances, faut-il qu'une des trois ambiances soit sans photo de banque ?
+6. Y a-t-il une règle sur le choix du modèle d'IA pour les workers ?
