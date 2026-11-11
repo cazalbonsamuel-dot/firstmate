@@ -67,6 +67,14 @@ Les leçons 412738 L95-L161 datent de 2015 : écrans et options [daté : valeur 
 - Paliers Bootstrap 5 : 576 à 1400 px [805992 Bootstrap 43] [daté : valeur à vérifier au moment du projet].
 - Image fluide (max-width 100 %), sans défilement horizontal, que Google note mal [805992 Bootstrap 50 ; 3828556 Site responsive #104].
 
+**Défilement écran par écran, s'il est retenu** [décision du capitaine, 11 novembre 2026]
+
+- C'est un choix propre à un site, redécidé à chaque projet ; retenu, on s'arrête sur un écran entier, jamais entre deux, tant que l'écran tient dans la fenêtre.
+- Mécanisme natif du navigateur (`scroll-snap`) ; jamais de détournement de la molette ou du toucher en JavaScript, qui fait sauter plusieurs écrans d'un geste.
+- Aucune hauteur forcée plus petite que le contenu : rien ne se coupe ni ne se chevauche.
+- L'arrêt se décide écran par écran : un écran plus haut que la fenêtre se parcourt librement sans le retirer aux autres.
+- Rien d'inatteignable au clavier, pied de page compris ; pas d'arrêt pour qui demande le mouvement réduit ; contrôle : `accessibilite`.
+
 ### 3. Brief WordPress, si retenu
 
 **Installation et réglages**
@@ -110,11 +118,12 @@ Firstmate accepte le site si :
 
 1. chaque scénario atteint sa catégorie de support [412738 L28 P86] ;
 2. Chrome, Firefox, Safari et Edge passent, en dernière version [437398 S7 P1 ; 412738 L99 P458] ;
-3. le responsive passe sur de vrais appareils [437398 S8 R116] ;
+3. le responsive passe sur de vrais appareils [437398 S8 R116], et à plusieurs tailles dont un écran peu haut [décision du capitaine, 11 novembre 2026] ;
 4. le validateur HTML passe [437398 S3 R34, P16] ;
 5. un service comme BrowserStack a suivi les bugs [412738 L134 P503] [préférence] ;
 6. HTTPS et favicon s'affichent [3828556 HTTPS 3.5, Favicon 3.6] ;
-7. sous WordPress, l'étape 3 est vérifiée.
+7. sous WordPress, l'étape 3 est vérifiée ;
+8. sans JavaScript, chaque page reste complète et ses liens marchent [décision du capitaine, 11 novembre 2026].
 
 Sinon, retour au worker, qui débogue : console, point d'arrêt, journal d'Apache [805992 JS-PHP P2].
 

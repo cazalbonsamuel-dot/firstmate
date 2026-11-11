@@ -21,6 +21,7 @@ Firstmate s'en sert pour briefer le worker, puis pour juger sa maquette.
 
 [préférence] marque un avis du formateur ; [daté : valeur à vérifier au moment du projet], une valeur à vérifier au moment du projet.
 Une contradiction se tranche par règle avant préférence, non datée avant datée, cours dédié avant mention ; l'autre position suit. À égalité, « Égalité : » donne les positions et firstmate choisit à l'admission du projet.
+Une décision du capitaine passe avant une règle de cours, car elle a été éprouvée sur un vrai projet où les seules règles des cours ne convainquaient pas ; la règle de cours reste citée [décision du capitaine, 11 novembre 2026].
 
 ### 1. Vérifier les entrées
 
@@ -33,8 +34,35 @@ Une contradiction se tranche par règle avant préférence, non datée avant dat
 - Chaque couleur, image et police sert les objectifs et le public [412738 L75 P260] ; le sens des couleurs : `identite-marque-logo` point 38.
 - Le brief fixe une personnalité de site qui guide chaque ingrédient [437398 S5 R47, R77] [préférence].
 - Le design ne doit pas être générique : si un autre logo y marche aussi, il l'est [412738 L74 P258].
-- On ne part ni du travail d'autres designers ni des tendances [1595266 S1/L2 P16, P18].
-  Autre position : ouvrir 20 à 50 sites et adapter [437398 S5 P9, R78] [préférence].
+- On regarde de vrais sites de référence, on dit ce qui produit leur effet et on en adapte l'esprit, sans copier texte, image, code ni mise en page [décision du capitaine, 11 novembre 2026].
+  Autres positions : ne partir ni du travail d'autres designers ni des tendances [1595266 S1/L2 P16, P18] ; ouvrir 20 à 50 sites et adapter [437398 S5 P9, R78] [préférence] ; retenue la décision du capitaine, les tendances restant écartées.
+
+**Charte de l'agence** : des principes, pas un modèle ; critères de tout brief et de toute réception [décision du capitaine, 11 novembre 2026].
+
+- Un site moderne tient trois choses, dans cet ordre :
+  - l'image d'abord : une grande image ou un grand visuel occupe l'écran, le texte l'accompagne ;
+  - une ambiance choisie : des couleurs décidées franchement, reconnaissables d'un coup d'œil ;
+  - le calme : peu de choses par écran, de l'air, pas de boîtes.
+- Du souffle : jamais une page d'un seul ton qui fatigue ; alterner des écrans sombres et clairs dans la même ambiance est une réponse parmi d'autres.
+- Moderne n'est pas à la mode : les effets spectaculaires vieillissent vite et gênent souvent le visiteur.
+- Le socle est obligatoire mais jamais suffisant : téléphone d'abord et juste à toutes les tailles, lisible par tous, rapide, utilisable au clavier, tout ce qui est écrit vrai et venu du client, l'action toujours à portée.
+- Ce qui rend un site mauvais :
+  - des images pauvres ;
+  - tout est petit, rien ne s'impose ;
+  - des boîtes, cartes à contour et ombre partout, comme un formulaire ;
+  - on explique au lieu de donner envie ;
+  - une ambiance timide, du beige par prudence ;
+  - un rythme monotone, chaque section de la même forme ;
+  - une action énorme ou en bloc de couleur, ou à l'inverse une action qu'on ne remarque pas ;
+  - des textes bateau, qu'un concurrent pourrait signer (`contenu-ecriture`) ;
+  - une page si dépouillée qu'elle fait vide : épuré veut dire peu de mots et des écrans pleins.
+- Le premier écran fait passer à l'action dont ce client vit (appeler, réserver, demander un devis, venir sur place) : l'image et le titre dominent, l'action ressort sans écraser ; ce qu'il dit : `contenu-ecriture`.
+- Chaque site est différent :
+  - chaque client a sa propre ambiance, tirée de son métier, de son lieu et de sa marque : ses images, ses couleurs, son ton ;
+  - on ne reprend jamais la palette, les polices ni la mise en page d'un site précédent, et aucun site passé ne sert de gabarit ;
+  - le nombre, l'ordre et la forme des écrans viennent du contenu du client ;
+  - les choix faits pour un site (tout sombre ou tout clair, alternance, défilement écran par écran, dessin plutôt que photo) se redécident à chaque projet.
+- Si le défilement écran par écran est retenu, chaque écran se conçoit pour tenir dans la fenêtre, téléphone et écran peu haut compris ; ses garde-fous : `construction-web`.
 - On ne quitte une convention que sur preuve d'une expérience nettement meilleure [412738 L94 P446].
 
 ### 3. Poser le design system avant les pages
@@ -118,7 +146,8 @@ Une contradiction se tranche par règle avant préférence, non datée avant dat
   Autre position : libellés de boutons en majuscules [1595266 S6/L46 P314].
 - Rayon : 0 sérieux, 3 à 6 px traditionnel, 100 % ludique, selon la marque [3012636 S6 R91].
   Autre position : jamais 15 px [1544922 L22 n°59] [daté : valeur à vérifier au moment du projet].
-- Ombres légères et rares, d'autant plus que le design est sérieux [437398 S5 R64].
+- Aucune carte à contour et ombre autour d'un contenu : il se pose sur la page [décision du capitaine, 11 novembre 2026].
+  Autre position : ombres légères et rares, d'autant plus que le design est sérieux [437398 S5 R64] ; retenue la décision du capitaine, les boîtes ayant été l'un des pires défauts à l'essai.
 - Ce qui n'est pas cliquable ne ressemble pas à un bouton [3012636 S6 R101].
 - Hors formulaire, un objet inutilisable se retire plutôt que d'être grisé [4013140 S4 R-66] ; le bouton d'envoi indisponible d'un formulaire relève de `formulaires`.
 - Un seul pack d'icônes, un seul style, même taille, même couleur [437398 S5 R62 ; 3918934 S9 R53].
@@ -137,6 +166,7 @@ Une contradiction se tranche par règle avant préférence, non datée avant dat
 - Un design qui ne marche pas manque d'alignement, de proximité, de répétition ou de contraste [412738 L82 P310 ; 663850 S4 2.2.46].
 - Motif en Z pour peu de contenu ; motif en F avec un élément convaincant dans le tiers supérieur [412738 L84 P327, P329].
 - Pas de faux bas de page : le contenu suivant dépasse [412738 L86 P354].
+  Exception, si le défilement écran par écran est retenu : chaque écran remplit la fenêtre [décision du capitaine, 11 novembre 2026].
 - Le haut de page n'a pas d'avalanche de publicités [417316 S8 R142].
 - Un texte sur image reste lisible grâce à un fondu sombre ou un fond flouté [4860984 A n°77].
 - On conçoit pour le cas non idéal : un nom sur trois lignes [412738 L92 P436].
@@ -150,6 +180,7 @@ Une contradiction se tranche par règle avant préférence, non datée avant dat
 
 ### 6. Contrôler la maquette rendue
 
+- La charte d'abord, écran par écran, à chaque taille : les trois choses du moderne tiennent, rien de « ce qui rend un site mauvais », aucune boîte à contour ou ombre, un site qui ne pourrait pas être celui d'un autre client ; le socle ensuite [décision du capitaine, 11 novembre 2026].
 - Test du gris : en niveaux de gris, l'ordre d'importance tient [1595266 S6/L33 P228 ; 412738 L84 PR25] ; sur une capture d'écran, zones importantes, boutons et éléments restent distinguables [5313020 L38] ; la dépendance à la couleur se contrôle dans `accessibilite`.
 - Couleur : parcimonie, hiérarchie renforcée, cohérence d'écran en écran, usage fonctionnel [1595266 S6/L25 P177].
 - Erreurs de couleur à écarter : trop de couleurs ou de saturation, contraste de valeur faible, couleurs non décidées avant la maquette, tendance suivie au lieu d'une intention, palette générée [5313020 L43].

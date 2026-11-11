@@ -28,6 +28,7 @@ Une contradiction se tranche par les critères fixes (règle avant préférence,
 1. Fixer avec le client des objectifs SEO précis, réalistes, mesurables (visites, contacts, ventes) [2649302 I P18].
 2. Annoncer qu'aucune première place n'est garantie [2649302 IX P21], des résultats vers six mois [2649302 I P12] [daté : valeur à vérifier au moment du projet], un travail continu [2649302 I P14].
 3. Ordre : objectifs, audit sémantique, technique, contenu, popularité, suivi [2649302 I PR1].
+4. Le référencement auprès des assistants d'IA n'est dans aucun cours : pour l'instant, il s'appuie à chaque projet sur des sources extérieures citées, avec leur adresse et leur date, en séparant l'établi du supposé [décision du capitaine, 11 novembre 2026].
 
 ### 2. Recherche de mots-clés
 

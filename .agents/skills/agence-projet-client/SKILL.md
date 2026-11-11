@@ -9,7 +9,7 @@ metadata:
 
 # agence-projet-client
 
-Ce skill porte la relation client et le contrat de périmètre, du cadrage à la maintenance ; les méthodes de chaque domaine restent dans leur skill.
+Ce skill porte la relation client, le contrat de périmètre et la chaîne de production en cinq postes, du cadrage à la maintenance ; les méthodes de chaque domaine restent dans leur skill.
 
 ## Quand charger
 
@@ -46,8 +46,10 @@ Ce skill porte la relation client et le contrat de périmètre, du cadrage à la
      - remplacer : rien n'est récupérable ou le client veut changer ; vraie création d'identité, `identite-marque-logo`.
    - Le choix de l'issue remonte au capitaine : voir « Refuser ou remonter » [décision du capitaine, 10 novembre 2026].
 11. Pour un site existant, l'audit UX passe avant toute liste de souhaits et tout design [4013140 S1 R-06].
-12. Planifier à rebours depuis l'échéance : tâches, durées, calendrier [1783776 Edit, série 2, L1].
-13. Faire fixer dès le cadrage le niveau d'accessibilité visé : `accessibilite`.
+12. Trancher d'où viennent les images avant toute proposition visuelle : `photographie-web` [décision du capitaine, 11 novembre 2026].
+13. Demander au client ses avis de clients et son ancienneté avant de concevoir ; leur usage : `contenu-ecriture` [décision du capitaine, 11 novembre 2026].
+14. Planifier à rebours depuis l'échéance : tâches, durées, calendrier [1783776 Edit, série 2, L1].
+15. Faire fixer dès le cadrage le niveau d'accessibilité visé : `accessibilite`.
 
 ### 2. Fixer le périmètre
 
@@ -61,6 +63,7 @@ Ce skill porte la relation client et le contrat de périmètre, du cadrage à la
 7. Écrire dans la proposition et le contrat une page d'hypothèses : « le périmètre et le coût supposent que... ; toute fonctionnalité au-delà sera estimée séparément » [412738 L24 PR9].
 8. Tenir une liste « maintenant » et une liste « plus tard », jamais de travail sans elle [412738 L24 P79-P80].
 9. Le contenu est fourni par le client ; le rédiger ou engager un rédacteur se facture en plus [437398 S7 R92].
+   Dans la chaîne en cinq postes, le client fournit les faits et le rédacteur du point 4.5 écrit les textes [décision du capitaine, 11 novembre 2026] ; la facturation suit le cours.
 10. Design et intégration sont deux prestations distinctes [1544922 L5 n°2].
 
 ### 3. Chiffrer et contracter
@@ -72,7 +75,44 @@ Ce skill porte la relation client et le contrat de périmètre, du cadrage à la
 5. Convenir du paiement par étapes : combien, à quel moment [805992 Futur/Freelance 157].
 6. Le contrat nomme : acompte et date, coût total, échéance du solde, pénalités de retard, heures en plus, parties, livrables (nombre, format), livraison, urgence et annulation, signatures [2633036 Entr Pr26].
 
-### 4. Présenter et faire valider
+### 4. Produire en cinq postes
+
+Toutes les règles de cette étape sont des décisions du capitaine, éprouvées sur une refonte [décision du capitaine, 11 novembre 2026].
+
+1. Chaque poste est tenu par un worker distinct et lit le livrable écrit du précédent au lieu de tout refaire.
+2. Le travail borné va au modèle le plus économique.
+3. Deux moments remontent au capitaine, puis au client : le choix de l'ambiance et la présentation du résultat.
+4. Constat :
+   - reçoit le site existant ou le besoin, et les skills de cadrage ;
+   - rend une fiche courte : faits du client, chacun avec sa source, « non indiqué » quand il manque, contradictions signalées sans les trancher ; défauts mesurés de l'existant ; images réutilisables avec leurs dimensions réelles ; preuves de confiance disponibles ; voie d'image qui s'impose ; test de l'identité (point 1.10) ; questions au client ;
+   - ne conçoit rien, ne propose aucune direction, n'écrit aucun texte de page, ne tranche pas l'identité.
+5. Rédaction, avant le design :
+   - reçoit le constat, `contenu-ecriture` et `seo` ;
+   - rend le plan du site, les textes de toutes les pages écran par écran (title, description, titres, phrases, libellés, textes alternatifs, replis), les questions-réponses, les données structurées, la voix et les demandes au client ;
+   - fait relire ses textes par un sous-agent neuf qui chasse le bateau, le faux et le jargon ;
+   - n'invente aucun fait, ne dessine rien, ne construit rien.
+6. Ambiances, puis choix :
+   - reçoit le constat, les textes, `design-visuel` et `photographie-web` ;
+   - rend trois ambiances vraiment différentes pour ce client-là (images, couleurs, ton), pas trois mises en page, dont une sans photo de banque ; aucun site passé ne sert de gabarit (`design-visuel`, charte) ; chacune rendue sur quelques écrans, ordinateur et téléphone, avec une fiche pour le constructeur et le relevé de ses images ;
+   - ne choisit pas et ne construit rien en entier avant le choix.
+7. Construction :
+   - reçoit l'ambiance choisie et sa fiche, les textes, le constat ;
+   - rend toutes les pages du site, avec navigation et pied de page communs, ses captures et le rapport de ses contrôles ;
+   - monte les textes mot pour mot et signale celui qui ne tient pas au lieu de le réécrire ;
+   - ne change pas d'ambiance et ne se relit pas lui-même, sous-agent compris.
+8. Relecture indépendante, corrections, présentation :
+   - le relecteur est neuf : il n'a ni écrit ni construit ;
+   - il ne lit le rapport du constructeur qu'après avoir écrit ses remarques ;
+   - il juge d'abord sur la charte, écran par écran et à chaque taille (`design-visuel`, étape 6), dont le fait que le site ne pourrait pas être celui d'un autre client, puis sur le socle ;
+   - il ne modifie rien et rend un verdict, puis ses remarques de la plus grave à la moins grave, chacune avec sa preuve, « à corriger » séparé de « à discuter » ;
+   - firstmate tranche les remarques à discuter ; un worker corrige ; le relecteur repasse après les corrections ; puis la présentation (étape 5).
+9. Contrôles obligatoires à la réception, chacun chez son propriétaire :
+   - plusieurs tailles d'écran dont un écran peu haut, et sans JavaScript (`construction-web`) ;
+   - texte agrandi à 150 % et 200 %, texte posé sur photo, clavier (`accessibilite`) ;
+   - sincérité des images (`photographie-web`) ;
+   - vérité de chaque fait contre le constat, textes de remplacement marqués (`contenu-ecriture`).
+
+### 5. Présenter et faire valider
 
 1. Montrer chaque livrable à l'équipe d'abord, puis aux parties prenantes : ce qui n'y est pas ne sera pas construit [412738 L71 P240].
 2. Présenter écran par écran avec tous ; sinon envoyer le lien avec quoi regarder, quoi ignorer, quels retours attendus [412738 L71 P242].
@@ -83,7 +123,7 @@ Ce skill porte la relation client et le contrat de périmètre, du cadrage à la
 7. La présentation client vend le concept et répond à tous les « pourquoi » [3543948 How to Present Your Work R147-R148].
 8. Tout message au client : la demande d'abord, les raisons ensuite, des dates précises [1783776 Edit, L1].
 
-### 5. Mettre en ligne et maintenir
+### 6. Mettre en ligne et maintenir
 
 1. Faire approuver formellement le site construit : examiné, conforme, fonctionnel, travail supplémentaire payé [412738 L185 P567].
 2. Prévenir qu'il y aura des bugs [412738 L185 P568].
@@ -93,7 +133,7 @@ Ce skill porte la relation client et le contrat de périmètre, du cadrage à la
 6. Proposer un contrat de maintenance mensuel, revenu récurrent [437398 S7 The 7 Steps P1].
 7. Demander une recommandation à chaque client [2633036 Entr P173].
 
-### 6. Positionner l'agence
+### 7. Positionner l'agence
 
 1. Le portfolio est « une nécessité » : petite sélection, domaines variés, avec contexte [3918934 S10 Passer à l'action R166].
 2. Trois études de cas, le meilleur travail d'emblée, celui qu'on veut être payé pour faire ; chacune montre le processus et les raisons des choix [2401332 S10·L43 P138, P140, P141].
@@ -107,7 +147,8 @@ Ce skill porte la relation client et le contrat de périmètre, du cadrage à la
 - prix, devis, remise, contrat, acompte, validation signée ;
 - tout message, présentation ou livrable au client, tout engagement envers un tiers ;
 - ajout de périmètre, travail gratuit, dépense ;
-- affichage des prix, où le cours hésite [2633036 Entr P170 [préférence]], et usage d'un client dans le portfolio ;
+- affichage des prix, où le cours hésite [2633036 Entr P170 [préférence]] : aucune règle, la question se pose au client à chaque projet [décision du capitaine, 11 novembre 2026] ;
+- usage d'un client dans le portfolio ;
 - toute question réglementaire ou juridique [412738 L13 P39] ;
 - conserver, faire évoluer ou remplacer l'identité existante (point 1.10) : ce choix appartient au client, ni firstmate ni le worker ne le tranchent ; dans le doute, montrer une proposition qui fait évoluer l'existant et une qui s'en affranchit [décision du capitaine, 10 novembre 2026].
 
