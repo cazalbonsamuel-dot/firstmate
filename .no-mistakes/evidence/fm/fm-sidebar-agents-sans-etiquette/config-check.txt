@@ -1,0 +1,6 @@
+== herdr config check (new)
+config: ok
+rc=0
+== herdr config check (old)
+config: ok
+rc=0

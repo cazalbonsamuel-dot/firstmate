@@ -1,0 +1,40 @@
+ spaces                  │   1      +
+                         │2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-sidebar-lab.CDmJvk
+ ○ firstmate             │❯
+ ● web-api               │
+ ● └ fix-login · p:Ab3…  │
+ ● └ docs-sync · p:Zy8…  │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+ new               ● menu│
+─────────────────────────│
+ agents           grouped│
+                         │
+ ○                       │
+ 🟣 · ● web · wai… · fix…│
+ ● web · running · fix-l…│
+ ●                       │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                        «│

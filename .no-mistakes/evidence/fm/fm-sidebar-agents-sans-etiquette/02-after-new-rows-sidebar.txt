@@ -1,0 +1,40 @@
+ spaces                  │   1      +
+                         │2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-sidebar-lab.CDmJvk
+ ○ firstmate             │❯
+ ● web-api               │
+ ● └ fix-login · p:Ab3…  │
+ ● └ docs-sync · p:Zy8…  │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+ new               ● menu│
+─────────────────────────│
+ agents           grouped│
+                         │
+ ○ firstmate             │
+   firstmate captain     │
+ 🟣 · ● web-api          │
+   web · waiting · fix-s…│
+   claude: fix the login…│
+ ● └ fix-login · p:Ab3dE…│
+   web · running · fix-l…│
+   codex: fix-login work…│
+ ● └ docs-sync · p:Zy8xW…│
+   claude: docs sync     │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                        «│

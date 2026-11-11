@@ -1,0 +1,124 @@
+<!doctype html><meta charset="utf-8"><title>Herdr 0.9.3 lab sidebar: suggested agent rows before vs after (real client, 120x40)</title><style>body{background:#11111b;color:#cdd6f4;font-family:sans-serif;margin:16px}h1{font-size:16px}h2{font-size:13px;color:#a6adc8;max-width:360px}.row{display:flex;gap:24px;align-items:flex-start}pre{background:#1e1e2e;padding:8px;font:13px/1.25 Menlo,monospace;margin:0;width:max-content}</style><h1>Herdr 0.9.3 lab sidebar: suggested agent rows before vs after (real client, 120x40)</h1><div class="row"><div class="p"><h2>BEFORE (base e220e838 rows): untagged firstmate and untagged projected docs-sync render as bare dots</h2><pre><span style="color:rgb(108,112,134);font-weight:bold"> spaces</span><span style="">                  </span>
+<span style="">                         </span>
+<span style="background:rgb(30,30,46)"> </span><span style="color:rgb(166,227,161);background:rgb(30,30,46)">○</span><span style="color:rgb(108,112,134);background:rgb(30,30,46)"> </span><span style="color:rgb(205,214,244);background:rgb(30,30,46);font-weight:bold">firstmate</span><span style="background:rgb(30,30,46)">             </span>
+<span style=""> </span><span style="color:rgb(243,139,168)">●</span><span style="color:rgb(108,112,134)"> </span><span style="color:rgb(166,173,200)">web-api</span><span style="">               </span>
+<span style=""> </span><span style="color:rgb(249,226,175)">●</span><span style="color:rgb(108,112,134)"> </span><span style="color:rgb(166,173,200)">└ fix-login · p:Ab3…</span><span style="">  </span>
+<span style=""> </span><span style="color:rgb(249,226,175)">●</span><span style="color:rgb(108,112,134)"> </span><span style="color:rgb(166,173,200)">└ docs-sync · p:Zy8…</span><span style="">  </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="color:rgb(108,112,134)"> new</span><span style="">               </span><span style="color:rgb(137,180,250);font-weight:bold">● </span><span style="color:rgb(108,112,134)">menu</span>
+<span style="color:rgb(30,30,46)">─────────────────────────</span>
+<span style="color:rgb(108,112,134);font-weight:bold"> agents</span><span style="">           </span><span style="color:rgb(108,112,134);font-weight:bold">grouped</span>
+<span style="">                         </span>
+<span style="background:rgb(30,30,46)"> </span><span style="color:rgb(166,227,161);background:rgb(30,30,46)">○</span><span style="background:rgb(30,30,46)">                       </span>
+<span style=""> </span><span style="color:rgb(108,112,134)">🟣 · </span><span style="color:rgb(243,139,168)">●</span><span style="color:rgb(108,112,134)"> </span><span style="color:rgb(108,112,134);font-weight:bold">web</span><span style="color:rgb(108,112,134)"> · wai… · fix…</span><span style="color:rgb(30,30,46)">│</span>
+<span style=""> </span><span style="color:rgb(249,226,175)">●</span><span style="color:rgb(108,112,134)"> </span><span style="color:rgb(108,112,134);font-weight:bold">web</span><span style="color:rgb(108,112,134)"> · running · fix-l…</span>
+<span style=""> </span><span style="color:rgb(249,226,175)">●</span><span style="">                       </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                        </span><span style="color:rgb(108,112,134)">«</span>
+
+</pre></div><div class="p"><h2>AFTER (this change): every agent named by its workspace, tagged agents add group/state/task, title row</h2><pre><span style="color:rgb(108,112,134);font-weight:bold"> spaces</span><span style="">                  </span>
+<span style="">                         </span>
+<span style="background:rgb(30,30,46)"> </span><span style="color:rgb(166,227,161);background:rgb(30,30,46)">○</span><span style="color:rgb(108,112,134);background:rgb(30,30,46)"> </span><span style="color:rgb(205,214,244);background:rgb(30,30,46);font-weight:bold">firstmate</span><span style="background:rgb(30,30,46)">             </span>
+<span style=""> </span><span style="color:rgb(243,139,168)">●</span><span style="color:rgb(108,112,134)"> </span><span style="color:rgb(166,173,200)">web-api</span><span style="">               </span>
+<span style=""> </span><span style="color:rgb(249,226,175)">●</span><span style="color:rgb(108,112,134)"> </span><span style="color:rgb(166,173,200)">└ fix-login · p:Ab3…</span><span style="">  </span>
+<span style=""> </span><span style="color:rgb(249,226,175)">●</span><span style="color:rgb(108,112,134)"> </span><span style="color:rgb(166,173,200)">└ docs-sync · p:Zy8…</span><span style="">  </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="color:rgb(108,112,134)"> new</span><span style="">               </span><span style="color:rgb(137,180,250);font-weight:bold">● </span><span style="color:rgb(108,112,134)">menu</span>
+<span style="color:rgb(30,30,46)">─────────────────────────</span>
+<span style="color:rgb(108,112,134);font-weight:bold"> agents</span><span style="">           </span><span style="color:rgb(108,112,134);font-weight:bold">grouped</span>
+<span style="">                         </span>
+<span style="background:rgb(30,30,46)"> </span><span style="color:rgb(166,227,161);background:rgb(30,30,46)">○</span><span style="color:rgb(108,112,134);background:rgb(30,30,46)"> </span><span style="color:rgb(205,214,244);background:rgb(30,30,46);font-weight:bold">firstmate</span><span style="background:rgb(30,30,46)">             </span>
+<span style="background:rgb(30,30,46)">   </span><span style="color:rgb(108,112,134);background:rgb(30,30,46)">firstmate captain</span><span style="background:rgb(30,30,46)">     </span>
+<span style=""> </span><span style="color:rgb(108,112,134)">🟣 · </span><span style="color:rgb(243,139,168)">●</span><span style="color:rgb(108,112,134)"> </span><span style="color:rgb(166,173,200);font-weight:bold">web-api</span><span style="">          </span><span style="color:rgb(30,30,46)">│</span>
+<span style="">   </span><span style="color:rgb(108,112,134);font-weight:bold">web</span><span style="color:rgb(108,112,134)"> · waiting · fix-s…</span>
+<span style="">   </span><span style="color:rgb(108,112,134)">claude: fix the login…</span>
+<span style=""> </span><span style="color:rgb(249,226,175)">●</span><span style="color:rgb(108,112,134)"> </span><span style="color:rgb(166,173,200);font-weight:bold">└ fix-login · p:Ab3dE…</span>
+<span style="">   </span><span style="color:rgb(108,112,134);font-weight:bold">web</span><span style="color:rgb(108,112,134)"> · running · fix-l…</span>
+<span style="">   </span><span style="color:rgb(108,112,134)">codex: fix-login work…</span>
+<span style=""> </span><span style="color:rgb(249,226,175)">●</span><span style="color:rgb(108,112,134)"> </span><span style="color:rgb(166,173,200);font-weight:bold">└ docs-sync · p:Zy8xW…</span>
+<span style="">   </span><span style="color:rgb(108,112,134)">claude: docs sync</span><span style="">     </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                        </span><span style="color:rgb(108,112,134)">«</span>
+
+</pre></div><div class="p"><h2>AFTER, adversarial: fix-login tokens cleared + firstmate title emptied; empty rows dropped, no blank lines</h2><pre><span style="color:rgb(108,112,134);font-weight:bold"> spaces</span><span style="">                  </span>
+<span style="">                         </span>
+<span style="background:rgb(30,30,46)"> </span><span style="color:rgb(166,227,161);background:rgb(30,30,46)">○</span><span style="color:rgb(108,112,134);background:rgb(30,30,46)"> </span><span style="color:rgb(205,214,244);background:rgb(30,30,46);font-weight:bold">firstmate</span><span style="background:rgb(30,30,46)">             </span>
+<span style=""> </span><span style="color:rgb(243,139,168)">●</span><span style="color:rgb(108,112,134)"> </span><span style="color:rgb(166,173,200)">web-api</span><span style="">               </span>
+<span style=""> </span><span style="color:rgb(249,226,175)">●</span><span style="color:rgb(108,112,134)"> </span><span style="color:rgb(166,173,200)">└ fix-login · p:Ab3…</span><span style="">  </span>
+<span style=""> </span><span style="color:rgb(249,226,175)">●</span><span style="color:rgb(108,112,134)"> </span><span style="color:rgb(166,173,200)">└ docs-sync · p:Zy8…</span><span style="">  </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="color:rgb(108,112,134)"> new</span><span style="">               </span><span style="color:rgb(137,180,250);font-weight:bold">● </span><span style="color:rgb(108,112,134)">menu</span>
+<span style="color:rgb(30,30,46)">─────────────────────────</span>
+<span style="color:rgb(108,112,134);font-weight:bold"> agents</span><span style="">           </span><span style="color:rgb(108,112,134);font-weight:bold">grouped</span>
+<span style="">                         </span>
+<span style="background:rgb(30,30,46)"> </span><span style="color:rgb(166,227,161);background:rgb(30,30,46)">○</span><span style="color:rgb(108,112,134);background:rgb(30,30,46)"> </span><span style="color:rgb(205,214,244);background:rgb(30,30,46);font-weight:bold">firstmate</span><span style="background:rgb(30,30,46)">             </span>
+<span style=""> </span><span style="color:rgb(108,112,134)">🟣 · </span><span style="color:rgb(243,139,168)">●</span><span style="color:rgb(108,112,134)"> </span><span style="color:rgb(166,173,200);font-weight:bold">web-api</span><span style="">          </span><span style="color:rgb(30,30,46)">│</span>
+<span style="">   </span><span style="color:rgb(108,112,134);font-weight:bold">web</span><span style="color:rgb(108,112,134)"> · waiting · fix-s…</span>
+<span style="">   </span><span style="color:rgb(108,112,134)">claude: fix the login…</span>
+<span style=""> </span><span style="color:rgb(249,226,175)">●</span><span style="color:rgb(108,112,134)"> </span><span style="color:rgb(166,173,200);font-weight:bold">└ fix-login · p:Ab3dE…</span>
+<span style="">   </span><span style="color:rgb(108,112,134)">codex: fix-login work…</span>
+<span style=""> </span><span style="color:rgb(249,226,175)">●</span><span style="color:rgb(108,112,134)"> </span><span style="color:rgb(166,173,200);font-weight:bold">└ docs-sync · p:Zy8xW…</span>
+<span style="">   </span><span style="color:rgb(108,112,134)">claude: docs sync</span><span style="">     </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                         </span>
+<span style="">                        </span><span style="color:rgb(108,112,134)">«</span>
+
+</pre></div></div>

@@ -1,0 +1,4 @@
+{"pane_id":"w1:p1","agent":"claude","agent_status":"working","title":null,"terminal_title":"firstmate captain","tokens":null}
+{"pane_id":"w2:p1","agent":"claude","agent_status":"working","title":null,"terminal_title":"fix cart totals","tokens":{"fm_group":"storefront","fm_state":"running","fm_task":"fix-cart"}}
+{"pane_id":"w3:p1","agent":"codex","agent_status":"blocked","title":null,"terminal_title":"web run tests","tokens":{"fm_group":"web","fm_icon":"🟣","fm_state":"waiting","fm_task":"web-run"}}
+{"pane_id":"w4:p1","agent":"codex","agent_status":"idle","title":null,"terminal_title":"other home worker","tokens":null}

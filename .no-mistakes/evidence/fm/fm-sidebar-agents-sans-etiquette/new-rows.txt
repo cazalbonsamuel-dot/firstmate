@@ -1,0 +1,42 @@
+ spaces                  │   1      +
+                         │
+ ● firstmate             │
+ ● storefront            │
+ ● └ web-run · p:AbCdE…  │
+ ○ other-home            │           ┌──────────────────────────────────────────────────────────────────────────┐
+                         │           │ settings                                                                 │
+                         │           │ theme   indicators   sound   toasts   integrations                       │
+                         │           │──────────────────────────────────────────────────────────────────────────│
+                         │           │                                                                          │
+                         │           │agent integrations                                                        │
+                         │           │enable session restore and, where supported, direct status updates        │
+                         │           │                                                                          │
+                         │           │ + pi         available                                                   │
+                         │           │ – omp        not found                                                   │
+                         │           │ ✓ claude     installed                                                   │
+                         │           │ – codex      not found                                                   │
+                         │           │ – copilot    not found                                                   │
+                         │           │ – devin      not found                                                   │
+                         │           │ – droid      not found                                                   │
+ new               ● menu│           │ – kimi       not found                                                   │
+─────────────────────────│           │ + opencode   available                                                   │
+ agents           grouped│           │ – kilo       not found                                                   │
+                         │           │ – hermes     not found                                                   │
+ ● firstmate             │           │ – qodercli   not found                                                   │
+   firstmate captain     │           │ – qwen       not found                                                   │
+ ● storefront            │           │ – cursor     not found                                                   │
+   store… · runn… · fix-…│           │ – mastracode not found                                                   │
+   fix cart totals       │           │ – antigravitynot found                                                   │
+ 🟣 · ● └ web-run · p:Ab…│           │ – grok       not found                                                   │
+   web · waiting · web-r…│           │                                                                          │
+   web run tests         │           │                                                                          │
+ ○ other-home            │           │                                                                          │
+   other home worker     │           │ ↑↓ select  tab section                                                   │
+                         │           │                          ↵ install   esc close                           │
+                         │           └──────────────────────────────────────────────────────────────────────────┘
+                         │
+                         │
+                         │
+                         │
+                         │
+                        «│

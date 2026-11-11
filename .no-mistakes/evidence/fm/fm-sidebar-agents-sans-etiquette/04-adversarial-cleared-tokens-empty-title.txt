@@ -1,0 +1,41 @@
+# after: w3:p1 fm_* tokens cleared (fm-herdr-groups clear equivalent); w1:p1 terminal title emptied
+ spaces                  │   1      +
+                         │2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-sidebar-lab.CDmJvk
+ ○ firstmate             │❯
+ ● web-api               │
+ ● └ fix-login · p:Ab3…  │
+ ● └ docs-sync · p:Zy8…  │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+ new               ● menu│
+─────────────────────────│
+ agents           grouped│
+                         │
+ ○ firstmate             │
+ 🟣 · ● web-api          │
+   web · waiting · fix-s…│
+   claude: fix the login…│
+ ● └ fix-login · p:Ab3dE…│
+   codex: fix-login work…│
+ ● └ docs-sync · p:Zy8xW…│
+   claude: docs sync     │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                         │
+                        «│
