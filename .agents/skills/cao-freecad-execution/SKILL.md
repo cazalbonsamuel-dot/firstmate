@@ -28,6 +28,7 @@ Lanceurs, bail, délais et refus sont dans `method/guides/freecad.md`, vues et i
 5. Fixer le délai maximal dans l'autorisation : le `timeout_s` du `delivery_check` déclaré, sinon la durée mesurée dans `method/performance.md` avec une marge, au plus le double.
    Le délai se compte hors attente du bail et en temps éveillé : avant une passe longue, Mac sur secteur ou capot ouvert, sous `caffeinate -i` ; capot fermé sur batterie, le Mac s'endort et la passe dépasse son délai.
    Une exécution jamais mesurée se mesure d'abord en une passe surveillée, puis entre dans `method/performance.md` par un worker.
+   Un nouveau contrôle natif déclare dans ses `inputs` les helpers communs qu'il traverse, lanceurs, bail et environnement compris (`method/contrat/preuves-critiques.md`, « Champs attendus sur `delivery_checks` »).
 6. Délai dépassé ou plantage : appliquer `method/worker.md` §5 (arrêt, fichiers conservés, une seule relance après diagnostic, comptée dans le budget) ; un deuxième échec identique devient `blocked` au second maître, avec code, journal et fichiers partiels, jamais une relance en boucle.
 7. Diagnostiquer d'après les messages des lanceurs et les guides :
    - échec avant le script avec `hw.optional.neon` illisible : runtime en bac à sable (§12), changer de runtime, ne pas relancer à l'identique ;

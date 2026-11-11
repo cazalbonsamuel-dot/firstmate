@@ -19,6 +19,7 @@ La méthode du dépôt `agent-conception-cao`, à la tête de sa branche par dé
 
 1. Un seul worker S5, brief écrit avec `cao-worker-brief` sur la ligne « Réception et re-pointage S5 » du §13 ; il est le seul à faire le re-pointage final complet du manifeste et ses revendications de maturité.
 2. Ses commandes sont celles du contrat (« Commandes du worker », worker de réception S5), en série et sous la règle du travail lourd (`cao-freecad-execution`) ; le brief fixe la portée de `delivery --execute`, lot de cas (`--case`) ou plein périmètre, selon les critères de cette section, et le délai et le Mac éveillé d'une passe longue (`cao-freecad-execution`).
+   `--case` vérifie lui-même les versions de FreeCAD et de macOS contre `method/versions-reference.json` ; s'il refuse (`delivery_case_versions_refused`), le plein périmètre est obligatoire et la mise à jour de la référence des versions (`method/versions-reference.json` et la ligne de `method/performance.md`) relève d'un lot méthode séparé qui passe ce plein périmètre, lancé par le superviseur ; le worker S5 s'arrête et le signale, il ne touche pas ces fichiers. La durée du plein périmètre se lit dans `method/performance.md` (« Versions locales observées »), jamais recopiée.
 3. Contenu attendu de la PR :
    - manifeste complet selon le §3 (« Squelette d'un nouveau cas », manifeste minimal) avec `decision_record` en `option_validee`, plus `definition_scope` si le prototype fabricable est revendiqué ;
    - `cases/<cas>/README.md`, `params.json`, `interfaces.json`, et la décision et ses annexes pour un nouveau cas (le gabarit en un seul fichier pour un cas qui l'a déjà) ;
@@ -42,7 +43,7 @@ La méthode du dépôt `agent-conception-cao`, à la tête de sa branche par dé
 - **Second maître** : moment du lancement S5, portée de `delivery --execute`, acceptation de la remise S5, contenu du message.
 - **Worker S5** : re-pointage et commandes ; il s'arrête si un contrôle exige de modifier une entrée gelée, un autre cas ou un helper.
 - Refuser une livraison sans `delivery --execute` à 0, à la portée fixée, dans la copie du worker S5, ou sans `delivery` à 0 sans aucun écart côté second maître.
-- Refuser `--case` pour un lot qui touche un fichier hors du cas ou après une mise à jour de FreeCAD ou de macOS non encore passée en plein périmètre.
+- Refuser `--case` pour un lot qui touche un fichier hors du cas ; `--case` refuse lui-même des versions différentes de la référence (`delivery_case_versions_refused`) : le plein périmètre est alors obligatoire.
 
 ## Références
 
@@ -52,4 +53,4 @@ La méthode du dépôt `agent-conception-cao`, à la tête de sa branche par dé
 - §13 « Travail parallèle sous un superviseur » : S4, S5, ressources partagées.
 - Contrat, « Principes obligatoires pour une livraison finale », « Commandes », « Remise d'un worker et acceptation par le superviseur ».
 - `method/contrat/maturite.md`, `method/contrat/reception.md`.
-- `method/worker.md` §6 « Règles de commit » ; `method/guides/techdraw.md` ; `method/performance.md` « Versions locales observées ».
+- `method/worker.md` §6 « Règles de commit » ; `method/guides/techdraw.md` ; `method/performance.md` « Versions locales observées », `method/versions-reference.json`.

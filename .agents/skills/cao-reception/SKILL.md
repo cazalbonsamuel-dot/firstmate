@@ -21,7 +21,7 @@ Commandes, écarts admis et partage entre contrôle mécanique et revue sont dan
    Pour un scout (recherche, pré-dimensionnement), lire son livrable contre la ligne du §13 ; il n'y a ni manifeste ni contrôleur à passer.
 2. Dans la copie du worker ou une autre copie isolée et propre de la branche, jamais la copie principale, sans GUI et jamais avec `--execute` :
    - `python3 method/check_method.py delivery`, puis `python3 method/check_method.py summary method/cases/<cas>/manifest.json` ; leur vue compacte suffit, `--full` seulement quand une erreur ou un écart demande le détail d'une preuve ; `cases` est inutile quand `delivery` tourne ;
-   - `python3 method/check_method.py reception method/cases/<cas>/manifest.json --fiche <fiche> --base <tête de la branche du cas avant l'unité> --role worker|gel|s5` pour les refus mécaniques ;
+   - `python3 method/check_method.py reception method/cases/<cas>/manifest.json --fiche <fiche> --base <tête de la branche du cas avant l'unité> --role worker|gel|s5` pour les refus mécaniques ; le rôle `gel` admet en plus le re-pointage de l'empreinte de ses entrées gelées déclarées dans les `delivery_checks[].inputs` qui les citent, tout autre changement d'un contrôle restant refusé ;
    - pendant un travail lourd, ces commandes attendent le bail (`cao-freecad-execution`) ; sans `freecadcmd`, la maturité reste `non_etabli` : contrôler la cohérence, ne pas accepter de maturité ;
    - vérifier ensuite que la copie est restée propre (`git status`).
 3. Faire la revue humaine que `reception` ne fait pas :
@@ -30,6 +30,7 @@ Commandes, écarts admis et partage entre contrôle mécanique et revue sont dan
    - plans TechDraw : contrôle de mise en page et relecture en image selon `method/guides/techdraw.md`, sans valeur de preuve ;
    - ordre d'intégration fixé par le second maître, provenance MCP, fichiers touchés comparés au périmètre du brief.
 4. Refuser la remise, sans la requalifier, sur tout motif du contrat (« Refus », section « Remise d'un worker et acceptation par le superviseur ») , en particulier une erreur de `delivery` hors des écarts admis par `method/contrat/reception.md`, `reception` différent de 0, ou un écart trouvé à la revue.
+   Un refus `delivery_case_versions_refused` se lit « plein périmètre obligatoire » : FreeCAD ou macOS diffèrent de `method/versions-reference.json`, et seul `delivery --execute` sans `--case` vaut (contrat, « Commandes du worker »).
 5. Décider :
    - accepter quand le contrôleur est vert et la revue sans écart ;
    - renvoyer au worker par `fm-send` avec le point exact (règle, fichier, sortie ou ligne en cause) ;
