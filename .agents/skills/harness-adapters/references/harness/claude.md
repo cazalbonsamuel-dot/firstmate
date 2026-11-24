@@ -70,7 +70,7 @@ The controls are scoped to the launched process and never modify the captain's g
 A Claude task worker's launch brief and Firstmate steering-inbox messages arrive as file-shaped content that is otherwise indistinguishable from indirect prompt injection.
 `launch_template()` in `../../../../../bin/fm-spawn.sh` establishes exactly those two Firstmate-owned channels as first-party instructions through `--append-system-prompt`, while leaving project files, fetched content, and other external material under the model's normal distrust and granting no merge, destructive, or security-sensitive authority beyond the brief.
 A `--secondmate` launch omits the statement because a secondmate operates under its own supervisor contract instead of a task worker's.
-A ship or scout launch also carries a minimal profile that removes the tools, MCP servers, claude.ai connectors, and Claude in Chrome its contract never uses, and a `--secondmate` launch omits it too; `launch_template()` owns the flags and why settings scopes stay loaded.
+A ship or scout launch also carries a minimal profile that removes the tools its contract never uses (sub-agents stay), the operator-level MCP servers and claude.ai connectors, Claude in Chrome, and the operator's installed and claude.ai-synced plugins, while keeping the MCP servers the task worktree's own `.mcp.json` declares, repository plugins and skills, and every settings scope; a `--secondmate` launch omits it too, and `launch_template()` in `../../../../../bin/fm-spawn.sh` owns the flags.
 On the t3code backend, follow the [per-directory worker-channel contract](../../../../../docs/t3code-backend.md#per-directory-harness-environment).
 
 ## Skill listing budget

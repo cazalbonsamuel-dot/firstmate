@@ -509,6 +509,9 @@
 #     __CLAUDESETTINGS__ the single claude --settings value: a quoted inline
 #                  JSON object for a crewmate or scout, or a quoted path to
 #                  state/<task-id>.claude-settings.json for a secondmate
+#     __CLAUDEMCPCONFIG__ ship/scout only: `--mcp-config '<worktree>/.mcp.json' `
+#                  when the task worktree declares that file (supplies its own
+#                  trailing space, empty otherwise)
 #     __PIBIN__    quoted concrete Pi-family executable path resolved from PATH
 #     __PITUIMODE__ optional --tui-mode regular when that executable advertises it
 #     __PIAPPROVE__ optional --approve on a seeded Pi/pi-signed secondmate when
@@ -2726,20 +2729,25 @@ launch_template() {
   # supervisor contract instead, so this task-worker statement does not apply.
   # A ship or scout also gets the minimal worker profile, so every request
   # stops carrying tool definitions and listings its contract forbids or never
-  # uses. --disallowedTools removes delegation (Agent, ListAgents, Workflow),
+  # uses. --disallowedTools removes workflow orchestration (Workflow),
   # captain-facing surfaces (AskUserQuestion, Artifact, ReportFindings),
   # self-scheduling (ScheduleWakeup), and the built-in easel chart server
-  # (mcp__easel). --strict-mcp-config with no --mcp-config loads no MCP server
-  # and no claude.ai connector, and --no-chrome drops Claude in Chrome; browser
-  # work goes through chrome-devtools-axi. Settings sources stay untouched on
-  # purpose: --setting-sources project,local would also drop the user-scope
-  # hooks (rtk output compression, Herdr agent state) and user skills such as
-  # no-mistakes that the worker contract needs. Project skills and hooks load
-  # as before. A secondmate keeps the full surface it supervises with.
+  # (mcp__easel); sub-agents (Agent, ListAgents) stay, since the worker
+  # contract allows them. --strict-mcp-config drops every operator-level MCP
+  # server and claude.ai connector, while __CLAUDEMCPCONFIG__ loads the task
+  # worktree's own .mcp.json when the repository declares one, and --no-chrome
+  # drops Claude in Chrome; browser work goes through chrome-devtools-axi.
+  # The inline --settings JSON also disables the operator's installed and
+  # claude.ai-synced plugins (claude_worker_plugins_off). Settings sources stay
+  # untouched on purpose: --setting-sources project,local would also drop the
+  # user-scope hooks (rtk output compression, Herdr agent state) and user
+  # skills such as no-mistakes that the worker contract needs. Project skills,
+  # project plugins, and hooks load as before. A secondmate keeps the full
+  # surface it supervises with.
   claude)
     printf '%s' 'CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION=false CLAUDE_CODE_SEND_FEEDBACK=0 claude __CLAUDEPERMFLAG__ __CLAUDEADDDIRS__--settings __CLAUDESETTINGS__ '
     if [ "$kind" != secondmate ]; then
-      printf '%s' "--disallowedTools 'Agent,ListAgents,Workflow,AskUserQuestion,Artifact,ReportFindings,ScheduleWakeup,mcp__easel' --strict-mcp-config --no-chrome "
+      printf '%s' "--disallowedTools 'Workflow,AskUserQuestion,Artifact,ReportFindings,ScheduleWakeup,mcp__easel' --strict-mcp-config __CLAUDEMCPCONFIG__--no-chrome "
       printf '%s' "--append-system-prompt '$(spawn_claude_task_channel_statement)' "
     fi
     # Claude Code strips invisible characters, U+2063 included, from the
@@ -3760,6 +3768,26 @@ rovo_config_override_flag() {
 # directory that does not exist at launch would leave the channel created
 # later outside the grant. The grant never covers the whole state/ (watcher
 # internals live there) or anything wider.
+# The settings fragment that disables, for one ship or scout launch, every
+# plugin the operator installed or claude.ai synced. Claude Code itself lists
+# them from the task worktree under the launch's CLAUDE_CONFIG_DIR, so the set
+# follows whatever is installed. Plugins the repository enables (project and
+# local scope) and skills-dir plugins (repository .claude/skills and user
+# skills such as no-mistakes) stay loaded. Prints `,"enabledPlugins":{...}`
+# or nothing when there is nothing to disable or no claude or jq to list with.
+claude_worker_plugins_off() {  # <worktree>
+  local listing
+  command -v claude >/dev/null 2>&1 && command -v jq >/dev/null 2>&1 || return 0
+  listing=$(cd "$1" && claude plugin list --json 2>/dev/null) || return 0
+  printf '%s' "$listing" | jq -j '
+    [.[]? | select(.scope != "project" and .scope != "local") | .id
+      | select(type == "string" and (endswith("@skills-dir") | not) and test("^[A-Za-z0-9._@-]+$"))]
+    | unique
+    | if length == 0 then empty
+      else ",\"enabledPlugins\":" + (map({(.): false}) | add | tojson) end
+  ' 2>/dev/null || return 0
+}
+
 claude_add_dirs_flag() {  # <kind> <state-dir> <data-dir> <code-root> <task-id>
   local kind=$1 state_dir=$2 data_dir=$3 code_root=$4 id=$5
   local state_real data_real root_real out='' d
@@ -7205,7 +7233,7 @@ case "$LAUNCH" in
   if [ "$KIND" = secondmate ]; then
     LAUNCH=${LAUNCH//__CLAUDESETTINGS__/$(shell_quote "$STATE_REAL/$ID.claude-settings.json")}
   else
-    claude_settings="'{\"feedbackDrafts\":\"off\"__CLAUDEATTRIBUTION__}'"
+    claude_settings="'{\"feedbackDrafts\":\"off\"$(claude_worker_plugins_off "$WT")__CLAUDEATTRIBUTION__}'"
     LAUNCH=${LAUNCH//__CLAUDESETTINGS__/$claude_settings}
   fi
   ;;
@@ -7290,6 +7318,9 @@ kiro)
   ;;
 esac
 LAUNCH=${LAUNCH//__WORKTREE__/$sq_worktree}
+CLAUDE_MCP_CONFIG=
+[ ! -f "$WT/.mcp.json" ] || CLAUDE_MCP_CONFIG="--mcp-config $(shell_quote "$WT/.mcp.json") "
+LAUNCH=${LAUNCH//__CLAUDEMCPCONFIG__/$CLAUDE_MCP_CONFIG}
 # A record-backed launch brief is published into the state dir of the pane
 # receiving it, which for a secondmate is its own home, not this primary's.
 case "$LAUNCH" in
