@@ -1,0 +1,532 @@
+  ⎿  Context Usage
+     ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁ ⛁   Sonnet 5.5                                                                                                                                                                                       
+     ⛀ ⛁ ⛀ ⛀ ⛁ ⛁ ⛁ ⛁ ⛁ ⛀   claude-sonnet-5-5                                                                                                                                                                              
+     ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   35k/200k tokens (17%)                                                                                                                                                                            
+     ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶                                                                 
+     ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   Estimated usage by category                                                                                                                                                                      
+     ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ System prompt: 4.4k tokens (2.2%)                                                                                
+     ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ System tools: 16.1k tokens (8.0%)                                                                     
+     ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶ ⛶   ⛁ MCP tools: 648 tokens (0.3%)
+     ⛶ ⛶ ⛶ ⛝ ⛝ ⛝ ⛝ ⛝ ⛝ ⛝   ⛁ MCP server instructions: 3.1k tokens (1.5%)
+     ⛝ ⛝ ⛝ ⛝ ⛝ ⛝ ⛝ ⛝ ⛝ ⛝   ⛁ Memory files: 770 tokens (0.4%)
+                           ⛁ Skills: 10k tokens (5.0%)
+                           ⛁ Messages: 10 tokens (0.0%)
+                           ⛶ Free space: 132k (66.0%)
+                           ⛝ Autocompact buffer: 33k tokens (16.5%)
+
+     Auto-compact window: 200k tokens
+
+     MCP tools · /mcp (loaded on-demand)
+
+     Loaded
+     ├ mcp__claude_ai_Claude_Docs__batch: 147 tokens
+     ├ mcp__claude_ai_Claude_Docs__guide: 186 tokens
+     └ mcp__claude_ai_Claude_Docs__update: 315 tokens
+
+     Available
+     ├ mcp__awwwards__analyze_accessibility
+     ├ mcp__awwwards__analyze_bundle
+     ├ mcp__awwwards__analyze_hover_census
+     ├ mcp__awwwards__analyze_images
+     ├ mcp__awwwards__analyze_network_capture
+     ├ mcp__awwwards__analyze_page_structure
+     ├ mcp__awwwards__analyze_scroll_map
+     ├ mcp__awwwards__analyze_stack
+     ├ mcp__awwwards__audit_url
+     ├ mcp__awwwards__build_gsap_stub
+     ├ mcp__awwwards__build_motion_manifest
+     ├ mcp__awwwards__build_pose_stub
+     ├ mcp__awwwards__build_project
+     ├ mcp__awwwards__build_scene_stub
+     ├ mcp__awwwards__capture_component
+     ├ mcp__awwwards__capture_live_site
+     ├ mcp__awwwards__capture_pose_3d
+     ├ mcp__awwwards__capture_scene_3d
+     ├ mcp__awwwards__compare_sites
+     ├ mcp__awwwards__create_design_brief
+     ├ mcp__awwwards__export_design_tokens
+     ├ mcp__awwwards__get_annual_categories
+     ├ mcp__awwwards__get_annual_nominee
+     ├ mcp__awwwards__get_annual_nominees
+     ├ mcp__awwwards__get_collections
+     ├ mcp__awwwards__get_element
+     ├ mcp__awwwards__get_index_stats
+     ├ mcp__awwwards__get_index_status
+     ├ mcp__awwwards__get_motion_dna
+     ├ mcp__awwwards__get_site_details
+     ├ mcp__awwwards__get_site_elements
+     ├ mcp__awwwards__list_categories
+     ├ mcp__awwwards__new_winners
+     ├ mcp__awwwards__record_site_motion
+     ├ mcp__awwwards__search_directory
+     ├ mcp__awwwards__search_elements
+     ├ mcp__awwwards__search_motion
+     ├ mcp__awwwards__search_sites
+     ├ mcp__awwwards__verify_build
+     ├ mcp__awwwards__verify_flow
+     ├ mcp__awwwards__watch_site
+     ├ mcp__claude_ai_Claude_Docs__create
+     ├ mcp__claude_ai_Claude_Docs__delete
+     ├ mcp__claude_ai_Claude_Docs__export
+     ├ mcp__claude_ai_Claude_Docs__query
+     ├ mcp__claude_ai_Claude_Docs__read
+     ├ mcp__claude_ai_Framer__create_project
+     ├ mcp__claude_ai_Framer__create_upload_url
+     ├ mcp__claude_ai_Framer__exec
+     ├ mcp__claude_ai_Framer__list_projects
+     ├ mcp__claude_ai_Framer__list_workspaces
+     ├ mcp__claude_ai_Framer__open_project
+     ├ mcp__claude_ai_Framer__read_docs
+     ├ mcp__claude_ai_Framer__submit_feedback
+     ├ mcp__claude_ai_Framer__view_image
+     ├ mcp__claude_ai_Gmail__authenticate
+     ├ mcp__claude_ai_Gmail__complete_authentication
+     ├ mcp__claude_ai_Google_Calendar__authenticate
+     ├ mcp__claude_ai_Google_Calendar__complete_authentication
+     ├ mcp__claude_ai_Google_Drive__copy_file
+     ├ mcp__claude_ai_Google_Drive__create_file
+     ├ mcp__claude_ai_Google_Drive__download_file_content
+     ├ mcp__claude_ai_Google_Drive__get_file_metadata
+     ├ mcp__claude_ai_Google_Drive__get_file_permissions
+     ├ mcp__claude_ai_Google_Drive__get_shared_drive_metadata
+     ├ mcp__claude_ai_Google_Drive__list_file_revisions
+     ├ mcp__claude_ai_Google_Drive__list_recent_files
+     ├ mcp__claude_ai_Google_Drive__list_shared_drives
+     ├ mcp__claude_ai_Google_Drive__read_file_content
+     ├ mcp__claude_ai_Google_Drive__request_access
+     ├ mcp__claude_ai_Google_Drive__search_files
+     ├ mcp__claude_ai_Google_Drive__share_file
+     ├ mcp__claude_ai_Google_Drive__trash_file
+     ├ mcp__claude_ai_Google_Drive__update_file
+     ├ mcp__claude_ai_UXKIN__find_ui_materials
+     ├ mcp__claude_ai_UXKIN__find_ui_references
+     ├ mcp__claude_ai_UXKIN__get_collection
+     ├ mcp__claude_ai_UXKIN__get_journey
+     ├ mcp__claude_ai_UXKIN__list_collections
+     ├ mcp__claude_ai_WordPress_com__describe_remote_abilities
+     ├ mcp__claude_ai_WordPress_com__docs
+     ├ mcp__claude_ai_WordPress_com__execute_remote_ability
+     ├ mcp__claude_ai_WordPress_com__execute_remote_read_ability
+     ├ mcp__claude_ai_WordPress_com__search_remote_abilities
+     ├ mcp__claude_ai_WordPress_com__wpcom-account-settings-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-account-ssh-keys-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-attach-domain-to-site
+     ├ mcp__claude_ai_WordPress_com__wpcom-blaze-campaign-draft
+     ├ mcp__claude_ai_WordPress_com__wpcom-blaze-campaign-stop
+     ├ mcp__claude_ai_WordPress_com__wpcom-blaze-campaigns-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-blocks-allowed
+     ├ mcp__claude_ai_WordPress_com__wpcom-change-account-currency
+     ├ mcp__claude_ai_WordPress_com__wpcom-checkout-url
+     ├ mcp__claude_ai_WordPress_com__wpcom-code-deployment-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-code-deployment-run-logs-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-code-deployment-runs-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-code-deployment-runs-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-code-deployments-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-code-deployments-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-connected-apps-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-connected-apps-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-content-import-start
+     ├ mcp__claude_ai_WordPress_com__wpcom-content-import-status
+     ├ mcp__claude_ai_WordPress_com__wpcom-content-import-upload-request
+     ├ mcp__claude_ai_WordPress_com__wpcom-content-items-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-content-items-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-content-items-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-content-items-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-content-items-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-content-terms-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-content-terms-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-content-terms-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-content-terms-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-content-terms-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-content-types-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-content-types-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-database-password-reset
+     ├ mcp__claude_ai_WordPress_com__wpcom-detach-domain-from-site
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-auth-code-send
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-contact-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-contact-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-details
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-dns-public-check
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-dns-records
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-dnssec-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-email-forwarding-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-email-forwarding-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-email-forwarding-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-forwarding-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-forwarding-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-forwarding-save
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-get-nameservers
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-glue-records-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-glue-records-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-glue-records-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-glue-records-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-mail-service-records
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-privacy-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-provision-ssl
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-purchase
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-security-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-set-mail-service
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-transfer-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-transfer-in-check
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-transfer-in-status
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-transfer-lock-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-update-dns-records
+     ├ mcp__claude_ai_WordPress_com__wpcom-domain-update-nameservers
+     ├ mcp__claude_ai_WordPress_com__wpcom-get-themes
+     ├ mcp__claude_ai_WordPress_com__wpcom-global-styles-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-global-styles-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-global-styles-variations
+     ├ mcp__claude_ai_WordPress_com__wpcom-hosting-cron-jobs-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-hosting-cron-jobs-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-hosting-data-center-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-hosting-edge-cache-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-hosting-edge-cache-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-hosting-firewall-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-hosting-firewall-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-hosting-php-version-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-hosting-php-version-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-hosting-sftp-ssh-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-hosting-sftp-user-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-hosting-ssh-access-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-hosting-wp-version-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-hosting-wp-version-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-jetpack-account-protection
+     ├ mcp__claude_ai_WordPress_com__wpcom-jetpack-backup
+     ├ mcp__claude_ai_WordPress_com__wpcom-jetpack-monitor
+     ├ mcp__claude_ai_WordPress_com__wpcom-jetpack-newsletter-read
+     ├ mcp__claude_ai_WordPress_com__wpcom-jetpack-newsletter-write
+     ├ mcp__claude_ai_WordPress_com__wpcom-jetpack-scan
+     ├ mcp__claude_ai_WordPress_com__wpcom-jetpack-stats-ads
+     ├ mcp__claude_ai_WordPress_com__wpcom-jetpack-stats-author
+     ├ mcp__claude_ai_WordPress_com__wpcom-jetpack-stats-email-detail
+     ├ mcp__claude_ai_WordPress_com__wpcom-jetpack-stats-emails
+     ├ mcp__claude_ai_WordPress_com__wpcom-jetpack-stats-followers
+     ├ mcp__claude_ai_WordPress_com__wpcom-jetpack-stats-insights
+     ├ mcp__claude_ai_WordPress_com__wpcom-jetpack-stats-overview
+     ├ mcp__claude_ai_WordPress_com__wpcom-jetpack-stats-post-detail
+     ├ mcp__claude_ai_WordPress_com__wpcom-jetpack-stats-post-views
+     ├ mcp__claude_ai_WordPress_com__wpcom-jetpack-stats-store-performance
+     ├ mcp__claude_ai_WordPress_com__wpcom-jetpack-stats-subscribers
+     ├ mcp__claude_ai_WordPress_com__wpcom-jetpack-stats-top-content
+     ├ mcp__claude_ai_WordPress_com__wpcom-jetpack-stats-video
+     ├ mcp__claude_ai_WordPress_com__wpcom-jetpack-stats-visits
+     ├ mcp__claude_ai_WordPress_com__wpcom-mailboxes-add-url
+     ├ mcp__claude_ai_WordPress_com__wpcom-mailboxes-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-mailboxes-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-manage-revisions
+     ├ mcp__claude_ai_WordPress_com__wpcom-manage-site
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-categories-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-categories-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-categories-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-categories-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-categories-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-comments-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-comments-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-comments-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-comments-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-comments-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-content-search
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-create-simple-blog
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-create-site
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-media-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-media-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-media-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-media-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-pages-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-pages-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-pages-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-pages-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-pages-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-posts-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-posts-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-posts-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-posts-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-posts-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-send-feedback
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-site-posts-search
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-support-query
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-tags-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-tags-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-tags-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-tags-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-mcp-tags-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-media-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-media-generate
+     ├ mcp__claude_ai_WordPress_com__wpcom-media-upload
+     ├ mcp__claude_ai_WordPress_com__wpcom-menu-items-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-menu-items-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-menu-items-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-menu-items-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-menu-items-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-menu-locations-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-menus-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-menus-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-menus-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-menus-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-menus-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-move-plan-to-site
+     ├ mcp__claude_ai_WordPress_com__wpcom-navigation-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-navigation-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-navigation-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-navigation-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-navigation-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-newsletter-subscribers-add
+     ├ mcp__claude_ai_WordPress_com__wpcom-newsletter-subscribers-import-status
+     ├ mcp__claude_ai_WordPress_com__wpcom-newsletter-subscribers-remove
+     ├ mcp__claude_ai_WordPress_com__wpcom-notifications-mark-read
+     ├ mcp__claude_ai_WordPress_com__wpcom-notifications-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-page-sections-insert
+     ├ mcp__claude_ai_WordPress_com__wpcom-page-sections-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-page-sections-move
+     ├ mcp__claude_ai_WordPress_com__wpcom-page-sections-remove
+     ├ mcp__claude_ai_WordPress_com__wpcom-page-sections-replace
+     ├ mcp__claude_ai_WordPress_com__wpcom-patterns-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-patterns-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-performance-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-performance-report-run
+     ├ mcp__claude_ai_WordPress_com__wpcom-plans-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-plugin-activate
+     ├ mcp__claude_ai_WordPress_com__wpcom-plugin-deactivate
+     ├ mcp__claude_ai_WordPress_com__wpcom-plugin-install
+     ├ mcp__claude_ai_WordPress_com__wpcom-plugin-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-plugin-search
+     ├ mcp__claude_ai_WordPress_com__wpcom-plugin-uninstall
+     ├ mcp__claude_ai_WordPress_com__wpcom-plugin-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-plugin-update-schedule-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-plugin-update-schedule-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-plugin-update-schedule-logs-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-plugin-update-schedule-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-plugin-update-schedules-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-plugin-upload
+     ├ mcp__claude_ai_WordPress_com__wpcom-plugin-upload-request
+     ├ mcp__claude_ai_WordPress_com__wpcom-post-sections-insert
+     ├ mcp__claude_ai_WordPress_com__wpcom-post-sections-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-post-sections-move
+     ├ mcp__claude_ai_WordPress_com__wpcom-post-sections-remove
+     ├ mcp__claude_ai_WordPress_com__wpcom-post-sections-replace
+     ├ mcp__claude_ai_WordPress_com__wpcom-privacy-preferences-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-profile-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-reader-feed-search
+     ├ mcp__claude_ai_WordPress_com__wpcom-reader-follows-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-reader-follows-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-reader-follows-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-reader-follows-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-reader-post-comment-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-reader-post-like-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-reader-post-reblog-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-reader-post-saved-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-reader-posts-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-rendered-page-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-scheduled-tasks-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-scheduled-tasks-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-set-primary-domain
+     ├ mcp__claude_ai_WordPress_com__wpcom-sidebars-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-site-activity-log
+     ├ mcp__claude_ai_WordPress_com__wpcom-site-address-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-site-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-site-export-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-site-export-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-site-logs-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-site-metrics-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-site-migration-configure
+     ├ mcp__claude_ai_WordPress_com__wpcom-site-migration-run
+     ├ mcp__claude_ai_WordPress_com__wpcom-site-migration-status
+     ├ mcp__claude_ai_WordPress_com__wpcom-site-owner-transfer-start
+     ├ mcp__claude_ai_WordPress_com__wpcom-site-preview-links-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-site-preview-links-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-site-preview-links-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-site-redirect-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-site-redirect-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-site-reset
+     ├ mcp__claude_ai_WordPress_com__wpcom-site-reset-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-site-screenshot-link
+     ├ mcp__claude_ai_WordPress_com__wpcom-site-settings
+     ├ mcp__claude_ai_WordPress_com__wpcom-site-settings-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-social-connections-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-staging-site-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-staging-site-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-staging-site-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-staging-site-production-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-staging-site-sync-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-staging-site-sync-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-static-site-import
+     ├ mcp__claude_ai_WordPress_com__wpcom-static-site-import-status
+     ├ mcp__claude_ai_WordPress_com__wpcom-switch-theme
+     ├ mcp__claude_ai_WordPress_com__wpcom-synced-patterns-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-synced-patterns-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-synced-patterns-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-synced-patterns-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-synced-patterns-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-tax-details-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-tax-details-save
+     ├ mcp__claude_ai_WordPress_com__wpcom-template-parts-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-template-parts-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-template-parts-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-template-parts-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-template-parts-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-templates-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-templates-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-templates-get
+     ├ mcp__claude_ai_WordPress_com__wpcom-templates-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-templates-lookup
+     ├ mcp__claude_ai_WordPress_com__wpcom-templates-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-theme-active
+     ├ mcp__claude_ai_WordPress_com__wpcom-theme-presets
+     ├ mcp__claude_ai_WordPress_com__wpcom-theme-styles
+     ├ mcp__claude_ai_WordPress_com__wpcom-theme-upload
+     ├ mcp__claude_ai_WordPress_com__wpcom-theme-upload-request
+     ├ mcp__claude_ai_WordPress_com__wpcom-themes-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-user-achievements
+     ├ mcp__claude_ai_WordPress_com__wpcom-user-cancel-invite
+     ├ mcp__claude_ai_WordPress_com__wpcom-user-change-role
+     ├ mcp__claude_ai_WordPress_com__wpcom-user-connections
+     ├ mcp__claude_ai_WordPress_com__wpcom-user-domains
+     ├ mcp__claude_ai_WordPress_com__wpcom-user-invite
+     ├ mcp__claude_ai_WordPress_com__wpcom-user-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-user-notifications
+     ├ mcp__claude_ai_WordPress_com__wpcom-user-notifications-inbox
+     ├ mcp__claude_ai_WordPress_com__wpcom-user-pending-invites
+     ├ mcp__claude_ai_WordPress_com__wpcom-user-profile
+     ├ mcp__claude_ai_WordPress_com__wpcom-user-remove-access
+     ├ mcp__claude_ai_WordPress_com__wpcom-user-resend-invite
+     ├ mcp__claude_ai_WordPress_com__wpcom-user-security
+     ├ mcp__claude_ai_WordPress_com__wpcom-user-sites
+     ├ mcp__claude_ai_WordPress_com__wpcom-user-subscriptions
+     ├ mcp__claude_ai_WordPress_com__wpcom-widgets-create
+     ├ mcp__claude_ai_WordPress_com__wpcom-widgets-delete
+     ├ mcp__claude_ai_WordPress_com__wpcom-widgets-list
+     ├ mcp__claude_ai_WordPress_com__wpcom-widgets-update
+     ├ mcp__claude_ai_WordPress_com__wpcom-wordads-enable
+     ├ mcp__claude_ai_WordPress_com__wpcom-wordads-get
+     ├ mcp__claude-in-chrome__browser_batch
+     ├ mcp__claude-in-chrome__computer
+     ├ mcp__claude-in-chrome__file_upload
+     ├ mcp__claude-in-chrome__find
+     ├ mcp__claude-in-chrome__form_input
+     ├ mcp__claude-in-chrome__get_page_text
+     ├ mcp__claude-in-chrome__gif_creator
+     ├ mcp__claude-in-chrome__javascript_tool
+     ├ mcp__claude-in-chrome__list_connected_browsers
+     ├ mcp__claude-in-chrome__navigate
+     ├ mcp__claude-in-chrome__read_console_messages
+     ├ mcp__claude-in-chrome__read_network_requests
+     ├ mcp__claude-in-chrome__read_page
+     ├ mcp__claude-in-chrome__resize_window
+     ├ mcp__claude-in-chrome__select_browser
+     ├ mcp__claude-in-chrome__switch_browser
+     ├ mcp__claude-in-chrome__tabs_close_mcp
+     ├ mcp__claude-in-chrome__tabs_context_mcp
+     ├ mcp__claude-in-chrome__tabs_create_mcp
+     ├ mcp__claude-in-chrome__upload_image
+     ├ mcp__pinterest__pinterest_autocomplete
+     ├ mcp__pinterest__pinterest_board_pins
+     ├ mcp__pinterest__pinterest_download
+     ├ mcp__pinterest__pinterest_get_pin
+     ├ mcp__pinterest__pinterest_related_pins
+     ├ mcp__pinterest__pinterest_search
+     ├ mcp__playwright__browser_click
+     ├ mcp__playwright__browser_close
+     ├ mcp__playwright__browser_console_messages
+     ├ mcp__playwright__browser_drag
+     ├ mcp__playwright__browser_drop
+     ├ mcp__playwright__browser_emulate_media
+     ├ mcp__playwright__browser_evaluate
+     ├ mcp__playwright__browser_file_upload
+     ├ mcp__playwright__browser_fill_form
+     ├ mcp__playwright__browser_find
+     ├ mcp__playwright__browser_handle_dialog
+     ├ mcp__playwright__browser_hover
+     ├ mcp__playwright__browser_navigate
+     ├ mcp__playwright__browser_navigate_back
+     ├ mcp__playwright__browser_network_request
+     ├ mcp__playwright__browser_network_requests
+     ├ mcp__playwright__browser_press_key
+     ├ mcp__playwright__browser_resize
+     ├ mcp__playwright__browser_run_code_unsafe
+     ├ mcp__playwright__browser_select_option
+     ├ mcp__playwright__browser_snapshot
+     ├ mcp__playwright__browser_tabs
+     ├ mcp__playwright__browser_take_screenshot
+     ├ mcp__playwright__browser_type
+     └ mcp__playwright__browser_wait_for
+
+     Memory files · /memory
+     └ ~/.claude/CLAUDE.md: 770 tokens
+
+     Skills · /skills
+
+     User
+     ├ logo-design: ~340 tokens
+     ├ choreograph: ~330 tokens
+     ├ design-taste-frontend: ~310 tokens
+     ├ gestures: ~280 tokens
+     ├ ponytail: ~280 tokens
+     ├ animation-performance: ~280 tokens
+     ├ mobile-native: ~250 tokens
+     ├ remove-animations: ~200 tokens
+     ├ impeccable: ~200 tokens
+     ├ animate-expo: ~180 tokens
+     ├ break-ui: ~180 tokens
+     ├ write-swift: ~170 tokens
+     ├ animate: ~160 tokens
+     ├ improve-animations: ~160 tokens
+     ├ animation-vocabulary: ~150 tokens
+     ├ apple-design: ~150 tokens
+     ├ ask-sonner: ~150 tokens
+     ├ find-animation-opportunities: ~130 tokens
+     ├ no-mistakes: ~120 tokens
+     ├ lavish: ~100 tokens
+     ├ caveman: ~70 tokens
+     ├ rtk: ~70 tokens
+     └ emil-design-eng: ~60 tokens
+
+     claude.ai sync
+     ├ docs: ~340 tokens
+     ├ google-workspace: ~330 tokens
+     ├ computer-use: ~320 tokens
+     ├ docx: ~320 tokens
+     ├ built-in-browser: ~290 tokens
+     ├ chrome-browser: ~260 tokens
+     ├ anthropic-skills:deep-research: ~200 tokens
+     ├ pdf: ~150 tokens
+     ├ morning: ~120 tokens
+     ├ ponytail-audit: ~90 tokens
+     ├ graphify: ~80 tokens
+     ├ anthropic-skills:ponytail: ~70 tokens
+     ├ web-method: ~70 tokens
+     ├ import-memory: ~60 tokens
+     ├ ponytail-debt: < 20 tokens
+     ├ ponytail-gain: < 20 tokens
+     ├ ponytail-help: < 20 tokens
+     ├ ponytail-review: < 20 tokens
+     ├ recherche-idees: < 20 tokens
+     ├ skill-creator: < 20 tokens
+     ├ pptx: < 20 tokens
+     └ xlsx: < 20 tokens
+
+     Built-in
+     ├ dataviz: ~480 tokens
+     ├ code-review: ~400 tokens
+     ├ claude-api: ~390 tokens
+     ├ artifact-capabilities: ~250 tokens
+     ├ update-config: ~240 tokens
+     ├ claude-in-chrome: ~180 tokens
+     ├ schedule: ~130 tokens
+     ├ run: ~120 tokens
+     ├ loop: ~120 tokens
+     ├ plugin-authoring: ~90 tokens
+     ├ workflow-authoring: ~80 tokens
+     ├ keybindings-help: ~80 tokens
+     ├ artifact-diagramming: ~70 tokens
+     ├ artifact-design: ~70 tokens
+     ├ fewer-permission-prompts: ~60 tokens
+     ├ simplify: ~60 tokens
+     ├ security-review: ~30 tokens
+     └ init: ~20 tokens
+
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+❯ 
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Sonnet 5.5
+  ⏵⏵ auto mode on (shift+tab to cycle)
+

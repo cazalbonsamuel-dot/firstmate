@@ -1,0 +1,4 @@
+lab: /private/tmp/fmlab.gtsQp0 (tear down with: bin/fm-live-lab.sh down /private/tmp/fmlab.gtsQp0)
+tree: a31532accf2772bb1ac460f377dba02fc6cddcc7 from /Users/samuelcazalbon/.no-mistakes/worktrees/4ae80ba588f5/01M875P8T116WR4VYXQJ6K2HBY
+spawned lab5692716cf7f1-worker harness=claude kind=ship mode=local-only yolo=on window=firstmate:fm-lab5692716cf7f1-worker worktree=/Users/samuelcazalbon/.treehouse/notes-232ada/1/notes
+fm-live-lab: cannot record lab process: missing or invalid PID ''
