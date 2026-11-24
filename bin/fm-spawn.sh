@@ -509,9 +509,10 @@
 #     __CLAUDESETTINGS__ the single claude --settings value: a quoted inline
 #                  JSON object for a crewmate or scout, or a quoted path to
 #                  state/<task-id>.claude-settings.json for a secondmate
-#     __CLAUDEMCPCONFIG__ ship/scout only: `--mcp-config '<worktree>/.mcp.json' `
-#                  when the task worktree declares that file (supplies its own
-#                  trailing space, empty otherwise)
+#     __CLAUDEMCPCONFIG__ ship/scout only: `--mcp-config '<json>' ` carrying
+#                  the task worktree's approved .mcp.json servers
+#                  (claude_worker_mcp_config; supplies its own trailing space,
+#                  empty when none is approved)
 #     __PIBIN__    quoted concrete Pi-family executable path resolved from PATH
 #     __PITUIMODE__ optional --tui-mode regular when that executable advertises it
 #     __PIAPPROVE__ optional --approve on a seeded Pi/pi-signed secondmate when
@@ -2735,14 +2736,15 @@ launch_template() {
   # (mcp__easel); sub-agents (Agent, ListAgents) stay, since the worker
   # contract allows them. --strict-mcp-config drops every operator-level MCP
   # server and claude.ai connector, while __CLAUDEMCPCONFIG__ loads the task
-  # worktree's own .mcp.json when the repository declares one, and --no-chrome
-  # drops Claude in Chrome; browser work goes through chrome-devtools-axi.
-  # The inline --settings JSON also disables the operator's installed and
-  # claude.ai-synced plugins (claude_worker_plugins_off). Settings sources stay
-  # untouched on purpose: --setting-sources project,local would also drop the
-  # user-scope hooks (rtk output compression, Herdr agent state) and user
-  # skills such as no-mistakes that the worker contract needs. Project skills,
-  # project plugins, and hooks load as before. A secondmate keeps the full
+  # worktree's .mcp.json servers the operator already approved for the project
+  # (claude_worker_mcp_config), and --no-chrome drops Claude in Chrome; browser
+  # work goes through chrome-devtools-axi. The inline --settings JSON also
+  # turns off the operator's user and claude.ai-synced skills the worker
+  # contract does not use (claude_worker_skill_overrides). Settings sources
+  # stay untouched on purpose: --setting-sources project,local would also drop
+  # the user-scope hooks (rtk output compression, Herdr agent state) and the
+  # user skills such as no-mistakes that the worker contract needs. Repository
+  # skills and project hooks load as before. A secondmate keeps the full
   # surface it supervises with.
   claude)
     printf '%s' 'CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION=false CLAUDE_CODE_SEND_FEEDBACK=0 claude __CLAUDEPERMFLAG__ __CLAUDEADDDIRS__--settings __CLAUDESETTINGS__ '
@@ -3768,26 +3770,6 @@ rovo_config_override_flag() {
 # directory that does not exist at launch would leave the channel created
 # later outside the grant. The grant never covers the whole state/ (watcher
 # internals live there) or anything wider.
-# The settings fragment that disables, for one ship or scout launch, every
-# plugin the operator installed or claude.ai synced. Claude Code itself lists
-# them from the task worktree under the launch's CLAUDE_CONFIG_DIR, so the set
-# follows whatever is installed. Plugins the repository enables (project and
-# local scope) and skills-dir plugins (repository .claude/skills and user
-# skills such as no-mistakes) stay loaded. Prints `,"enabledPlugins":{...}`
-# or nothing when there is nothing to disable or no claude or jq to list with.
-claude_worker_plugins_off() {  # <worktree>
-  local listing
-  command -v claude >/dev/null 2>&1 && command -v jq >/dev/null 2>&1 || return 0
-  listing=$(cd "$1" && claude plugin list --json 2>/dev/null) || return 0
-  printf '%s' "$listing" | jq -j '
-    [.[]? | select(.scope != "project" and .scope != "local") | .id
-      | select(type == "string" and (endswith("@skills-dir") | not) and test("^[A-Za-z0-9._@-]+$"))]
-    | unique
-    | if length == 0 then empty
-      else ",\"enabledPlugins\":" + (map({(.): false}) | add | tojson) end
-  ' 2>/dev/null || return 0
-}
-
 claude_add_dirs_flag() {  # <kind> <state-dir> <data-dir> <code-root> <task-id>
   local kind=$1 state_dir=$2 data_dir=$3 code_root=$4 id=$5
   local state_real data_real root_real out='' d
@@ -3810,6 +3792,70 @@ claude_add_dirs_flag() {  # <kind> <state-dir> <data-dir> <code-root> <task-id>
     out="$out--add-dir $(shell_quote "$d") "
   done
   printf '%s' "$out"
+}
+
+# The settings fragment that turns off, for one ship or scout launch, every
+# skill the operator installed in the user skills directory or claude.ai
+# synced into skills/synced/<sync-id>/, read from the launch's
+# CLAUDE_CONFIG_DIR. Claude Code keys a user skill by its directory name and a
+# synced skill by anthropic-skills:<directory name>. The skills the worker
+# contract uses stay (CLAUDE_WORKER_KEPT_SKILLS, from either source), and so
+# does every repository skill: a user skill whose name the task worktree's
+# .claude/skills also carries is left alone, since an override on that name
+# would turn the repository skill off too. Prints `,"skillOverrides":{...}`
+# or nothing.
+CLAUDE_WORKER_KEPT_SKILLS=" no-mistakes rtk ponytail graphify "
+claude_worker_skill_overrides() {  # <worktree>
+  local wt=$1 skills dir name key out=''
+  skills=${CLAUDE_CONFIG_DIR:-$HOME/.claude}/skills
+  for dir in "$skills"/*/ "$skills"/synced/*/*/; do
+    [ -f "$dir/SKILL.md" ] || continue
+    name=$(basename "$dir")
+    case "$dir" in
+    "$skills"/synced/*)
+      key=anthropic-skills:$name
+      ;;
+    *)
+      [ "$name" != synced ] || continue
+      [ ! -e "$wt/.claude/skills/$name" ] || continue
+      key=$name
+      ;;
+    esac
+    case "$CLAUDE_WORKER_KEPT_SKILLS" in *" $name "*) continue ;; esac
+    case "$key" in *[!A-Za-z0-9._:-]*) continue ;; esac
+    case "$out" in *"\"$key\":"*) continue ;; esac
+    out="$out${out:+,}\"$key\":\"off\""
+  done
+  [ -z "$out" ] || printf ',"skillOverrides":{%s}' "$out"
+}
+
+# The task worktree's .mcp.json reduced to the servers the operator already
+# approved for that project, so a worker keeps the repository's MCP tools
+# without --mcp-config bypassing Claude Code's approval gate. It applies Claude
+# Code's own rule over the settings files it reads for the worktree (user,
+# project .claude/settings.json, local .claude/settings.local.json): a server
+# is approved when enableAllProjectMcpServers is true in any of them or any
+# enabledMcpjsonServers names it, and no disabledMcpjsonServers names it.
+# Prints the --mcp-config JSON, or nothing when the worktree declares no
+# .mcp.json, nothing is approved, or a file cannot be read.
+claude_worker_mcp_config() {  # <worktree>
+  local wt=$1 settings='[]' f
+  local files=()
+  [ -f "$wt/.mcp.json" ] || return 0
+  command -v jq >/dev/null 2>&1 || return 0
+  for f in "${CLAUDE_CONFIG_DIR:-$HOME/.claude}/settings.json" "$wt/.claude/settings.json" "$wt/.claude/settings.local.json"; do
+    [ ! -f "$f" ] || files+=("$f")
+  done
+  [ "${#files[@]}" -eq 0 ] || settings=$(jq -cs 'map(select(type == "object"))' "${files[@]}" 2>/dev/null) || return 0
+  jq -c --argjson s "$settings" '
+    def listed($k): [$s[] | .[$k] | if type == "string" then . elif type == "array" then .[] else empty end];
+    listed("enabledMcpjsonServers") as $on
+    | listed("disabledMcpjsonServers") as $off
+    | any($s[]; .enableAllProjectMcpServers == true) as $all
+    | (.mcpServers // {})
+    | with_entries(select(.key as $k | ($all or any($on[]; . == $k)) and (any($off[]; . == $k) | not)))
+    | if length == 0 then empty else {mcpServers: .} end
+  ' "$wt/.mcp.json" 2>/dev/null || return 0
 }
 
 resolved_existing_dir() {
@@ -7233,7 +7279,7 @@ case "$LAUNCH" in
   if [ "$KIND" = secondmate ]; then
     LAUNCH=${LAUNCH//__CLAUDESETTINGS__/$(shell_quote "$STATE_REAL/$ID.claude-settings.json")}
   else
-    claude_settings="'{\"feedbackDrafts\":\"off\"$(claude_worker_plugins_off "$WT")__CLAUDEATTRIBUTION__}'"
+    claude_settings="'{\"feedbackDrafts\":\"off\"$(claude_worker_skill_overrides "$WT")__CLAUDEATTRIBUTION__}'"
     LAUNCH=${LAUNCH//__CLAUDESETTINGS__/$claude_settings}
   fi
   ;;
@@ -7319,7 +7365,12 @@ kiro)
 esac
 LAUNCH=${LAUNCH//__WORKTREE__/$sq_worktree}
 CLAUDE_MCP_CONFIG=
-[ ! -f "$WT/.mcp.json" ] || CLAUDE_MCP_CONFIG="--mcp-config $(shell_quote "$WT/.mcp.json") "
+case "$LAUNCH" in
+*__CLAUDEMCPCONFIG__*)
+  claude_mcp_json=$(claude_worker_mcp_config "$WT")
+  [ -z "$claude_mcp_json" ] || CLAUDE_MCP_CONFIG="--mcp-config $(shell_quote "$claude_mcp_json") "
+  ;;
+esac
 LAUNCH=${LAUNCH//__CLAUDEMCPCONFIG__/$CLAUDE_MCP_CONFIG}
 # A record-backed launch brief is published into the state dir of the pane
 # receiving it, which for a secondmate is its own home, not this primary's.

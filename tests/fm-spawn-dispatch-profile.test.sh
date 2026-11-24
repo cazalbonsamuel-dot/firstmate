@@ -1978,15 +1978,35 @@ claude_launch_option_value() {  # <launch> <option>
   )
 }
 
-test_claude_task_launch_keeps_repository_mcp_config() {
-  local rec id out status launch value
+commit_project_files() {  # <message> <path>=<content>...
+  local message=$1 entry path
+  shift
+  for entry in "$@"; do
+    path=${entry%%=*}
+    mkdir -p "$(dirname "$PROJ_DIR/$path")"
+    printf '%s\n' "${entry#*=}" > "$PROJ_DIR/$path"
+    git -C "$PROJ_DIR" add "$path"
+  done
+  git -C "$PROJ_DIR" -c user.name=t -c user.email=t@t commit -qm "$message"
+  git -C "$PROJ_DIR" push -q origin HEAD
+}
+
+claude_launch_mcp_servers() {  # <launch>
+  local value
+  value=$(claude_launch_option_value "$1" --mcp-config) || return 1
+  printf '%s' "$value" | jq -c '.mcpServers | keys'
+}
+
+test_claude_task_launch_keeps_only_approved_repository_mcp_servers() {
+  local rec id out status launch servers
   id=profile-claude-repo-mcp-z21c
   rec=$(make_spawn_case profile-claude-repo-mcp claude "$id")
   read_case_record "$rec"
-  printf '%s\n' '{"mcpServers":{"repo-tool":{"command":"true"}}}' > "$PROJ_DIR/.mcp.json"
-  git -C "$PROJ_DIR" add .mcp.json
-  git -C "$PROJ_DIR" -c user.name=t -c user.email=t@t commit -qm "declare repo MCP"
-  git -C "$PROJ_DIR" push -q origin HEAD
+  commit_project_files "declare repo MCP" \
+    '.mcp.json={"mcpServers":{"approved":{"command":"true"},"local-ok":{"command":"true"},"rejected":{"command":"true"},"unlisted":{"command":"true"}}}' \
+    '.claude/settings.json={"enabledMcpjsonServers":["approved","rejected"]}'
+  mkdir -p "$HOME_DIR/user-home/.claude"
+  printf '%s\n' '{"enabledMcpjsonServers":"local-ok","disabledMcpjsonServers":["rejected"]}' > "$HOME_DIR/user-home/.claude/settings.json"
 
   out=$(run_ship_spawn "$HOME_DIR" "$WT_DIR" "$FAKEBIN_DIR" "$LAUNCH_LOG" "$id" "$PROJ_DIR")
   status=$?
@@ -1994,11 +2014,48 @@ test_claude_task_launch_keeps_repository_mcp_config() {
   launch=$(cat "$LAUNCH_LOG")
   assert_contains "$launch" "--strict-mcp-config" \
     "claude task launch with a repository .mcp.json loaded operator MCP servers"
-  value=$(claude_launch_option_value "$launch" --mcp-config) \
-    || fail "claude task launch dropped the repository .mcp.json"
-  [ "$(cd "$(dirname "$value")" && pwd -P)/$(basename "$value")" = "$(cd "$WT_DIR" && pwd -P)/.mcp.json" ] \
-    || fail "claude task launch loaded $value instead of the task worktree's .mcp.json"
-  pass "a claude task launch keeps the MCP servers its repository declares"
+  servers=$(claude_launch_mcp_servers "$launch") \
+    || fail "claude task launch dropped the approved repository MCP servers"
+  [ "$servers" = '["approved","local-ok"]' ] \
+    || fail "claude task launch loaded $servers instead of only the approved repository MCP servers"
+  pass "a claude task launch keeps only the repository MCP servers the project approved"
+}
+
+test_claude_task_launch_enable_all_minus_disabled_mcp_servers() {
+  local rec id out status launch servers
+  id=profile-claude-repo-mcp-all-z21f
+  rec=$(make_spawn_case profile-claude-repo-mcp-all claude "$id")
+  read_case_record "$rec"
+  commit_project_files "declare repo MCP" \
+    '.mcp.json={"mcpServers":{"one":{"command":"true"},"two":{"command":"true"}}}' \
+    '.claude/settings.json={"enableAllProjectMcpServers":true,"disabledMcpjsonServers":["two"]}'
+
+  out=$(run_ship_spawn "$HOME_DIR" "$WT_DIR" "$FAKEBIN_DIR" "$LAUNCH_LOG" "$id" "$PROJ_DIR")
+  status=$?
+  expect_code 0 "$status" "claude crewmate spawn with all project MCP servers enabled should succeed"$'\n'"$out"
+  launch=$(cat "$LAUNCH_LOG")
+  servers=$(claude_launch_mcp_servers "$launch") \
+    || fail "claude task launch dropped the enabled repository MCP servers"
+  [ "$servers" = '["one"]' ] \
+    || fail "claude task launch loaded $servers instead of every enabled server minus the disabled one"
+  pass "a claude task launch honors enableAllProjectMcpServers minus disabledMcpjsonServers"
+}
+
+test_claude_task_launch_without_approved_mcp_servers_loads_none() {
+  local rec id out status launch
+  id=profile-claude-repo-mcp-unapproved-z21g
+  rec=$(make_spawn_case profile-claude-repo-mcp-unapproved claude "$id")
+  read_case_record "$rec"
+  commit_project_files "declare repo MCP" \
+    '.mcp.json={"mcpServers":{"unlisted":{"command":"true"}}}'
+
+  out=$(run_ship_spawn "$HOME_DIR" "$WT_DIR" "$FAKEBIN_DIR" "$LAUNCH_LOG" "$id" "$PROJ_DIR")
+  status=$?
+  expect_code 0 "$status" "claude crewmate spawn with an unapproved repository .mcp.json should succeed"$'\n'"$out"
+  launch=$(cat "$LAUNCH_LOG")
+  ! claude_launch_option_value "$launch" --mcp-config >/dev/null \
+    || fail "claude task launch named an MCP config although no repository server is approved"
+  pass "a claude task launch starts no repository MCP server the project has not approved"
 }
 
 test_claude_task_launch_without_repository_mcp_config_loads_none() {
@@ -2018,38 +2075,33 @@ test_claude_task_launch_without_repository_mcp_config_loads_none() {
   pass "a claude task launch without a repository .mcp.json loads no MCP server"
 }
 
-test_claude_task_launch_disables_operator_plugins() {
-  local rec id out status launch settings
-  id=profile-claude-plugins-off-z21e
-  rec=$(make_spawn_case profile-claude-plugins-off claude "$id")
+test_claude_task_launch_turns_off_operator_skills() {
+  local rec id out status launch settings skills name
+  id=profile-claude-skills-off-z21e
+  rec=$(make_spawn_case profile-claude-skills-off claude "$id")
   read_case_record "$rec"
-  cat > "$FAKEBIN_DIR/claude" <<'SH'
-#!/usr/bin/env bash
-if [ "$1 $2 $3" = "plugin list --json" ]; then
-  cat <<'JSON'
-[
-  {"id":"design@synced","scope":"synced","enabled":true},
-  {"id":"sales@synced","scope":"synced","enabled":false},
-  {"id":"pptx@anthropic","scope":"user","enabled":true},
-  {"id":"repo-plugin@team","scope":"project","enabled":true},
-  {"id":"mine@team","scope":"local","enabled":true},
-  {"id":"no-mistakes@skills-dir","scope":"user","enabled":true},
-  {"id":"(suppressed)@skills-dir","scope":"project","enabled":false}
-]
-JSON
-fi
-SH
-  chmod +x "$FAKEBIN_DIR/claude"
+  commit_project_files "add repo skill" '.claude/skills/shared/SKILL.md=# shared'
+  skills=$HOME_DIR/user-home/.claude/skills
+  for name in animate no-mistakes rtk shared; do
+    mkdir -p "$skills/$name"
+    printf '# %s\n' "$name" > "$skills/$name/SKILL.md"
+  done
+  mkdir -p "$skills/not-a-skill"
+  for name in docx graphify ponytail rtk; do
+    mkdir -p "$skills/synced/a1b2/$name"
+    printf '# %s\n' "$name" > "$skills/synced/a1b2/$name/SKILL.md"
+  done
+  printf '%s\n' '{}' > "$skills/synced/a1b2/manifest.json"
 
   out=$(run_ship_spawn "$HOME_DIR" "$WT_DIR" "$FAKEBIN_DIR" "$LAUNCH_LOG" "$id" "$PROJ_DIR")
   status=$?
-  expect_code 0 "$status" "claude crewmate spawn with operator plugins should succeed"$'\n'"$out"
+  expect_code 0 "$status" "claude crewmate spawn with operator skills should succeed"$'\n'"$out"
   launch=$(cat "$LAUNCH_LOG")
   settings=$(claude_settings_json_arg "$launch") || fail "claude task launch carried no --settings value"
-  printf '%s' "$settings" | jq -e '.enabledPlugins == {"design@synced":false,"pptx@anthropic":false,"sales@synced":false}' >/dev/null \
-    || fail "claude task launch did not disable exactly the operator plugins: $settings"
-  assert_attribution_policy "$launch" "plugin-disabling claude task"
-  pass "a claude task launch disables the operator's plugins and keeps repository plugins and skills"
+  printf '%s' "$settings" | jq -e '.skillOverrides == {"animate":"off","anthropic-skills:docx":"off"} and (has("enabledPlugins") | not)' >/dev/null \
+    || fail "claude task launch did not turn off exactly the operator's unused skills: $settings"
+  assert_attribution_policy "$launch" "skill-limited claude task"
+  pass "a claude task launch turns off the operator's unused skills and keeps the contract and repository skills"
 }
 
 test_claude_secondmate_launch_omits_task_control_channel_authority() {
@@ -2888,9 +2940,11 @@ test_claude_permission_mode_invalid_refuses_before_endpoint_or_metadata
 test_non_claude_harness_ignores_claude_permission_mode
 test_non_claude_harness_ignores_config_dir
 test_claude_task_launch_carries_control_channel_authority
-test_claude_task_launch_keeps_repository_mcp_config
+test_claude_task_launch_keeps_only_approved_repository_mcp_servers
+test_claude_task_launch_enable_all_minus_disabled_mcp_servers
+test_claude_task_launch_without_approved_mcp_servers_loads_none
 test_claude_task_launch_without_repository_mcp_config_loads_none
-test_claude_task_launch_disables_operator_plugins
+test_claude_task_launch_turns_off_operator_skills
 test_claude_secondmate_launch_omits_task_control_channel_authority
 test_claude_long_launch_is_delivered_intact
 test_claude_crewmate_launch_carries_the_attribution_policy
