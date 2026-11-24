@@ -2724,9 +2724,22 @@ launch_template() {
   # Claude's system-prompt carrier while preserving the normal distrust of
   # project and fetched content. A persistent secondmate receives its own
   # supervisor contract instead, so this task-worker statement does not apply.
+  # A ship or scout also gets the minimal worker profile, so every request
+  # stops carrying tool definitions and listings its contract forbids or never
+  # uses. --disallowedTools removes delegation (Agent, ListAgents, Workflow),
+  # captain-facing surfaces (AskUserQuestion, Artifact, ReportFindings),
+  # self-scheduling (ScheduleWakeup), and the built-in easel chart server
+  # (mcp__easel). --strict-mcp-config with no --mcp-config loads no MCP server
+  # and no claude.ai connector, and --no-chrome drops Claude in Chrome; browser
+  # work goes through chrome-devtools-axi. Settings sources stay untouched on
+  # purpose: --setting-sources project,local would also drop the user-scope
+  # hooks (rtk output compression, Herdr agent state) and user skills such as
+  # no-mistakes that the worker contract needs. Project skills and hooks load
+  # as before. A secondmate keeps the full surface it supervises with.
   claude)
     printf '%s' 'CLAUDE_CODE_ENABLE_PROMPT_SUGGESTION=false CLAUDE_CODE_SEND_FEEDBACK=0 claude __CLAUDEPERMFLAG__ __CLAUDEADDDIRS__--settings __CLAUDESETTINGS__ '
     if [ "$kind" != secondmate ]; then
+      printf '%s' "--disallowedTools 'Agent,ListAgents,Workflow,AskUserQuestion,Artifact,ReportFindings,ScheduleWakeup,mcp__easel' --strict-mcp-config --no-chrome "
       printf '%s' "--append-system-prompt '$(spawn_claude_task_channel_statement)' "
     fi
     # Claude Code strips invisible characters, U+2063 included, from the
