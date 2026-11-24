@@ -486,7 +486,7 @@ The branch accepts it without a project only when every branch-ownable row obser
 ### Co-present main-owned rows
 
 A heartbeat is never vetoed or ridden into main by a co-present check row or decision-owned signal/stale row.
-Those rows are main-owned while attended.
+Those rows are main-owned while attended, except the attended supervision host's merge row ("Components and their owners" above).
 They are excluded from what the branch may claim and left queued for main.
 Main is woken for each on its own watcher cycle, so nothing starves by being left behind.
 Under the away-posture record the branch claims them too ("Postures" below).
@@ -665,7 +665,7 @@ The generated prompt includes the [scout-completion](../.agents/skills/scout-com
 
 `tests/fm-branch-supervision.test.sh` covers:
 
-- Prompt stability, including the landed-work cleanup instruction, the attended merge cleanup verdict, and the second-mate relay, signal-span, and stale-liveness rules.
+- Prompt stability, including the landed-work cleanup instruction, the attended merge cleanup verdict, the rule that an outcome needing a MAIN or captain action is never routine in any posture, and the second-mate relay, signal-span, and stale-liveness rules.
 - The emitted completed-scout cleanup instructions and verbatim completion policies, including incomplete-work boundaries and refusal reporting; these assertions verify prompt delivery, not a model's adherence.
 - Store append-only behavior, the captain cursor barrier, processed-marker sequence bounds and absent-marker safety, and captain-only recorded ages.
 - Leases, guards, and non-branch-home invariance.
