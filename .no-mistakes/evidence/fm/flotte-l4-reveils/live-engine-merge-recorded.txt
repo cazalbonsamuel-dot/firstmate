@@ -1,0 +1,15 @@
+### case merge-recorded
+--- .supervision-host.log (where each close went)
+1795546680	start	gen=host-47358-1795546679	primary=claude
+1795546704	handled	turn=host-47358-1795546679.1	posture=attended	rc=0	reports=1	error=0 cost=0.052329 conversation_cost=0.052329 input=18 cache_read=168769 cache_write=4814 output=1616 turns=9	signal: /private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-supervision-host.6KgOrY/live-merge-recorded/state/demo.status
+1795546704	to-main	branch-outcome: the supervision session handled this wake and recorded captain outcomes for you (store rows 1); run bin/fm-wake-drain.sh, act on its BRANCH OUTCOMES section, and acknowledge them as it prints
+--- branch-outcomes.jsonl (engine's recorded verdict)
+{"seq":1,"epoch":1795546700,"task":"demo","wake":"signal: /private/var/folders/16/2rlxmpgs2sxg_bhtjgvd9vp80000gn/T/fm-supervision-host.6KgOrY/live-merge-recorded/state/demo.status","verdict":"captain","summary":"PR https://github.com/o/r/pull/7 for demo has landed, but cleanup was refused: the backlog data directory is inaccessible, so the task is still recorded and needs MAIN to clean it up.","silent":false,"statusEndpoint":62,"statusIdent":"strong:16777235:86395391:1795546680.536434030"}
+--- wake queue after turn
+--- host.rc (empty = host still parked, main not woken)
+0
+--- fm-crew-state.sh demo before the wake
+state: unknown · source: none · backend unreachable (tmux endpoint state: unreadable)
+--- host.out
+watcher: started pid=47659 (beacon fresh)
+supervision-host: branch-outcome: the supervision session handled this wake and recorded captain outcomes for you (store rows 1); run bin/fm-wake-drain.sh, act on its BRANCH OUTCOMES section, and acknowledge them as it prints

@@ -1,0 +1,118 @@
+# Fresh marked lab home per case (bin/fm-lab-home.sh create + config/supervision-host), attended posture
+
+=== ROUTINE classes: expected eligible=1 (branch, main not woken)
+
+## untagged attended merge landed row, resurfaced
+queue:
+   1795546418	1	check	merged-demo-https://github.com/o/r/pull/7	check: merge landed: demo https://github.com/o/r/pull/7
+close: check: rearm-resurface
+host offer -> eligible=1 status=safe corrupted=0 rows=1 tasks=demo unscoped=0 
+Pi-surface scope (unchanged, merge row stays main): status=unsafe corrupted=0 rows= tasks= unscoped=0 
+
+## attended merge row for a task already torn down
+queue:
+   1795546418	1	check	merged-gone-https://github.com/o/r/pull/8	check: merge landed: gone https://github.com/o/r/pull/8
+close: check: rearm-resurface
+host offer -> eligible=1 status=safe corrupted=0 rows=1 tasks=gone unscoped=0 
+
+## routine signal + stale rows resurfaced after downtime
+queue:
+   1795546419	1	signal	busy.status	signal: $STATE/busy.status
+   1795546419	2	stale	fm-demo	stale: fm-demo
+close: check: rearm-resurface
+host offer -> eligible=1 status=safe corrupted=0 rows=1 2 tasks=busy demo unscoped=0 
+
+## merge row + routine signal resurfaced
+queue:
+   1795546420	1	check	merged-demo-https://github.com/o/r/pull/7	check: merge landed: demo https://github.com/o/r/pull/7
+   1795546420	2	signal	busy.status	signal: $STATE/busy.status
+close: check: rearm-resurface
+host offer -> eligible=1 status=safe corrupted=0 rows=1 2 tasks=demo busy unscoped=0 
+
+=== CAPTAIN / MAIN-ACTION classes: expected eligible=0 (main woken)
+
+## direct merge landed close (not a resurface)
+queue:
+   1795546421	1	check	merged-demo-https://github.com/o/r/pull/7	check: merge landed: demo https://github.com/o/r/pull/7
+close: check: merge landed: demo https://github.com/o/r/pull/7
+host offer -> eligible=0 status=safe corrupted=0 rows=1 tasks=demo unscoped=0 
+
+## resurface of an empty queue
+queue:
+close: check: rearm-resurface
+host offer -> eligible=0 status=unsafe corrupted=1 rows= tasks= unscoped=0 
+
+## merge tagged away
+queue:
+   1795546422	1	check	merged-demo-https://github.com/o/r/pull/7	check: merge landed: demo https://github.com/o/r/pull/7 away
+close: check: rearm-resurface
+host offer -> eligible=0 status=unsafe corrupted=0 rows= tasks= unscoped=0 
+
+## merge tagged external
+queue:
+   1795546423	1	check	merged-demo-https://github.com/o/r/pull/7	check: merge landed: demo https://github.com/o/r/pull/7 external
+close: check: rearm-resurface
+host offer -> eligible=0 status=unsafe corrupted=0 rows= tasks= unscoped=0 
+
+## merge tagged yolo
+queue:
+   1795546423	1	check	merged-demo-https://github.com/o/r/pull/7	check: merge landed: demo https://github.com/o/r/pull/7 yolo
+close: check: rearm-resurface
+host offer -> eligible=0 status=unsafe corrupted=0 rows= tasks= unscoped=0 
+
+## merge tagged away-grant
+queue:
+   1795546424	1	check	merged-demo-https://github.com/o/r/pull/7	check: merge landed: demo https://github.com/o/r/pull/7 away-grant
+close: check: rearm-resurface
+host offer -> eligible=0 status=unsafe corrupted=0 rows= tasks= unscoped=0 
+
+## forged merge row: key does not match payload
+queue:
+   1795546424	1	check	merged-demo-https://github.com/o/r/pull/9	check: merge landed: demo https://github.com/o/r/pull/7
+close: check: rearm-resurface
+host offer -> eligible=0 status=unsafe corrupted=0 rows= tasks= unscoped=0 
+
+## merge row + credential check row
+queue:
+   1795546425	1	check	merged-demo-https://github.com/o/r/pull/7	check: merge landed: demo https://github.com/o/r/pull/7
+   1795546425	2	check	auth	check: credential needed for github.com
+close: check: rearm-resurface
+host offer -> eligible=0 status=safe corrupted=0 rows=1 tasks=demo unscoped=0 
+
+## merge row + heartbeat
+queue:
+   1795546425	1	check	merged-demo-https://github.com/o/r/pull/7	check: merge landed: demo https://github.com/o/r/pull/7
+   1795546426	2	heartbeat	heartbeat	heartbeat
+close: check: rearm-resurface
+host offer -> eligible=0 status=safe corrupted=0 rows=1 tasks=demo unscoped=0 
+
+## merge row + needs-decision signal
+queue:
+   1795546426	1	check	merged-demo-https://github.com/o/r/pull/7	check: merge landed: demo https://github.com/o/r/pull/7
+   1795546426	2	signal	demo.status	signal: $STATE/demo.status
+close: check: rearm-resurface
+host offer -> eligible=0 status=safe corrupted=0 rows=1 tasks=demo unscoped=0 
+
+## stale row whose task awaits a decision
+queue:
+   1795546427	1	stale	fm-demo	stale: fm-demo
+close: check: rearm-resurface
+host offer -> eligible=0 status=unsafe corrupted=0 rows= tasks= unscoped=0 
+
+## merge row + inactive-outcome captain check
+queue:
+   1795546427	1	check	merged-demo-https://github.com/o/r/pull/7	check: merge landed: demo https://github.com/o/r/pull/7
+   1795546427	2	check	inactive-outcome	check: inactive-outcome demo awaiting captain presentation
+close: check: rearm-resurface
+host offer -> eligible=0 status=safe corrupted=0 rows=1 tasks=demo unscoped=0 
+
+## routine signal row but another check close
+queue:
+   1795546428	1	signal	busy.status	signal: $STATE/busy.status
+close: check: contributions
+host offer -> eligible=0 status=safe corrupted=0 rows=1 tasks=busy unscoped=0 
+
+=== AWAY posture unchanged (control)
+host offer --afk -> eligible=1 status=safe corrupted=0 rows=1 tasks= unscoped=1 
+
+# lab removed: yes

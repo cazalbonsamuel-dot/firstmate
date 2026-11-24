@@ -1,0 +1,13 @@
+### case gone run 1 (real bin/fm-supervision-host.sh, real claude 2.1.322 (Claude Code) engine, model sonnet, attended)
+--- wake queue before host start
+1795548611	1	check	merged-demo-https://github.com/o/r/pull/7	check: merge landed: demo https://github.com/o/r/pull/7
+--- fm-crew-state.sh demo before the wake
+state: unknown · source: none · no metadata for demo
+--- .supervision-host.log (where each close went)
+1795548612	start	gen=host-73454-1795548612	primary=claude
+1795548625	handled	turn=host-73454-1795548612.1	posture=attended	rc=0	reports=1	error=0 cost=0.019177 conversation_cost=0.019177 input=10 cache_read=87289 cache_write=1387 output=488 turns=5	check: rearm-resurface
+--- branch-outcomes.jsonl (engine's recorded verdict)
+{"seq":1,"epoch":1795548621,"task":"demo","wake":"check: rearm-resurface","verdict":"routine","summary":"PR https://github.com/o/r/pull/7 landed; MAIN already cleaned up the task, nothing to do.","silent":true,"statusEndpoint":0,"statusIdent":"-"}
+--- wake queue after turn
+--- host.rc (empty = host still parked, main not woken)
+--- host.out

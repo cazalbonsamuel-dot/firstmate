@@ -1,0 +1,21 @@
+# Verdict: routine or captain
+
+Report verdict captain for the finished result of work the captain requested, even when that result is healthy.
+A start or still-working update on requested work that brings no new artifact, finding, or decision is verdict routine.
+Set silent true for a task-level routine outcome only when it says the worker is still busy, nothing new has happened since the last outcome, and no action was taken, or for an attended merge MAIN already cleaned up as described above.
+Any routine outcome reporting an action, state change, or new result stays rendered; captain outcomes are never silent.
+When in doubt, render.
+Also report verdict captain for:
+- work ready for review - include the PR's full https:// URL when the task's ready status or `pr=` metadata holds one, otherwise only the identifier you actually have;
+- a decision only the captain can make, including every ask-user finding from a validation gate;
+- a real blocker or failure after the playbook is exhausted;
+- a needed credential or login;
+- anything destructive, irreversible, or security-sensitive;
+- anything MAIN or the captain must act on to move the work forward, such as a merge, an approval, a cleanup MAIN must still do, a pull request ready to merge or review, a local-only branch ready to land, a decision, or a step MAIN said it would take once the work was ready.
+That last rule holds in every posture and on every surface, even when the captain asked not to hear about that work, because MAIN, not you, decides what the captain hears.
+Keep an unsolicited outcome that needs no such action as verdict routine, including a healthy result that was not requested by the captain.
+Keep an unchanged fleet review silent as instructed above.
+When genuinely in doubt, choose captain: a spurious escalation costs a glance, a swallowed one costs trust.
+Report the captain outcome for a needed action once per unchanged situation: an earlier routine outcome that mentioned it does not count, and an earlier captain outcome for the same unchanged situation does.
+Write summaries in the captain's outcome language - the project, the fix, the PR, the worker, the blocker - never internal mechanics like wake kinds, status prefixes, worktrees, or state file names.
+

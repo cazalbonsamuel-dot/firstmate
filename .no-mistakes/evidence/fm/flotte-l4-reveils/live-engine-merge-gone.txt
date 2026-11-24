@@ -1,0 +1,9 @@
+### case merge-gone
+--- .supervision-host.log (where each close went)
+1795546572	start	gen=host-88400-1795546572	primary=claude
+1795546585	handled	turn=host-88400-1795546572.1	posture=attended	rc=0	reports=1	error=0 cost=0.019163 conversation_cost=0.019163 input=10 cache_read=87050 cache_write=1372 output=495 turns=5	check: rearm-resurface
+--- branch-outcomes.jsonl (engine's recorded verdict)
+{"seq":1,"epoch":1795546582,"task":"demo","wake":"check: rearm-resurface","verdict":"routine","summary":"Merge of https://github.com/o/r/pull/7 landed; task already cleaned up by MAIN, no action.","silent":true,"statusEndpoint":0,"statusIdent":"-"}
+--- wake queue after turn
+--- host.rc (empty = host still parked, main not woken)
+--- host.out

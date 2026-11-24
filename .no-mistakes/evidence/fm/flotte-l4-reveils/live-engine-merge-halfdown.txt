@@ -1,0 +1,11 @@
+### case merge-halfdown
+--- .supervision-host.log (where each close went)
+1795546730	start	gen=host-76747-1795546730	primary=claude
+1795546748	handled	turn=host-76747-1795546730.1	posture=attended	rc=0	reports=1	error=0 cost=0.019873 conversation_cost=0.019873 input=10 cache_read=87125 cache_write=1410 output=550 turns=5	check: rearm-resurface
+--- branch-outcomes.jsonl (engine's recorded verdict)
+{"seq":1,"epoch":1795546744,"task":"demo","wake":"check: rearm-resurface","verdict":"routine","summary":"Merge of https://github.com/o/r/pull/7 landed; task already cleaned up by MAIN, nothing to do.","silent":true,"statusEndpoint":0,"statusIdent":"-"}
+--- wake queue after turn
+--- host.rc (empty = host still parked, main not woken)
+--- fm-crew-state.sh demo before the wake
+state: unknown · source: none · worktree gone (torn down?)
+--- host.out
