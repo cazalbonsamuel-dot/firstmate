@@ -552,9 +552,12 @@ SH
   kill -TERM "$(awk -F '\t' '$1 == "host" { print $2 }' "$home/state/.supervision-host")"
   wait_until_deadline 60 host_exited "$home" || fail "mirror boundary: the host did not stop mid-turn on TERM"
   echo handle > "$home/stub-mode"
-  park_after_stop "$home"
-  append_status "$home" 'handled after the stop'
-  wait_until 250 handled_at_least "$home" 3 || fail "mirror boundary: the wake after the stop was not handled: $(cat "$home/state/.supervision-host.log")"
+  # The stopped turn left its routine signal row unread, so the next host's
+  # downtime resurface claims every queued row and is the branch's, not main's.
+  park_again "$home"
+  wait_until 250 handled_at_least "$home" 3 || fail "mirror boundary: the resurfaced wake after the stop was not handled: $(cat "$home/state/.supervision-host.log")"
+  assert_re '	handled	turn=.*	check: rearm-resurface$' "$home/state/.supervision-host.log" \
+    "the resurface of a stopped turn's routine row must be handled on the branch"
   third="$home/engine-call.4"
   assert_re '^arg=--resume$' "$third" "fixture: the turn after the stop did not resume the conversation"
   assert_re '^\[captain\] third ask, turn stopped$' "$third" "dialog of a turn stopped before its report must reach the next turn"

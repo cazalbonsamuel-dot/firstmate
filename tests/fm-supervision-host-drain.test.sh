@@ -160,9 +160,10 @@ test_dispatch_entry_scopes_rows_and_renders_the_away_tail() {
   pass "dispatch entry: the host reads branch eligibility, the offer rule, and the wake prompt from the Pi branch's own owner"
 }
 
-# A merge MAIN performed while attended leaves only cleanup behind, so the
-# attended host gives its resurfacing close to the branch; any row that needs
-# MAIN, and every other check close, still wakes MAIN.
+# A merge made while attended leaves only cleanup behind, and a downtime
+# resurface only re-announces queued rows, so the attended host gives that
+# close to the branch whenever the branch claims every queued row; any row
+# that needs MAIN, an empty queue, and every other check close still wake MAIN.
 test_dispatch_entry_offers_attended_merge_cleanup_to_the_branch() {
   local home state out authority
   home="$TMP_ROOT/dispatch-merge"
@@ -197,9 +198,35 @@ test_dispatch_entry_offers_attended_merge_cleanup_to_the_branch() {
 
   fresh
   printf 'project=demo\nwindow=fm-routine\n' > "$state/routine.meta"
+  printf 'working [at=1]: step one\n' > "$state/routine.status"
   append_wake "$state" signal routine.status "signal: $state/routine.status"
+  append_wake "$state" stale fm-demo "stale: fm-demo"
   out=$(offer 'check: rearm-resurface')
-  assert_contains "$out" "eligible=0" "a resurface with no attended merge row must still wake main"
+  assert_contains "$out" "eligible=1" "a resurface of routine signal and stale rows must not wake main"
+  assert_contains "$out" "rows=1 2" "the branch must claim every resurfaced routine row"
+  assert_contains "$out" "tasks=routine demo" "each resurfaced routine row is scoped to its task"
+  out=$(FM_HOME="$home" node "$DISPATCH" scope)
+  assert_contains "$out" "rows=1 2" "fixture: the Pi scan must claim the same routine rows"
+  out=$(offer 'check: contributions')
+  assert_contains "$out" "eligible=0" "another check close beside routine rows must stay main's"
+
+  fresh
+  out=$(offer 'check: rearm-resurface')
+  assert_contains "$out" "eligible=0" "a resurface of an empty queue must wake main"
+
+  fresh
+  printf 'needs-decision [key=pick] [at=1]: choose an option\n' > "$state/demo.status"
+  append_wake "$state" stale fm-demo "stale: fm-demo"
+  out=$(offer 'check: rearm-resurface')
+  assert_contains "$out" "eligible=0" "a resurface of a stale row whose task awaits a decision must wake main"
+
+  fresh
+  printf 'project=demo\nwindow=fm-routine\n' > "$state/routine.meta"
+  append_wake "$state" signal routine.status "signal: $state/routine.status"
+  printf 'needs-decision [key=pick] [at=1]: choose an option\n' > "$state/demo.status"
+  append_wake "$state" signal demo.status "signal: $state/demo.status"
+  out=$(offer 'check: rearm-resurface')
+  assert_contains "$out" "eligible=0" "a resurface of a decision signal beside a routine one must wake main"
 
   for authority in away external yolo away-grant; do
     fresh
