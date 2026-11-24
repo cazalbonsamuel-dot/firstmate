@@ -32,7 +32,7 @@ These skills are not captain-invocable; load them only at their precise triggers
   Never run a registered source's blocking command yourself in a conversational turn.
 - `fmx-respond` - load on an `x-mention <request_id>` `check:` wake to handle the mention, on an `x-mode-error ...` `check:` wake to report the Relay configuration blocker, on a `public-followup ...` `check:` wake or a startup-surfaced public commitment, and on any milestone or terminal wake for a Relay-linked task before posting its completion follow-up; relevant only when Relay is on.
 - `firstmate-codexapp` - load before coordinating a visible Codex Desktop thread, evaluating a Codex App backend request, or reconciling Codex Desktop host-tool smoke evidence for Firstmate work.
-- `cao-intake` - in a CAO (FreeCAD) home, load when a need for a new object or a change to an existing CAO object arrives, before writing any brief for it.
+- `cao-intake` - in a CAO (FreeCAD) home, load when a need or a still-vague idea for a new object, or a change to an existing CAO object, arrives, before writing any brief for it.
 - `cao-recherche-options` - in a CAO home, load before starting the solution research and review gate for a new or changed architecture, and before presenting any option comparison or structuring trade-off to the captain.
 - `cao-worker-brief` - in a CAO home, load before writing the brief of any CAO worker.
 - `cao-reception` - in a CAO home, load when a CAO worker reports done, a ready branch, or a PR, before accepting its handoff.
