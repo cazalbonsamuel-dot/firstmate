@@ -3832,28 +3832,41 @@ claude_worker_skill_overrides() {  # <worktree>
 # The task worktree's .mcp.json reduced to the servers the operator already
 # approved for that project, so a worker keeps the repository's MCP tools
 # without --mcp-config bypassing Claude Code's approval gate. It applies Claude
-# Code's own rule over the settings files it reads for the worktree (user,
-# project .claude/settings.json, local .claude/settings.local.json): a server
-# is approved when enableAllProjectMcpServers is true in any of them or any
-# enabledMcpjsonServers names it, and no disabledMcpjsonServers names it.
-# Prints the --mcp-config JSON, or nothing when the worktree declares no
-# .mcp.json, nothing is approved, or a file cannot be read.
+# Code's own rule: only the user settings file and an untracked worktree
+# .claude/settings.local.json can approve a server, through
+# enableAllProjectMcpServers or an enabledMcpjsonServers array, because a
+# committed setting would let the repository approve itself; any of those two
+# or the project .claude/settings.json rejects it through
+# disabledMcpjsonServers, and a rejection wins. Names compare the way Claude
+# Code normalizes MCP server names. Prints the --mcp-config JSON, or nothing
+# when the worktree declares no .mcp.json, nothing is approved, or a file
+# cannot be read.
 claude_worker_mcp_config() {  # <worktree>
-  local wt=$1 settings='[]' f
-  local files=()
+  local wt=$1 user local_settings tracked f approvers='[]' rejecters='[]'
+  local approve_files=() reject_files=()
   [ -f "$wt/.mcp.json" ] || return 0
   command -v jq >/dev/null 2>&1 || return 0
-  for f in "${CLAUDE_CONFIG_DIR:-$HOME/.claude}/settings.json" "$wt/.claude/settings.json" "$wt/.claude/settings.local.json"; do
-    [ ! -f "$f" ] || files+=("$f")
+  user=${CLAUDE_CONFIG_DIR:-$HOME/.claude}/settings.json
+  local_settings=$wt/.claude/settings.local.json
+  [ ! -f "$user" ] || approve_files+=("$user")
+  if [ -f "$local_settings" ]; then
+    tracked=$(git -C "$wt" ls-files -- .claude/settings.local.json 2>/dev/null) || tracked=unknown
+    [ -n "$tracked" ] || approve_files+=("$local_settings")
+  fi
+  for f in "$user" "$wt/.claude/settings.json" "$local_settings"; do
+    [ ! -f "$f" ] || reject_files+=("$f")
   done
-  [ "${#files[@]}" -eq 0 ] || settings=$(jq -cs 'map(select(type == "object"))' "${files[@]}" 2>/dev/null) || return 0
-  jq -c --argjson s "$settings" '
-    def listed($k): [$s[] | .[$k] | if type == "string" then . elif type == "array" then .[] else empty end];
-    listed("enabledMcpjsonServers") as $on
-    | listed("disabledMcpjsonServers") as $off
-    | any($s[]; .enableAllProjectMcpServers == true) as $all
+  [ "${#approve_files[@]}" -eq 0 ] || approvers=$(jq -cs 'map(select(type == "object"))' "${approve_files[@]}" 2>/dev/null) || return 0
+  [ "${#reject_files[@]}" -eq 0 ] || rejecters=$(jq -cs 'map(select(type == "object"))' "${reject_files[@]}" 2>/dev/null) || return 0
+  jq -c --argjson approvers "$approvers" --argjson rejecters "$rejecters" '
+    def norm: gsub("[^a-zA-Z0-9_-]"; "_") as $n
+      | if startswith("claude.ai ") then $n | gsub("_+"; "_") | gsub("^_|_$"; "") else $n end;
+    def same($a; $b): if ($a | startswith("plugin:")) or ($b | startswith("plugin:")) then $a == $b else ($a | norm) == ($b | norm) end;
+    [$approvers[] | .enabledMcpjsonServers | if type == "array" then .[] | strings else empty end] as $on
+    | [$rejecters[] | .disabledMcpjsonServers | if type == "array" then .[] | strings elif type == "string" then . else empty end] as $off
+    | any($approvers[]; .enableAllProjectMcpServers == true) as $all
     | (.mcpServers // {})
-    | with_entries(select(.key as $k | ($all or any($on[]; . == $k)) and (any($off[]; . == $k) | not)))
+    | with_entries(select(.key as $k | ($all or any($on[]; same(.; $k))) and (any($off[]; same(.; $k)) | not)))
     | if length == 0 then empty else {mcpServers: .} end
   ' "$wt/.mcp.json" 2>/dev/null || return 0
 }

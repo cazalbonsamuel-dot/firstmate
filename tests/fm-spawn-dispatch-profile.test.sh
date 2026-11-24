@@ -2003,10 +2003,10 @@ test_claude_task_launch_keeps_only_approved_repository_mcp_servers() {
   rec=$(make_spawn_case profile-claude-repo-mcp claude "$id")
   read_case_record "$rec"
   commit_project_files "declare repo MCP" \
-    '.mcp.json={"mcpServers":{"approved":{"command":"true"},"local-ok":{"command":"true"},"rejected":{"command":"true"},"unlisted":{"command":"true"}}}' \
-    '.claude/settings.json={"enabledMcpjsonServers":["approved","rejected"]}'
+    '.mcp.json={"mcpServers":{"user-ok":{"command":"true"},"project-only":{"command":"true"},"rejected":{"command":"true"},"my.tool":{"command":"true"},"unlisted":{"command":"true"}}}' \
+    '.claude/settings.json={"enableAllProjectMcpServers":true,"enabledMcpjsonServers":["project-only"],"disabledMcpjsonServers":["my_tool"]}'
   mkdir -p "$HOME_DIR/user-home/.claude"
-  printf '%s\n' '{"enabledMcpjsonServers":"local-ok","disabledMcpjsonServers":["rejected"]}' > "$HOME_DIR/user-home/.claude/settings.json"
+  printf '%s\n' '{"enabledMcpjsonServers":["user-ok","rejected","my.tool"],"disabledMcpjsonServers":["rejected"]}' > "$HOME_DIR/user-home/.claude/settings.json"
 
   out=$(run_ship_spawn "$HOME_DIR" "$WT_DIR" "$FAKEBIN_DIR" "$LAUNCH_LOG" "$id" "$PROJ_DIR")
   status=$?
@@ -2016,19 +2016,40 @@ test_claude_task_launch_keeps_only_approved_repository_mcp_servers() {
     "claude task launch with a repository .mcp.json loaded operator MCP servers"
   servers=$(claude_launch_mcp_servers "$launch") \
     || fail "claude task launch dropped the approved repository MCP servers"
-  [ "$servers" = '["approved","local-ok"]' ] \
-    || fail "claude task launch loaded $servers instead of only the approved repository MCP servers"
-  pass "a claude task launch keeps only the repository MCP servers the project approved"
+  [ "$servers" = '["user-ok"]' ] \
+    || fail "claude task launch loaded $servers instead of only the operator-approved repository MCP servers"
+  pass "a claude task launch keeps only the repository MCP servers the operator approved"
+}
+
+test_claude_task_launch_ignores_committed_mcp_approvals() {
+  local rec id out status launch
+  id=profile-claude-repo-mcp-committed-z21f
+  rec=$(make_spawn_case profile-claude-repo-mcp-committed claude "$id")
+  read_case_record "$rec"
+  commit_project_files "declare and self-approve repo MCP" \
+    '.mcp.json={"mcpServers":{"x":{"command":"true"}}}' \
+    '.claude/settings.json={"enableAllProjectMcpServers":true,"enabledMcpjsonServers":["x"]}' \
+    '.claude/settings.local.json={"enableAllProjectMcpServers":true,"enabledMcpjsonServers":["x"]}'
+
+  out=$(run_ship_spawn "$HOME_DIR" "$WT_DIR" "$FAKEBIN_DIR" "$LAUNCH_LOG" "$id" "$PROJ_DIR")
+  status=$?
+  expect_code 0 "$status" "claude crewmate spawn with a self-approving repository should succeed"$'\n'"$out"
+  launch=$(cat "$LAUNCH_LOG")
+  ! claude_launch_option_value "$launch" --mcp-config >/dev/null \
+    || fail "claude task launch started a repository MCP server only the repository's own committed settings approve"
+  pass "a claude task launch ignores MCP approvals the repository commits for itself"
 }
 
 test_claude_task_launch_enable_all_minus_disabled_mcp_servers() {
   local rec id out status launch servers
-  id=profile-claude-repo-mcp-all-z21f
+  id=profile-claude-repo-mcp-all-z21h
   rec=$(make_spawn_case profile-claude-repo-mcp-all claude "$id")
   read_case_record "$rec"
   commit_project_files "declare repo MCP" \
     '.mcp.json={"mcpServers":{"one":{"command":"true"},"two":{"command":"true"}}}' \
-    '.claude/settings.json={"enableAllProjectMcpServers":true,"disabledMcpjsonServers":["two"]}'
+    '.claude/settings.json={"disabledMcpjsonServers":["two"]}'
+  mkdir -p "$HOME_DIR/user-home/.claude"
+  printf '%s\n' '{"enableAllProjectMcpServers":true}' > "$HOME_DIR/user-home/.claude/settings.json"
 
   out=$(run_ship_spawn "$HOME_DIR" "$WT_DIR" "$FAKEBIN_DIR" "$LAUNCH_LOG" "$id" "$PROJ_DIR")
   status=$?
@@ -2038,7 +2059,7 @@ test_claude_task_launch_enable_all_minus_disabled_mcp_servers() {
     || fail "claude task launch dropped the enabled repository MCP servers"
   [ "$servers" = '["one"]' ] \
     || fail "claude task launch loaded $servers instead of every enabled server minus the disabled one"
-  pass "a claude task launch honors enableAllProjectMcpServers minus disabledMcpjsonServers"
+  pass "a claude task launch honors the operator's enableAllProjectMcpServers minus any disabledMcpjsonServers"
 }
 
 test_claude_task_launch_without_approved_mcp_servers_loads_none() {
@@ -2941,6 +2962,7 @@ test_non_claude_harness_ignores_claude_permission_mode
 test_non_claude_harness_ignores_config_dir
 test_claude_task_launch_carries_control_channel_authority
 test_claude_task_launch_keeps_only_approved_repository_mcp_servers
+test_claude_task_launch_ignores_committed_mcp_approvals
 test_claude_task_launch_enable_all_minus_disabled_mcp_servers
 test_claude_task_launch_without_approved_mcp_servers_loads_none
 test_claude_task_launch_without_repository_mcp_config_loads_none
