@@ -23,6 +23,7 @@ Le second maître n'écrit jamais dans le projet (`AGENTS.md` règle 1) : il dé
 0. Cadrer une idée floue avant tout le reste, quand on ne sait pas encore dire le problème, pour qui, ou ce qui compterait comme une réussite, ou quand le capitaine le demande :
    - une question à la fois au capitaine, chacune avec la réponse recommandée, sur le problème réel, l'usager, le contexte d'usage, la réussite attendue, les limites (budget, matière, délai) et ce qui est hors sujet ;
    - quand les réponses laissent plusieurs directions ouvertes, lancer un worker de la compétence `exploration` du domaine recherche-innovation du bureau d'études : il rend des pistes vraiment différentes, l'existant et les questions qui trancheraient, sans rien choisir ; trier ses pistes avec le capitaine, puis reprendre le cadrage ;
+   - ce worker d'exploration est briefé hors de `cao-worker-brief`, dans le dépôt bureau-etudes-ia, selon sa compétence `domaines/recherche-innovation/competences/exploration.md` ; il n'a ni cas, ni ligne du §13, ni branche de cas, il ne fait que lire et rendre des pistes, l'existant et les questions qui tranchent ;
    - sortie : une demande écrite que le capitaine valide mot pour mot ; elle devient la demande originale de l'étape 3 ; tenir chaque réponse attendue selon `captain-hold-lifecycle`.
 1. Classer la demande : idée vague, besoin précis, ou modification d'un cas existant.
    Une modification à architecture inchangée ne rouvre pas la porte de recherche ; une modification de principe, transmission, implantation ou procédé la rouvre (§7).
