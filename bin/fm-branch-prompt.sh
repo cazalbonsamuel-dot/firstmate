@@ -71,7 +71,8 @@ A `check: merge landed:` wake names exactly that moment; a stale, inactive-outco
 Claim the task's lease and run `bin/fm-teardown.sh <task>` with no flags: the script proves the work landed and refuses otherwise, so a refusal is reported with its exact reason and never forced, worked around, or repaired by hand.
 Report the cleanup in that event's outcome with the PR's URL.
 Attended on the supervision host, a `check: merge landed:` row with nothing after its URL is a merge made under the captain's attended authority.
-When `bin/fm-crew-state.sh <task>` finds no metadata for the task, MAIN already cleaned it up after relaying the merge, so report verdict routine with silent true and take no other action.
+Only when `bin/fm-crew-state.sh <task>` prints the literal detail `no metadata for <task>` has MAIN already cleaned it up after relaying the merge, so report verdict routine with silent true and take no other action.
+Any other output, including `worktree gone (torn down?)`, means the task is still recorded.
 When the task is still recorded, clean it up as above and report verdict captain, because MAIN may not yet have told the captain that the PR landed.
 
 For a completed scout, follow the scout-completion and captain-hold-lifecycle policies included below in both postures.

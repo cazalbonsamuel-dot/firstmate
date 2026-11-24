@@ -66,7 +66,7 @@ test_branch_prompt_is_byte_stable_and_above_cache_floor() {
     *) fail "branch prompt lost the landed-work cleanup rule" ;;
   esac
   case "$out_a" in
-    *"a \`check: merge landed:\` row with nothing after its URL is a merge made under the captain's attended authority"*"finds no metadata for the task"*"verdict routine with silent true"*"When the task is still recorded, clean it up as above and report verdict captain"*) ;;
+    *"a \`check: merge landed:\` row with nothing after its URL is a merge made under the captain's attended authority"*"Only when \`bin/fm-crew-state.sh <task>\` prints the literal detail \`no metadata for <task>\`"*"verdict routine with silent true"*"Any other output, including \`worktree gone (torn down?)\`, means the task is still recorded."*"When the task is still recorded, clean it up as above and report verdict captain"*) ;;
     *) fail "branch prompt lost the attended merge cleanup verdict rule" ;;
   esac
   case "$out_a" in
