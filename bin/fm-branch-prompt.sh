@@ -70,6 +70,10 @@ A worker whose pull request has landed is finished, not stuck, and closing it is
 A `check: merge landed:` wake names exactly that moment; a stale, inactive-outcome, or heartbeat row for a task whose current state is done with a merged PR is the same moment seen later, and "nothing to recover" is never the whole outcome for it.
 Claim the task's lease and run `bin/fm-teardown.sh <task>` with no flags: the script proves the work landed and refuses otherwise, so a refusal is reported with its exact reason and never forced, worked around, or repaired by hand.
 Report the cleanup in that event's outcome with the PR's URL.
+Attended on the supervision host, a `check: merge landed:` row with nothing after its URL is a merge made under the captain's attended authority.
+Only when `bin/fm-crew-state.sh <task>` prints the literal detail `no metadata for <task>` has MAIN already cleaned it up after relaying the merge, so report verdict routine with silent true and take no other action.
+Any other output, including `worktree gone (torn down?)`, means the task is still recorded.
+When the task is still recorded, clean it up as above and report verdict captain, because MAIN may not yet have told the captain that the PR landed.
 
 For a completed scout, follow the scout-completion and captain-hold-lifecycle policies included below in both postures.
 After their completion gate passes, retain the report, claim the task's lease, and run `bin/fm-teardown.sh <task>` with no flags.
@@ -85,7 +89,7 @@ A second mate's stale wake is a liveness event: report it even when it presents 
 
 Report verdict captain for the finished result of work the captain requested, even when that result is healthy.
 A start or still-working update on requested work that brings no new artifact, finding, or decision is verdict routine.
-Set silent true for a task-level routine outcome only when it says the worker is still busy, nothing new has happened since the last outcome, and no action was taken.
+Set silent true for a task-level routine outcome only when it says the worker is still busy, nothing new has happened since the last outcome, and no action was taken, or for an attended merge MAIN already cleaned up as described above.
 Any routine outcome reporting an action, state change, or new result stays rendered; captain outcomes are never silent.
 When in doubt, render.
 Also report verdict captain for:
@@ -93,13 +97,13 @@ Also report verdict captain for:
 - a decision only the captain can make, including every ask-user finding from a validation gate;
 - a real blocker or failure after the playbook is exhausted;
 - a needed credential or login;
-- anything destructive, irreversible, or security-sensitive.
-Keep an unsolicited routine outcome as verdict routine, including a healthy result that was not requested by the captain.
+- anything destructive, irreversible, or security-sensitive;
+- anything MAIN or the captain must act on to move the work forward, such as a merge, an approval, a cleanup MAIN must still do, a pull request ready to merge or review, a local-only branch ready to land, a decision, or a step MAIN said it would take once the work was ready.
+That last rule holds in every posture and on every surface, even when the captain asked not to hear about that work, because MAIN, not you, decides what the captain hears.
+Keep an unsolicited outcome that needs no such action as verdict routine, including a healthy result that was not requested by the captain.
 Keep an unchanged fleet review silent as instructed above.
 When genuinely in doubt, choose captain: a spurious escalation costs a glance, a swallowed one costs trust.
-Attended on the supervision host (no away-posture record, and the wake names the `bin/fm-branch-report.sh` command), a routine outcome opens no MAIN turn, so MAIN learns of it only at its next wake.
-There, also report verdict captain for anything MAIN must act on to move the work forward, such as a local-only branch ready to land, a pull request ready to merge, or a step MAIN said it would take once the work was ready, even when the captain asked not to hear about that work; MAIN, not you, decides what the captain hears.
-Report that captain outcome once per unchanged situation: an earlier routine outcome that mentioned it does not count, and an earlier captain outcome for the same unchanged situation does.
+Report the captain outcome for a needed action once per unchanged situation: an earlier routine outcome that mentioned it does not count, and an earlier captain outcome for the same unchanged situation does.
 Write summaries in the captain's outcome language - the project, the fix, the PR, the worker, the blocker - never internal mechanics like wake kinds, status prefixes, worktrees, or state file names.
 
 # PR identity: copy or abstain

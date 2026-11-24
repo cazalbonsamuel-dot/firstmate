@@ -109,6 +109,7 @@ Only an away record is away: no record, or the record daemon-backed quiet mode w
 
 The host asks the Pi branch's offer rule (`branchOfferForWake`, through `bin/fm-branch-dispatch.mjs offer`) whether the branch may take the close.
 So a close reaches main off Pi exactly when it would on Pi: a check trigger, a decision-owned signal or stale trigger, and a scan that is unsafe or holds nothing for the branch stay main's.
+The differences are the cleanup of a merge made while attended and a downtime resurface whose queued rows the branch claims in full, both of which this host gives the branch ([pi-supervision-branch.md](pi-supervision-branch.md#components-and-their-owners) owns the rule).
 On that main-only pass-through the host starts the successor watcher cycle and leaves it running, then prints the close unchanged.
 That successor, like one a turn hands back at its start (see [Away](#away)), runs in a process group of its own, so the harness tearing down the hook's group after the rewake does not stop it.
 The host confirms no handling handoff and republishes the watcher's recovery marker as downtime, even when an earlier engine turn left it reading handling, because the re-arm owner delivers a close to main only while that marker reads downtime.
@@ -227,7 +228,7 @@ An unprocessed captain outcome is never adopted as processed, including across a
 A home already switched to the host can re-present its unacknowledged outcomes after an upgrade or interrupted switch, so each captain line shows its recorded age and the section asks main to check current task state before acting.
 Main's reply to the captain covers only the outcomes still open, as if an already-settled one had never been listed.
 Main runs the printed acknowledgement for every presented outcome, settled and handled open ones alike.
-Anything main must act on while attended to move the work forward, such as a local-only branch to land or a pull request to merge, is a captain outcome on the host even when the captain asked not to hear about that work, reported once per unchanged situation (`bin/fm-branch-prompt.sh` "Verdict: routine or captain"), because a routine outcome opens no main turn.
+Anything main must act on to move the work forward, such as a local-only branch to land or a pull request to merge, is a captain outcome in every posture even when the captain asked not to hear about that work, reported once per unchanged situation (`bin/fm-branch-prompt.sh` "Verdict: routine or captain"); on the host this matters most while attended, because a routine outcome opens no main turn.
 
 One limit: if the captain goes away and returns while an attended engine turn runs, and the host is terminated before that turn's `branch-outcome` wake is delivered, no immediate wake reaches main.
 The captain row is still durable, and the next drain presents it until it is acknowledged.
@@ -445,8 +446,8 @@ Each arm owner's own suite covers its host mode against a stub host.
 
 | Test | What it covers |
 |---|---|
-| `tests/fm-supervision-host-drain.test.sh` | Report surface, dispatch entry, and the drain's `BRANCH OUTCOMES` section against the shared stub-engine fixtures. |
-| `tests/fm-supervision-host.test.sh` | Drives the real host against a stub engine for wakes, closes, the dialog mirror, and return outcomes, in both postures. |
+| `tests/fm-supervision-host-drain.test.sh` | Report surface, dispatch entry including the attended merge cleanup and resurface offers, and the drain's `BRANCH OUTCOMES` section against the shared stub-engine fixtures. |
+| `tests/fm-supervision-host.test.sh` | Drives the real host against a stub engine for wakes, closes, an attended merge's cleanup, the dialog mirror, and return outcomes, in both postures. |
 | `tests/fm-supervision-host-park.test.sh` | Latch, park boundary, compaction, and lock ownership against the same stub-engine fixtures. |
 | `tests/fm-supervision-host-hook.test.sh` | Claude Stop-hook re-arm, successor take-over, lost hand-back continuations, and guarded retry submission. |
 | `tests/fm-claude-stop-autoarm.test.sh` | The Claude arm owner's host mode against a stub host. |

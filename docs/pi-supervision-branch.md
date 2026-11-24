@@ -98,6 +98,12 @@ What is never offered, or falls back to main:
 
 - While attended, a check-kind triggering close is never offered, even when other rows are eligible.
   Check-kind closes are merge-confirmation polls, Relay mentions, credential/auth failures, and every other legitimately main-only class.
+- The attended supervision host off Pi has two exceptions.
+  The first is a merge made under the captain's attended authority: the `check: merge landed:` row `bin/fm-merge-outcome-lib.sh` writes with nothing after its URL.
+  That host's scan claims such a row scoped to the task it names, even after the task's record is gone, because what it leaves is cleanup the branch already owns (`bin/fm-branch-prompt.sh` owns that turn's verdict, which stays captain while the task is still recorded).
+  The second is the `check: rearm-resurface` close, which only re-announces rows already queued: the host offers it whenever its scan claims every unread row, so routine signal, stale, and attended merge rows that surface after downtime stay off main.
+  A resurface with an empty queue, or with any row the scan leaves to main (another check row, a heartbeat, a decision-owned signal or stale row), stays main's, as do every other check row and close, a row tagged `away`, `external`, `yolo`, or `away-grant`, and a row whose key does not match its payload.
+  Pi keeps every check row and close on main.
 - When a triggering close has no acceptor (extension absent, branch broken), it keeps today's wake-to-main path.
 - Watcher-failure alarms always go to main, because only main can repair the watcher cycle.
 
@@ -480,7 +486,7 @@ The branch accepts it without a project only when every branch-ownable row obser
 ### Co-present main-owned rows
 
 A heartbeat is never vetoed or ridden into main by a co-present check row or decision-owned signal/stale row.
-Those rows are main-owned while attended.
+Those rows are main-owned while attended, except the attended supervision host's merge row ("Components and their owners" above).
 They are excluded from what the branch may claim and left queued for main.
 Main is woken for each on its own watcher cycle, so nothing starves by being left behind.
 Under the away-posture record the branch claims them too ("Postures" below).
@@ -659,7 +665,7 @@ The generated prompt includes the [scout-completion](../.agents/skills/scout-com
 
 `tests/fm-branch-supervision.test.sh` covers:
 
-- Prompt stability, including the landed-work cleanup instruction and the second-mate relay, signal-span, and stale-liveness rules.
+- Prompt stability, including the landed-work cleanup instruction, the attended merge cleanup verdict, the rule that an outcome needing a MAIN or captain action is never routine in any posture, and the second-mate relay, signal-span, and stale-liveness rules.
 - The emitted completed-scout cleanup instructions and verbatim completion policies, including incomplete-work boundaries and refusal reporting; these assertions verify prompt delivery, not a model's adherence.
 - Store append-only behavior, the captain cursor barrier, processed-marker sequence bounds and absent-marker safety, and captain-only recorded ages.
 - Leases, guards, and non-branch-home invariance.
