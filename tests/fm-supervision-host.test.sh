@@ -73,6 +73,26 @@ test_attended_routine_wake_is_handled_on_the_engine_and_stays_off_main() {
   pass "host: an attended wake the branch may take is handled on the engine, and its routine outcome never wakes main"
 }
 
+# A merge MAIN performed while attended leaves only its cleanup, so the host
+# hands that notification to the branch instead of opening a MAIN turn.
+test_attended_merge_cleanup_is_handled_on_the_engine_and_stays_off_main() {
+  local home
+  home=$(make_home attended-merge attended)
+  start_host "$home"
+  wait_until 150 watcher_live "$home" || fail "merge: the host never started a watcher cycle: $(cat "$home/host.out")"
+  FM_HOME="$home" bash -c '. "$1/bin/fm-merge-outcome-lib.sh"; fm_merge_outcome_report "$2" "$2/state" demo https://github.com/o/r/pull/7 self' \
+    _ "$ROOT" "$home" || fail "fixture: the merge outcome writer refused"
+  wait_until 250 handled_at_least "$home" 1 \
+    || fail "merge: the merge notification was not handled on the engine: $(cat "$home/host.out"; cat "$home/state/.supervision-host.log")"
+  assert_re '^(arg=)?FIRSTMATE SUPERVISION WAKE: check: ' "$home/engine-call.1" "the branch must receive the merge close"
+  assert_grep 'check: merge landed: demo https://github.com/o/r/pull/7' "$home/engine-drain.1" "the branch drain must present the merge row"
+  assert_no_grep 'merged-demo' "$home/state/.wake-queue" "the branch's acknowledgement did not consume the merge row"
+  assert_no_re '	pass-through	attended	main-only	' "$home/state/.supervision-host.log" "the merge notification reached main"
+  [ ! -s "$home/host.rc" ] || fail "an attended merge cleanup woke main: $(cat "$home/host.out")"
+  watcher_live "$home" || fail "the host is not parked on a live successor after the merge cleanup"
+  pass "host: an attended merge's cleanup is handled on the engine and never wakes main"
+}
+
 
 # A TERM that lands just after a handled wake, while the host settles its
 # successor handoff under the queue and marker locks, must not leave the host
@@ -919,6 +939,7 @@ test_incomplete_engine_result_hands_the_wake_to_main() {
 fm_test_run \
   test_park_exit_probe_uses_half_second_child_sleeps \
   test_attended_routine_wake_is_handled_on_the_engine_and_stays_off_main \
+  test_attended_merge_cleanup_is_handled_on_the_engine_and_stays_off_main \
   test_host_stopped_right_after_a_handled_wake_exits_and_frees_the_queue \
   test_engine_in_another_time_zone_handles_its_granted_rows \
   test_attended_captain_outcome_reaches_main_through_branch_outcomes \

@@ -98,6 +98,11 @@ What is never offered, or falls back to main:
 
 - While attended, a check-kind triggering close is never offered, even when other rows are eligible.
   Check-kind closes are merge-confirmation polls, Relay mentions, credential/auth failures, and every other legitimately main-only class.
+- The attended supervision host off Pi has one exception, for a merge made under the captain's attended authority: the `check: merge landed:` row `bin/fm-merge-outcome-lib.sh` writes with nothing after its URL.
+  That host's scan claims such a row scoped to the task it names, even after the task's record is gone, because what it leaves is cleanup the branch already owns (`bin/fm-branch-prompt.sh` owns that turn's verdict).
+  It also offers a `check: rearm-resurface` close, which is how such rows usually surface, but only when its scan claims such a row and leaves no unread row for main.
+  Every other check row and close, a row tagged `away`, `external`, `yolo`, or `away-grant`, a row whose key does not match its payload, and every other resurface stay main's.
+  Pi keeps every check row and close on main.
 - When a triggering close has no acceptor (extension absent, branch broken), it keeps today's wake-to-main path.
 - Watcher-failure alarms always go to main, because only main can repair the watcher cycle.
 
@@ -659,7 +664,7 @@ The generated prompt includes the [scout-completion](../.agents/skills/scout-com
 
 `tests/fm-branch-supervision.test.sh` covers:
 
-- Prompt stability, including the landed-work cleanup instruction and the second-mate relay, signal-span, and stale-liveness rules.
+- Prompt stability, including the landed-work cleanup instruction, the attended merge cleanup verdict, and the second-mate relay, signal-span, and stale-liveness rules.
 - The emitted completed-scout cleanup instructions and verbatim completion policies, including incomplete-work boundaries and refusal reporting; these assertions verify prompt delivery, not a model's adherence.
 - Store append-only behavior, the captain cursor barrier, processed-marker sequence bounds and absent-marker safety, and captain-only recorded ages.
 - Leases, guards, and non-branch-home invariance.

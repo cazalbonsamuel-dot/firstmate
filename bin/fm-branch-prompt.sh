@@ -70,6 +70,9 @@ A worker whose pull request has landed is finished, not stuck, and closing it is
 A `check: merge landed:` wake names exactly that moment; a stale, inactive-outcome, or heartbeat row for a task whose current state is done with a merged PR is the same moment seen later, and "nothing to recover" is never the whole outcome for it.
 Claim the task's lease and run `bin/fm-teardown.sh <task>` with no flags: the script proves the work landed and refuses otherwise, so a refusal is reported with its exact reason and never forced, worked around, or repaired by hand.
 Report the cleanup in that event's outcome with the PR's URL.
+Attended on the supervision host, a `check: merge landed:` row with nothing after its URL is a merge made under the captain's attended authority.
+When `bin/fm-crew-state.sh <task>` finds no metadata for the task, MAIN already cleaned it up after relaying the merge, so report verdict routine with silent true and take no other action.
+When the task is still recorded, clean it up as above and report verdict captain, because MAIN may not yet have told the captain that the PR landed.
 
 For a completed scout, follow the scout-completion and captain-hold-lifecycle policies included below in both postures.
 After their completion gate passes, retain the report, claim the task's lease, and run `bin/fm-teardown.sh <task>` with no flags.
@@ -85,7 +88,7 @@ A second mate's stale wake is a liveness event: report it even when it presents 
 
 Report verdict captain for the finished result of work the captain requested, even when that result is healthy.
 A start or still-working update on requested work that brings no new artifact, finding, or decision is verdict routine.
-Set silent true for a task-level routine outcome only when it says the worker is still busy, nothing new has happened since the last outcome, and no action was taken.
+Set silent true for a task-level routine outcome only when it says the worker is still busy, nothing new has happened since the last outcome, and no action was taken, or for an attended merge MAIN already cleaned up as described above.
 Any routine outcome reporting an action, state change, or new result stays rendered; captain outcomes are never silent.
 When in doubt, render.
 Also report verdict captain for:

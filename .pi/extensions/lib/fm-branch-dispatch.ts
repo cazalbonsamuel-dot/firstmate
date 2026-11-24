@@ -142,6 +142,13 @@ export interface UnreadWakeScope {
    * non-heartbeat wake claims it in the away posture.
    */
   heartbeatSeqs: string[];
+  /**
+   * True when this scan claimed an attended merge row (attendedMergeTask) and
+   * left no unread row for main. Only then does an attended host offer a
+   * `check: rearm-resurface` close to the branch; every other resurface
+   * rewakes main.
+   */
+  attendedMergeOnly: boolean;
   taskByWakeKey: Record<string, string>;
 }
 
@@ -155,6 +162,7 @@ const EMPTY_SCOPE: UnreadWakeScope = {
   needsDecisionKeys: [],
   checkSeqs: [],
   heartbeatSeqs: [],
+  attendedMergeOnly: false,
   taskByWakeKey: {},
 };
 const UNSAFE_SCOPE: UnreadWakeScope = {
@@ -167,8 +175,25 @@ const UNSAFE_SCOPE: UnreadWakeScope = {
   needsDecisionKeys: [],
   checkSeqs: [],
   heartbeatSeqs: [],
+  attendedMergeOnly: false,
   taskByWakeKey: {},
 };
+
+// The task an attended host's branch may close a `check: merge landed:` row
+// for, or "" when the row stays main's. Only the untagged form qualifies:
+// bin/fm-merge-outcome-lib.sh writes it for a merge this home performed or
+// detected under attended authority, and on a main home MAIN performs every
+// attended merge itself, so the row brings MAIN nothing it does not already
+// know; its remaining work is the cleanup and clone refresh the branch owns
+// (bin/fm-branch-prompt.sh). A tagged row (away, external, or a retired tag)
+// and any payload or key that does not match the writer's exact shape stay
+// main's.
+const ATTENDED_MERGE_LANDED = /^check: merge landed: ([A-Za-z0-9][A-Za-z0-9._-]*) (https?:\/\/\S+)$/;
+function attendedMergeTask(key: string, payload: string): string {
+  const match = ATTENDED_MERGE_LANDED.exec(payload);
+  if (!match || key !== `merged-${match[1]}-${match[2]}`) return "";
+  return match[1];
+}
 
 // scopeForUnreadWake is the single owner of branch-eligibility classification
 // (docs/pi-supervision-branch.md "Autonomy"; docs/watcher-continuity.md
@@ -417,6 +442,7 @@ export function scopeForUnreadWake(state: string, heartbeat: boolean, afk = fals
   const eligibleTasks = new Set<string>();
   const needsDecisionKeys: string[] = [];
   const checkSeqs: string[] = [];
+  let attendedMerges = 0;
   const heartbeatSeqs: string[] = [];
   const staleDecisionOwnership = new Map<string, boolean>();
   const resolveVerb = process.env.FM_CLASSIFY_RESOLVE_VERB || "resolved";
@@ -445,10 +471,21 @@ export function scopeForUnreadWake(state: string, heartbeat: boolean, afk = fals
       // Main-owned while attended: excluded from what the branch may claim,
       // never a reason to reject the rest of the queue and never a reason to
       // send an otherwise-eligible heartbeat review to main. Away, the branch
-      // is the only actor, so the row is claimed unscoped.
+      // is the only actor, so the row is claimed unscoped. The one attended
+      // exception is an attended host's untagged merge-landed row, claimed
+      // scoped to its task (attendedMergeTask).
       if (afk) {
         eligibleSeqs.push(seq);
         checkSeqs.push(seq);
+        continue;
+      }
+      const merged = attendedHost ? attendedMergeTask(key, fields.slice(4).join("\t")) : "";
+      if (merged) {
+        const mergedProject = metadata.get(merged);
+        if (mergedProject) projects.add(mergedProject);
+        eligibleTasks.add(merged);
+        eligibleSeqs.push(seq);
+        attendedMerges += 1;
       }
       continue;
     }
@@ -569,6 +606,7 @@ export function scopeForUnreadWake(state: string, heartbeat: boolean, afk = fals
     needsDecisionKeys,
     checkSeqs,
     heartbeatSeqs,
+    attendedMergeOnly: attendedMerges > 0 && eligibleSeqs.length === rows.length,
     taskByWakeKey: Object.fromEntries(taskByKey),
   };
 }
@@ -605,13 +643,19 @@ export interface BranchOfferVerdict {
 // row: until that row is read, a later signal or stale trigger for the same
 // task stays on main. Other tasks and heartbeat handling remain independent.
 //
+// One check close is routine on an attended host: `check: rearm-resurface`
+// when the scan claims an attended merge row (attendedMergeTask) and leaves
+// no row for main, which is how those rows usually surface. Every other check
+// close, and every other resurface, stays main's.
+//
 // The away posture collapses that partition: every actionable row is
 // branch-eligible and the trigger class no longer forces anything to main
 // (scopeForUnreadWake owns the per-row rule).
 export function branchOfferForWake(state: string, message: string, afk: boolean, attendedHost = false): BranchOfferVerdict {
   const heartbeat = /^heartbeat($|:)/.test(message);
-  const isCheckTrigger = /^check:/.test(message);
   const scope = scopeForUnreadWake(state, heartbeat, afk, attendedHost && !afk);
+  const hostRoutineCheck = attendedHost && !afk && message === "check: rearm-resurface" && scope.attendedMergeOnly;
+  const isCheckTrigger = /^check:/.test(message) && !hostRoutineCheck;
   const triggerKeys = /^signal:/.test(message)
     ? message
       .slice("signal:".length)

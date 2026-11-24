@@ -160,6 +160,89 @@ test_dispatch_entry_scopes_rows_and_renders_the_away_tail() {
   pass "dispatch entry: the host reads branch eligibility, the offer rule, and the wake prompt from the Pi branch's own owner"
 }
 
+# A merge MAIN performed while attended leaves only cleanup behind, so the
+# attended host gives its resurfacing close to the branch; any row that needs
+# MAIN, and every other check close, still wakes MAIN.
+test_dispatch_entry_offers_attended_merge_cleanup_to_the_branch() {
+  local home state out authority
+  home="$TMP_ROOT/dispatch-merge"
+  state="$home/state"
+
+  merged() {  # <task> <pr-number> [authority] - through the real merge outcome writer
+    bash -c '. "$1/bin/fm-merge-outcome-lib.sh"; fm_merge_outcome_report "$2" "$2/state" "$3" "https://github.com/o/r/pull/$4" self ${5:+"$5"}' \
+      _ "$ROOT" "$home" "$@" || fail "fixture: the merge outcome writer refused $*"
+  }
+  offer() { printf '%s\n' "$1" | FM_HOME="$home" node "$DISPATCH" offer; }
+  fresh() { rm -rf "$home"; mkdir -p "$state"; printf 'project=demo\nwindow=fm-demo\n' > "$state/demo.meta"; }
+
+  fresh
+  merged demo 7
+  merged gone 8 attended
+  out=$(offer 'check: rearm-resurface')
+  assert_contains "$out" "eligible=1" "an attended merge's resurfacing close must be the branch's"
+  assert_contains "$out" "rows=1 2" "the branch must claim every attended merge row"
+  assert_contains "$out" "tasks=demo gone" "each merge row is scoped to its task, even one whose record is already gone"
+  assert_contains "$out" "unscoped=0" "a merge cleanup claim names its tasks"
+  out=$(FM_HOME="$home" node "$DISPATCH" scope)
+  assert_contains "$out" "rows=" "fixture: the Pi scan must report its rows"
+  assert_not_contains "$out" "rows=1" "the Pi branch must still leave a merge row to main"
+  out=$(offer 'check: merge landed: demo https://github.com/o/r/pull/7')
+  assert_contains "$out" "eligible=0" "only the resurfacing close may move to the branch"
+
+  printf 'project=demo\nwindow=fm-routine\n' > "$state/routine.meta"
+  append_wake "$state" signal routine.status "signal: $state/routine.status"
+  out=$(offer 'check: rearm-resurface')
+  assert_contains "$out" "eligible=1" "a routine signal beside a merge row must not wake main"
+  assert_contains "$out" "rows=1 2 3" "the routine signal must ride the same branch claim"
+
+  fresh
+  printf 'project=demo\nwindow=fm-routine\n' > "$state/routine.meta"
+  append_wake "$state" signal routine.status "signal: $state/routine.status"
+  out=$(offer 'check: rearm-resurface')
+  assert_contains "$out" "eligible=0" "a resurface with no attended merge row must still wake main"
+
+  for authority in away external yolo away-grant; do
+    fresh
+    merged demo 7 "$authority"
+    out=$(offer 'check: rearm-resurface')
+    assert_contains "$out" "eligible=0" "a $authority merge must reach main"
+  done
+
+  fresh
+  append_wake "$state" check merged-demo-https://github.com/o/r/pull/9 "check: merge landed: demo https://github.com/o/r/pull/7"
+  out=$(offer 'check: rearm-resurface')
+  assert_contains "$out" "eligible=0" "a merge row whose key does not match its payload must reach main"
+
+  local leftover kind key payload
+  for leftover in \
+    "check|auth|check: credential needed for github.com" \
+    "check|inactive-outcome|check: inactive-outcome demo awaiting captain presentation" \
+    "heartbeat|heartbeat|heartbeat" \
+    "signal|demo.status|needs-decision"; do
+    fresh
+    merged demo 7
+    IFS='|' read -r kind key payload <<< "$leftover"
+    if [ "$kind" = signal ]; then
+      printf 'needs-decision [key=pick]: choose an option\n' > "$state/demo.status"
+      payload="signal: $state/demo.status"
+    fi
+    append_wake "$state" "$kind" "$key" "$payload"
+    out=$(offer 'check: rearm-resurface')
+    assert_contains "$out" "eligible=0" "a merge row beside a $kind row for main must still wake main"
+  done
+
+  fresh
+  merged demo 7
+  for payload in 'check: credential needed for github.com' 'check: inactive-outcome demo' 'check: contributions'; do
+    out=$(offer "$payload")
+    assert_contains "$out" "eligible=0" "the check close '$payload' must stay main's"
+  done
+  out=$(printf 'check: rearm-resurface\n' | FM_HOME="$home" node "$DISPATCH" offer --afk)
+  assert_contains "$out" "eligible=1" "away, the branch still takes the close"
+  assert_contains "$out" "unscoped=1" "away, a claimed check row is still unscoped"
+  pass "dispatch entry: the attended host gives merge cleanup to the branch and keeps every row needing MAIN on main"
+}
+
 
 # --- host loop ----------------------------------------------------------------
 
@@ -589,6 +672,7 @@ fm_test_run \
   test_report_surface_enforces_actor_turn_and_scope \
   test_report_after_the_return_is_queued_for_main \
   test_dispatch_entry_scopes_rows_and_renders_the_away_tail \
+  test_dispatch_entry_offers_attended_merge_cleanup_to_the_branch \
   test_branch_outcomes_only_on_a_host_home_off_pi \
   test_branch_outcomes_put_captain_first_and_collapse_routine_overflow \
   test_branch_outcomes_collapse_repeated_captain_outcomes_per_task \
