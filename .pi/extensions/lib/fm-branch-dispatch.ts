@@ -202,10 +202,10 @@ function attendedMergeTask(key: string, payload: string): string {
 //
 // A check-kind row - merge-confirmation polls, Relay mentions, credential/auth
 // failures, and every other legitimately main-only class - never vetoes a scan
-// in either mode. It is simply excluded from eligibleSeqs and left queued for
-// main, which is woken for it on that check's own watcher cycle
-// (fm-primary-pi-watch.ts forces every check-kind TRIGGER to main), so nothing
-// starves by being left behind.
+// in either mode. Except on the attended supervision host (see below), it is
+// simply excluded from eligibleSeqs and left queued for main, which is woken
+// for it on that check's own watcher cycle (fm-primary-pi-watch.ts forces every
+// check-kind TRIGGER to main), so nothing starves by being left behind.
 //
 // A signal row marked "needs-decision:" by the watcher, a second-mate signal
 // whose presented span owns a decision (spanIsDecisionOwned), or a stale row
@@ -627,7 +627,7 @@ export interface BranchOfferVerdict {
 // A check-kind close (merge-confirmation polls, Relay mentions,
 // credential/auth failures, and every other legitimately main-only class -
 // docs/pi-supervision-branch.md) is never routed to the branch while attended,
-// even when other currently-unread rows are individually eligible: this
+// except on the attended supervision host (see below), even when other currently-unread rows are individually eligible: this
 // watcher cycle's own triggering event stays on main, exactly as before
 // scopeForUnreadWake stopped letting a co-present check row veto the whole
 // scan. That relaxation is what lets an UNRELATED eligible signal/stale row

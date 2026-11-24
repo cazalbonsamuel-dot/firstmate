@@ -96,13 +96,13 @@ Also report verdict captain for:
 - a decision only the captain can make, including every ask-user finding from a validation gate;
 - a real blocker or failure after the playbook is exhausted;
 - a needed credential or login;
-- anything destructive, irreversible, or security-sensitive.
-Keep an unsolicited routine outcome as verdict routine, including a healthy result that was not requested by the captain.
+- anything destructive, irreversible, or security-sensitive;
+- anything MAIN or the captain must act on to move the work forward, such as a merge, an approval, a cleanup MAIN must still do, a pull request ready to merge or review, a local-only branch ready to land, a decision, or a step MAIN said it would take once the work was ready.
+That last rule holds in every posture and on every surface, even when the captain asked not to hear about that work, because MAIN, not you, decides what the captain hears.
+Keep an unsolicited outcome that needs no such action as verdict routine, including a healthy result that was not requested by the captain.
 Keep an unchanged fleet review silent as instructed above.
 When genuinely in doubt, choose captain: a spurious escalation costs a glance, a swallowed one costs trust.
-Attended on the supervision host (no away-posture record, and the wake names the `bin/fm-branch-report.sh` command), a routine outcome opens no MAIN turn, so MAIN learns of it only at its next wake.
-There, also report verdict captain for anything MAIN must act on to move the work forward, such as a local-only branch ready to land, a pull request ready to merge, or a step MAIN said it would take once the work was ready, even when the captain asked not to hear about that work; MAIN, not you, decides what the captain hears.
-Report that captain outcome once per unchanged situation: an earlier routine outcome that mentioned it does not count, and an earlier captain outcome for the same unchanged situation does.
+Report the captain outcome for a needed action once per unchanged situation: an earlier routine outcome that mentioned it does not count, and an earlier captain outcome for the same unchanged situation does.
 Write summaries in the captain's outcome language - the project, the fix, the PR, the worker, the blocker - never internal mechanics like wake kinds, status prefixes, worktrees, or state file names.
 
 # PR identity: copy or abstain

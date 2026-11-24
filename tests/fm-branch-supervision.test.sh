@@ -50,7 +50,7 @@ test_branch_prompt_is_byte_stable_and_above_cache_floor() {
     *) fail "branch prompt lost the inlined recovery playbook" ;;
   esac
   case "$out_a" in
-    *"Report verdict captain for the finished result of work the captain requested, even when that result is healthy."*"A start or still-working update on requested work that brings no new artifact, finding, or decision is verdict routine."*"Set silent true for a task-level routine outcome only when it says the worker is still busy, nothing new has happened since the last outcome, and no action was taken, or for an attended merge MAIN already cleaned up as described above."*"Any routine outcome reporting an action, state change, or new result stays rendered; captain outcomes are never silent."*"Keep an unsolicited routine outcome as verdict routine"*"Keep an unchanged fleet review silent"*) ;;
+    *"Report verdict captain for the finished result of work the captain requested, even when that result is healthy."*"A start or still-working update on requested work that brings no new artifact, finding, or decision is verdict routine."*"Set silent true for a task-level routine outcome only when it says the worker is still busy, nothing new has happened since the last outcome, and no action was taken, or for an attended merge MAIN already cleaned up as described above."*"Any routine outcome reporting an action, state change, or new result stays rendered; captain outcomes are never silent."*"Keep an unsolicited outcome that needs no such action as verdict routine"*"Keep an unchanged fleet review silent"*) ;;
     *) fail "branch prompt lost the requested-result, progress-routine, or routine-silence rules" ;;
   esac
   case "$out_a" in
@@ -74,6 +74,36 @@ test_branch_prompt_is_byte_stable_and_above_cache_floor() {
     *) fail "branch prompt lost the second-mate relay, signal-span, or stale-liveness rule" ;;
   esac
   pass "branch prompt is byte-stable across homes, cwd, timezone, and time, above the cache floor"
+}
+
+test_branch_prompt_never_routes_a_needed_main_action_routine() {
+  local prompt verdict
+  prompt=$(bash "$ROOT/bin/fm-branch-prompt.sh") || fail "branch prompt generator failed"
+
+  # Routine verdicts seq 536 and 738 in the operator sample read "MAIN must
+  # merge the approved PR" on a Pi branch, where the needed-action rule used to
+  # hold only attended on the supervision host. The emitted prompt is the
+  # contract: its verdict section must classify that outcome captain with no
+  # posture or surface condition, and must not gate the rule on the host.
+  verdict=$(printf '%s\n' "$prompt" | awk '/^# Verdict: routine or captain$/{on=1; next} /^# /{on=0} on')
+  [ -n "$verdict" ] || fail "branch prompt lost its verdict section"
+  assert_contains "$verdict" \
+    "- anything MAIN or the captain must act on to move the work forward, such as a merge, an approval, a cleanup MAIN must still do, a pull request ready to merge or review, a local-only branch ready to land, a decision, or a step MAIN said it would take once the work was ready." \
+    "verdict section does not classify a needed MAIN merge or approval as captain"
+  assert_contains "$verdict" \
+    "That last rule holds in every posture and on every surface, even when the captain asked not to hear about that work, because MAIN, not you, decides what the captain hears." \
+    "verdict section does not make the needed-action rule unconditional"
+  assert_contains "$verdict" \
+    "Keep an unsolicited outcome that needs no such action as verdict routine" \
+    "verdict section still keeps an unsolicited outcome routine when MAIN must act on it"
+  case "$verdict" in
+    *"Attended on the supervision host"*|*"There, also report verdict captain"*)
+      fail "verdict section still gates the needed-action rule on the supervision host" ;;
+  esac
+  assert_contains "$verdict" \
+    "Report the captain outcome for a needed action once per unchanged situation" \
+    "verdict section lost the one-captain-outcome-per-unchanged-situation rule"
+  pass "emitted branch prompt classifies an outcome needing a MAIN merge as captain in every posture"
 }
 
 test_branch_prompt_routes_completed_scouts_through_guarded_cleanup() {
@@ -1616,6 +1646,7 @@ WRAPPER
 }
 
 test_branch_prompt_is_byte_stable_and_above_cache_floor
+test_branch_prompt_never_routes_a_needed_main_action_routine
 test_branch_prompt_routes_completed_scouts_through_guarded_cleanup
 test_outcome_store_is_append_only_with_cursor_reads
 test_outcome_append_keeps_a_bounded_display_tail
