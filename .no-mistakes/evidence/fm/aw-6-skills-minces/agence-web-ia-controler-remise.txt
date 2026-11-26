@@ -1,0 +1,19 @@
+✔ une remise conforme au gabarit est acceptée (183.439167ms)
+✔ remise refusée : champ-manquant (134.230792ms)
+✔ remise refusée : section-manquante (165.45575ms)
+✔ remise refusée : exigence-sans-statut (163.732708ms)
+✔ remise refusée : preuve-absente (195.661459ms)
+✔ remise refusée : conforme-sur-hypothese (165.135333ms)
+✔ remise refusée : exigence-inconnue (161.578417ms)
+✔ remise refusée : fichier-hors-discipline (170.074625ms)
+✔ remise refusée : fichier-hors-chantier (167.2425ms)
+✔ remise refusée : preuve-hors-chantier (162.399291ms)
+✔ un fichier d'une autre discipline déplacé dans la sienne est refusé (198.848917ms)
+✔ un commit d'entrée qui n'est pas un SHA complet est refusé (331.093708ms)
+✔ un commit d'entrée hors de l'historique de HEAD est refusé (152.242375ms)
+✔ une remise contrôlée sous une autre discipline est refusée (169.056917ms)
+✔ la ligne de commande rend 0, 1 ou 2 (469.475708ms)
+✔ la table de propriété nomme chaque discipline de domaines/, et elles seules (0.316333ms)
+ℹ tests 16
+ℹ pass 16
+ℹ fail 0

@@ -1,0 +1,18 @@
+⏺ Skill(accessibilite)
+  ⎿  Successfully loaded skill
+⏺ Skill(agence-projet-client)
+  ⎿  Successfully loaded skill
+⏺ Captain, here are the answers from the two loaded skills:
+  1. Where the method lives: in the agence-web-ia repo (cloned at projects/agence-web-ia), at the head of its default branch. The files are domaines/accessibilite/README.md,
+     domaines/accessibilite/competences/controle.md and methode/seuils.md, with the default level coming from seuils.json (accessibilite.referentiel).
+  2. Files an accessibilite remise must contain: niveau.md with its FC-nn line, audit.md naming the tool or command for each check, and corrections.md. It must also show the README checks axe, zoom,
+     clavier and captures (including reduced motion and grayscale).
+  3. Command that must pass first: node outils/controler_remise.js <discipline> <remise>, run in an isolated copy, before any remise is accepted.
+  4. Decisions that go to you: the target level when the client sheet doesn't state it, the client's legal status, the accessibility statement and any exemption (no legal advice, the client consults a
+     lawyer), and the cost of testing with disabled people.
+· Composing… (Design deep pass… 1/4 · 16s · ↓ 533 tokens)
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+❯ 
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+  Opus 5.5 | ctx: 7% used                                                                                                                       Update available! Run: brew upgrade claude-code@latest
+  ⏵⏵ auto mode on (shift+tab to cycle)                                           You've used 94% of your weekly limit · resets Nov 30 at 3am (Europe/Paris) · /usage-credits to keep using Claude Code

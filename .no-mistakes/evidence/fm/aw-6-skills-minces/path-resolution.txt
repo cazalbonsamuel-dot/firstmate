@@ -1,0 +1,102 @@
+agence-web-ia HEAD: 71234ea0bbddc062fa125d94586259169c9d9877
+  OK   accessibilite: domaines/accessibilite/README.md
+  OK   accessibilite: domaines/accessibilite/competences/controle.md
+  OK   accessibilite: methode/seuils.md
+  MISS accessibilite: (bare) audit.md
+  OK   accessibilite: (bare) controle.md
+  MISS accessibilite: (bare) corrections.md
+  MISS accessibilite: (bare) niveau.md
+  OK   accessibilite: (bare) seuils.json
+  TEMPLATE agence-projet-client: chantiers/<id>/questions/Q-
+  TEMPLATE agence-projet-client: chantiers/<id>/remises/<discipline>/<t
+  TEMPLATE agence-projet-client: domaines/<discipline>/README.md
+  OK   agence-projet-client: domaines/README.md
+  OK   agence-projet-client: domaines/chef-de-projet/README.md
+  OK   agence-projet-client: domaines/chef-de-projet/competences/cadrage-perimetre-contrat.md
+  OK   agence-projet-client: domaines/maintenance/README.md
+  OK   agence-projet-client: domaines/recette/README.md
+  OK   agence-projet-client: domaines/rgpd-mentions-legales/README.md
+  OK   agence-projet-client: methode/chaine.md
+  OK   agence-projet-client: methode/seuils.json
+  OK   agence-projet-client: methode/seuils.md
+  OK   agence-projet-client: methode/statuts-et-origines.md
+  OK   agence-projet-client: modeles/proprietaires.json
+  OK   agence-projet-client: modeles/question.md
+  OK   agence-projet-client: modeles/remise.md
+  OK   agence-projet-client: outils/controler_remise.js
+  OK   agence-projet-client: (bare) positionnement-agence.md
+  OK   architecture-information: domaines/arborescence/README.md
+  OK   architecture-information: domaines/arborescence/competences/contenu-arborescence-navigation.md
+  OK   architecture-information: domaines/arborescence/competences/tests-structure-wireframes.md
+  OK   architecture-information: (bare) contenu-arborescence-navigation.md
+  MISS architecture-information: (bare) inventaire.md
+  MISS architecture-information: (bare) navigation.md
+  MISS architecture-information: (bare) plan-du-site.md
+  OK   architecture-information: (bare) seuils.json
+  OK   architecture-information: (bare) tests-structure-wireframes.md
+  OK   construction-web: domaines/integration-cms/README.md
+  OK   construction-web: domaines/integration-cms/competences/cms.md
+  OK   construction-web: domaines/integration-cms/competences/construction-web.md
+  OK   construction-web: domaines/integration-cms/competences/hebergement-mise-en-ligne.md
+  MISS construction-web: (bare) choix-technique.md
+  OK   construction-web: (bare) cms.md
+  OK   construction-web: (bare) construction-web.md
+  OK   construction-web: (bare) hebergement-mise-en-ligne.md
+  MISS construction-web: (bare) plan-de-test.md
+  OK   contenu-ecriture: domaines/textes/README.md
+  OK   contenu-ecriture: domaines/textes/competences/microcopie.md
+  OK   contenu-ecriture: domaines/textes/competences/tester-et-localiser.md
+  OK   contenu-ecriture: domaines/textes/competences/voix-et-langage-clair.md
+  OK   contenu-ecriture: (bare) microcopie.md
+  MISS contenu-ecriture: (bare) notes.md
+  OK   contenu-ecriture: (bare) tester-et-localiser.md
+  OK   contenu-ecriture: (bare) voix-et-langage-clair.md
+  MISS contenu-ecriture: (bare) voix.md
+  OK   design-visuel: domaines/direction-artistique/README.md
+  OK   design-visuel: domaines/direction-artistique/competences/design-visuel.md
+  OK   design-visuel: (bare) design-visuel.md
+  MISS design-visuel: (bare) direction.md
+  MISS design-visuel: (bare) passation.md
+  MISS design-visuel: (bare) systeme.md
+  OK   formulaires: domaines/integration-cms/README.md
+  OK   formulaires: domaines/integration-cms/competences/formulaires.md
+  OK   formulaires: domaines/rgpd-mentions-legales/README.md
+  OK   formulaires: (bare) formulaires.md
+  OK   identite-marque-logo: domaines/direction-artistique/README.md
+  OK   identite-marque-logo: domaines/direction-artistique/competences/identite-marque-logo.md
+  OK   identite-marque-logo: (bare) identite-marque-logo.md
+  OK   performance-web: domaines/vitesse/README.md
+  OK   performance-web: domaines/vitesse/competences/css-js-serveur.md
+  OK   performance-web: domaines/vitesse/competences/images-web.md
+  OK   performance-web: domaines/vitesse/competences/mesure-seuils.md
+  OK   performance-web: methode/seuils.json
+  OK   performance-web: methode/seuils.md
+  MISS performance-web: (bare) baseline.md
+  MISS performance-web: (bare) corrections.md
+  OK   performance-web: (bare) css-js-serveur.md
+  OK   performance-web: (bare) images-web.md
+  MISS performance-web: (bare) images.md
+  OK   performance-web: (bare) mesure-seuils.md
+  MISS performance-web: (bare) mesures.md
+  OK   photographie-web: domaines/direction-artistique/README.md
+  OK   photographie-web: domaines/direction-artistique/competences/photographie.md
+  OK   photographie-web: (bare) photographie.md
+  OK   seo-local-fiche-google: domaines/seo-fiche-google/README.md
+  OK   seo-local-fiche-google: domaines/seo-fiche-google/competences/fiche-google.md
+  OK   seo-local-fiche-google: (bare) fiche-google.md
+  OK   seo: domaines/seo-fiche-google/README.md
+  OK   seo: domaines/seo-fiche-google/competences/seo.md
+  MISS seo: (bare) assistants.md
+  MISS seo: (bare) balises.md
+  MISS seo: (bare) mots-cles.md
+  MISS seo: (bare) redirections.md
+  OK   seo: (bare) seo.md
+  OK   ux-recherche-tests: domaines/strategie-recherche/README.md
+  OK   ux-recherche-tests: domaines/strategie-recherche/competences/audit-tests-mesure.md
+  OK   ux-recherche-tests: domaines/strategie-recherche/competences/recherche-avant-conception.md
+  OK   ux-recherche-tests: (bare) audit-tests-mesure.md
+  MISS ux-recherche-tests: (bare) concurrence.md
+  MISS ux-recherche-tests: (bare) etude.md
+  OK   ux-recherche-tests: (bare) recherche-avant-conception.md
+  MISS ux-recherche-tests: (bare) visiteurs.md
+missing=24

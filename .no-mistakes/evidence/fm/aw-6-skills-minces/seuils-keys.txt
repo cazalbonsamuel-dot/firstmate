@@ -1,0 +1,1 @@
+OK   accessibilite.referentiel = "WCAG 2.2 AA"
