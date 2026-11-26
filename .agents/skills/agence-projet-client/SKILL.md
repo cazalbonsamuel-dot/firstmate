@@ -9,176 +9,83 @@ metadata:
 
 # agence-projet-client
 
-Ce skill porte la relation client, le contrat de périmètre et la chaîne de production en cinq postes, du cadrage à la maintenance ; les méthodes de chaque domaine restent dans leur skill.
+Ce skill porte la supervision d'un projet client par firstmate ; le métier est dans le dépôt `agence-web-ia` (cloné dans `projects/agence-web-ia`), à la tête de sa branche par défaut, qui fait autorité sur le quoi.
+Ses pièces de base : le contrat des workers `AGENTS.md`, la chaîne `methode/chaine.md`, les seuils `methode/seuils.json`, les statuts `methode/statuts-et-origines.md`, les gabarits `modeles/`, les disciplines `domaines/<discipline>/README.md` et les noms de contrôles `domaines/README.md`.
+Ce skill est le seul propriétaire du brief commun, de la réception commune d'une remise et du circuit des questions au client ; chaque skill de discipline n'y ajoute que sa part.
+Firstmate n'écrit jamais dans le dépôt : chaque tâche est celle d'un worker.
 
 ## Quand charger
 
 - Un besoin client arrive : site, page, refonte, logo, contenu ou audit.
-- Avant tout devis, brief de worker ou message au client, et avant chaque présentation, validation ou mise en ligne.
-- Avant de proposer une maintenance ou de travailler le portfolio.
+- Avant tout devis, tout brief de worker et tout message au client.
+- Avant chaque présentation, validation ou mise en ligne pour ce client.
 
 ## Faire
 
-### 1. Cadrer avant de produire
+1. Ouvrir le chantier par une tâche `chef-de-projet` (`domaines/chef-de-projet/README.md`) : fiche client `FC-nn`, exigences chiffrées `EX-nn` tracées à la fiche, choix d'égalité dans `chef-de-projet/choix.md`, devis et planning.
+   Le cadrage, le test de l'identité existante, le périmètre et le contrat suivent `domaines/chef-de-projet/competences/cadrage-perimetre-contrat.md` ; le positionnement de l'agence, `positionnement-agence.md`.
+2. Suivre l'ordre de `methode/chaine.md` et lancer ensemble les disciplines d'un même rang.
+   Une discipline démarre quand les remises de sa liste « Reçoit » existent.
+3. Le skill de supervision de chaque discipline :
 
-1. Exiger un cahier des charges écrit, « vraiment obligatoire » en contexte professionnel, et relancer s'il manque des informations [1544922 L7 n°14-15].
-2. Si le client en fournit un, l'analyser d'abord et ne poser que les questions qui manquent [1544922 L17 n°19].
-3. Poser les questions du plus simple au plus complexe [1544922 L17 procédure 3.3] :
-   - De quoi s'agit-il, quels besoins ? Quels objectifs à court, moyen et long terme ?
-   - « Si je ne devais travailler qu'une seule fois sur votre projet, que devrais-je faire ? » : par écrit, un ou deux jours pour répondre.
-   - Quel élément mettre en avant ? Très souvent un appel à l'action.
-   - Quels concurrents ? Quelle valeur ajoutée ?
-4. Compléter : pourquoi, pour qui, quelle valeur pour les utilisateurs et pour l'entreprise, comment mesurer le succès, que peut-on réalistement faire [412738 L4 PR1].
-5. Le succès est un événement mesurable (« 1 400 utilisateurs abonnés »), jamais « un site très réussi » [412738 L4 P9].
-6. Un but business n'est retenu que s'il est spécifique, mesurable et atteignable ; sinon c'est une supposition dont le prestataire portera l'échec [4013140 S2 Step 01 R-17, R-18].
-7. Commencer par le côté business : une proposition passe si elle mène au résultat que l'entreprise vise déjà [4013140 S2 Step 01 R-14 [préférence], R-15].
-8. Identifier qui décide, finance et crée le contenu ; demander à chacun ce qui doit s'être passé trois mois après le lancement [412738 L12-L13 PR4].
-9. Demander technologie en place, décisions déjà prises, règles du secteur [412738 L13 P38-P40].
-10. Récupérer logo, couleurs, polices et si possible les fichiers sources [3918934 S6 Introduction R33] ; une charte existante et réelle se réutilise, sans refaire palette ni polices [437398 S7 R93, 1544922 L7 n°16].
-   Les couleurs et la police d'un site ancien ne sont pas une charte : ce sont souvent des réglages par défaut que personne n'a choisis [décision du capitaine, 10 novembre 2026].
-   - La marque est ce que les clients reconnaissent : nom, logo, couleur signature, ton [décision du capitaine, 10 novembre 2026].
-   - La marque vit souvent hors du site (véhicule, enseigne, factures, cartes) : la chercher là aussi [décision du capitaine, 10 novembre 2026].
-   - L'habillage du site (mise en page, polices, fonds, tailles) est ce qu'une refonte remplace : aucune raison de le conserver [décision du capitaine, 10 novembre 2026].
-   - Avant de décider, tester : identité conçue par quelqu'un ou réglage par défaut ? Présente ailleurs que sur le site ? Logo disponible en bonne qualité ? Couleurs qui passent les contrôles de lisibilité (`accessibilite`) ? Les clients la reconnaîtraient-ils si elle changeait ? [décision du capitaine, 10 novembre 2026]
-   - Trois issues [décision du capitaine, 10 novembre 2026] :
-     - conserver : la charte est réelle et saine, on la reprend telle quelle ;
-     - faire évoluer : on garde les repères reconnaissables et on modernise tout le reste ; cas le plus fréquent ;
-     - remplacer : rien n'est récupérable ou le client veut changer ; vraie création d'identité, `identite-marque-logo`.
-   - Le choix de l'issue remonte au capitaine : voir « Refuser ou remonter » [décision du capitaine, 10 novembre 2026].
-11. Pour un site existant, l'audit UX passe avant toute liste de souhaits et tout design [4013140 S1 R-06].
-12. Trancher d'où viennent les images avant toute proposition visuelle : `photographie-web` [décision du capitaine, 11 novembre 2026].
-13. Demander au client ses avis de clients et son ancienneté avant de concevoir ; leur usage : `contenu-ecriture` [décision du capitaine, 11 novembre 2026].
-14. Planifier à rebours depuis l'échéance : tâches, durées, calendrier [1783776 Edit, série 2, L1].
-15. Faire fixer dès le cadrage le niveau d'accessibilité visé : `accessibilite`.
+   | Discipline | Skill |
+   |---|---|
+   | `chef-de-projet`, `rgpd-mentions-legales`, `recette`, `maintenance` | ce skill |
+   | `strategie-recherche` | `ux-recherche-tests` |
+   | `arborescence` | `architecture-information` |
+   | `textes` | `contenu-ecriture` |
+   | `direction-artistique` | `design-visuel`, `identite-marque-logo`, `photographie-web` |
+   | `integration-cms` | `construction-web`, `formulaires` |
+   | `seo-fiche-google` | `seo`, `seo-local-fiche-google` |
+   | `accessibilite` | `accessibilite` |
+   | `vitesse` | `performance-web` |
 
-### 2. Fixer le périmètre
-
-1. Les exigences ne se récoltent pas : on les génère et les débat avec le client ; un preneur de commandes perd sa valeur [412738 L19-L20 P59, P61].
-   Contradiction : 1544922 L7 n°14-15 fait venir le cahier des charges du client ; retenu 412738, cours dédié ; le cahier écrit reste obligatoire.
-2. Distinguer ce que les gens disent vouloir, ce dont ils ont besoin, ce dont ils ignorent avoir besoin [412738 L21 P65].
-3. Parler du problème et du résultat, pas de l'outil [412738 L21 P68, P70 ; 1595266 S4/L5 P47].
-4. Classer chaque fonctionnalité par importance et faisabilité ; le très important et très faisable est « include or die » et reçoit l'essentiel de l'effort [412738 L6 PR2].
-5. Si « tout est prioritaire », jouer « Buy a Feature » : 30 fonctionnalités au plus, prix selon la complexité, budget pour la moitié au tiers [412738 L25 PR10].
-6. Ce qui n'est pas dans le document approuvé n'est pas construit [412738 L22 P73].
-7. Écrire dans la proposition et le contrat une page d'hypothèses : « le périmètre et le coût supposent que... ; toute fonctionnalité au-delà sera estimée séparément » [412738 L24 PR9].
-8. Tenir une liste « maintenant » et une liste « plus tard », jamais de travail sans elle [412738 L24 P79-P80].
-9. Le contenu est fourni par le client ; le rédiger ou engager un rédacteur se facture en plus [437398 S7 R92].
-   Dans la chaîne en cinq postes, le client fournit les faits et le rédacteur du point 4.4 écrit les textes [décision du capitaine, 11 novembre 2026] ; la facturation suit le cours.
-10. Design et intégration sont deux prestations distinctes [1544922 L5 n°2].
-
-### 3. Chiffrer et contracter
-
-1. Ne chiffrer qu'après objectifs, type de site, public, nombre de pages, spécificités et budget, le temps estimé d'après les projets passés [3918934 S10 Freelancing R169].
-2. Partir d'un taux horaire qui intègre tous les coûts, comparer au marché local, puis proposer un prix par projet [2633036 Entr P177, Pr27].
-3. Le montant cité pour débuter, 250 à 300 € par jour, est [daté] : valeur à vérifier au moment du projet [3918934 S10 Freelancing R170].
-4. Toujours un acompte et un contrat ; la date ne se bloque qu'après signature et paiement [2633036 Entr P176].
-5. Convenir du paiement par étapes : combien, à quel moment [805992 Futur/Freelance 157].
-6. Le contrat nomme : acompte et date, coût total, échéance du solde, pénalités de retard, heures en plus, parties, livrables (nombre, format), livraison, urgence et annulation, signatures [2633036 Entr Pr26].
-
-### 4. Produire en cinq postes
-
-Toutes les règles de cette étape sont des décisions du capitaine, éprouvées sur une refonte [décision du capitaine, 11 novembre 2026].
-
-1. Chaque poste est tenu par un worker distinct et lit le livrable écrit du précédent au lieu de tout refaire.
-2. Deux moments remontent au capitaine, puis au client : le choix de l'ambiance et la présentation du résultat.
-3. Constat :
-   - reçoit le site existant ou le besoin, et les skills de cadrage ;
-   - rend une fiche courte : faits du client, chacun avec sa source, « non indiqué » quand il manque, contradictions signalées sans les trancher ; défauts mesurés de l'existant ; images réutilisables avec leurs dimensions réelles ; preuves de confiance disponibles ; voie d'image qui s'impose ; test de l'identité (point 1.10) ; questions au client ;
-   - ne conçoit rien, ne propose aucune direction, n'écrit aucun texte de page, ne tranche pas l'identité.
-4. Rédaction, avant le design :
-   - reçoit le constat, `contenu-ecriture` et `seo` ;
-   - rend le plan du site, les textes de toutes les pages écran par écran (title, description, titres, phrases, libellés, textes alternatifs, replis), les questions-réponses, les données structurées, la voix et les demandes au client ;
-   - fait relire ses textes par un sous-agent neuf qui chasse le bateau, le faux et le jargon ;
-   - n'invente aucun fait, ne dessine rien, ne construit rien.
-5. Ambiances, puis choix :
-   - reçoit le constat, les textes, `design-visuel` et `photographie-web` ;
-   - rend trois ambiances vraiment différentes pour ce client-là (images, couleurs, ton), pas trois mises en page, toutes dans la voie d'image tranchée au début du projet ; aucun site passé ne sert de gabarit (`design-visuel`, charte) ; chacune rendue sur quelques écrans, ordinateur et téléphone, avec une fiche pour le constructeur et le relevé de ses images ;
-   - ne choisit pas et ne construit rien en entier avant le choix.
-6. Construction :
-   - reçoit l'ambiance choisie et sa fiche, les textes, le constat ;
-   - rend toutes les pages du site, avec navigation et pied de page communs, ses captures et le rapport de ses contrôles ;
-   - monte les textes mot pour mot et signale celui qui ne tient pas au lieu de le réécrire ;
-   - ne change pas d'ambiance et ne se relit pas lui-même, sous-agent compris.
-7. Relecture indépendante, corrections, présentation :
-   - le relecteur est neuf : il n'a ni écrit ni construit ;
-   - il ne lit le rapport du constructeur qu'après avoir écrit ses remarques ;
-   - il juge d'abord sur la charte, écran par écran et à chaque taille (`design-visuel`, étape 6), dont le fait que le site ne pourrait pas être celui d'un autre client, puis sur le socle ;
-   - il ne modifie rien et rend un verdict, puis ses remarques de la plus grave à la moins grave, chacune avec sa preuve, « à corriger » séparé de « à discuter » ;
-   - firstmate tranche les remarques à discuter ; un worker corrige ; le relecteur repasse après les corrections ; puis la présentation (étape 5).
-8. Contrôles obligatoires à la réception, chacun chez son propriétaire :
-   - plusieurs tailles d'écran dont un écran peu haut, et sans JavaScript (`construction-web`) ;
-   - texte agrandi à 150 % et 200 %, texte posé sur photo, clavier (`accessibilite`) ;
-   - sincérité des images (`photographie-web`) ;
-   - vérité de chaque fait contre le constat, textes de remplacement marqués (`contenu-ecriture`).
-
-### 5. Présenter et faire valider
-
-1. Montrer chaque livrable à l'équipe d'abord, puis aux parties prenantes : ce qui n'y est pas ne sera pas construit [412738 L71 P240].
-2. Présenter écran par écran avec tous ; sinon envoyer le lien avec quoi regarder, quoi ignorer, quels retours attendus [412738 L71 P242].
-3. Joindre une note d'intention [3918934 S10 Export R148].
-4. Avant paiement, aperçu avec filigrane grand, répété, à opacité réduite [1544922 L7 n°116, L43 n°118].
-5. Mettre le design dans un mockup et partager un prototype par lien [1544922 L39 n°121, L42 n°119 [préférence] ; 3918934 S10 Mockup R150].
-6. Obtenir la validation signée ; une idée nouvelle va « en phase deux » [412738 L71 P241].
-7. La présentation client vend le concept et répond à tous les « pourquoi » [3543948 How to Present Your Work R147-R148].
-8. Tout message au client : la demande d'abord, les raisons ensuite, des dates précises [1783776 Edit, L1].
-
-### 6. Mettre en ligne et maintenir
-
-1. Faire approuver formellement le site construit : examiné, conforme, fonctionnel, travail supplémentaire payé [412738 L185 P567].
-2. Prévenir qu'il y aura des bugs [412738 L185 P568].
-3. Signaler les fautes flagrantes du contenu, qui relève du client [412738 L186 P571].
-4. Faire passer la liste avant lancement, chaque critère chez son propriétaire [412738 L186 PR52] : texte (`contenu-ecriture`), liens, navigateurs, favicon, URL de production, sauvegarde (`construction-web`), formulaires (`formulaires`), titres et plan XML (`seo`).
-5. Mesurer les indicateurs de succès du cadrage, prévoir un plan de maintenance [412738 L185 P569].
-6. Proposer un contrat de maintenance mensuel, revenu récurrent [437398 S7 The 7 Steps P1].
-7. Demander une recommandation à chaque client [2633036 Entr P173].
-
-### 7. Positionner l'agence
-
-1. Le portfolio est « une nécessité » : petite sélection, domaines variés, avec contexte [3918934 S10 Passer à l'action R166].
-2. Trois études de cas, le meilleur travail d'emblée, celui qu'on veut être payé pour faire ; chacune montre le processus et les raisons des choix [2401332 S10·L43 P138, P140, P141].
-3. Obtenir la permission du client avant de montrer sa marque [3543948 Portfolio Case Study Introduction R159].
-4. Commencer petit [1544922 L54 n°141], puis se spécialiser et viser des clients récurrents [805992 Futur/Freelance 158 [préférence]].
-5. Le travail gratuit sert seulement à s'exercer et au portfolio, de préférence pour une association [2401332 S10·L43 P142, 1544922 L47 n°134] ; dans un projet client, aucun travail gratuit qu'on regrettera [2633036 Entr P179].
+4. Écrire le `## Firstmate spec` de chaque brief (`bin/fm-brief.sh`) :
+   - une tâche, une discipline, un chantier : `Chantier : <id>`, `Discipline : <discipline>`, le commit d'entrée et la remise attendue `chantiers/<id>/remises/<discipline>/<tâche>.md` ;
+   - le README de la discipline et les seules compétences utiles ; le worker suit `AGENTS.md` du dépôt et n'écrit que les fichiers de sa discipline (`modeles/proprietaires.json`) ;
+   - les réponses du client déjà reçues, chacune citée avec sa question `Q-...` ;
+   - les points propres au chantier que le README ne dit pas, que le skill de la discipline nomme.
+5. Recevoir chaque remise dans une copie isolée :
+   - `node outils/controler_remise.js <discipline> <remise>` passe ;
+   - chaque contrôle du tableau « Exigences vérifiables » du README a tourné et sa commande est citée ; un contrôle sans outil laisse l'exigence BLOQUÉ, jamais CONFORME ;
+   - lire Statut, Exigences, Hypothèses, Questions au client et Suite ; aucune exigence CONFORME ne repose sur une HYPOTHÈSE ;
+   - un point PARTIEL ou NON CONFORME revient au worker par `fm-send` avec le point exact, ou devient une tâche de la discipline qui possède le fichier ;
+   - puis `ship-landing`.
+6. Porter les questions au client : chaque `chantiers/<id>/questions/Q-...` part au capitaine, qui seul parle au client.
+   Elle ne bloque pas : le worker a continué sur sa recommandation, marquée HYPOTHÈSE.
+   La réponse revient citée dans le brief suivant de la discipline concernée ; une hypothèse démentie rouvre sa tâche.
+7. Tenir les règles de production du capitaine [décision du capitaine, 11 novembre 2026] :
+   - les textes précèdent le design et se montent mot pour mot ; un texte qui ne tient pas revient à `textes` ;
+   - `direction-artistique` rend trois ambiances vraiment différentes pour ce client, pas trois mises en page ; le client choisit, par le capitaine ; rien ne se construit en entier avant ce choix (`design-visuel`) ;
+   - qui construit ne se relit pas, sous-agent compris ; la recette est un worker neuf, qui n'a ni écrit ni construit et qui écrit ses remarques avant de lire la remise de l'intégration ;
+   - firstmate tranche les remarques à discuter ; les remarques à corriger reviennent à leur discipline.
+8. Mener la recette (`domaines/recette/README.md`) : elle ne corrige rien, rend les questions de validation au client, les réserves, la version scellée et le rapport de livraison.
+   Le capitaine pose les questions de validation au client et fait la mise en ligne.
+9. Suivre le site livré par `maintenance` (`domaines/maintenance/README.md`) dès la mise en ligne ; toute intervention rejoue les contrôles touchés.
 
 ## Refuser ou remonter
 
-**Capitaine** [autorité firstmate] :
-- prix, devis, remise, contrat, acompte, validation signée ;
-- tout message, présentation ou livrable au client, tout engagement envers un tiers ;
-- ajout de périmètre, travail gratuit, dépense ;
-- affichage des prix, où le cours hésite [2633036 Entr P170 [préférence]] : aucune règle, la question se pose au client à chaque projet [décision du capitaine, 11 novembre 2026] ;
-- usage d'un client dans le portfolio ;
-- toute question réglementaire ou juridique [412738 L13 P39] ;
-- conserver, faire évoluer ou remplacer l'identité existante (point 1.10) : ce choix appartient au client, ni firstmate ni le worker ne le tranchent ; dans le doute, montrer une proposition qui fait évoluer l'existant et une qui s'en affranchit [décision du capitaine, 10 novembre 2026].
+**Capitaine**
+- Prix, devis, contrat, acompte, validation signée, ajout de périmètre, travail gratuit et toute dépense.
+- Tout message, présentation ou livrable au client, et l'usage d'un client dans le portfolio.
+- Comptes, achats, domaine, hébergement, mise en ligne, fiche Google et service tiers : le worker les prépare et les nomme dans « Suite ».
+- Toute question réglementaire ou juridique ; `rgpd-mentions-legales` remet un modèle, jamais un avis juridique (`domaines/rgpd-mentions-legales/README.md`).
+- Conserver, faire évoluer ou remplacer l'identité existante : le client tranche ; dans le doute, une proposition fait évoluer l'existant et une autre s'en affranchit [décision du capitaine, 10 novembre 2026].
+- L'affichage des prix sur le site : question au client à chaque projet [décision du capitaine, 11 novembre 2026].
 
-**Firstmate** [autorité firstmate] : questions, ordre et relances ; skills de domaine nommés dans chaque brief ; listes et page d'hypothèses ; réception de chaque livrable contre le périmètre signé.
+**Firstmate**
+- L'ordre des tâches, la discipline et le contenu de chaque brief, l'acceptation ou le renvoi de chaque remise, les remarques à discuter.
 
-**Worker** [autorité firstmate] : produit dans le périmètre écrit de son brief, signale tout travail hors liste au lieu de le faire, ne contacte jamais le client.
+**Worker**
+- Il produit dans sa discipline et son périmètre, signale le hors-liste au lieu de le faire, ne contacte jamais le client et ne mentionne l'IA dans rien de livré.
 
-Refus nets du cours :
-- Pas de création sans cahier des charges écrit [1544922 L7 n°14-15] ni sans acompte [1544922 L7 n°117, 2633036 Entr P176].
-- Pas d'aperçu en haute qualité avant paiement [1544922 L7 n°116] ; jamais de fichier source envoyé, des aperçus exportés [3918934 S10 Export R149].
-- « Nous n'avons pas de concurrence » est toujours faux : exiger les cinq principaux concurrents [412738 L12-L13 P32, PR5], méthode dans `ux-recherche-tests` ; pour le formateur, c'est « le signal pour partir » [P42 [préférence]].
-- Le silence vaut accord : même une petite inquiétude se dit [412738 L23 P76, L35 P97].
-- Tout travail hors de la liste signée est chiffré à part [412738 L24 PR9, L185 P567] ; « Je pensais que... » en fin de développement signale un périmètre mal fixé [412738 L23 P75].
+**Refus nets**
+- Pas de production sans fiche client et exigences écrites, ni sans acompte.
+- Pas de remise acceptée sans `controler_remise` passé et preuves rejouables ; une session interactive n'est jamais une preuve.
+- La recette ne corrige jamais elle-même.
 
 ## Références
 
-Cours sources :
-- 412738 « UX & Web Design Master Course » : L4-L25, L35, L71, L185-L186.
-- 1544922 cours de web design en français : L5, L7, L17, L39-L54.
-- 3918934 « Fondamentaux du webdesign » : S6, S10.
-- 1595266 « Design Rules » : S4/L5.
-- 4013140 « The Simple Way to Conduct a UX Audit » : S1, S2.
-- 437398 « Build Responsive Real-World Websites » : S7.
-- 805992 « Développement web » : Futur/Freelance.
-- 2633036 « Photography Masterclass » : Entr.
-- 1783776 « Writing in Plain Language » : Edit.
-- 2401332 « Logo Design Mastery » : S10·L43.
-- 3543948 « The Branding Masterclass » : How to Present Your Work, Portfolio.
-
-Frontières :
-- Audit, recherche et analyse concurrentielle : `ux-recherche-tests` ; arborescence et wireframes : `architecture-information`.
-- Questionnaire et concepts de logo, kit de marque : `identite-marque-logo` ; client local et avis : `seo-local-fiche-google`.
-- Niveau d'accessibilité et statut légal : `accessibilite` ; promesses SEO : `seo` ; budget photo : `photographie-web`.
-- Critères techniques avant lancement et argumentaire de vente : le skill de chaque domaine.
+- `agence-web-ia` : `AGENTS.md`, `methode/chaine.md`, `methode/seuils.md`, `methode/statuts-et-origines.md`, `modeles/remise.md`, `modeles/question.md`, `domaines/README.md`.
+- Disciplines tenues par ce skill : `domaines/chef-de-projet/README.md`, `domaines/rgpd-mentions-legales/README.md`, `domaines/recette/README.md`, `domaines/maintenance/README.md`.
+- `bin/fm-brief.sh` et `ship-landing`.
